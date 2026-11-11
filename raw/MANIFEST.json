@@ -1,0 +1,42 @@
+{
+  "note": "Raw files are never hand-edited. Re-download from the source to update.",
+  "sources": [
+    {
+      "files": [
+        "raw/votes.csv",
+        "raw/contestants.csv"
+      ],
+      "source": "https://github.com/Spijkervet/eurovision-dataset/releases/latest",
+      "retrieved": "2026-11-11",
+      "license": "see repo",
+      "cite": "Burgoyne, Spijkervet & Baker, ISMIR 2023",
+      "covers": "1956-2023 (votes 1957-2023)",
+      "sha256": {
+        "raw/votes.csv": "f699205c62756c51e14bc94166705fa2ea3c78cc27c940503e87e21ed532d8a8",
+        "raw/contestants.csv": "3b8cc72b81a63ea63788b711248b5f23544b6e3778d8a3a4e976309c69adedf7"
+      }
+    },
+    {
+      "files": [
+        "raw/eurovisionapi/"
+      ],
+      "source": "https://github.com/EurovisionAPI/dataset (data/senior)",
+      "commit": "e56411125d4b91dc61f08dfb8d3c8a9fc91a6ad5",
+      "commit_date": "2026-10-26",
+      "retrieved": "2026-11-11",
+      "covers": "years 2023-2026, rounds + contestant.json only (lyrics not copied yet)",
+      "validation": "2023 final: 962/962 votes identical to Spijkervet for total, tele, jury"
+    },
+    {
+      "files": [
+        "raw/borders/GEODATASOURCE-COUNTRY-BORDERS.CSV"
+      ],
+      "source": "https://github.com/geodatasource/country-borders",
+      "retrieved": "2026-11-11",
+      "license": "CC BY-SA 4.0, attribution required",
+      "sha256": {
+        "raw/borders/GEODATASOURCE-COUNTRY-BORDERS.CSV": "d2703c13efb8b7254af54e0aca10dfef08bfd1c8ab55919492c27f2b1df55afb"
+      }
+    }
+  ]
+}
