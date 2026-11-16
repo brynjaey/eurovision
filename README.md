@@ -26,6 +26,7 @@ python scripts/rating_agreement.py    # after the hand ratings are filled in
 python scripts/build_pairs.py
 python scripts/collinearity.py
 python scripts/regression.py
+python scripts/make_figures.py      # figures/fig1-3 (PDF) + captions in figures/captions.md
 ```
 This produces:
 - `data/countries.csv`: country code → ISO3 and name. Use ISO3 to join UN migrant stock, borders and language data.

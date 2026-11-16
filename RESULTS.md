@@ -218,3 +218,8 @@ Robustness (each column changes one thing from main):
 - Captures: how mean excess A → B changes with each pair property, holding the others fixed, within one era and vote type.
 - Misses: causal direction; anything not in the model (running order, staging, music, politics); pairs with < 5 votes;
   the 2009–2015 era and pre-1997 eras (no diaspora data before 1990); pair dependence beyond the two-way clustering.
+
+## Figures (`scripts/make_figures.py` → `figures/fig1_modularity.pdf`, `figures/fig2_coefficients.pdf`, `figures/fig3_communities.pdf`; captions `figures/captions.md`)
+- Fig 1: observed modularity vs the shuffle null (mean5), six networks; numbers as in the Null model table.
+- Fig 2: main-model betas with 95% CIs for 2016+ jury, 2016+ televote, 1997–2008 televote; numbers as in the Main model table.
+- Fig 3: 2016+ jury and televote Louvain communities (mean5), 44 countries and 4 communities each, shared layout.

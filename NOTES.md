@@ -138,6 +138,14 @@
   Checks: the total profile reproduces the previous version to 1e-15; jury and televote profiles recomputed by brute
   force for 4 votes (2 semi-final-only) match to 6 decimals. Jury vs televote taste_sim for the same vote: Pearson
   0.309. taste vs own (centred, per vote): jury 0.002, televote 0.027.
+- 2026-11-16: Figures, scripts/make_figures.py -> figures/fig1_modularity.pdf, fig2_coefficients.pdf, fig3_communities.pdf
+  (+ PNG previews), captions in figures/captions.md. Width 3.42 in (PNAS single column, 8.7 cm); Arial; PDF fonttype 42.
+  Colours: validated categorical palette (blue #2a78d6, orange #eb6834, aqua #1baf7a, yellow #eda100, magenta #e87ba4);
+  validator: CVD and normal-vision checks pass, contrast warning for 3 colours on white, so every colour has its own
+  marker shape and a legend or label. Fig 1 uses the mean5 weighting; grey bar = 2.5–97.5 percentile of the null.
+  Fig 3: shared spring layout (networkx, seed 2805) on the union of the 2016+ jury and televote mean5 graphs; televote
+  communities matched to jury communities by Jaccard overlap (scipy linear_sum_assignment); only within-community edges drawn.
+  figures/null_modularity.pdf (histograms from null_model.py) is a diagnostic, not one of the three paper figures.
 
 ## Decisions
 - Excess = vote share minus the leave-one-out mean share the entry got from the other voters in the same round and vote type (see build_edges.py).

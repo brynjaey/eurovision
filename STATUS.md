@@ -3,7 +3,7 @@
 Two of us work on this project. Every Claude Code session starts by reading this file and
 ends by updating it, so whoever opens the repo next knows where things stand.
 
-_Last updated: 2026-11-16, step 6 rerun (language category, per-vote-type taste); step 7 figures next._
+_Last updated: 2026-11-16, step 7 figures drafted; step 8 methods next._
 
 ## Done
 - [x] Vote network 1957–2026 with excess scores: `data/edges.csv`, `data/edges_agg.csv`
@@ -20,6 +20,7 @@ _Last updated: 2026-11-16, step 6 rerun (language category, per-vote-type taste)
 - [x] Year-centred lyric embeddings; taste robustness profiles (no top-5 partners, past only)
 - [x] Collinearity check: `data/predictor_correlations.csv`, `data/predictor_vif.csv`
 - [x] Step 6 main model: `data/regression_coefs.csv` (3 models × 6–7 specs)
+- [x] Step 7 figures: `figures/fig1_modularity.pdf`, `fig2_coefficients.pdf`, `fig3_communities.pdf` + `figures/captions.md`
 - [x] Report files: `RESULTS.md` (facts per step) and `data/key_numbers.json` (written by scripts via `scripts/key_numbers.py`)
 - [x] Citation tracking: `references.bib` with 6 data + 6 papers, all verified against their pages
 
@@ -29,7 +30,6 @@ _Last updated: 2026-11-16, step 6 rerun (language category, per-vote-type taste)
 
 ## Next up (in order)
 0. Hand ratings → `python scripts/rating_agreement.py` → RESULTS.md (sheet still empty on 2026-11-16)
-7. Figures: exactly 3, PDF, colorblind-safe, captions without interpretation
 8. Methods draft: `paper/methods.md`, facts only; TODO headers for the group's sections
 
 ## Decisions
@@ -44,6 +44,8 @@ _Last updated: 2026-11-16, step 6 rerun (language category, per-vote-type taste)
 - edges.csv: EurovisionAPI fills every (year, round) Spijkervet lacks (2023 semis added).
 
 ## Open questions (for the humans)
+- Fig 3 at single-column width: country labels are 4.5 pt. Keep, or make Fig 3 two-column (17.8 cm)?
+- figures/null_modularity.pdf (histogram diagnostic) — keep as supplementary or delete?
 - Hand ratings: the sheet in the repo was still empty on 2026-11-16 — commit the filled `data/lyrics_rating_sheet.csv`.
 - Lyrics: rate the 20 pairs in `data/lyrics_rating_sheet.csv` independently (agree a scale first, e.g. 1–5); don't open `lyrics_rating_key.csv` before.
 - 2026 final check is manual, not scripted, so it is not in key_numbers.json. Script it if we quote it.
@@ -55,6 +57,7 @@ _Last updated: 2026-11-16, step 6 rerun (language category, per-vote-type taste)
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-16, Kristófer: step 7 figures (make_figures.py) + captions. Check: the three PDFs at print size.
 - 2026-11-16, Kristófer: language as category, taste profiles per vote type, step 6 rerun. Check: main table in RESULTS.md.
 - 2026-11-16, Kristófer: year-centred embeddings, taste robustness profiles, collinearity, step 6 regression (build_pairs.py, regression.py). Check: coefficient tables in RESULTS.md.
 - 2026-11-16, Kristófer: added 2023 semis (build_edges.py), reran pipeline + null model; taste_similarity.py; rating_agreement.py; Fixes log in NOTES. Check: taste vs own correlation in RESULTS.md.
