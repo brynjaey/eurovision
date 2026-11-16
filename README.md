@@ -32,7 +32,12 @@ This produces:
 - First signal: in 2016+, jury and televote excess correlate only r = 0.36. Some "friendships" are televote-only (GE→AM, LT→LV, SI→HR).
 
 ## Next
-1. Check the 2026 final by hand against the official scoreboard.
+1. ~~Check the 2026 final~~ Done 2026-11-16: all 25 entries match Eurovisionworld (see NOTES.md).
 2. Shuffle null: permute votes within year and round, then compare the modularity of the excess network.
 3. Remaining friendship layers: UN DESA migrant stock (diaspora), language family.
 4. Text: lyric embeddings (multilingual), and test feasibility with Reddit r/eurovision.
+
+## Setup
+```
+uv venv .venv && source .venv/bin/activate && uv pip install -r requirements.txt
+```

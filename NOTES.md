@@ -4,7 +4,12 @@
 - 2026-11-11: Votes 1957–2023 from the Spijkervet release. 1956 has no vote data, and 2020 was cancelled.
 - 2026-11-11: Votes 2024–2026 from EurovisionAPI/dataset (commit e564111, 26 Oct 2026), converted by scripts/convert_eurovisionapi.py.
   Validated: the 2023 final is identical in both sources (962/962 votes, total/tele/jury).
-  Winners reconstruct for 2024 (CH 591) and 2025 (AT 436). TODO: check the 2026 final (BG 516) against the official scoreboard by hand.
+  Winners reconstruct for 2024 (CH 591) and 2025 (AT 436).
+- 2026-11-16: 2026 final checked against the Eurovisionworld results table
+  (https://eurovisionworld.com/esc/bulgaria-wins-the-eurovision-song-contest-2026, article 17 May 2026).
+  All 25 entries match data/edges.csv on total, televote and jury points (0 mismatches). Top 10:
+  BG 516 (312/204), IL 343, RO 296, AU 287, IT 281, FI 279, DK 243, MD 226, UA 221, GR 220.
+  The official eurovision.tv results page returned HTTP 403 to automated fetch, so it was not used.
 - 2026-11-11: Borders from geodatasource/country-borders (CC BY-SA 4.0). Land borders only. yu/cs/wld = NaN.
 
 ## Decisions
