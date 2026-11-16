@@ -10,6 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "paper/overleaf"
 FILES = ["paper/main.tex", "paper/methods.tex", "paper/figure_floats.tex", "paper/table_robustness.tex",
+         "paper/table_measures.tex",
          "references.bib", "figures/fig1_modularity.pdf", "figures/fig2_coefficients.pdf",
          "figures/fig3_communities.pdf"]
 

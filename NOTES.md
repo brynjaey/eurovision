@@ -161,7 +161,7 @@
 - 2026-11-16: Methods draft: paper/methods_template.md -> scripts/write_methods.py -> paper/methods.md. Every result number
   is a placeholder filled from data/key_numbers.json; the script stops on a missing key and lists the literal numbers
   left in the template (dates, versions, parameters). Edit the template, never methods.md.
-- 2026-11-16: DECIDED (group): if the two-way clustered covariance of the reported coefficients is not positive
+- 2026-11-16: SUPERSEDED (see the eigenvalue-fix entry above): if the two-way clustered covariance of the reported coefficients is not positive
   semi-definite (a negative eigenvalue), the fit falls back to one-way clustering by voter (column "cluster" in
   data/regression_coefs.csv). Result: all six 2016+ jury fits use voter clustering; all televote and 1997–2008 fits stay
   two-way; 41 of 43 jury leave-one-out refits fall back. The check uses the reported coefficients only (the intercept,
@@ -179,6 +179,14 @@
   paper/overleaf/ (git-ignored) for upload. Test compile of the generated LaTeX in a plain article wrapper: 0 errors,
   0 undefined references or citations (the PNAS class itself could not be compiled locally: BasicTeX lacks lettrine.sty).
   references.bib: removed a file path with underscores from the undesa note (broke BibTeX/LaTeX).
+- 2026-11-16: DECIDED (group): replaces the one-way fallback. All regression fits use two-way clustered SEs with the
+  Cameron–Gelbach–Miller (2011) eigenvalue fix: V = U diag(lambda) U', negative eigenvalues set to zero (full covariance
+  incl. intercept), CIs with the normal critical value (as statsmodels). The fix changed 6 of 19 two-way fits (all 2016+
+  jury; 1–2 eigenvalues each); televote and 1997–2008 fits are unchanged. New robustness run cluster_voter: one-way
+  clustering by voter. Leave-one-out refits use the same estimator. 2016+ jury same_family_only CI: [−0.102, −0.054]
+  (raw two-way [−0.093, −0.063], voter-only [−0.117, −0.038]).
+- 2026-11-16: DECIDED (group): captures/misses sentences back as paper/table_measures.tex (+ .md), one line each, drawn
+  from RESULTS.md; hand-written (no numbers); \input in main.tex next to Methods.
 
 ## Decisions
 - Excess = vote share minus the leave-one-out mean share the entry got from the other voters in the same round and vote type (see build_edges.py).

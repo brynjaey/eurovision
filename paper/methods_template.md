@@ -44,9 +44,9 @@ similarity is the cosine between the profile and $B$'s song in year $t$.
 averaged over the same votes, in three samples: 2016–2026 jury and televote ({{pairs.samples.jury_2016.n_pairs|,}} pairs each)
 and 1997–2008 ({{pairs.samples.tele_1997.n_pairs|,}} pairs). We fitted ordinary least squares with outcome and predictors
 z-scored within each sample. Confidence intervals (95%) use standard errors clustered two-way by voting
-and receiving country [@cameron2011multiway]; where the two-way covariance of the reported coefficients was
-not positive semi-definite ({{regression._n_fallback_fits}} of {{regression._n_fits}} fits, all 2016–2026 jury), we clustered by voting country only.
-All robustness runs are in Table \ref{tab:robustness}.
+and receiving country [@cameron2011multiway]; in every fit, negative eigenvalues of the two-way covariance
+matrix were set to zero, as proposed there (this changed {{regression._n_fits_eig_clipped}} of {{regression._n_fits_two_way}} fits, all 2016–2026 jury).
+All robustness runs are in Table \ref{tab:robustness}; Table \ref{tab:measures} lists what each measurement captures and misses.
 
 **Validation.** For the 2023 final the two vote sources agree on {{checks.final_2023_sources.n_identical}} of {{checks.final_2023_sources.n_matched}} votes, and the
 reconstructed 2026 final matches the published scoreboard for {{checks.final_2026_vs_eurovisionworld.n_identical}} of {{checks.final_2026_vs_eurovisionworld.n_entries}} entries. Taste profiles

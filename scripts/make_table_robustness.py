@@ -6,7 +6,8 @@ Output: paper/table_robustness.tex  (LaTeX table* for the paper)
 Panel A: null model, observed modularity Q and z for the main weighting (mean excess, >= 5 votes),
          the summed-excess weighting, and the televote network with the televote-only semi-finals.
 Panel B: regression, standardised beta per predictor for the main model and each robustness run;
-         * = 95% CI excludes 0; dagger = SEs clustered by voter (fallback, see regression.py).
+         * = 95% CI excludes 0; dagger = the eigenvalue fix set negative eigenvalues of the
+         two-way covariance to zero in that fit (see regression.py).
 """
 import json
 from pathlib import Path
@@ -23,7 +24,7 @@ TERMS = [("border", "Border"), ("diaspora_log", "Diaspora"), ("shared_official",
 SPECS = [("main", "Main model"), ("diaspora_observed_only", "Diaspora: listed pairs only"),
          ("drop_top5_pairs", "Without 5 strongest pairs"), ("taste_no_top5", "Taste without top-5 partners"),
          ("taste_past", "Taste from earlier years"), ("own_sim", "Own-song similarity"),
-         ("with_semis", "Incl. televote-only semis")]
+         ("with_semis", "Incl. televote-only semis"), ("cluster_voter", "SEs clustered by voter only")]
 MODELS = ["2016+ jury", "2016+ televote", "1997–2008 televote"]
 
 
@@ -44,7 +45,7 @@ md = ["# Robustness runs", "", "**A. Null model**: observed modularity Q (z vs 1
 for n in NETS:
     a, b = NULL["mean5"][n], NULL["sum"][n]
     md.append(f"| {n} | {a['q_obs']:.3f} ({a['z']:.1f}) | {b['q_obs']:.3f} ({b['z']:.1f}) |")
-md += ["", "**B. Regression**: standardised β; * 95% CI excludes 0; † SEs clustered by voter (two-way covariance not PSD).", ""]
+md += ["", "**B. Regression**: standardised β; * 95% CI excludes 0; † negative eigenvalues of the two-way covariance set to 0 (Cameron–Gelbach–Miller fix).", ""]
 md += ["| Run | " + " | ".join(t[1] for t in TERMS) + " | R² | n |", "|---|" + "---|" * (len(TERMS) + 2)]
 for m in MODELS:
     md.append(f"| **{m}** |" + " |" * (len(TERMS) + 2))
@@ -52,7 +53,7 @@ for m in MODELS:
         if spec not in REG[m]:
             continue
         r = REG[m][spec]
-        dag = " †" if r["cluster"] == "voter" else ""
+        dag = " †" if r["n_eig_clipped"] > 0 else ""
         md.append(f"| {label}{dag} | " + " | ".join(cell(m, spec, t, False) for t, _ in TERMS)
                   + f" | {r['r2']:.3f} | {r['n']:,} |")
     lo = LOO[m]
@@ -66,8 +67,9 @@ L = [r"\begin{table*}[t]", r"\centering",
      r"\caption{Robustness runs. (A) Observed modularity $Q$ of the excess-vote network and its $z$-score against "
      r"1,000 shuffles, for the main edge weight (mean excess, at least 5 votes) and summed excess. (B) Standardised "
      r"coefficients of the pair regression for the main model and each run that changes one choice; "
-     r"$^{*}$95\% CI excludes 0; $^{\dagger}$standard errors clustered by voter because the two-way covariance was "
-     r"not positive semi-definite. The last row of each block gives the range of the same-family-only coefficient "
+     r"$^{*}$95\% CI excludes 0. Standard errors are clustered two-way by voting and receiving country with the "
+     r"Cameron--Gelbach--Miller eigenvalue fix; $^{\dagger}$negative eigenvalues were set to zero in that fit. "
+     r"The last run uses one-way clustering by voter. The last row of each block gives the range of the same-family-only coefficient "
      r"when one country at a time is left out.}",
      r"\label{tab:robustness}", r"\small",
      r"\begin{tabular}{lcc}", r"\multicolumn{3}{l}{\textbf{A. Null model}} \\ \hline",
@@ -86,7 +88,7 @@ for m in MODELS:
         if spec not in REG[m]:
             continue
         r = REG[m][spec]
-        dag = r"$^{\dagger}$" if r["cluster"] == "voter" else ""
+        dag = r"$^{\dagger}$" if r["n_eig_clipped"] > 0 else ""
         L.append(f"{label}{dag} & " + " & ".join(cell(m, spec, t, True) for t, _ in TERMS)
                  + f" & {r['r2']:.3f} & {r['n']:,} \\\\".replace(",", "{,}"))
     lo = LOO[m]

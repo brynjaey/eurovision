@@ -1,6 +1,6 @@
 \begin{table*}[t]
 \centering
-\caption{Robustness runs. (A) Observed modularity $Q$ of the excess-vote network and its $z$-score against 1,000 shuffles, for the main edge weight (mean excess, at least 5 votes) and summed excess. (B) Standardised coefficients of the pair regression for the main model and each run that changes one choice; $^{*}$95\% CI excludes 0; $^{\dagger}$standard errors clustered by voter because the two-way covariance was not positive semi-definite. The last row of each block gives the range of the same-family-only coefficient when one country at a time is left out.}
+\caption{Robustness runs. (A) Observed modularity $Q$ of the excess-vote network and its $z$-score against 1,000 shuffles, for the main edge weight (mean excess, at least 5 votes) and summed excess. (B) Standardised coefficients of the pair regression for the main model and each run that changes one choice; $^{*}$95\% CI excludes 0. Standard errors are clustered two-way by voting and receiving country with the Cameron--Gelbach--Miller eigenvalue fix; $^{\dagger}$negative eigenvalues were set to zero in that fit. The last run uses one-way clustering by voter. The last row of each block gives the range of the same-family-only coefficient when one country at a time is left out.}
 \label{tab:robustness}
 \small
 \begin{tabular}{lcc}
@@ -26,9 +26,10 @@ Run & Border & Diaspora & Shared off. lang. & Family only & Branch only & Sub-br
 Main model$^{\dagger}$ & $+0.13$$^{*}$ & $+0.06$$^{*}$ & $+0.06$ & $-0.08$$^{*}$ & $+0.04$ & $+0.10$$^{*}$ & $+0.06$$^{*}$ & 0.081 & 1{,}537 \\
 Diaspora: listed pairs only$^{\dagger}$ & $+0.14$$^{*}$ & $+0.03$ & $+0.09$ & $-0.09$$^{*}$ & $-0.02$ & $+0.10$$^{*}$ & $+0.09$$^{*}$ & 0.103 & 1{,}015 \\
 Without 5 strongest pairs$^{\dagger}$ & $+0.12$$^{*}$ & $+0.06$ & $-0.01$ & $-0.08$$^{*}$ & $+0.05$ & $+0.10$$^{*}$ & $+0.05$$^{*}$ & 0.053 & 1{,}529 \\
-Taste without top-5 partners$^{\dagger}$ & $+0.13$$^{*}$ & $+0.06$$^{*}$ & $+0.06$ & $-0.08$$^{*}$ & $+0.04$ & $+0.11$$^{*}$ & $+0.04$ & 0.079 & 1{,}537 \\
+Taste without top-5 partners$^{\dagger}$ & $+0.13$$^{*}$ & $+0.06$$^{*}$ & $+0.06$ & $-0.08$$^{*}$ & $+0.04$ & $+0.11$$^{*}$ & $+0.04$$^{*}$ & 0.079 & 1{,}537 \\
 Taste from earlier years$^{\dagger}$ & $+0.13$$^{*}$ & $+0.06$$^{*}$ & $+0.06$ & $-0.07$$^{*}$ & $+0.04$ & $+0.11$$^{*}$ & $+0.04$ & 0.079 & 1{,}537 \\
 Own-song similarity$^{\dagger}$ & $+0.13$$^{*}$ & $+0.06$$^{*}$ & $+0.06$ & $-0.07$$^{*}$ & $+0.04$ & $+0.11$$^{*}$ & $+0.01$ & 0.078 & 1{,}537 \\
+SEs clustered by voter only & $+0.13$$^{*}$ & $+0.06$$^{*}$ & $+0.06$ & $-0.08$$^{*}$ & $+0.04$ & $+0.10$$^{*}$ & $+0.06$$^{*}$ & 0.081 & 1{,}537 \\
 \multicolumn{10}{l}{Leave one country out (43 refits): family only from $-0.087$ to $-0.066$} \\ \hline
 \multicolumn{10}{l}{\textit{2016+ televote}} \\
 Main model & $+0.21$$^{*}$ & $+0.24$$^{*}$ & $+0.04$ & $-0.10$$^{*}$ & $+0.03$ & $+0.20$$^{*}$ & $+0.10$$^{*}$ & 0.258 & 1{,}537 \\
@@ -38,6 +39,7 @@ Taste without top-5 partners & $+0.22$$^{*}$ & $+0.23$$^{*}$ & $+0.04$ & $-0.10$
 Taste from earlier years & $+0.21$$^{*}$ & $+0.23$$^{*}$ & $+0.04$ & $-0.10$$^{*}$ & $+0.03$ & $+0.19$$^{*}$ & $+0.06$ & 0.253 & 1{,}537 \\
 Own-song similarity & $+0.22$$^{*}$ & $+0.23$$^{*}$ & $+0.04$ & $-0.09$$^{*}$ & $+0.03$ & $+0.20$$^{*}$ & $+0.05$$^{*}$ & 0.252 & 1{,}537 \\
 Incl. televote-only semis & $+0.22$$^{*}$ & $+0.23$$^{*}$ & $+0.05$ & $-0.10$$^{*}$ & $+0.03$ & $+0.20$$^{*}$ & $+0.09$$^{*}$ & 0.268 & 1{,}574 \\
+SEs clustered by voter only & $+0.21$$^{*}$ & $+0.24$$^{*}$ & $+0.04$ & $-0.10$$^{*}$ & $+0.03$ & $+0.20$$^{*}$ & $+0.10$$^{*}$ & 0.258 & 1{,}537 \\
 \multicolumn{10}{l}{Leave one country out (43 refits): family only from $-0.114$ to $-0.090$} \\ \hline
 \multicolumn{10}{l}{\textit{1997--2008 televote}} \\
 Main model & $+0.19$$^{*}$ & $+0.27$$^{*}$ & $+0.00$ & $-0.10$$^{*}$ & $-0.01$ & $+0.26$$^{*}$ & $+0.06$$^{*}$ & 0.310 & 1{,}257 \\
@@ -46,6 +48,7 @@ Without 5 strongest pairs & $+0.18$$^{*}$ & $+0.29$$^{*}$ & $-0.03$ & $-0.11$$^{
 Taste without top-5 partners & $+0.19$$^{*}$ & $+0.27$$^{*}$ & $+0.00$ & $-0.10$$^{*}$ & $-0.01$ & $+0.26$$^{*}$ & $+0.05$ & 0.308 & 1{,}257 \\
 Taste from earlier years & $+0.19$$^{*}$ & $+0.27$$^{*}$ & $+0.00$ & $-0.10$$^{*}$ & $-0.01$ & $+0.25$$^{*}$ & $+0.07$$^{*}$ & 0.311 & 1{,}257 \\
 Own-song similarity & $+0.19$$^{*}$ & $+0.27$$^{*}$ & $-0.00$ & $-0.09$$^{*}$ & $-0.01$ & $+0.26$$^{*}$ & $-0.00$ & 0.306 & 1{,}257 \\
+SEs clustered by voter only & $+0.19$$^{*}$ & $+0.27$$^{*}$ & $+0.00$ & $-0.10$$^{*}$ & $-0.01$ & $+0.26$$^{*}$ & $+0.06$$^{*}$ & 0.310 & 1{,}257 \\
 \multicolumn{10}{l}{Leave one country out (39 refits): family only from $-0.123$ to $-0.082$} \\ \hline
 \end{tabular}}
 \end{table*}

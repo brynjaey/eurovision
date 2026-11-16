@@ -5,6 +5,7 @@
 %
 % Overleaf files needed next to this one (made by `python scripts/pack_overleaf.py`):
 %   methods.tex, figure_floats.tex, table_robustness.tex  (generated; do not edit by hand)
+%   table_measures.tex (hand-written: captures / misses per measurement)
 %   references.bib, fig1_modularity.pdf, fig2_coefficients.pdf, fig3_communities.pdf
 % The class files (pnas-new.cls etc.) come with the Overleaf PNAS template.
 
@@ -62,6 +63,7 @@ TODO (group): discussion.
 % template puts it (repository URL, licences: see raw/MANIFEST.json).
 
 \matmethods{\input{methods}}
+\input{table_measures}   % what each measurement captures / misses (Table \ref{tab:measures})
 \showmatmethods{}
 
 \acknow{TODO (group): acknowledgements.}

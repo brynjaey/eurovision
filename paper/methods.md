@@ -40,9 +40,9 @@ similarity is the cosine between the profile and $B$'s song in year $t$.
 averaged over the same votes, in three samples: 2016–2026 jury and televote (1,537 pairs each)
 and 1997–2008 (1,257 pairs). We fitted ordinary least squares with outcome and predictors
 z-scored within each sample. Confidence intervals (95%) use standard errors clustered two-way by voting
-and receiving country [@cameron2011multiway]; where the two-way covariance of the reported coefficients was
-not positive semi-definite (6 of 19 fits, all 2016–2026 jury), we clustered by voting country only.
-All robustness runs are in Table \ref{tab:robustness}.
+and receiving country [@cameron2011multiway]; in every fit, negative eigenvalues of the two-way covariance
+matrix were set to zero, as proposed there (this changed 6 of 19 fits, all 2016–2026 jury).
+All robustness runs are in Table \ref{tab:robustness}; Table \ref{tab:measures} lists what each measurement captures and misses.
 
 **Validation.** For the 2023 final the two vote sources agree on 962 of 962 votes, and the
 reconstructed 2026 final matches the published scoreboard for 25 of 25 entries. Taste profiles

@@ -3,7 +3,7 @@
 Two of us work on this project. Every Claude Code session starts by reading this file and
 ends by updating it, so whoever opens the repo next knows where things stand.
 
-_Last updated: 2026-11-16, clustering fallback, Methods trimmed, Overleaf files ready._
+_Last updated: 2026-11-16, CGM eigenvalue fix for all fits; measures table._
 
 ## Done
 - [x] Vote network 1957–2026 with excess scores: `data/edges.csv`, `data/edges_agg.csv`
@@ -25,6 +25,7 @@ _Last updated: 2026-11-16, clustering fallback, Methods trimmed, Overleaf files 
 - [x] Data checks scripted: `scripts/check_data.py`
 - [x] Step 8 Methods draft: `paper/methods.md` / `methods.tex` (generated from `paper/methods_template.md`, ~1 page)
 - [x] Robustness table: `paper/table_robustness.tex` / `.md`
+- [x] Measures table (captures / misses): `paper/table_measures.tex` / `.md`
 - [x] Overleaf: `paper/main.tex` + `python scripts/pack_overleaf.py` → `paper/overleaf/`
 - [x] Report files: `RESULTS.md` (facts per step) and `data/key_numbers.json` (written by scripts via `scripts/key_numbers.py`)
 - [x] Citation tracking: `references.bib` with 6 data + 6 papers, all verified against their pages
@@ -44,7 +45,7 @@ _Last updated: 2026-11-16, clustering fallback, Methods trimmed, Overleaf files 
 - Language in the regression: one category (diff_family ref / same_family_only / same_branch_only / same_subbranch) + shared_official.
 - Fig 3 at two-column width (17.8 cm), labels >= 6 pt; Fig 1–2 single column.
 - The null-model histogram is a diagnostic in figures/diagnostics/, not a paper figure.
-- Clustering: two-way by voter and receiver; fallback to voter-only clustering where the two-way covariance of the reported coefficients is not PSD (all 2016+ jury fits).
+- Clustering: two-way by voter and receiver with the Cameron–Gelbach–Miller eigenvalue fix in all fits; one-way by voter as a robustness run.
 - Methods trimmed to ~1 page; robustness runs in one table.
 - Taste profiles per vote type for 2016+ (jury from jury votes, televote from televotes); 1997–2008 total.
 - Lyrics: all cosines on year-centred vectors.
@@ -52,7 +53,7 @@ _Last updated: 2026-11-16, clustering fallback, Methods trimmed, Overleaf files 
 - edges.csv: EurovisionAPI fills every (year, round) Spijkervet lacks (2023 semis added).
 
 ## Open questions (for the humans)
-- paper TODOs: hand ratings, repository URL / data availability statement, 2026 spot-check on eurovision.tv; captures/misses sentences were cut from Methods (in RESULTS.md) — put any back?
+- paper TODOs: hand ratings, repository URL / data availability statement, 2026 spot-check on eurovision.tv; captures/misses now in paper/table_measures.tex.
 - Overleaf: check main.tex against your project's PNAS class version (\matmethods / \showmatmethods).
 - Abstract, Significance, Introduction, Results text, Discussion, reflection: ours to write (TODO headers in methods_template.md).
 - Hand ratings: the sheet in the repo was still empty on 2026-11-16 — commit the filled `data/lyrics_rating_sheet.csv`.
@@ -66,6 +67,7 @@ _Last updated: 2026-11-16, clustering fallback, Methods trimmed, Overleaf files 
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-16, Kristófer: CGM eigenvalue fix for all fits (replaces voter fallback), cluster_voter robustness row, Fig 2/tables regenerated, table_measures.tex. Check: jury CIs in RESULTS.md.
 - 2026-11-16, Kristófer: clustering fallback (jury fits), Cameron et al. 2011 in bib, Methods trimmed, robustness table, Overleaf files. Check: paper/main.tex in Overleaf.
 - 2026-11-16, Kristófer: check_data.py, Methods draft (write_methods.py), counts recorded by build scripts. Check: read paper/methods.md.
 - 2026-11-16, Kristófer: Fig 3 two-column, histogram to diagnostics, leave-one-out check (leave_one_out.py). Check: RESULTS.md leave-one-out section.
