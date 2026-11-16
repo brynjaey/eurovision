@@ -15,16 +15,21 @@ _Last updated: 2026-11-16, diaspora layer done._
 
 ## In progress
 <!-- One line per active task: who, what, branch, started. Delete the line when done. -->
-- (none)
+- Claude (for Kristófer): step 3 language layer, branch chore/verify-2026-and-layers, started 2026-11-16
 
 ## Next up (in order)
-1. Language layer: propose 2–3 sources, the group picks one, then build it
-2. Shuffle null: Louvain modularity of the excess network vs 1,000 within-year shuffles → `figures/`
-3. Lyrics: copy lyrics + English translations from EurovisionAPI, embed, country-pair similarity per era
-4. Regression: excess ~ border + diaspora + language + lyric similarity, jury vs televote
+3. Language layer: shared official language + same family → `data/language.csv`, spot-check 5 pairs
+4. Null model (most important): Louvain modularity per era + jury vs tele (2016+) vs 1,000 within-year shuffles → `data/null_results.csv`, `figures/`
+5. Lyrics: EurovisionAPI lyrics + English translations, multilingual embeddings, pair similarity per era; 20 pairs hand-rated
+6. Main model: pair-level regression, mean excess ~ border + diaspora + language + family + lyric similarity; jury vs tele (2016+), 1997+ tele; robustness
+7. Figures: exactly 3, PDF, colorblind-safe, captions without interpretation
+8. Methods draft: `paper/methods.md`, facts only; TODO headers for the group's sections
+
+## Decisions
+- Diaspora: missing UN pairs = 0 (robustness: observed pairs only); diaspora analysis 1997+, each vote year matched to nearest UN year.
+- Language: shared official language (0/1) + same language family (0/1).
 
 ## Open questions (for the humans)
-- Diaspora: missing UN pairs as 0 or NaN? Which UN year (1990–2024, 5-yr steps) to match to each vote year/era? Pre-1990 eras have no migrant data.
 - references.bib TODOs: Ginsburgh & Noury DOI, Blondel journal details, Zenodo DOI for Burgoyne, EurovisionAPI has no stated license
 - Fill in the "what it found / how we use it" lines under Literature in NOTES.md (read the papers)
 - TODO (human): spot-check 3 entries of the 2026 final on eurovision.tv; Eurovisionworld may be upstream of both our sources.

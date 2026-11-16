@@ -23,7 +23,8 @@
   Counts are by country of BIRTH: children of migrants born in the destination are not included.
   Pairs the UN does not list are left out of diaspora.csv (not written as 0).
   2024 check: DE<-TR 1,504,743; ES<-RO 522,578; GB<-PL 902,193; CY<-GR 25,031; RU<-AM 340,512.
-  TODO (group): treat missing pairs as 0 or NaN in the regression? Which UN year to match to each vote year/era?
+  DECIDED 2026-11-16 (group): pairs missing from UN DESA count as 0 in the main analysis; robustness check reruns on
+  observed pairs only. Diaspora analysis covers 1997+ (televote era); each vote year uses the nearest UN year.
   TODO (group): add a second check, e.g. compare 2-3 pairs against a national statistics office figure.
 
 ## Decisions
@@ -31,6 +32,10 @@
 - Eras: 1957–74, 1975–96, 1997–2008 televote, 2009–15 50/50, 2016+ split jury/tele.
 - Voting-rule changes to keep in mind: semi-finals were televote-only in 2023–2025, juries returned to semis in 2026; Rest of the World (wld) televote from 2023; NL disqualified from the 2024 final.
 - TODO: decide how to treat yu / cs (drop? map to successors?).
+- 2026-11-16 (group): the paper answers one question: is excess voting explained by friendship (borders, diaspora,
+  language) or taste (song similarity), and do juries and televoters differ? Everything built must serve it.
+- 2026-11-16 (group): diaspora missing pairs = 0 (robustness: observed pairs only); diaspora analysis 1997+, nearest UN year.
+- 2026-11-16 (group): language layer = shared official language (0/1) + same language family (0/1), simplest defensible source.
 
 ## Pending layers
 - Diaspora: done 2026-11-16, see Data above.
