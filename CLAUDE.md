@@ -9,6 +9,15 @@ language) or by taste (song similarity)? Do juries and televoters differ?
 - `python scripts/build_borders.py` → data/borders.csv
 - Join every layer on country-pair codes from data/countries.csv (ISO2 lower case, ISO3 for external data).
 
+## Start and end of every session
+- **Start:** read STATUS.md, then NOTES.md. Tell the user what is done, what is in progress
+  (and by whom), and propose the next step from "Next up". If someone else's task is listed under
+  "In progress", don't touch its files.
+- **When starting a task:** add a line under "In progress" (who, what, branch, date).
+- **End (or after each finished step):** update STATUS.md: move the task to Done, update
+  "Last updated", add a Log line (date, who, what changed, what to check), add any new open
+  questions. Log data decisions in NOTES.md. Then commit, including STATUS.md.
+
 ## Rules
 - Raw data lives in raw/ with an entry in raw/MANIFEST.json (source, date, commit/checksum). Never hand-edit raw data.
   Never invent a data URL. If a download fails, say so and leave the layer pending; never substitute made-up data.
