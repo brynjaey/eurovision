@@ -12,6 +12,7 @@ language) or by taste (song similarity)? Do juries and televoters differ?
 - `python scripts/null_model.py` → data/null_results.csv, data/null_samples.csv, data/communities_obs.csv, figures/null_modularity.pdf
 - `python scripts/build_lyrics.py` → data/lyrics.csv; `python scripts/lyrics_similarity.py` → data/lyrics_similarity*.csv, rating sheet
 - `python scripts/taste_similarity.py` → data/taste_similarity*.csv; `python scripts/rating_agreement.py` after hand ratings
+- `python scripts/build_pairs.py` → data/pairs.csv; `collinearity.py`; `regression.py` → data/regression_*.csv
 - Every quoted number goes into data/key_numbers.json via scripts/key_numbers.py (never by hand); add it to RESULTS.md with captures/misses.
 - Join every layer on country-pair codes from data/countries.csv (ISO2 lower case, ISO3 for external data).
 

@@ -23,6 +23,9 @@ python scripts/build_lyrics.py
 python scripts/lyrics_similarity.py   # ~1.5 min, downloads the model once
 python scripts/taste_similarity.py
 python scripts/rating_agreement.py    # after the hand ratings are filled in
+python scripts/build_pairs.py
+python scripts/collinearity.py
+python scripts/regression.py
 ```
 This produces:
 - `data/countries.csv`: country code → ISO3 and name. Use ISO3 to join UN migrant stock, borders and language data.
@@ -34,6 +37,8 @@ This produces:
 - `data/language_groups.csv`: per country, the primary language and its family, branch and sub-branch names.
 - `data/lyrics.csv`: one English lyrics text per entry. `data/lyrics_similarity.csv`: era, from, to, similarity, n_years.
 - `data/taste_similarity.csv`: era, from, to, taste_sim (A's taste profile vs B's songs), own_sim (A's own song vs B's).
+- `data/pairs.csv`: one row per directed pair per sample (2016+ jury / televote, 1997–2008): mean excess + all predictors.
+- `data/regression_coefs.csv`: standardised betas with 95% CIs per model and robustness spec.
 - `data/key_numbers.json`: every number the paper quotes, written by the scripts. `RESULTS.md`: the same numbers with context.
 - `data/edges_agg.csv`: from→to totals per era and vote_type: n_votes, excess_sum, excess_mean, points_sum.
 

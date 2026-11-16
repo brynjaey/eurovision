@@ -3,7 +3,7 @@
 Two of us work on this project. Every Claude Code session starts by reading this file and
 ends by updating it, so whoever opens the repo next knows where things stand.
 
-_Last updated: 2026-11-16, 2023 semis added; taste-profile similarity; waiting for hand ratings._
+_Last updated: 2026-11-16, step 6 main model done; hand ratings still missing._
 
 ## Done
 - [x] Vote network 1957–2026 with excess scores: `data/edges.csv`, `data/edges_agg.csv`
@@ -17,6 +17,9 @@ _Last updated: 2026-11-16, 2023 semis added; taste-profile similarity; waiting f
 - [x] 2023 semi-finals added from EurovisionAPI (edges.csv +574 rows)
 - [x] Taste-profile similarity: `data/taste_similarity.csv` (taste_sim + own_sim)
 - [x] Rating agreement script ready: `scripts/rating_agreement.py` (run after ratings)
+- [x] Year-centred lyric embeddings; taste robustness profiles (no top-5 partners, past only)
+- [x] Collinearity check: `data/predictor_correlations.csv`, `data/predictor_vif.csv`
+- [x] Step 6 main model: `data/regression_coefs.csv` (3 models × 6–7 specs)
 - [x] Report files: `RESULTS.md` (facts per step) and `data/key_numbers.json` (written by scripts via `scripts/key_numbers.py`)
 - [x] Citation tracking: `references.bib` with 6 data + 6 papers, all verified against their pages
 
@@ -25,8 +28,7 @@ _Last updated: 2026-11-16, 2023 semis added; taste-profile similarity; waiting f
 - (none)
 
 ## Next up (in order)
-0. Hand ratings → `python scripts/rating_agreement.py` → RESULTS.md
-6. Main model: pair-level regression, mean excess ~ border + diaspora + language + family + lyric similarity; jury vs tele (2016+), 1997+ tele; robustness
+0. Hand ratings → `python scripts/rating_agreement.py` → RESULTS.md (sheet still empty on 2026-11-16)
 7. Figures: exactly 3, PDF, colorblind-safe, captions without interpretation
 8. Methods draft: `paper/methods.md`, facts only; TODO headers for the group's sections
 
@@ -35,10 +37,13 @@ _Last updated: 2026-11-16, 2023 semis added; taste-profile similarity; waiting f
 - Language: shared_official uses CLDR "official" only; branch / sub-branch from named Glottolog nodes (`data/glottolog_nodes.csv`).
 - Null model: edge weight = mean excess, min 5 votes per pair (sum kept side by side). 2024–25 televote-only semis out of 2016+ networks; robustness run includes them.
 - Step 6: regression on the full signed excess.
+- Lyrics: all cosines on year-centred vectors.
 - Lyrics: main measure = taste_sim (A's taste profile from other years, B's songs excluded) vs B's song; own_sim kept for comparison.
 - edges.csv: EurovisionAPI fills every (year, round) Spijkervet lacks (2023 semis added).
 
 ## Open questions (for the humans)
+- Hand ratings: the sheet in the repo was still empty on 2026-11-16 — commit the filled `data/lyrics_rating_sheet.csv`.
+- Regression: min 5 votes per pair, diaspora as log(1 + migrants), taste from total-vote profiles for jury and televote. OK?
 - Lyrics: rate the 20 pairs in `data/lyrics_rating_sheet.csv` independently (agree a scale first, e.g. 1–5); don't open `lyrics_rating_key.csv` before.
 - 2026 final check is manual, not scripted, so it is not in key_numbers.json. Script it if we quote it.
 - references.bib TODOs: Ginsburgh & Noury DOI, Blondel journal details, Zenodo DOI for Burgoyne, EurovisionAPI has no stated license
@@ -49,6 +54,7 @@ _Last updated: 2026-11-16, 2023 semis added; taste-profile similarity; waiting f
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-16, Kristófer: year-centred embeddings, taste robustness profiles, collinearity, step 6 regression (build_pairs.py, regression.py). Check: coefficient tables in RESULTS.md.
 - 2026-11-16, Kristófer: added 2023 semis (build_edges.py), reran pipeline + null model; taste_similarity.py; rating_agreement.py; Fixes log in NOTES. Check: taste vs own correlation in RESULTS.md.
 - 2026-11-16, Kristófer: step 5 lyrics (build_lyrics.py, lyrics_similarity.py, raw lyrics, model in MANIFEST/bib). Check: lyrics_extremes.csv; do the hand rating.
 - 2026-11-16, Kristófer: named Glottolog nodes for branches; null model rerun with mean5 + sum weighting + robustness network; fixed a dropped-pairs bug; found 2023 semis gap. Check: RESULTS.md tables.
