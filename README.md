@@ -7,7 +7,7 @@ Course project: social graphs. Starting point: the vote network.
   - Covers 1957–2023. 2024–2026 come from [EurovisionAPI/dataset](https://github.com/EurovisionAPI/dataset) (`raw/eurovisionapi/`, converted by `scripts/convert_eurovisionapi.py`). 2020 was cancelled.
   - The jury/televote split runs from 2016 on. `wld` = the "Rest of the World" online televote (2023).
   - `contestants.csv` also has `lyrics` (99% of entries), `composers` and `lyricists`.
-- Cite: Burgoyne, Spijkervet & Baker, "Measuring the Eurovision Song Contest: A Living Dataset for Real-World MIR", ISMIR 2023.
+- Citations: `references.bib` (verified entries only; open TODOs are marked inside).
 - `raw/borders/`: land borders from [geodatasource/country-borders](https://github.com/geodatasource/country-borders) (CC BY-SA 4.0).
 - Sources, dates and checksums: `raw/MANIFEST.json`. Decisions: `NOTES.md`.
 

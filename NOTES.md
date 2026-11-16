@@ -25,3 +25,14 @@
 - Diaspora: UN DESA International Migrant Stock (un.org). Not downloaded yet; the sandbox had no access. Download locally and add to MANIFEST.
 - Language family: source not chosen yet (candidates: Glottolog / WALS, or the official languages per country).
 - Lyrics text: EurovisionAPI has lyrics + English translations per contestant (raw/eurovisionapi only has contestant.json so far).
+
+## Literature
+<!-- One line per paper: key — what it found — how we use it. The "how we use it" part is
+     ours to write; Claude only fills in what is on the page. -->
+- burgoyne2023eurovision: the Spijkervet dataset paper. Source of our 1957–2023 votes.
+- gatherer2006eurovision: TODO what it found / how we use it
+- fenn2006europe: TODO
+- spierdijk2009bias: TODO
+- ginsburgh2008eurovision: TODO
+- blondel2008louvain: Louvain community detection. TODO how we use it
+- newman2006modularity: modularity. TODO how we use it

@@ -21,6 +21,10 @@ language) or by taste (song similarity)? Do juries and televoters differ?
 ## Rules
 - Raw data lives in raw/ with an entry in raw/MANIFEST.json (source, date, commit/checksum). Never hand-edit raw data.
   Never invent a data URL. If a download fails, say so and leave the layer pending; never substitute made-up data.
+- References live in references.bib. Never write a reference from memory: open the DOI or URL,
+  copy the fields shown there, and mark anything missing with a TODO comment. Each paper also gets
+  a line under "Literature" in NOTES.md (what it found, how we use it). Data sources need both a
+  MANIFEST entry and a bib entry, including any attribution text their license requires.
 - Every analysis needs a check: a shuffle null, a second method, or a hand-labeled sample, with the result reported.
 - Scripts in scripts/, figures in figures/, exploratory notebooks in notebooks/.
 - Log data decisions in NOTES.md (it becomes the Methods section).
