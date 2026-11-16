@@ -3,7 +3,7 @@
 Two of us work on this project. Every Claude Code session starts by reading this file and
 ends by updating it, so whoever opens the repo next knows where things stand.
 
-_Last updated: 2026-11-16, steps 3–4 revised (named Glottolog nodes, mean5 weighting)._
+_Last updated: 2026-11-16, step 5 lyrics done (hand rating pending)._
 
 ## Done
 - [x] Vote network 1957–2026 with excess scores: `data/edges.csv`, `data/edges_agg.csv`
@@ -13,6 +13,7 @@ _Last updated: 2026-11-16, steps 3–4 revised (named Glottolog nodes, mean5 wei
 - [x] Diaspora layer: `data/diaspora.csv` from UN DESA Migrant Stock 2024 (1990–2024, 1,506 pairs)
 - [x] Language layer: `data/language.csv` (CLDR 49 official languages + Glottolog 5.4 family/branch/sub-branch)
 - [x] Null model: `data/null_results.csv`, `figures/null_modularity.pdf` (6 networks × 1,000 shuffles)
+- [x] Lyrics: `data/lyrics.csv`, embeddings, `data/lyrics_similarity.csv` per era; rating sheet ready
 - [x] Report files: `RESULTS.md` (facts per step) and `data/key_numbers.json` (written by scripts via `scripts/key_numbers.py`)
 - [x] Citation tracking: `references.bib` with 6 data + 6 papers, all verified against their pages
 
@@ -21,7 +22,6 @@ _Last updated: 2026-11-16, steps 3–4 revised (named Glottolog nodes, mean5 wei
 - (none)
 
 ## Next up (in order)
-5. Lyrics: EurovisionAPI lyrics + English translations, multilingual embeddings, pair similarity per era; 20 pairs hand-rated
 6. Main model: pair-level regression, mean excess ~ border + diaspora + language + family + lyric similarity; jury vs tele (2016+), 1997+ tele; robustness
 7. Figures: exactly 3, PDF, colorblind-safe, captions without interpretation
 8. Methods draft: `paper/methods.md`, facts only; TODO headers for the group's sections
@@ -33,6 +33,8 @@ _Last updated: 2026-11-16, steps 3–4 revised (named Glottolog nodes, mean5 wei
 - Step 6: regression on the full signed excess.
 
 ## Open questions (for the humans)
+- Lyrics: rate the 20 pairs in `data/lyrics_rating_sheet.csv` independently (agree a scale first, e.g. 1–5); don't open `lyrics_rating_key.csv` before.
+- Lyrics: similarity uses the voter's own song even if it did not qualify for the final. OK?
 - DATA GAP: 2023 semi-finals are missing from edges.csv (Spijkervet lacks them; EurovisionAPI has them). Add them? Changes all numbers slightly.
 - 2026 final check is manual, not scripted, so it is not in key_numbers.json. Script it if we quote it.
 - references.bib TODOs: Ginsburgh & Noury DOI, Blondel journal details, Zenodo DOI for Burgoyne, EurovisionAPI has no stated license
@@ -43,6 +45,7 @@ _Last updated: 2026-11-16, steps 3–4 revised (named Glottolog nodes, mean5 wei
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-16, Kristófer: step 5 lyrics (build_lyrics.py, lyrics_similarity.py, raw lyrics, model in MANIFEST/bib). Check: lyrics_extremes.csv; do the hand rating.
 - 2026-11-16, Kristófer: named Glottolog nodes for branches; null model rerun with mean5 + sum weighting + robustness network; fixed a dropped-pairs bug; found 2023 semis gap. Check: RESULTS.md tables.
 - 2026-11-16, Kristófer: step 4 null model (null_model.py, null_results.csv, figure). Check: the table in RESULTS.md and data/communities_obs.csv.
 - 2026-11-16, Kristófer: language layer revised: same_branch/same_subbranch, shared_official official-only (10 pairs changed). Check: data/language_groups.csv.

@@ -19,6 +19,8 @@ python scripts/build_borders.py
 python scripts/build_diaspora.py
 python scripts/build_language.py
 python scripts/null_model.py      # ~2 min
+python scripts/build_lyrics.py
+python scripts/lyrics_similarity.py   # ~1.5 min, downloads the model once
 ```
 This produces:
 - `data/countries.csv`: country code → ISO3 and name. Use ISO3 to join UN migrant stock, borders and language data.
@@ -28,6 +30,7 @@ This produces:
 - `data/language.csv`: from, to, shared_official, same_family, same_branch, same_subbranch (0/1), primary_from, primary_to. CLDR 49 + Glottolog 5.4.
 - `data/glottolog_nodes.csv`: our named list of Glottolog branch / sub-branch nodes (glottocodes).
 - `data/language_groups.csv`: per country, the primary language and its family, branch and sub-branch names.
+- `data/lyrics.csv`: one English lyrics text per entry. `data/lyrics_similarity.csv`: era, from, to, similarity, n_years.
 - `data/key_numbers.json`: every number the paper quotes, written by the scripts. `RESULTS.md`: the same numbers with context.
 - `data/edges_agg.csv`: from→to totals per era and vote_type: n_votes, excess_sum, excess_mean, points_sum.
 

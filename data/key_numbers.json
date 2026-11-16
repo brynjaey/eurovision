@@ -33,6 +33,33 @@
     "shared_official_1": 34,
     "shared_official_pct": 2.8
   },
+  "lyrics": {
+    "_updated": "2026-11-16",
+    "n_entries": 1830,
+    "n_original_english": 738,
+    "n_translation": 1073,
+    "n_with_ad_html_removed": 7,
+    "n_with_english": 1811,
+    "n_without_english": 19,
+    "years": [
+      1956,
+      2026
+    ]
+  },
+  "lyrics_similarity": {
+    "_updated": "2026-11-16",
+    "chunks_per_song_max": 9,
+    "chunks_per_song_mean": 3.05,
+    "max_seq_length": 128,
+    "model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+    "n_chunks_truncated": 0,
+    "n_era_pairs": 3848,
+    "n_same_year_pairs": 24902,
+    "n_songs_embedded": 1757,
+    "revision": "4328cf26390c98c5e3c738b4460a05b95f4911f5",
+    "similarity_mean": 0.5294,
+    "similarity_sd": 0.1142
+  },
   "null_model": {
     "_updated": "2026-11-16",
     "louvain_seeds": 5,

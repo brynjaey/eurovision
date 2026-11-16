@@ -1,0 +1,11 @@
+year,from,to,similarity,era,song_from,artist_from,song_to,artist_to,rank
+2003,se,tr,0.8578373084257266,1997-2008 televote,Give Me Your Love,Fame,Everyway That I Can,Sertab Erener,most
+1994,is,lt,0.8476481296355982,1975-1996,Nætur,Sigga,Lopšinė mylimai,Ovidijus Vyšniauskas,most
+2001,dk,tr,0.8471410075482301,1997-2008 televote,Never Ever Let You Go,Rollo & King,Sevgiliye son,Sedat Yüce,most
+1995,mt,si,0.8467860357709589,1975-1996,Keep Me In Mind,Mike Spiteri,Prisluhni mi,Darja Švajger,most
+2003,nl,pt,0.8412920490989899,1997-2008 televote,One More Night,Esther Hart,Deixa-me sonhar,Rita Guerra,most
+1984,ch,ie,0.027966545066262512,1975-1996,Welche Farbe hat der Sonnenschein?,Rainy Day,Terminal 3,Linda Martin,least
+2013,hu,ru,0.05962470507751855,2009-2015 50/50,Kedvesem,ByeAlex,What If,Dina Garipova,least
+2015,fi,lv,0.07327929179069935,2009-2015 50/50,Aina mun pitää,Pertti Kurikan Nimipäivät,Love Injected,Aminata,least
+2015,fi,pl,0.07457024768725987,2009-2015 50/50,Aina mun pitää,Pertti Kurikan Nimipäivät,In The Name Of Love,Monika Kuszyńska,least
+1984,at,ch,0.0935238935608989,1975-1996,Einfach weg,Anita,Welche Farbe hat der Sonnenschein?,Rainy Day,least

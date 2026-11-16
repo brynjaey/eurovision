@@ -24,8 +24,11 @@
       "commit": "e56411125d4b91dc61f08dfb8d3c8a9fc91a6ad5",
       "commit_date": "2026-10-26",
       "retrieved": "2026-11-11",
-      "covers": "years 2023-2026, rounds + contestant.json only (lyrics not copied yet)",
-      "validation": "2023 final: 962/962 votes identical to Spijkervet for total, tele, jury"
+      "covers": "years 1956-2026: contestant.json for every entry; lyrics/o_*.txt (all originals) and lyrics/t_english.txt (English translation) only; rounds for 2023-2026",
+      "validation": "2023 final: 962/962 votes identical to Spijkervet for total, tele, jury",
+      "lyrics_copied": "2026-11-16 from a sparse checkout of data/senior at the same commit; other translations (t_<lang>.txt) not copied",
+      "lyrics_sha256_of_sorted_file_hashes": "9083388cab58ea6958f604e2d779096e4cda7d0301dbe6d4eb79d8880bf194c4",
+      "license": "none stated in the repository (see references.bib TODO)"
     },
     {
       "files": [
@@ -93,6 +96,17 @@
         "raw/glottolog/values.csv": "f7f39813ed2ff80f71172a1f962b7ac19fb5306ac8aea55af168ad1219e330d7",
         "raw/glottolog/parameters.csv": "bca9a4688f6fd4e107e1b107c9f1c386c73586b1a48246840ff57780176fad22"
       }
+    },
+    {
+      "files": [],
+      "model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+      "source": "https://huggingface.co/sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+      "revision": "4328cf26390c98c5e3c738b4460a05b95f4911f5",
+      "last_modified": "2025-08-19",
+      "retrieved": "2026-11-16",
+      "license": "apache-2.0",
+      "note": "weights are downloaded to the Hugging Face cache by scripts/lyrics_similarity.py, not stored in raw/",
+      "used_for": "embedding English lyrics (max_seq_length 128)"
     }
   ]
 }

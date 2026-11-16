@@ -69,6 +69,26 @@
   excess equals build_edges.py excess.
   Louvain (networkx 3.7, resolution 1): best modularity of 5 seeded runs, same for observed and every null network.
   Stability check: observed Q over 20 single runs, min–max in data/null_results.csv (q_obs_min20, q_obs_max20).
+- 2026-11-16: Lyrics from EurovisionAPI (same commit e564111): contestant.json for all entries 1956–2026, every
+  original lyrics file (o_*.txt) and the English translation (t_english.txt); other translations not copied.
+  scripts/build_lyrics.py -> data/lyrics.csv: one English text per entry = t_english.txt if present, else the original
+  if it is English only. 1830 entries: 1073 translation, 738 original English,
+  19 without English text (mixed-language originals without translation, imaginary language,
+  Montenegrin, ...; listed by the script) and left out.
+  Cleaning: 7 English texts contain scraped ad HTML (google-auto-placed div/ins/iframe), removed with
+  contents; other tags (<i>, <span>, <b>) removed, text kept; HTML entities decoded. Raw files unchanged.
+  scripts/lyrics_similarity.py: model sentence-transformers/paraphrase-multilingual-mpnet-base-v2, revision
+  4328cf26 (apache-2.0), CPU. The model reads <= 128 tokens: lines longer than 60 words are cut into 60-word pieces
+  (some files have no line breaks), consecutive lines are packed into chunks <= 128 tokens, each chunk embedded,
+  song vector = normalised mean of chunk vectors. Truncated chunks after this: 0.
+  Excluded years: 1956 (two songs per country, no vote data) and 2020 (cancelled). 1757 songs embedded.
+  similarity(A, B, year) = cosine of the two songs in that year; per era = mean over the years both had a song
+  (n_years in data/lyrics_similarity.csv). A voter's own song is used even if it did not reach the final.
+  Validation: data/lyrics_extremes.csv (5 most / 5 least similar same-year pairs); data/lyrics_rating_sheet.csv has
+  20 pairs, 4 drawn at random from each similarity quintile so the sheet covers the full range (seed 2805), without the
+  model score; the score is in data/lyrics_rating_key.csv.
+  TODO (group): agree a rating scale before rating (suggestion: 1–5, "how similar are the two lyrics in topic and
+  mood?"), rate independently, then report inter-rater agreement and Spearman rho between mean rating and model score.
 
 ## Decisions
 - Excess = vote share minus the leave-one-out mean share the entry got from the other voters in the same round and vote type (see build_edges.py).
@@ -88,7 +108,7 @@
 ## Pending layers
 - Diaspora: done 2026-11-16, see Data above.
 - Language: done 2026-11-16, see Data above.
-- Lyrics text: EurovisionAPI has lyrics + English translations per contestant (raw/eurovisionapi only has contestant.json so far).
+- Lyrics: done 2026-11-16, see Data above.
 
 ## Literature
 <!-- One line per paper: key — what it found — how we use it. The "how we use it" part is

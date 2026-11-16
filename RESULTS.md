@@ -72,3 +72,23 @@ The last row is the robustness network (2024–25 televote-only semis added to t
 - Misses: why the groups form (friendship, taste or something else); direction (A→B and B→A are pooled); negative
   mean excess (pairs dropped as edges); pairs with < 5 votes (mean5). Louvain finds a good, not necessarily the best,
   partition. The 2023 semi-finals are missing from the data (see NOTES.md).
+
+## Lyrics (`scripts/build_lyrics.py` → `data/lyrics.csv`; `scripts/lyrics_similarity.py` → `data/lyrics_similarity*.csv`, `data/lyrics_extremes.csv`, rating sheet; key_numbers: `lyrics`, `lyrics_similarity`)
+- 1830 entries 1956–2026; 1811 with English text (1073 translations, 738 original English); 19 without.
+- 1757 songs embedded (1956 and 2020 excluded), 3.05 chunks per song on average (max 9), 0 truncated.
+- 24,902 same-year song pairs: cosine similarity mean 0.5294, SD 0.1142. 3,848 country pairs × era.
+- Most / least similar same-year pairs:
+  - most: 2003 SE “Give Me Your Love” – TR “Everyway That I Can”: 0.858
+  - most: 1994 IS “Nætur” – LT “Lopšinė mylimai”: 0.848
+  - most: 2001 DK “Never Ever Let You Go” – TR “Sevgiliye son”: 0.847
+  - most: 1995 MT “Keep Me In Mind” – SI “Prisluhni mi”: 0.847
+  - most: 2003 NL “One More Night” – PT “Deixa-me sonhar”: 0.841
+  - least: 1984 CH “Welche Farbe hat der Sonnenschein?” – IE “Terminal 3”: 0.028
+  - least: 2013 HU “Kedvesem” – RU “What If”: 0.060
+  - least: 2015 FI “Aina mun pitää” – LV “Love Injected”: 0.073
+  - least: 2015 FI “Aina mun pitää” – PL “In The Name Of Love”: 0.075
+  - least: 1984 AT “Einfach weg” – CH “Welche Farbe hat der Sonnenschein?”: 0.094
+- Hand rating: 20 pairs in `data/lyrics_rating_sheet.csv` (4 per similarity quintile). TODO: ratings, inter-rater agreement, Spearman rho.
+- Captures: how close the English lyrics of two countries' songs are in meaning (topic, wording), per year and averaged per era.
+- Misses: music, melody, genre, staging and performance; anything lost in translation; the original language itself;
+  the model only sees the text in ≤ 128-token chunks.
