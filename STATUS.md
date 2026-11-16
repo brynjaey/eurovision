@@ -3,7 +3,7 @@
 Two of us work on this project. Every Claude Code session starts by reading this file and
 ends by updating it, so whoever opens the repo next knows where things stand.
 
-_Last updated: 2026-11-16, step 4 null model done._
+_Last updated: 2026-11-16, steps 3–4 revised (named Glottolog nodes, mean5 weighting)._
 
 ## Done
 - [x] Vote network 1957–2026 with excess scores: `data/edges.csv`, `data/edges_agg.csv`
@@ -28,12 +28,12 @@ _Last updated: 2026-11-16, step 4 null model done._
 
 ## Decisions
 - Diaspora: missing UN pairs = 0 (robustness: observed pairs only); diaspora analysis 1997+, each vote year matched to nearest UN year.
-- Language: shared_official uses CLDR "official" only; same_family / same_branch / same_subbranch from the Glottolog tree.
+- Language: shared_official uses CLDR "official" only; branch / sub-branch from named Glottolog nodes (`data/glottolog_nodes.csv`).
+- Null model: edge weight = mean excess, min 5 votes per pair (sum kept side by side). 2024–25 televote-only semis out of 2016+ networks; robustness run includes them.
+- Step 6: regression on the full signed excess.
 
 ## Open questions (for the humans)
-- Null model: 2023–2025 semis (televote-only, stored as total) are in neither 2016+ network. Keep, or add them to televote?
-- Null model: excess summed (not averaged) over the era as edge weight. OK?
-- Language branch rule: keep the sample-split rule (South/East/West Slavic not separated; TR–AZ different branches), or use a named list of Glottolog nodes?
+- DATA GAP: 2023 semi-finals are missing from edges.csv (Spijkervet lacks them; EurovisionAPI has them). Add them? Changes all numbers slightly.
 - 2026 final check is manual, not scripted, so it is not in key_numbers.json. Script it if we quote it.
 - references.bib TODOs: Ginsburgh & Noury DOI, Blondel journal details, Zenodo DOI for Burgoyne, EurovisionAPI has no stated license
 - Fill in the "what it found / how we use it" lines under Literature in NOTES.md (read the papers)
@@ -43,6 +43,7 @@ _Last updated: 2026-11-16, step 4 null model done._
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-16, Kristófer: named Glottolog nodes for branches; null model rerun with mean5 + sum weighting + robustness network; fixed a dropped-pairs bug; found 2023 semis gap. Check: RESULTS.md tables.
 - 2026-11-16, Kristófer: step 4 null model (null_model.py, null_results.csv, figure). Check: the table in RESULTS.md and data/communities_obs.csv.
 - 2026-11-16, Kristófer: language layer revised: same_branch/same_subbranch, shared_official official-only (10 pairs changed). Check: data/language_groups.csv.
 - 2026-11-16, Kristófer: step 3 language layer (build_language.py, language.csv, CLDR + Glottolog in MANIFEST/bib), RESULTS.md, key_numbers.json. Check: spot-check pairs in RESULTS.md.

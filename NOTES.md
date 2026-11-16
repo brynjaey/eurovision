@@ -35,30 +35,40 @@
   Primary language = the official or de facto official language with the largest CLDR populationPercent (de facto is
   kept here because AU has no "official" language). Script variants merged (sr_Latn -> sr). BY primary = ru, LU = fr.
   same_family / same_branch / same_subbranch compare primary languages on the Glottolog classification path
-  (values.csv, parameter "classification"). The literal next level below the family is useless: every IE language sits
-  under "Classical Indo-European". Rule used: walk down from the family root, skip nodes shared by all our primary
-  languages of that group; the first split = branch, the next split within each branch = sub-branch.
-  Resulting IE branches: Italic, Germanic, Balto-Slavic, Graeco-Phrygian, Armenic, Albanian. Sub-branches: West/North
-  Germanic, Italo-Western/Eastern Romance, Slavic/Eastern Baltic. Because the rule is relative to our sample,
-  (a) South/East/West Slavic are a third level and not separated, (b) TR (West Oghuz) and AZ (Central Oghuz) get different
-  branches although both are Oghuz Turkic. See TODO below.
+  (values.csv, parameter "classification"). family = root of the path.
+  DECIDED 2026-11-16 (group): branch and sub-branch come from a named list of Glottolog nodes, data/glottolog_nodes.csv
+  (glottocodes looked up in Glottolog 5.4 languages.csv; cite glottolog54). A country's branch / sub-branch = the listed
+  node on its primary language's path. Branches: Germanic, Romance, Slavic, Baltic, Celtic, Hellenic, Albanian, Armenian,
+  Indo-Iranian, Uralic, Turkic, Semitic, Kartvelian. Sub-branches: West/North Germanic, Italo-Western/Eastern Romance,
+  South/East/West Slavic, Finnic, Hungaric, Oghuz, Northwest Semitic, Arabian, Modern Greek, Georgian-Zan.
+  Glottolog has no "Baltic" node: "Baltic" = Eastern Baltic (east2280), which holds lt and lv.
+  Where no sub-branch is listed (Albanian, Armenian, Baltic) the sub-branch = the branch.
+  Uralic, Turkic, Kartvelian are families in Glottolog and also used as branches (so e.g. HU–FI same_branch = 1).
+  Celtic and Indo-Iranian are listed but no primary language falls in them.
+  (Replaces the earlier sample-split rule, which separated TR/AZ and not South/East/West Slavic.)
   ISO 639-1 -> 639-3 via pycountry. Glottolog lacks macrolanguage codes (ara, aze, est): mapped via CLDR macrolanguage
   aliases to arb, azj, ekk. sr/hr/bs are different ISO codes, so RS–HR shared_official = 0.
   yu, cs, wld: no CLDR territory -> NaN.
-  TODO (group): accept the sample-split rule, or replace branch/sub-branch with a named list of Glottolog nodes
-  (e.g. branch = Germanic/Romance/Slavic/Baltic/Greek/...; sub-branch = South/East/West Slavic, North/West Germanic, ...)?
 - 2026-11-16: Shuffle null for community structure, scripts/null_model.py (see its docstring).
-  Networks: one per era on vote_type "total"; 2016+ split into jury and televote (6 networks).
-  Edge weight = era sum of excess(A->B) + excess(B->A); only pairs with weight > 0 (Louvain needs positive weights).
-  Sum (not mean) is used, so pairs that met more often weigh more. wld is not a node (it only votes).
-  All rounds (finals and semi-finals) count. The 2023–2025 semi-finals were televote-only and exist only as "total" in
-  our data, so they are in neither the 2016+ jury nor the 2016+ televote network (keeps both on the same rounds).
-  TODO (group): confirm, or add those semis to the televote network.
+  Networks: one per era on vote_type "total"; 2016+ split into jury and televote (6 main networks).
+  Undirected pair A–B pools all A->B and B->A votes in the era. wld is not a node (it only votes).
+  DECIDED 2026-11-16 (group): main edge weight = mean excess over the pair's votes, pairs with < 5 votes dropped
+  ("mean5"). The earlier weight, summed excess ("sum", no minimum), is kept side by side. Only weights > 0 are edges.
+  mean5 drops countries without any pair of >= 5 votes (e.g. 1957–74: 18 of 21 nodes).
+  Fix 2026-11-16: the first version only kept pairs that had votes in the A->B direction with A < B alphabetically,
+  dropping pairs that only had B->A votes (e.g. 1997–2008 sum: 372 edges, now 381). Superseded numbers are not used.
+  All rounds (finals and semi-finals) count.
+  DECIDED 2026-11-16 (group): the 2024–2025 semi-finals were televote-only and exist only as "total" in our data; they
+  are left out of the 2016+ jury and televote networks. Robustness network "2016+ televote incl. 2024–25 semis"
+  relabels those rounds' total as televote.
+  DATA GAP found 2026-11-16: the 2023 semi-finals are missing from data/edges.csv. Spijkervet has only the 2023 final;
+  EurovisionAPI has both 2023 semis (raw/eurovisionapi/senior/2023/rounds/), but build_edges.py only takes EurovisionAPI
+  rows for years Spijkervet lacks entirely. TODO (group): add missing (year, round) from EurovisionAPI? Changes edges.csv.
   Null: within each (year, round, vote_type), each voter's points are permuted over the entries it rated; excess is
-  recomputed. 1,000 shuffles, numpy seed 2805. Check in the script: recomputed excess equals build_edges.py excess.
+  recomputed. 1,000 shuffles, numpy seed 2805, same shuffles for both weightings. Check in the script: recomputed
+  excess equals build_edges.py excess.
   Louvain (networkx 3.7, resolution 1): best modularity of 5 seeded runs, same for observed and every null network.
   Stability check: observed Q over 20 single runs, min–max in data/null_results.csv (q_obs_min20, q_obs_max20).
-  In 2009–15 and 2016+ televote a single run beat the best of seeds 0–4 (0.4126 vs 0.4113; 0.4476 vs 0.4317).
 
 ## Decisions
 - Excess = vote share minus the leave-one-out mean share the entry got from the other voters in the same round and vote type (see build_edges.py).
@@ -70,6 +80,10 @@
 - 2026-11-16 (group): diaspora missing pairs = 0 (robustness: observed pairs only); diaspora analysis 1997+, nearest UN year.
 - 2026-11-16 (group): language layer = shared official language (0/1) + same language family (0/1), simplest defensible source.
 - 2026-11-16 (group): add same_branch and same_subbranch from the Glottolog tree; shared_official uses CLDR "official" only.
+- 2026-11-16 (group): branch / sub-branch from a named list of Glottolog nodes (data/glottolog_nodes.csv).
+- 2026-11-16 (group): null model edge weight = mean excess, min 5 votes per pair; sum kept side by side.
+- 2026-11-16 (group): 2024–25 televote-only semis out of the 2016+ networks; robustness run includes them in televote.
+- 2026-11-16 (group): step 6 regression uses the full signed excess (not only positive).
 
 ## Pending layers
 - Diaspora: done 2026-11-16, see Data above.

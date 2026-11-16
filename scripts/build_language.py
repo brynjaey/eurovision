@@ -4,6 +4,7 @@ Input:  raw/cldr/supplementalData.xml      Unicode CLDR release-49, <territoryIn
         raw/cldr/supplementalMetadata.xml  CLDR release-49, macrolanguage aliases
         raw/glottolog/languages.csv        Glottolog 5.4 CLDF: glottocode per ISO 639-3 code
         raw/glottolog/values.csv           Glottolog 5.4 CLDF: "classification" = path from family root
+        data/glottolog_nodes.csv           our named list of branch / sub-branch glottocodes
         data/countries.csv
 Output: data/language.csv  from, to, shared_official, same_family, same_branch, same_subbranch,
                            primary_from, primary_to
@@ -14,10 +15,9 @@ primary         = each country's official or de facto official language with the
                   CLDR population share (de facto is needed: Australia has no "official" language).
 same_family / same_branch / same_subbranch compare the primary languages in the Glottolog tree:
   family     = root of the path (e.g. Indo-European)
-  branch     = first node below the family where our primary languages of that family split
-  sub-branch = next node where the languages within that branch split
-  Nodes that every language of the group passes through are skipped, because Glottolog has
-  many intermediate nodes (e.g. "Classical Indo-European" sits above every IE branch).
+  branch     = the node on the path listed as "branch" in data/glottolog_nodes.csv (e.g. Slavic)
+  sub-branch = the node on the path listed as "subbranch" (e.g. South Slavic); if none is listed,
+               the branch itself (e.g. Albanian, which has no split among our countries)
 yu, cs and wld have no CLDR territory and get NaN.
 """
 import xml.etree.ElementTree as ET
@@ -66,16 +66,15 @@ def path_of(lang: str) -> list[str]:
     return (parents.split("/") if parents else []) + [gc]
 
 
-def split_index(paths: list[list[str]], start: int) -> int:
-    """First position >= start where the paths differ (skip nodes they all share)."""
-    i = start
-    while all(len(p) > i + 1 for p in paths) and len({p[i] for p in paths}) == 1:
-        i += 1
-    return i
+# Named Glottolog nodes for branch and sub-branch (hand-picked list, IDs from Glottolog 5.4)
+nodes = pd.read_csv(ROOT / "data/glottolog_nodes.csv")
+BRANCH = dict(nodes[nodes.level == "branch"][["glottocode", "label"]].values)
+SUB = dict(nodes[nodes.level == "subbranch"][["glottocode", "label"]].values)
 
 
-def node(p: list[str], i: int) -> str:
-    return p[min(i, len(p) - 1)]  # a path that ends early: the language is its own group
+def first_on_path(p: list[str], named: dict) -> str | None:
+    """Label of the first node on the path (walking down from the family root) that is in `named`."""
+    return next((named[n] for n in p if n in named), None)
 
 
 # 3. Primary language per country and its family / branch / sub-branch
@@ -83,17 +82,11 @@ countries = [c for c in pd.read_csv(ROOT / "data/countries.csv").code if c in la
 primary = {c: max(langs[c], key=lambda l: langs[c][l][1]) for c in countries}
 path = {c: path_of(primary[c]) for c in countries}
 fam = {c: path[c][0] for c in countries}
-branch, sub = {}, {}
-for f in set(fam.values()):
-    group = [c for c in countries if fam[c] == f]
-    ib = split_index([path[c] for c in group], 1)
-    for c in group:
-        branch[c] = node(path[c], ib)
-    for b in {branch[c] for c in group}:
-        bgroup = [c for c in group if branch[c] == b]
-        isb = split_index([path[c] for c in bgroup], ib + 1)
-        for c in bgroup:
-            sub[c] = node(path[c], isb)
+branch = {c: first_on_path(path[c], BRANCH) for c in countries}
+missing = [c for c in countries if branch[c] is None]
+assert not missing, f"no branch node on the path for {missing}: add one to glottolog_nodes.csv"
+# No listed sub-branch (single-country branches such as Albanian): the branch is its own sub-branch
+sub = {c: first_on_path(path[c], SUB) or branch[c] for c in countries}
 
 # 4. One row per ordered pair of Eurovision countries
 codes = pd.read_csv(ROOT / "data/countries.csv").code
@@ -117,8 +110,8 @@ out.to_csv(ROOT / "data/language.csv", index=False)
 name = dict(zip(glotto.ID, glotto.Name))
 groups = pd.DataFrame({"code": countries, "primary": [primary[c] for c in countries],
                        "family": [name[fam[c]] for c in countries],
-                       "branch": [name[branch[c]] for c in countries],
-                       "subbranch": [name[sub[c]] for c in countries]})
+                       "branch": [branch[c] for c in countries],
+                       "subbranch": [sub[c] for c in countries]})
 groups.to_csv(ROOT / "data/language_groups.csv", index=False)
 
 # Pairs are symmetric, so count unordered pairs (from < to)

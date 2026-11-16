@@ -1,0 +1,28 @@
+level,label,glottocode,glottolog_name
+branch,Germanic,germ1287,Germanic
+branch,Romance,roma1334,Romance
+branch,Slavic,slav1255,Slavic
+branch,Baltic,east2280,Eastern Baltic
+branch,Celtic,celt1248,Celtic
+branch,Hellenic,gree1276,Greek
+branch,Albanian,alba1267,Albanian
+branch,Armenian,arme1241,Armenic
+branch,Indo-Iranian,indo1320,Indo-Iranian
+branch,Uralic,ural1272,Uralic
+branch,Turkic,turk1311,Turkic
+branch,Semitic,semi1276,Semitic
+branch,Kartvelian,kart1248,Kartvelian
+subbranch,West Germanic,west2793,West Germanic
+subbranch,North Germanic,nort3160,North Germanic
+subbranch,Italo-Western Romance,ital1285,Italo-Western Romance
+subbranch,Eastern Romance,east2714,Eastern Romance
+subbranch,South Slavic,sout3147,South Slavic
+subbranch,East Slavic,east1426,East Slavic
+subbranch,West Slavic,west2792,West Slavic
+subbranch,Finnic,finn1317,Finnic
+subbranch,Hungaric,hung1287,Hungaric
+subbranch,Oghuz,oghu1243,Oghuz
+subbranch,Northwest Semitic,nort3165,Northwest Semitic
+subbranch,Arabian,arab1394,Arabian
+subbranch,Modern Greek,mode1248,Modern Greek
+subbranch,Georgian-Zan,geor1252,Georgian-Zan

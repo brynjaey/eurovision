@@ -1,51 +1,51 @@
 code,primary,family,branch,subbranch
-ad,ca,Indo-European,Italic,Italo-Western Romance
+ad,ca,Indo-European,Romance,Italo-Western Romance
 al,sq,Indo-European,Albanian,Albanian
-am,hy,Indo-European,Armenic,Eastern Armenian
+am,hy,Indo-European,Armenian,Armenian
 at,de,Indo-European,Germanic,West Germanic
 au,en,Indo-European,Germanic,West Germanic
-az,az,Turkic,Central Oghuz,North Azerbaijani
-ba,bs,Indo-European,Balto-Slavic,Slavic
+az,az,Turkic,Turkic,Oghuz
+ba,bs,Indo-European,Slavic,South Slavic
 be,nl,Indo-European,Germanic,West Germanic
-bg,bg,Indo-European,Balto-Slavic,Slavic
-by,ru,Indo-European,Balto-Slavic,Slavic
+bg,bg,Indo-European,Slavic,South Slavic
+by,ru,Indo-European,Slavic,East Slavic
 ch,de,Indo-European,Germanic,West Germanic
-cy,el,Indo-European,Graeco-Phrygian,Modern Greek
-cz,cs,Indo-European,Balto-Slavic,Slavic
+cy,el,Indo-European,Hellenic,Modern Greek
+cz,cs,Indo-European,Slavic,West Slavic
 de,de,Indo-European,Germanic,West Germanic
 dk,da,Indo-European,Germanic,North Germanic
-ee,et,Uralic,Finnic,Central Finnic
-es,es,Indo-European,Italic,Italo-Western Romance
-fi,fi,Uralic,Finnic,North Finnic
-fr,fr,Indo-European,Italic,Italo-Western Romance
+ee,et,Uralic,Uralic,Finnic
+es,es,Indo-European,Romance,Italo-Western Romance
+fi,fi,Uralic,Uralic,Finnic
+fr,fr,Indo-European,Romance,Italo-Western Romance
 gb,en,Indo-European,Germanic,West Germanic
-ge,ka,Kartvelian,Georgian,Georgian
-gr,el,Indo-European,Graeco-Phrygian,Modern Greek
-hr,hr,Indo-European,Balto-Slavic,Slavic
-hu,hu,Uralic,Hungaric,Hungarian
+ge,ka,Kartvelian,Kartvelian,Georgian-Zan
+gr,el,Indo-European,Hellenic,Modern Greek
+hr,hr,Indo-European,Slavic,South Slavic
+hu,hu,Uralic,Uralic,Hungaric
 ie,en,Indo-European,Germanic,West Germanic
-il,he,Afro-Asiatic,Northwest Semitic,Modern Hebrew
+il,he,Afro-Asiatic,Semitic,Northwest Semitic
 is,is,Indo-European,Germanic,North Germanic
-it,it,Indo-European,Italic,Italo-Western Romance
-lt,lt,Indo-European,Balto-Slavic,Eastern Baltic
-lu,fr,Indo-European,Italic,Italo-Western Romance
-lv,lv,Indo-European,Balto-Slavic,Eastern Baltic
-ma,ar,Afro-Asiatic,Arabian,Standard Arabic
-mc,fr,Indo-European,Italic,Italo-Western Romance
-md,ro,Indo-European,Italic,Eastern Romance
-me,sr,Indo-European,Balto-Slavic,Slavic
-mk,mk,Indo-European,Balto-Slavic,Slavic
-mt,mt,Afro-Asiatic,Arabian,North African Arabic
+it,it,Indo-European,Romance,Italo-Western Romance
+lt,lt,Indo-European,Baltic,Baltic
+lu,fr,Indo-European,Romance,Italo-Western Romance
+lv,lv,Indo-European,Baltic,Baltic
+ma,ar,Afro-Asiatic,Semitic,Arabian
+mc,fr,Indo-European,Romance,Italo-Western Romance
+md,ro,Indo-European,Romance,Eastern Romance
+me,sr,Indo-European,Slavic,South Slavic
+mk,mk,Indo-European,Slavic,South Slavic
+mt,mt,Afro-Asiatic,Semitic,Arabian
 nl,nl,Indo-European,Germanic,West Germanic
 no,nb,Indo-European,Germanic,North Germanic
-pl,pl,Indo-European,Balto-Slavic,Slavic
-pt,pt,Indo-European,Italic,Italo-Western Romance
-ro,ro,Indo-European,Italic,Eastern Romance
-rs,sr,Indo-European,Balto-Slavic,Slavic
-ru,ru,Indo-European,Balto-Slavic,Slavic
+pl,pl,Indo-European,Slavic,West Slavic
+pt,pt,Indo-European,Romance,Italo-Western Romance
+ro,ro,Indo-European,Romance,Eastern Romance
+rs,sr,Indo-European,Slavic,South Slavic
+ru,ru,Indo-European,Slavic,East Slavic
 se,sv,Indo-European,Germanic,North Germanic
-si,sl,Indo-European,Balto-Slavic,Slavic
-sk,sk,Indo-European,Balto-Slavic,Slavic
-sm,it,Indo-European,Italic,Italo-Western Romance
-tr,tr,Turkic,West Oghuz,Turkish
-ua,uk,Indo-European,Balto-Slavic,Slavic
+si,sl,Indo-European,Slavic,South Slavic
+sk,sk,Indo-European,Slavic,West Slavic
+sm,it,Indo-European,Romance,Italo-Western Romance
+tr,tr,Turkic,Turkic,Oghuz
+ua,uk,Indo-European,Slavic,East Slavic

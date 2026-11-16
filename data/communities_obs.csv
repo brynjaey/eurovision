@@ -1,242 +1,554 @@
-network,community,code
-1957–1974,0,at
-1957–1974,0,be
-1957–1974,0,gr
-1957–1974,0,ie
-1957–1974,0,il
-1957–1974,0,it
-1957–1974,0,lu
-1957–1974,0,mt
-1957–1974,0,nl
-1957–1974,1,de
-1957–1974,1,es
-1957–1974,1,fr
-1957–1974,1,mc
-1957–1974,1,pt
-1957–1974,1,yu
-1957–1974,2,dk
-1957–1974,2,fi
-1957–1974,2,no
-1957–1974,2,se
-1957–1974,3,ch
-1957–1974,3,gb
-1975–1996,0,at
-1975–1996,0,be
-1975–1996,0,de
-1975–1996,0,dk
-1975–1996,0,ee
-1975–1996,0,gb
-1975–1996,0,hu
-1975–1996,0,ie
-1975–1996,0,is
-1975–1996,0,lt
-1975–1996,0,mc
-1975–1996,0,no
-1975–1996,0,pl
-1975–1996,0,ru
-1975–1996,0,se
-1975–1996,0,si
-1975–1996,1,ba
-1975–1996,1,es
-1975–1996,1,hr
-1975–1996,1,it
-1975–1996,1,lu
-1975–1996,1,ma
-1975–1996,1,mt
-1975–1996,1,pt
-1975–1996,1,ro
-1975–1996,1,sk
-1975–1996,1,tr
-1975–1996,1,yu
-1975–1996,2,ch
-1975–1996,2,fi
-1975–1996,2,fr
-1975–1996,2,il
-1975–1996,2,nl
-1975–1996,3,cy
-1975–1996,3,gr
-1997–2008 televote,0,ad
-1997–2008 televote,0,am
-1997–2008 televote,0,az
-1997–2008 televote,0,be
-1997–2008 televote,0,by
-1997–2008 televote,0,cz
-1997–2008 televote,0,es
-1997–2008 televote,0,fr
-1997–2008 televote,0,ge
-1997–2008 televote,0,il
-1997–2008 televote,0,mc
-1997–2008 televote,0,md
-1997–2008 televote,0,nl
-1997–2008 televote,0,pl
-1997–2008 televote,0,pt
-1997–2008 televote,0,ro
-1997–2008 televote,0,ru
-1997–2008 televote,0,ua
-1997–2008 televote,1,al
-1997–2008 televote,1,at
-1997–2008 televote,1,ba
-1997–2008 televote,1,ch
-1997–2008 televote,1,cs
-1997–2008 televote,1,de
-1997–2008 televote,1,hr
-1997–2008 televote,1,it
-1997–2008 televote,1,me
-1997–2008 televote,1,mk
-1997–2008 televote,1,rs
-1997–2008 televote,1,si
-1997–2008 televote,1,sk
-1997–2008 televote,1,tr
-1997–2008 televote,2,dk
-1997–2008 televote,2,ee
-1997–2008 televote,2,fi
-1997–2008 televote,2,gb
-1997–2008 televote,2,hu
-1997–2008 televote,2,ie
-1997–2008 televote,2,is
-1997–2008 televote,2,lt
-1997–2008 televote,2,lv
-1997–2008 televote,2,mt
-1997–2008 televote,2,no
-1997–2008 televote,2,se
-1997–2008 televote,3,bg
-1997–2008 televote,3,cy
-1997–2008 televote,3,gr
-1997–2008 televote,3,sm
-2009–2015 50/50,0,au
-2009–2015 50/50,0,be
-2009–2015 50/50,0,de
-2009–2015 50/50,0,dk
-2009–2015 50/50,0,ee
-2009–2015 50/50,0,fi
-2009–2015 50/50,0,gb
-2009–2015 50/50,0,hu
-2009–2015 50/50,0,ie
-2009–2015 50/50,0,is
-2009–2015 50/50,0,lt
-2009–2015 50/50,0,lv
-2009–2015 50/50,0,nl
-2009–2015 50/50,0,no
-2009–2015 50/50,0,pl
-2009–2015 50/50,0,se
-2009–2015 50/50,0,sk
-2009–2015 50/50,1,am
-2009–2015 50/50,1,az
-2009–2015 50/50,1,by
-2009–2015 50/50,1,cz
-2009–2015 50/50,1,ge
-2009–2015 50/50,1,il
-2009–2015 50/50,1,md
-2009–2015 50/50,1,ro
-2009–2015 50/50,1,ru
-2009–2015 50/50,1,ua
-2009–2015 50/50,2,at
-2009–2015 50/50,2,ba
-2009–2015 50/50,2,bg
-2009–2015 50/50,2,hr
-2009–2015 50/50,2,me
-2009–2015 50/50,2,mk
-2009–2015 50/50,2,rs
-2009–2015 50/50,2,si
-2009–2015 50/50,2,tr
-2009–2015 50/50,3,al
-2009–2015 50/50,3,cy
-2009–2015 50/50,3,gr
-2009–2015 50/50,3,it
-2009–2015 50/50,3,mt
-2009–2015 50/50,3,sm
-2009–2015 50/50,4,ad
-2009–2015 50/50,4,ch
-2009–2015 50/50,4,es
-2009–2015 50/50,4,fr
-2009–2015 50/50,4,pt
-2016+ jury,0,at
-2016+ jury,0,au
-2016+ jury,0,be
-2016+ jury,0,bg
-2016+ jury,0,ch
-2016+ jury,0,de
-2016+ jury,0,dk
-2016+ jury,0,ee
-2016+ jury,0,fi
-2016+ jury,0,gb
-2016+ jury,0,ie
-2016+ jury,0,il
-2016+ jury,0,is
-2016+ jury,0,nl
-2016+ jury,0,no
-2016+ jury,0,pl
-2016+ jury,0,se
-2016+ jury,1,al
-2016+ jury,1,am
-2016+ jury,1,az
-2016+ jury,1,by
-2016+ jury,1,cy
-2016+ jury,1,es
-2016+ jury,1,fr
-2016+ jury,1,gr
-2016+ jury,1,it
-2016+ jury,1,lu
-2016+ jury,1,md
-2016+ jury,1,mt
-2016+ jury,1,ro
-2016+ jury,1,ru
-2016+ jury,1,sm
-2016+ jury,2,ba
-2016+ jury,2,cz
-2016+ jury,2,hr
-2016+ jury,2,hu
-2016+ jury,2,me
-2016+ jury,2,mk
-2016+ jury,2,rs
-2016+ jury,2,si
-2016+ jury,3,ge
-2016+ jury,3,lt
-2016+ jury,3,lv
-2016+ jury,3,pt
-2016+ jury,3,ua
-2016+ televote,0,al
-2016+ televote,0,at
-2016+ televote,0,ba
-2016+ televote,0,ch
-2016+ televote,0,hr
-2016+ televote,0,hu
-2016+ televote,0,it
-2016+ televote,0,me
-2016+ televote,0,mk
-2016+ televote,0,rs
-2016+ televote,0,si
-2016+ televote,1,au
-2016+ televote,1,be
-2016+ televote,1,dk
-2016+ televote,1,ee
-2016+ televote,1,fi
-2016+ televote,1,is
-2016+ televote,1,mt
-2016+ televote,1,nl
-2016+ televote,1,no
-2016+ televote,1,se
-2016+ televote,2,az
-2016+ televote,2,cz
-2016+ televote,2,es
-2016+ televote,2,fr
-2016+ televote,2,il
-2016+ televote,2,lu
-2016+ televote,2,md
-2016+ televote,2,pt
-2016+ televote,2,ro
-2016+ televote,2,ru
-2016+ televote,3,by
-2016+ televote,3,de
-2016+ televote,3,gb
-2016+ televote,3,ie
-2016+ televote,3,lt
-2016+ televote,3,lv
-2016+ televote,3,pl
-2016+ televote,3,ua
-2016+ televote,4,am
-2016+ televote,4,bg
-2016+ televote,4,cy
-2016+ televote,4,ge
-2016+ televote,4,gr
-2016+ televote,4,sm
+weighting,network,community,code
+mean5,1957–1974,0,at
+mean5,1957–1974,0,be
+mean5,1957–1974,0,de
+mean5,1957–1974,0,fr
+mean5,1957–1974,0,ie
+mean5,1957–1974,0,it
+mean5,1957–1974,0,lu
+mean5,1957–1974,0,mc
+mean5,1957–1974,0,nl
+mean5,1957–1974,0,yu
+mean5,1957–1974,1,dk
+mean5,1957–1974,1,fi
+mean5,1957–1974,1,no
+mean5,1957–1974,1,se
+mean5,1957–1974,2,es
+mean5,1957–1974,2,pt
+mean5,1957–1974,3,ch
+mean5,1957–1974,3,gb
+sum,1957–1974,0,at
+sum,1957–1974,0,be
+sum,1957–1974,0,gr
+sum,1957–1974,0,ie
+sum,1957–1974,0,il
+sum,1957–1974,0,it
+sum,1957–1974,0,lu
+sum,1957–1974,0,mt
+sum,1957–1974,0,nl
+sum,1957–1974,1,de
+sum,1957–1974,1,es
+sum,1957–1974,1,fr
+sum,1957–1974,1,mc
+sum,1957–1974,1,pt
+sum,1957–1974,1,yu
+sum,1957–1974,2,dk
+sum,1957–1974,2,fi
+sum,1957–1974,2,no
+sum,1957–1974,2,se
+sum,1957–1974,3,ch
+sum,1957–1974,3,gb
+mean5,1975–1996,0,at
+mean5,1975–1996,0,be
+mean5,1975–1996,0,de
+mean5,1975–1996,0,dk
+mean5,1975–1996,0,gb
+mean5,1975–1996,0,ie
+mean5,1975–1996,0,is
+mean5,1975–1996,0,mc
+mean5,1975–1996,0,no
+mean5,1975–1996,0,pl
+mean5,1975–1996,0,se
+mean5,1975–1996,0,si
+mean5,1975–1996,1,ch
+mean5,1975–1996,1,fi
+mean5,1975–1996,1,fr
+mean5,1975–1996,1,il
+mean5,1975–1996,1,it
+mean5,1975–1996,1,nl
+mean5,1975–1996,1,pt
+mean5,1975–1996,2,ba
+mean5,1975–1996,2,es
+mean5,1975–1996,2,hr
+mean5,1975–1996,2,lu
+mean5,1975–1996,2,mt
+mean5,1975–1996,2,tr
+mean5,1975–1996,3,cy
+mean5,1975–1996,3,gr
+mean5,1975–1996,3,yu
+sum,1975–1996,0,at
+sum,1975–1996,0,be
+sum,1975–1996,0,de
+sum,1975–1996,0,dk
+sum,1975–1996,0,ee
+sum,1975–1996,0,gb
+sum,1975–1996,0,hu
+sum,1975–1996,0,ie
+sum,1975–1996,0,is
+sum,1975–1996,0,lt
+sum,1975–1996,0,mc
+sum,1975–1996,0,no
+sum,1975–1996,0,pl
+sum,1975–1996,0,ru
+sum,1975–1996,0,se
+sum,1975–1996,0,si
+sum,1975–1996,1,ba
+sum,1975–1996,1,es
+sum,1975–1996,1,hr
+sum,1975–1996,1,it
+sum,1975–1996,1,lu
+sum,1975–1996,1,ma
+sum,1975–1996,1,mt
+sum,1975–1996,1,pt
+sum,1975–1996,1,ro
+sum,1975–1996,1,sk
+sum,1975–1996,1,tr
+sum,1975–1996,1,yu
+sum,1975–1996,2,ch
+sum,1975–1996,2,fi
+sum,1975–1996,2,fr
+sum,1975–1996,2,il
+sum,1975–1996,2,nl
+sum,1975–1996,3,cy
+sum,1975–1996,3,gr
+mean5,1997–2008 televote,0,al
+mean5,1997–2008 televote,0,at
+mean5,1997–2008 televote,0,ba
+mean5,1997–2008 televote,0,ch
+mean5,1997–2008 televote,0,cs
+mean5,1997–2008 televote,0,cz
+mean5,1997–2008 televote,0,de
+mean5,1997–2008 televote,0,hr
+mean5,1997–2008 televote,0,me
+mean5,1997–2008 televote,0,mk
+mean5,1997–2008 televote,0,rs
+mean5,1997–2008 televote,0,si
+mean5,1997–2008 televote,0,tr
+mean5,1997–2008 televote,1,dk
+mean5,1997–2008 televote,1,ee
+mean5,1997–2008 televote,1,fi
+mean5,1997–2008 televote,1,gb
+mean5,1997–2008 televote,1,hu
+mean5,1997–2008 televote,1,ie
+mean5,1997–2008 televote,1,is
+mean5,1997–2008 televote,1,lt
+mean5,1997–2008 televote,1,lv
+mean5,1997–2008 televote,1,mt
+mean5,1997–2008 televote,1,no
+mean5,1997–2008 televote,1,se
+mean5,1997–2008 televote,2,am
+mean5,1997–2008 televote,2,by
+mean5,1997–2008 televote,2,ge
+mean5,1997–2008 televote,2,il
+mean5,1997–2008 televote,2,md
+mean5,1997–2008 televote,2,pl
+mean5,1997–2008 televote,2,ro
+mean5,1997–2008 televote,2,ru
+mean5,1997–2008 televote,2,ua
+mean5,1997–2008 televote,3,ad
+mean5,1997–2008 televote,3,be
+mean5,1997–2008 televote,3,es
+mean5,1997–2008 televote,3,fr
+mean5,1997–2008 televote,3,mc
+mean5,1997–2008 televote,3,nl
+mean5,1997–2008 televote,3,pt
+mean5,1997–2008 televote,4,bg
+mean5,1997–2008 televote,4,cy
+mean5,1997–2008 televote,4,gr
+sum,1997–2008 televote,0,al
+sum,1997–2008 televote,0,at
+sum,1997–2008 televote,0,ba
+sum,1997–2008 televote,0,ch
+sum,1997–2008 televote,0,cs
+sum,1997–2008 televote,0,de
+sum,1997–2008 televote,0,hr
+sum,1997–2008 televote,0,it
+sum,1997–2008 televote,0,me
+sum,1997–2008 televote,0,mk
+sum,1997–2008 televote,0,rs
+sum,1997–2008 televote,0,si
+sum,1997–2008 televote,0,sk
+sum,1997–2008 televote,0,tr
+sum,1997–2008 televote,1,am
+sum,1997–2008 televote,1,az
+sum,1997–2008 televote,1,by
+sum,1997–2008 televote,1,cz
+sum,1997–2008 televote,1,ge
+sum,1997–2008 televote,1,hu
+sum,1997–2008 televote,1,il
+sum,1997–2008 televote,1,md
+sum,1997–2008 televote,1,pl
+sum,1997–2008 televote,1,ro
+sum,1997–2008 televote,1,ru
+sum,1997–2008 televote,1,ua
+sum,1997–2008 televote,2,dk
+sum,1997–2008 televote,2,ee
+sum,1997–2008 televote,2,fi
+sum,1997–2008 televote,2,gb
+sum,1997–2008 televote,2,ie
+sum,1997–2008 televote,2,is
+sum,1997–2008 televote,2,lt
+sum,1997–2008 televote,2,lv
+sum,1997–2008 televote,2,mt
+sum,1997–2008 televote,2,no
+sum,1997–2008 televote,2,se
+sum,1997–2008 televote,3,ad
+sum,1997–2008 televote,3,be
+sum,1997–2008 televote,3,es
+sum,1997–2008 televote,3,fr
+sum,1997–2008 televote,3,mc
+sum,1997–2008 televote,3,nl
+sum,1997–2008 televote,3,pt
+sum,1997–2008 televote,4,bg
+sum,1997–2008 televote,4,cy
+sum,1997–2008 televote,4,gr
+sum,1997–2008 televote,4,sm
+mean5,2009–2015 50/50,0,be
+mean5,2009–2015 50/50,0,de
+mean5,2009–2015 50/50,0,dk
+mean5,2009–2015 50/50,0,ee
+mean5,2009–2015 50/50,0,fi
+mean5,2009–2015 50/50,0,gb
+mean5,2009–2015 50/50,0,hu
+mean5,2009–2015 50/50,0,ie
+mean5,2009–2015 50/50,0,is
+mean5,2009–2015 50/50,0,lt
+mean5,2009–2015 50/50,0,lv
+mean5,2009–2015 50/50,0,nl
+mean5,2009–2015 50/50,0,no
+mean5,2009–2015 50/50,0,pl
+mean5,2009–2015 50/50,0,se
+mean5,2009–2015 50/50,0,sk
+mean5,2009–2015 50/50,1,am
+mean5,2009–2015 50/50,1,az
+mean5,2009–2015 50/50,1,bg
+mean5,2009–2015 50/50,1,by
+mean5,2009–2015 50/50,1,cy
+mean5,2009–2015 50/50,1,ge
+mean5,2009–2015 50/50,1,gr
+mean5,2009–2015 50/50,1,il
+mean5,2009–2015 50/50,1,md
+mean5,2009–2015 50/50,1,ro
+mean5,2009–2015 50/50,1,ru
+mean5,2009–2015 50/50,1,ua
+mean5,2009–2015 50/50,2,al
+mean5,2009–2015 50/50,2,at
+mean5,2009–2015 50/50,2,ba
+mean5,2009–2015 50/50,2,ch
+mean5,2009–2015 50/50,2,hr
+mean5,2009–2015 50/50,2,me
+mean5,2009–2015 50/50,2,mk
+mean5,2009–2015 50/50,2,rs
+mean5,2009–2015 50/50,2,si
+mean5,2009–2015 50/50,2,tr
+mean5,2009–2015 50/50,3,cz
+mean5,2009–2015 50/50,3,es
+mean5,2009–2015 50/50,3,fr
+mean5,2009–2015 50/50,3,it
+mean5,2009–2015 50/50,3,mt
+mean5,2009–2015 50/50,3,pt
+mean5,2009–2015 50/50,3,sm
+sum,2009–2015 50/50,0,au
+sum,2009–2015 50/50,0,be
+sum,2009–2015 50/50,0,de
+sum,2009–2015 50/50,0,dk
+sum,2009–2015 50/50,0,ee
+sum,2009–2015 50/50,0,fi
+sum,2009–2015 50/50,0,hu
+sum,2009–2015 50/50,0,ie
+sum,2009–2015 50/50,0,is
+sum,2009–2015 50/50,0,lt
+sum,2009–2015 50/50,0,lv
+sum,2009–2015 50/50,0,nl
+sum,2009–2015 50/50,0,no
+sum,2009–2015 50/50,0,pl
+sum,2009–2015 50/50,0,se
+sum,2009–2015 50/50,0,sk
+sum,2009–2015 50/50,1,am
+sum,2009–2015 50/50,1,az
+sum,2009–2015 50/50,1,by
+sum,2009–2015 50/50,1,cz
+sum,2009–2015 50/50,1,ge
+sum,2009–2015 50/50,1,il
+sum,2009–2015 50/50,1,md
+sum,2009–2015 50/50,1,ro
+sum,2009–2015 50/50,1,ru
+sum,2009–2015 50/50,1,ua
+sum,2009–2015 50/50,2,al
+sum,2009–2015 50/50,2,bg
+sum,2009–2015 50/50,2,cy
+sum,2009–2015 50/50,2,gb
+sum,2009–2015 50/50,2,gr
+sum,2009–2015 50/50,2,it
+sum,2009–2015 50/50,2,mt
+sum,2009–2015 50/50,2,sm
+sum,2009–2015 50/50,2,tr
+sum,2009–2015 50/50,3,at
+sum,2009–2015 50/50,3,ba
+sum,2009–2015 50/50,3,hr
+sum,2009–2015 50/50,3,me
+sum,2009–2015 50/50,3,mk
+sum,2009–2015 50/50,3,rs
+sum,2009–2015 50/50,3,si
+sum,2009–2015 50/50,4,ad
+sum,2009–2015 50/50,4,ch
+sum,2009–2015 50/50,4,es
+sum,2009–2015 50/50,4,fr
+sum,2009–2015 50/50,4,pt
+mean5,2016+ jury,0,at
+mean5,2016+ jury,0,au
+mean5,2016+ jury,0,be
+mean5,2016+ jury,0,ch
+mean5,2016+ jury,0,de
+mean5,2016+ jury,0,dk
+mean5,2016+ jury,0,es
+mean5,2016+ jury,0,fi
+mean5,2016+ jury,0,fr
+mean5,2016+ jury,0,gb
+mean5,2016+ jury,0,ie
+mean5,2016+ jury,0,il
+mean5,2016+ jury,0,is
+mean5,2016+ jury,0,lu
+mean5,2016+ jury,0,nl
+mean5,2016+ jury,0,no
+mean5,2016+ jury,0,pl
+mean5,2016+ jury,0,se
+mean5,2016+ jury,1,al
+mean5,2016+ jury,1,cz
+mean5,2016+ jury,1,hr
+mean5,2016+ jury,1,hu
+mean5,2016+ jury,1,it
+mean5,2016+ jury,1,me
+mean5,2016+ jury,1,mk
+mean5,2016+ jury,1,rs
+mean5,2016+ jury,1,si
+mean5,2016+ jury,1,sm
+mean5,2016+ jury,2,am
+mean5,2016+ jury,2,bg
+mean5,2016+ jury,2,cy
+mean5,2016+ jury,2,gr
+mean5,2016+ jury,2,md
+mean5,2016+ jury,2,mt
+mean5,2016+ jury,2,ro
+mean5,2016+ jury,2,ru
+mean5,2016+ jury,3,az
+mean5,2016+ jury,3,by
+mean5,2016+ jury,3,ee
+mean5,2016+ jury,3,ge
+mean5,2016+ jury,3,lt
+mean5,2016+ jury,3,lv
+mean5,2016+ jury,3,pt
+mean5,2016+ jury,3,ua
+sum,2016+ jury,0,al
+sum,2016+ jury,0,am
+sum,2016+ jury,0,az
+sum,2016+ jury,0,bg
+sum,2016+ jury,0,by
+sum,2016+ jury,0,cy
+sum,2016+ jury,0,es
+sum,2016+ jury,0,fr
+sum,2016+ jury,0,gr
+sum,2016+ jury,0,it
+sum,2016+ jury,0,lu
+sum,2016+ jury,0,md
+sum,2016+ jury,0,mt
+sum,2016+ jury,0,ro
+sum,2016+ jury,0,ru
+sum,2016+ jury,0,sm
+sum,2016+ jury,1,at
+sum,2016+ jury,1,au
+sum,2016+ jury,1,be
+sum,2016+ jury,1,ch
+sum,2016+ jury,1,de
+sum,2016+ jury,1,dk
+sum,2016+ jury,1,ee
+sum,2016+ jury,1,fi
+sum,2016+ jury,1,gb
+sum,2016+ jury,1,ie
+sum,2016+ jury,1,il
+sum,2016+ jury,1,is
+sum,2016+ jury,1,nl
+sum,2016+ jury,1,no
+sum,2016+ jury,1,pl
+sum,2016+ jury,1,se
+sum,2016+ jury,2,ba
+sum,2016+ jury,2,cz
+sum,2016+ jury,2,hr
+sum,2016+ jury,2,hu
+sum,2016+ jury,2,me
+sum,2016+ jury,2,mk
+sum,2016+ jury,2,rs
+sum,2016+ jury,2,si
+sum,2016+ jury,3,ge
+sum,2016+ jury,3,lt
+sum,2016+ jury,3,lv
+sum,2016+ jury,3,pt
+sum,2016+ jury,3,ua
+mean5,2016+ televote,0,au
+mean5,2016+ televote,0,be
+mean5,2016+ televote,0,dk
+mean5,2016+ televote,0,ee
+mean5,2016+ televote,0,fi
+mean5,2016+ televote,0,gb
+mean5,2016+ televote,0,ie
+mean5,2016+ televote,0,is
+mean5,2016+ televote,0,lt
+mean5,2016+ televote,0,lv
+mean5,2016+ televote,0,mt
+mean5,2016+ televote,0,nl
+mean5,2016+ televote,0,no
+mean5,2016+ televote,0,pl
+mean5,2016+ televote,0,se
+mean5,2016+ televote,1,am
+mean5,2016+ televote,1,az
+mean5,2016+ televote,1,by
+mean5,2016+ televote,1,cz
+mean5,2016+ televote,1,es
+mean5,2016+ televote,1,fr
+mean5,2016+ televote,1,ge
+mean5,2016+ televote,1,il
+mean5,2016+ televote,1,lu
+mean5,2016+ televote,1,md
+mean5,2016+ televote,1,pt
+mean5,2016+ televote,1,ro
+mean5,2016+ televote,1,ru
+mean5,2016+ televote,1,ua
+mean5,2016+ televote,2,al
+mean5,2016+ televote,2,at
+mean5,2016+ televote,2,ch
+mean5,2016+ televote,2,de
+mean5,2016+ televote,2,hr
+mean5,2016+ televote,2,hu
+mean5,2016+ televote,2,it
+mean5,2016+ televote,2,me
+mean5,2016+ televote,2,mk
+mean5,2016+ televote,2,rs
+mean5,2016+ televote,2,si
+mean5,2016+ televote,3,bg
+mean5,2016+ televote,3,cy
+mean5,2016+ televote,3,gr
+mean5,2016+ televote,3,sm
+sum,2016+ televote,0,au
+sum,2016+ televote,0,be
+sum,2016+ televote,0,dk
+sum,2016+ televote,0,ee
+sum,2016+ televote,0,fi
+sum,2016+ televote,0,gb
+sum,2016+ televote,0,ie
+sum,2016+ televote,0,is
+sum,2016+ televote,0,lt
+sum,2016+ televote,0,lv
+sum,2016+ televote,0,mt
+sum,2016+ televote,0,nl
+sum,2016+ televote,0,no
+sum,2016+ televote,0,pl
+sum,2016+ televote,0,se
+sum,2016+ televote,1,am
+sum,2016+ televote,1,az
+sum,2016+ televote,1,by
+sum,2016+ televote,1,cz
+sum,2016+ televote,1,es
+sum,2016+ televote,1,fr
+sum,2016+ televote,1,ge
+sum,2016+ televote,1,il
+sum,2016+ televote,1,lu
+sum,2016+ televote,1,md
+sum,2016+ televote,1,pt
+sum,2016+ televote,1,ro
+sum,2016+ televote,1,ru
+sum,2016+ televote,1,ua
+sum,2016+ televote,2,al
+sum,2016+ televote,2,at
+sum,2016+ televote,2,ba
+sum,2016+ televote,2,ch
+sum,2016+ televote,2,de
+sum,2016+ televote,2,hr
+sum,2016+ televote,2,hu
+sum,2016+ televote,2,it
+sum,2016+ televote,2,me
+sum,2016+ televote,2,mk
+sum,2016+ televote,2,rs
+sum,2016+ televote,2,si
+sum,2016+ televote,3,bg
+sum,2016+ televote,3,cy
+sum,2016+ televote,3,gr
+sum,2016+ televote,3,sm
+mean5,2016+ televote incl. 2024–25 semis,0,au
+mean5,2016+ televote incl. 2024–25 semis,0,be
+mean5,2016+ televote incl. 2024–25 semis,0,dk
+mean5,2016+ televote incl. 2024–25 semis,0,ee
+mean5,2016+ televote incl. 2024–25 semis,0,fi
+mean5,2016+ televote incl. 2024–25 semis,0,gb
+mean5,2016+ televote incl. 2024–25 semis,0,ie
+mean5,2016+ televote incl. 2024–25 semis,0,is
+mean5,2016+ televote incl. 2024–25 semis,0,lt
+mean5,2016+ televote incl. 2024–25 semis,0,lv
+mean5,2016+ televote incl. 2024–25 semis,0,mt
+mean5,2016+ televote incl. 2024–25 semis,0,nl
+mean5,2016+ televote incl. 2024–25 semis,0,no
+mean5,2016+ televote incl. 2024–25 semis,0,pl
+mean5,2016+ televote incl. 2024–25 semis,0,se
+mean5,2016+ televote incl. 2024–25 semis,1,am
+mean5,2016+ televote incl. 2024–25 semis,1,az
+mean5,2016+ televote incl. 2024–25 semis,1,by
+mean5,2016+ televote incl. 2024–25 semis,1,cz
+mean5,2016+ televote incl. 2024–25 semis,1,es
+mean5,2016+ televote incl. 2024–25 semis,1,fr
+mean5,2016+ televote incl. 2024–25 semis,1,ge
+mean5,2016+ televote incl. 2024–25 semis,1,il
+mean5,2016+ televote incl. 2024–25 semis,1,lu
+mean5,2016+ televote incl. 2024–25 semis,1,md
+mean5,2016+ televote incl. 2024–25 semis,1,pt
+mean5,2016+ televote incl. 2024–25 semis,1,ro
+mean5,2016+ televote incl. 2024–25 semis,1,ru
+mean5,2016+ televote incl. 2024–25 semis,1,ua
+mean5,2016+ televote incl. 2024–25 semis,2,al
+mean5,2016+ televote incl. 2024–25 semis,2,at
+mean5,2016+ televote incl. 2024–25 semis,2,ch
+mean5,2016+ televote incl. 2024–25 semis,2,de
+mean5,2016+ televote incl. 2024–25 semis,2,hr
+mean5,2016+ televote incl. 2024–25 semis,2,hu
+mean5,2016+ televote incl. 2024–25 semis,2,it
+mean5,2016+ televote incl. 2024–25 semis,2,me
+mean5,2016+ televote incl. 2024–25 semis,2,mk
+mean5,2016+ televote incl. 2024–25 semis,2,rs
+mean5,2016+ televote incl. 2024–25 semis,2,si
+mean5,2016+ televote incl. 2024–25 semis,3,bg
+mean5,2016+ televote incl. 2024–25 semis,3,cy
+mean5,2016+ televote incl. 2024–25 semis,3,gr
+mean5,2016+ televote incl. 2024–25 semis,3,sm
+sum,2016+ televote incl. 2024–25 semis,0,am
+sum,2016+ televote incl. 2024–25 semis,0,az
+sum,2016+ televote incl. 2024–25 semis,0,bg
+sum,2016+ televote incl. 2024–25 semis,0,by
+sum,2016+ televote incl. 2024–25 semis,0,cy
+sum,2016+ televote incl. 2024–25 semis,0,cz
+sum,2016+ televote incl. 2024–25 semis,0,es
+sum,2016+ televote incl. 2024–25 semis,0,fr
+sum,2016+ televote incl. 2024–25 semis,0,ge
+sum,2016+ televote incl. 2024–25 semis,0,gr
+sum,2016+ televote incl. 2024–25 semis,0,il
+sum,2016+ televote incl. 2024–25 semis,0,lu
+sum,2016+ televote incl. 2024–25 semis,0,md
+sum,2016+ televote incl. 2024–25 semis,0,pt
+sum,2016+ televote incl. 2024–25 semis,0,ro
+sum,2016+ televote incl. 2024–25 semis,0,ru
+sum,2016+ televote incl. 2024–25 semis,0,sm
+sum,2016+ televote incl. 2024–25 semis,0,ua
+sum,2016+ televote incl. 2024–25 semis,1,au
+sum,2016+ televote incl. 2024–25 semis,1,be
+sum,2016+ televote incl. 2024–25 semis,1,dk
+sum,2016+ televote incl. 2024–25 semis,1,ee
+sum,2016+ televote incl. 2024–25 semis,1,fi
+sum,2016+ televote incl. 2024–25 semis,1,gb
+sum,2016+ televote incl. 2024–25 semis,1,ie
+sum,2016+ televote incl. 2024–25 semis,1,is
+sum,2016+ televote incl. 2024–25 semis,1,lt
+sum,2016+ televote incl. 2024–25 semis,1,lv
+sum,2016+ televote incl. 2024–25 semis,1,mt
+sum,2016+ televote incl. 2024–25 semis,1,nl
+sum,2016+ televote incl. 2024–25 semis,1,no
+sum,2016+ televote incl. 2024–25 semis,1,pl
+sum,2016+ televote incl. 2024–25 semis,1,se
+sum,2016+ televote incl. 2024–25 semis,2,al
+sum,2016+ televote incl. 2024–25 semis,2,at
+sum,2016+ televote incl. 2024–25 semis,2,ba
+sum,2016+ televote incl. 2024–25 semis,2,ch
+sum,2016+ televote incl. 2024–25 semis,2,de
+sum,2016+ televote incl. 2024–25 semis,2,hr
+sum,2016+ televote incl. 2024–25 semis,2,hu
+sum,2016+ televote incl. 2024–25 semis,2,it
+sum,2016+ televote incl. 2024–25 semis,2,me
+sum,2016+ televote incl. 2024–25 semis,2,mk
+sum,2016+ televote incl. 2024–25 semis,2,rs
+sum,2016+ televote incl. 2024–25 semis,2,si
