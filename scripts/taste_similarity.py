@@ -143,6 +143,27 @@ for prof in PROFILES:
                                                   for m in ["taste_sim_raw", "taste_sim_no_top5", "taste_sim_past"]}}
 both = yr[yr.profile != "total"].pivot_table(index=["year", "from", "to"], columns="profile", values="taste_sim")
 nums["jury_vs_tele_profile_vote"] = corr(both, "jury", "tele")
+# Check: recompute 20 random votes per profile by brute force (a plain loop over the votes)
+rng = np.random.default_rng(2805)
+check = {}
+for prof in PROFILES:
+    y = yr[(yr.profile == prof) & yr.taste_sim.notna()]
+    v = all_votes[(all_votes.vote_type == prof) & (all_votes.song >= 0)]
+    pe = all_votes[all_votes.vote_type == prof].groupby(["era", "from", "to"]).excess.agg(["mean", "size"]).reset_index()
+    pe = pe[pe["size"] >= MIN_VOTES].sort_values("mean", ascending=False)
+    diffs = []
+    for r in y.iloc[rng.choice(len(y), 20, replace=False)].to_dict("records"):
+        top = list(pe[(pe.era == r["era"]) & (pe["from"] == r["from"])]["to"][:TOP_K])
+        mine = v[(v["from"] == r["from"]) & (v["to"] != r["to"])]  # A's votes, without B's songs
+        target = z["emb_c"][song_id[(r["year"], r["to"])]]
+        for col, sel in [("taste_sim", mine.year != r["year"]),
+                         ("taste_sim_no_top5", (mine.year != r["year"]) & ~mine["to"].isin(top)),
+                         ("taste_sim_past", mine.year < r["year"])]:
+            P = (mine[sel].share.to_numpy()[:, None] * z["emb_c"][mine[sel].song]).sum(axis=0)
+            if np.linalg.norm(P) > 1e-9 and not np.isnan(r[col]):
+                diffs.append(abs(P @ target / np.linalg.norm(P) - r[col]))
+    check[prof] = {"n_votes_checked": 20, "n_values_compared": len(diffs), "max_abs_diff": float(f"{max(diffs):.1e}")}
+nums["brute_force_check"] = check
 record("taste_similarity", nums)
 for prof in PROFILES:
     print(prof, nums[prof]["n_votes"], nums[prof]["dist"]["taste_sim"], nums[prof]["taste_vs_own_centred"]["vote"])

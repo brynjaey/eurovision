@@ -3,9 +3,12 @@
 Every number here is also in `data/key_numbers.json`, written by the script named next to it.
 Rerun the script, then update this file if a number changed. Interpretation is the group's job.
 
-## Data checks
-- 2026 final: 25/25 entries match Eurovisionworld on total, televote and jury points.
-  Source: manual comparison 2026-11-16 (NOTES.md). TODO: not yet scripted, so not in key_numbers.json.
+## Data checks (`scripts/check_data.py`; key_numbers: `checks`)
+- 2023 final, Spijkervet vs EurovisionAPI: 962 of 962 matched votes identical (total, televote, jury); Spijkervet has 988 rows incl. self-votes.
+- 2026 final vs Eurovisionworld (transcribed table, raw/checks/): 25 of 25 entries identical; winner BG 516.
+- Winners: 2024 CH 591, 2025 AT 436.
+- 2023 semi-finals: 39 of 39 voters give 58 points to 10 entries.
+- Shares sum to 1 per voter and round (max deviation 2.22e-16); excess sums to 0 per entry and round (max 5.69e-16).
 
 ## Diaspora (`scripts/build_diaspora.py` → `data/diaspora.csv`, key_numbers: `diaspora`)
 - 12,048 rows, 1,506 ordered country pairs, UN years 1990–2024. Unmatched: yu, cs, wld.

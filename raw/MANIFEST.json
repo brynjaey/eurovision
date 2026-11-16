@@ -107,6 +107,18 @@
       "license": "apache-2.0",
       "note": "weights are downloaded to the Hugging Face cache by scripts/lyrics_similarity.py, not stored in raw/",
       "used_for": "embedding English lyrics (max_seq_length 128)"
+    },
+    {
+      "files": [
+        "raw/checks/eurovisionworld_2026_final.csv"
+      ],
+      "source": "https://eurovisionworld.com/esc/bulgaria-wins-the-eurovision-song-contest-2026 (article dated 17 May 2026)",
+      "retrieved": "2026-11-16",
+      "retrieved_how": "TRANSCRIPTION: the 25-row Grand Final table (place, country, total, public = televote, jury) as read from the page by a web-fetch on 2026-11-16; country names converted to our ISO2 codes. Not a downloaded file.",
+      "used_for": "check only (scripts/check_data.py): 2026 final reconstruction",
+      "sha256": {
+        "raw/checks/eurovisionworld_2026_final.csv": "3606b87e6c1a34342dc069f521282e2c3325ee881a453bc63070d66ff208679f"
+      }
     }
   ]
 }

@@ -26,6 +26,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from key_numbers import record
+
 ROOT = Path(__file__).resolve().parent.parent
 RAW, OUT = ROOT / "raw", ROOT / "data"
 
@@ -121,6 +123,10 @@ def main() -> None:
              .reset_index())
     agg.to_csv(OUT / "edges_agg.csv", index=False)
 
+    record("edges", {"n_rows": len(e), "years": [int(e.year.min()), int(e.year.max())],
+                     "n_contest_years": int(e.year.nunique()), "n_country_codes": len(ISO),
+                     "n_rows_by_vote_type": e.vote_type.value_counts().to_dict(),
+                     "n_rounds": int(e[["year", "round"]].drop_duplicates().shape[0])})
     print(f"edges.csv: {len(e):,} rows, years {e.year.min()}-{e.year.max()}")
     print(f"edges_agg.csv: {len(agg):,} rows")
 

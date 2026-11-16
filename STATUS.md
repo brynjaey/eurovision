@@ -3,7 +3,7 @@
 Two of us work on this project. Every Claude Code session starts by reading this file and
 ends by updating it, so whoever opens the repo next knows where things stand.
 
-_Last updated: 2026-11-16, step 7 figures drafted; step 8 methods next._
+_Last updated: 2026-11-16, step 8 Methods draft done; group writes the rest._
 
 ## Done
 - [x] Vote network 1957–2026 with excess scores: `data/edges.csv`, `data/edges_agg.csv`
@@ -22,6 +22,8 @@ _Last updated: 2026-11-16, step 7 figures drafted; step 8 methods next._
 - [x] Step 6 main model: `data/regression_coefs.csv` (3 models × 6–7 specs)
 - [x] Step 7 figures: `figures/fig1_modularity.pdf`, `fig2_coefficients.pdf`, `fig3_communities.pdf` + `figures/captions.md`
 - [x] Leave-one-country-out check of same_family_only: `data/leave_one_out_family.csv`, `data/diff_family_top_pairs.csv`
+- [x] Data checks scripted: `scripts/check_data.py`
+- [x] Step 8 Methods draft: `paper/methods.md` (generated from `paper/methods_template.md`)
 - [x] Report files: `RESULTS.md` (facts per step) and `data/key_numbers.json` (written by scripts via `scripts/key_numbers.py`)
 - [x] Citation tracking: `references.bib` with 6 data + 6 papers, all verified against their pages
 
@@ -31,7 +33,6 @@ _Last updated: 2026-11-16, step 7 figures drafted; step 8 methods next._
 
 ## Next up (in order)
 0. Hand ratings → `python scripts/rating_agreement.py` → RESULTS.md (sheet still empty on 2026-11-16)
-8. Methods draft: `paper/methods.md`, facts only; TODO headers for the group's sections
 
 ## Decisions
 - Diaspora: missing UN pairs = 0 (robustness: observed pairs only); diaspora analysis 1997+, each vote year matched to nearest UN year.
@@ -47,6 +48,8 @@ _Last updated: 2026-11-16, step 7 figures drafted; step 8 methods next._
 - edges.csv: EurovisionAPI fills every (year, round) Spijkervet lacks (2023 semis added).
 
 ## Open questions (for the humans)
+- paper/methods.md TODOs: hand ratings, two-way clustering reference, repository URL, 2026 spot-check on eurovision.tv. Methods is ~1,450 words; trim to fit 6 pages.
+- Abstract, Significance, Introduction, Results text, Discussion, reflection: ours to write (TODO headers in methods_template.md).
 - Two-way clustered SEs: same_family_only in the 2016+ jury model gets a negative variance when IL or PT is left out (leave-one-out). Add a one-way clustered comparison?
 - Hand ratings: the sheet in the repo was still empty on 2026-11-16 — commit the filled `data/lyrics_rating_sheet.csv`.
 - Lyrics: rate the 20 pairs in `data/lyrics_rating_sheet.csv` independently (agree a scale first, e.g. 1–5); don't open `lyrics_rating_key.csv` before.
@@ -59,6 +62,7 @@ _Last updated: 2026-11-16, step 7 figures drafted; step 8 methods next._
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-16, Kristófer: check_data.py, Methods draft (write_methods.py), counts recorded by build scripts. Check: read paper/methods.md.
 - 2026-11-16, Kristófer: Fig 3 two-column, histogram to diagnostics, leave-one-out check (leave_one_out.py). Check: RESULTS.md leave-one-out section.
 - 2026-11-16, Kristófer: step 7 figures (make_figures.py) + captions. Check: the three PDFs at print size.
 - 2026-11-16, Kristófer: language as category, taste profiles per vote type, step 6 rerun. Check: main table in RESULTS.md.

@@ -1,8 +1,55 @@
 {
+  "borders": {
+    "_updated": "2026-11-16",
+    "n_land_borders": 91,
+    "n_ordered_pairs": 2756,
+    "no_data": [
+      "cs",
+      "wld",
+      "yu"
+    ]
+  },
+  "checks": {
+    "_updated": "2026-11-16",
+    "excess_mean_all_votes": 6.81e-20,
+    "excess_sum_per_entry_max_abs": 5.69e-16,
+    "final_2023_sources": {
+      "n_identical": 962,
+      "n_matched": 962,
+      "n_votes_eurovisionapi": 962,
+      "n_votes_spijkervet": 988
+    },
+    "final_2026_vs_eurovisionworld": {
+      "n_entries": 25,
+      "n_identical": 25,
+      "winner": "bg",
+      "winner_total": 516
+    },
+    "semis_2023": {
+      "n_voters": 39,
+      "n_voters_10_entries": 39,
+      "n_voters_58_points": 39
+    },
+    "share_sum_max_abs_dev": 2.22e-16,
+    "winner_2024": {
+      "country": "ch",
+      "total": 591
+    },
+    "winner_2025": {
+      "country": "at",
+      "total": 436
+    }
+  },
   "collinearity": {
     "_updated": "2026-11-16",
+    "all_samples": {
+      "max_abs_corr": 0.375,
+      "max_vif": 1.39,
+      "taste_sim_corr_max_abs": 0.063
+    },
     "jury_2016": {
       "max_abs_corr": 0.37,
+      "max_vif": 1.35,
       "taste_sim_corr": {
         "border": 0.033,
         "diaspora_log": -0.012,
@@ -11,6 +58,7 @@
         "same_subbranch": 0.04,
         "shared_official": 0.053
       },
+      "taste_sim_corr_max_abs": 0.053,
       "vif": {
         "border": 1.29,
         "diaspora_log": 1.11,
@@ -23,6 +71,7 @@
     },
     "tele_1997": {
       "max_abs_corr": 0.375,
+      "max_vif": 1.39,
       "taste_sim_corr": {
         "border": -0.014,
         "diaspora_log": -0.063,
@@ -31,6 +80,7 @@
         "same_subbranch": 0.014,
         "shared_official": -0.017
       },
+      "taste_sim_corr_max_abs": 0.063,
       "vif": {
         "border": 1.32,
         "diaspora_log": 1.16,
@@ -43,6 +93,7 @@
     },
     "tele_2016": {
       "max_abs_corr": 0.37,
+      "max_vif": 1.35,
       "taste_sim_corr": {
         "border": 0.058,
         "diaspora_log": -0.029,
@@ -51,6 +102,7 @@
         "same_subbranch": -0.018,
         "shared_official": -0.018
       },
+      "taste_sim_corr_max_abs": 0.058,
       "vif": {
         "border": 1.3,
         "diaspora_log": 1.11,
@@ -63,6 +115,7 @@
     },
     "tele_2016_semis": {
       "max_abs_corr": 0.375,
+      "max_vif": 1.35,
       "taste_sim_corr": {
         "border": 0.054,
         "diaspora_log": -0.021,
@@ -71,6 +124,7 @@
         "same_subbranch": -0.02,
         "shared_official": -0.026
       },
+      "taste_sim_corr_max_abs": 0.054,
       "vif": {
         "border": 1.31,
         "diaspora_log": 1.11,
@@ -97,6 +151,22 @@
       "cs",
       "yu",
       "wld"
+    ]
+  },
+  "edges": {
+    "_updated": "2026-11-16",
+    "n_contest_years": 69,
+    "n_country_codes": 53,
+    "n_rounds": 109,
+    "n_rows": 83526,
+    "n_rows_by_vote_type": {
+      "jury": 14503,
+      "tele": 14635,
+      "total": 54388
+    },
+    "years": [
+      1957,
+      2026
     ]
   },
   "language": {
@@ -432,7 +502,8 @@
           "z": 25.0893
         }
       }
-    }
+    },
+    "stability_max_spread_20_runs": 0.0346
   },
   "pairs": {
     "_updated": "2026-11-16",
@@ -1668,6 +1739,23 @@
   },
   "taste_similarity": {
     "_updated": "2026-11-16",
+    "brute_force_check": {
+      "jury": {
+        "max_abs_diff": 2.8e-16,
+        "n_values_compared": 57,
+        "n_votes_checked": 20
+      },
+      "tele": {
+        "max_abs_diff": 2.2e-16,
+        "n_values_compared": 58,
+        "n_votes_checked": 20
+      },
+      "total": {
+        "max_abs_diff": 1.9e-16,
+        "n_values_compared": 59,
+        "n_votes_checked": 20
+      }
+    },
     "jury": {
       "dist": {
         "own_sim": {

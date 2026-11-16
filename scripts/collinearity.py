@@ -33,11 +33,16 @@ for s, d in pairs.groupby("sample"):
         vif_rows.append((s, p, 1 / (1 - r2)))
     nums[s] = {"taste_sim_corr": {p: round(c.loc["taste_sim", p], 3) for p in PRED if p != "taste_sim"},
                "max_abs_corr": round(float(c.where(~np.eye(len(PRED), dtype=bool)).abs().max().max()), 3),
-               "vif": {p: round(v, 2) for ss, p, v in vif_rows if ss == s}}
+               "vif": {p: round(v, 2) for ss, p, v in vif_rows if ss == s},
+               "max_vif": round(max(v for ss, _, v in vif_rows if ss == s), 2),
+               "taste_sim_corr_max_abs": round(float(c.loc["taste_sim"].drop("taste_sim").abs().max()), 3)}
 
 pd.DataFrame(corr_rows, columns=["sample", "var1", "var2", "pearson"]).to_csv(
     ROOT / "data/predictor_correlations.csv", index=False)
 pd.DataFrame(vif_rows, columns=["sample", "predictor", "vif"]).to_csv(ROOT / "data/predictor_vif.csv", index=False)
+nums["all_samples"] = {"max_abs_corr": max(v["max_abs_corr"] for v in nums.values()),
+                       "taste_sim_corr_max_abs": max(v["taste_sim_corr_max_abs"] for v in nums.values()),
+                       "max_vif": max(v["max_vif"] for v in nums.values())}
 record("collinearity", nums)
 for s, v in nums.items():
     print(s, v)

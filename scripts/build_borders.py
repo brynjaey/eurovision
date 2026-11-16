@@ -11,6 +11,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from key_numbers import record
+
 ROOT = Path(__file__).resolve().parent.parent
 
 src = pd.read_csv(ROOT / "raw/borders/GEODATASOURCE-COUNTRY-BORDERS.CSV", keep_default_na=False)
@@ -27,4 +29,6 @@ for a in codes:
         rows.append((a, b, border))
 out = pd.DataFrame(rows, columns=["from", "to", "border"])
 out.to_csv(ROOT / "data/borders.csv", index=False)
+record("borders", {"n_ordered_pairs": len(out), "n_land_borders": int(out.border.sum()) // 2,
+                   "no_data": sorted(set(codes) - known)})
 print(f"borders.csv: {len(out):,} pairs, {int(out.border.sum()) // 2} land borders")

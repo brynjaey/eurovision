@@ -145,8 +145,11 @@ smp = pd.DataFrame(samples, columns=["weighting", "network", "shuffle", "q_null"
 smp.to_csv(ROOT / "data/null_samples.csv", index=False)
 pd.DataFrame(comm_rows, columns=["weighting", "network", "community", "code"]).to_csv(
     ROOT / "data/communities_obs.csv", index=False)
+res_all = pd.DataFrame(results)
+spread = (res_all.q_obs_max20 - res_all.q_obs_min20)[res_all.weighting == WEIGHTINGS[0]]
 record("null_model", {"n_shuffles": N_SHUFFLES, "louvain_seeds": SEEDS, "min_votes_mean5": MIN_VOTES,
-                      "main_weighting": WEIGHTINGS[0], "networks": nums})
+                      "main_weighting": WEIGHTINGS[0], "networks": nums,
+                      "stability_max_spread_20_runs": round(float(spread.max()), 4)})
 
 # Figure: main weighting, one small panel per main network, null histogram + observed modularity
 plt.rcParams.update({"font.size": 7, "font.family": "sans-serif", "axes.spines.top": False,

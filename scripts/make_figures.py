@@ -120,7 +120,7 @@ pos = nx.spring_layout(U, weight="weight", seed=2805, k=0.75, iterations=500)
 
 # Colour follows the community: jury communities by size get slots 0..k; each televote community gets
 # the slot of the jury community it overlaps most (one-to-one), the rest take the next free slots.
-jury = sorted(part[NETS[0]].values(), key=len, reverse=True)
+jury = sorted(part[NETS[0]].values(), key=lambda c: (-len(c), sorted(c)))  # by size, ties by first code
 tele = list(part[NETS[1]].values())
 slot = {NETS[0]: {i: i for i in range(len(jury))}}
 overlap = np.array([[len(t & j) / len(t | j) for j in jury] for t in tele])

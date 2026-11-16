@@ -152,6 +152,15 @@
   data/diff_family_top_pairs.csv. regression.py was refactored (load_pairs, fit, main) so the check uses the same model
   code; its output is byte-identical after the refactor. In the 2016+ jury model, leaving out il or pt makes the two-way
   clustered variance of same_family_only negative (not positive definite); those two CIs are recorded as missing.
+- 2026-11-16: Data checks scripted, scripts/check_data.py -> key_numbers "checks" (2023 sources, 2026 scoreboard, 2024/2025
+  winners, 2023 semis, shares, excess sums). The 2026 scoreboard is a TRANSCRIPTION of the Eurovisionworld table read on
+  2026-11-16, stored as raw/checks/eurovisionworld_2026_final.csv with a MANIFEST entry saying so.
+  build_edges.py and build_borders.py now record their counts; taste_similarity.py records a brute-force check of 20
+  random votes per profile; collinearity.py records max VIF and maxima over all samples; null_model.py records the
+  largest spread of observed Q over 20 single Louvain runs (rerun: results equal to 2e-14, same partitions).
+- 2026-11-16: Methods draft: paper/methods_template.md -> scripts/write_methods.py -> paper/methods.md. Every result number
+  is a placeholder filled from data/key_numbers.json; the script stops on a missing key and lists the literal numbers
+  left in the template (dates, versions, parameters). Edit the template, never methods.md.
 
 ## Decisions
 - Excess = vote share minus the leave-one-out mean share the entry got from the other voters in the same round and vote type (see build_edges.py).
