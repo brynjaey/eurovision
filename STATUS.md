@@ -3,7 +3,7 @@
 Two of us work on this project. Every Claude Code session starts by reading this file and
 ends by updating it, so whoever opens the repo next knows where things stand.
 
-_Last updated: 2026-11-16, step 6 main model done; hand ratings still missing._
+_Last updated: 2026-11-16, step 6 rerun (language category, per-vote-type taste); step 7 figures next._
 
 ## Done
 - [x] Vote network 1957–2026 with excess scores: `data/edges.csv`, `data/edges_agg.csv`
@@ -36,14 +36,15 @@ _Last updated: 2026-11-16, step 6 main model done; hand ratings still missing._
 - Diaspora: missing UN pairs = 0 (robustness: observed pairs only); diaspora analysis 1997+, each vote year matched to nearest UN year.
 - Language: shared_official uses CLDR "official" only; branch / sub-branch from named Glottolog nodes (`data/glottolog_nodes.csv`).
 - Null model: edge weight = mean excess, min 5 votes per pair (sum kept side by side). 2024–25 televote-only semis out of 2016+ networks; robustness run includes them.
-- Step 6: regression on the full signed excess.
+- Step 6: regression on the full signed excess; >= 5 votes per pair; diaspora_log = log(1 + migrants) at nearest UN year.
+- Language in the regression: one category (diff_family ref / same_family_only / same_branch_only / same_subbranch) + shared_official.
+- Taste profiles per vote type for 2016+ (jury from jury votes, televote from televotes); 1997–2008 total.
 - Lyrics: all cosines on year-centred vectors.
 - Lyrics: main measure = taste_sim (A's taste profile from other years, B's songs excluded) vs B's song; own_sim kept for comparison.
 - edges.csv: EurovisionAPI fills every (year, round) Spijkervet lacks (2023 semis added).
 
 ## Open questions (for the humans)
 - Hand ratings: the sheet in the repo was still empty on 2026-11-16 — commit the filled `data/lyrics_rating_sheet.csv`.
-- Regression: min 5 votes per pair, diaspora as log(1 + migrants), taste from total-vote profiles for jury and televote. OK?
 - Lyrics: rate the 20 pairs in `data/lyrics_rating_sheet.csv` independently (agree a scale first, e.g. 1–5); don't open `lyrics_rating_key.csv` before.
 - 2026 final check is manual, not scripted, so it is not in key_numbers.json. Script it if we quote it.
 - references.bib TODOs: Ginsburgh & Noury DOI, Blondel journal details, Zenodo DOI for Burgoyne, EurovisionAPI has no stated license
@@ -54,6 +55,7 @@ _Last updated: 2026-11-16, step 6 main model done; hand ratings still missing._
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-16, Kristófer: language as category, taste profiles per vote type, step 6 rerun. Check: main table in RESULTS.md.
 - 2026-11-16, Kristófer: year-centred embeddings, taste robustness profiles, collinearity, step 6 regression (build_pairs.py, regression.py). Check: coefficient tables in RESULTS.md.
 - 2026-11-16, Kristófer: added 2023 semis (build_edges.py), reran pipeline + null model; taste_similarity.py; rating_agreement.py; Fixes log in NOTES. Check: taste vs own correlation in RESULTS.md.
 - 2026-11-16, Kristófer: step 5 lyrics (build_lyrics.py, lyrics_similarity.py, raw lyrics, model in MANIFEST/bib). Check: lyrics_extremes.csv; do the hand rating.

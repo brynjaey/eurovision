@@ -5,10 +5,12 @@ Output: data/regression_coefs.csv  model, spec, term, beta, ci_low, ci_high, p, 
         data/regression_fit.csv    model, spec, n, n_countries, r2
         key_numbers.json section "regression"
 
-Model:  excess_mean ~ border + diaspora_log + shared_official + same_family + same_branch
-                      + same_subbranch + taste_sim          (OLS, one row per directed pair A -> B)
-Standardised: outcome and every predictor are z-scored within the sample of each fit, so a
-coefficient (beta) is the change in excess, in SDs, per one-SD change of the predictor.
+Model:  excess_mean ~ border + diaspora_log + shared_official + language category + taste_sim
+        (OLS, one row per directed pair A -> B). Language category = the deepest Glottolog level the
+        two primary languages share, as three 0/1 dummies against the reference diff_family:
+        same_family_only, same_branch_only, same_subbranch.
+Standardised: outcome and every predictor (the 0/1 dummies too) are z-scored within the sample of
+each fit, so a coefficient (beta) is the change in excess, in SDs, per one-SD change of the predictor.
 CIs (95%): standard errors clustered two-way by voter (A) and receiver (B), because the same
 country appears in many pairs.
 Models: 2016+ jury, 2016+ televote, 1997-2008 televote.
@@ -30,10 +32,13 @@ import statsmodels.api as sm
 from key_numbers import record
 
 ROOT = Path(__file__).resolve().parent.parent
-FRIEND = ["border", "diaspora_log", "shared_official", "same_family", "same_branch", "same_subbranch"]
+FRIEND = ["border", "diaspora_log", "shared_official", "same_family_only", "same_branch_only", "same_subbranch"]
 MODELS = {"2016+ jury": "jury_2016", "2016+ televote": "tele_2016", "1997–2008 televote": "tele_1997"}
 
 pairs = pd.read_csv(ROOT / "data/pairs.csv")
+for cat in ["same_family_only", "same_branch_only"]:  # dummies; same_subbranch is already 0/1
+    pairs[cat] = (pairs.lang_cat == cat).astype(int)
+assert (pairs.same_subbranch == (pairs.lang_cat == "same_subbranch")).all()
 
 
 def fit(d: pd.DataFrame, taste: str) -> tuple[pd.DataFrame, dict]:

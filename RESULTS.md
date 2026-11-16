@@ -93,64 +93,80 @@ The last row is the robustness network (2023–25 televote-only semis added to t
 - Misses: music, melody, genre, staging and performance; anything lost in translation; the original language itself.
 
 ## Taste-profile similarity (`scripts/taste_similarity.py` → `data/taste_similarity_year.csv`, `data/taste_similarity.csv`; key_numbers: `taste_similarity`)
-Per vote (A, B, year), 45,524 votes:
+Profiles from one vote type: total (all eras; used for 1997–2008), jury (2016+ jury votes), tele (2016+ televotes).
+Per vote (A, B, year):
 
-| Measure | mean | SD | n |
-|---|---|---|---|
-| own_sim | -0.0352 | 0.1367 | 44,827 |
-| own_sim_raw | 0.5278 | 0.1148 | 44,827 |
-| taste_sim | 0.0033 | 0.1497 | 45,506 |
-| taste_sim_no_top5 | 0.0039 | 0.1452 | 45,506 |
-| taste_sim_past | 0.0018 | 0.1411 | 44,343 |
-| taste_sim_raw | 0.7194 | 0.0919 | 45,506 |
+| Profile | Measure | mean | SD | n |
+|---|---|---|---|---|
+| total | own_sim | -0.0352 | 0.1367 | 44,827 |
+| total | own_sim_raw | 0.5278 | 0.1148 | 44,827 |
+| total | taste_sim | 0.0033 | 0.1497 | 45,506 |
+| total | taste_sim_no_top5 | 0.0039 | 0.1452 | 45,506 |
+| total | taste_sim_past | 0.0018 | 0.1411 | 44,343 |
+| total | taste_sim_raw | 0.7194 | 0.0919 | 45,506 |
+| jury | own_sim | -0.0265 | 0.1309 | 12,001 |
+| jury | own_sim_raw | 0.5386 | 0.1014 | 12,001 |
+| jury | taste_sim | 0.0001 | 0.1446 | 12,183 |
+| jury | taste_sim_no_top5 | 0.0002 | 0.1399 | 12,183 |
+| jury | taste_sim_past | -0.0012 | 0.1374 | 10,736 |
+| jury | taste_sim_raw | 0.7255 | 0.0806 | 12,183 |
+| tele | own_sim | -0.0265 | 0.1309 | 12,001 |
+| tele | own_sim_raw | 0.5386 | 0.1014 | 12,001 |
+| tele | taste_sim | -0.0021 | 0.1311 | 12,326 |
+| tele | taste_sim_no_top5 | -0.0021 | 0.1278 | 12,326 |
+| tele | taste_sim_past | -0.0025 | 0.1272 | 10,843 |
+| tele | taste_sim_raw | 0.7256 | 0.0793 | 12,326 |
 
-taste_sim vs own_sim (Pearson / Spearman):
+Pearson correlations (taste vs own: per vote unless marked; main vs variants: per pair × era):
 
-| Vectors | per vote | per pair × era |
-|---|---|---|
-| raw | 0.589 / 0.563 (n = 44,809) | 0.605 / 0.593 (n = 7,547) |
-| year-centred | 0.063 / 0.061 | 0.067 / 0.07 |
+| Profile | taste vs own, raw | taste vs own, centred | taste vs own, centred, pair × era | main vs raw | main vs no top-5 | main vs past only |
+|---|---|---|---|---|---|---|
+| total | 0.589 | 0.063 | 0.067 | 0.456 | 0.862 | 0.715 |
+| jury | 0.573 | 0.002 | -0.022 | 0.336 | 0.807 | 0.718 |
+| tele | 0.572 | 0.027 | 0.025 | 0.351 | 0.715 | 0.739 |
 
-Main taste_sim (centred) vs its variants, per pair × era (Pearson / Spearman): raw 0.456 / 0.457;
-no top-5 partners 0.862 / 0.836; past years only 0.715 / 0.729 (n = 7,347).
-
-- Check: main, no-top-5 and past profiles recomputed by brute force for 4 votes match to 6 decimals.
-- Captures: how close B's lyrics are to the lyrics A gave points to in other years (A's revealed lyric taste), with B's
-  own songs left out, relative to each year's average song.
+- Jury-profile vs televote-profile taste_sim for the same 2016+ vote: Pearson 0.309, Spearman 0.287 (n = 12,183).
+- Checks: total, jury and televote profiles (incl. semi-final-only songs, robustness variants) recomputed by brute force
+  for several votes match to 6 decimals.
+- Captures: how close B's lyrics are to the lyrics A gave points to (with this vote type) in other years, with B's own
+  songs left out, relative to each year's average song.
 - Misses: music, genre and staging; A's past points also carry A's friendship bias towards countries other than B
-  (the no-top-5 variant removes the 5 strongest); the main profile uses later years too (the past-only variant does not).
+  (the no-top-5 variant removes the 5 strongest); the main profile uses later years too (the past-only variant does not);
+  jury and televote profiles only have 2016+ votes to learn from.
 
 ## Collinearity (`scripts/collinearity.py` → `data/predictor_correlations.csv`, `data/predictor_vif.csv`; key_numbers: `collinearity`)
-Pearson correlation of taste_sim with each friendship predictor, pair level (samples as in the regression):
+Pearson correlation of taste_sim with each friendship predictor, pair level (samples as in the regression; taste from
+the matching profile). Language as category dummies (reference diff_family).
 
-| Sample | border | diaspora_log | shared_official | same_family | same_branch | same_subbranch | max VIF (all predictors) |
+| Sample | border | diaspora_log | shared_official | same_family_only | same_branch_only | same_subbranch | max VIF (all predictors) |
 |---|---|---|---|---|---|---|---|
-| jury_2016 | 0.049 | -0.035 | -0.008 | 0.024 | 0.018 | -0.009 | 1.96 |
-| tele_1997 | -0.014 | -0.063 | -0.017 | 0.091 | 0.033 | 0.014 | 1.95 |
-| tele_2016 | 0.049 | -0.035 | -0.008 | 0.024 | 0.018 | -0.009 | 1.96 |
-| tele_2016_semis | 0.05 | -0.037 | -0.013 | 0.031 | 0.018 | -0.014 | 1.97 |
+| jury_2016 | 0.033 | -0.012 | 0.053 | 0.046 | -0.019 | 0.04 | 1.35 |
+| tele_1997 | -0.014 | -0.063 | -0.017 | 0.058 | 0.03 | 0.014 | 1.39 |
+| tele_2016 | 0.058 | -0.029 | -0.018 | 0.026 | 0.007 | -0.018 | 1.35 |
+| tele_2016_semis | 0.054 | -0.021 | -0.026 | 0.026 | 0.011 | -0.02 | 1.35 |
 
-- Largest absolute correlation between any two predictors: jury_2016 0.658, tele_1997 0.638, tele_2016 0.658, tele_2016_semis 0.657 (same_branch – same_subbranch).
-- jury_2016 and tele_2016 have the same pairs and the same predictor values (same rounds; taste uses total-vote profiles).
+- Largest absolute correlation between any two predictors: jury_2016 border–shared_official 0.370; tele_1997 shared_official–same_subbranch 0.375; tele_2016 border–shared_official 0.370; tele_2016_semis border–shared_official 0.375.
 
 ## Hand-rating agreement (`scripts/rating_agreement.py`; key_numbers: `rating_agreement`)
 - TODO: not run yet; waiting for the two ratings in `data/lyrics_rating_sheet.csv`.
 
 ## Main model (`scripts/build_pairs.py` → `data/pairs.csv`; `scripts/regression.py` → `data/regression_coefs.csv`, `data/regression_fit.csv`; key_numbers: `pairs`, `regression`)
-OLS, one row per directed pair A → B with ≥ 5 votes; outcome = mean signed excess. Outcome and predictors z-scored
-within each fit (standardised beta). 95% CIs from SEs clustered two-way by voter and receiver.
+OLS, one row per directed pair A → B with ≥ 5 votes; outcome = mean signed excess. Language = category of the deepest
+Glottolog level the primary languages share (dummies vs reference diff_family). Taste from the matching profile
+(jury / televote for 2016+, total for 1997–2008). Outcome and predictors (dummies too) z-scored within each fit
+(standardised beta). 95% CIs from SEs clustered two-way by voter and receiver.
 
 | term | 2016+ jury | 2016+ televote | 1997–2008 televote |
 |---|---|---|---|
-| border | +0.127 [+0.048, +0.206] | +0.209 [+0.124, +0.293] | +0.193 [+0.104, +0.281] |
-| diaspora_log | +0.063 [+0.009, +0.117] | +0.238 [+0.162, +0.314] | +0.270 [+0.191, +0.349] |
-| shared_official | +0.063 [-0.037, +0.164] | +0.038 [-0.046, +0.122] | +0.001 [-0.097, +0.098] |
-| same_family | -0.069 [-0.092, -0.046] | -0.090 [-0.129, -0.051] | -0.092 [-0.151, -0.034] |
-| same_branch | +0.105 [+0.013, +0.198] | +0.106 [+0.009, +0.203] | +0.062 [-0.009, +0.133] |
-| same_subbranch | +0.071 [-0.011, +0.154] | +0.175 [+0.040, +0.309] | +0.266 [+0.129, +0.403] |
-| taste_sim | +0.085 [+0.028, +0.141] | +0.127 [+0.051, +0.203] | +0.064 [+0.002, +0.125] |
+| border | +0.132 [+0.050, +0.215] | +0.210 [+0.125, +0.295] | +0.193 [+0.104, +0.281] |
+| diaspora_log | +0.060 [+0.004, +0.116] | +0.236 [+0.162, +0.310] | +0.270 [+0.191, +0.349] |
+| shared_official | +0.059 [-0.042, +0.159] | +0.038 [-0.047, +0.124] | +0.001 [-0.097, +0.098] |
+| same_family_only | -0.078 [-0.093, -0.063] | -0.098 [-0.142, -0.053] | -0.101 [-0.164, -0.037] |
+| same_branch_only | +0.040 [-0.027, +0.108] | +0.029 [-0.034, +0.093] | -0.010 [-0.070, +0.051] |
+| same_subbranch | +0.104 [+0.050, +0.157] | +0.200 [+0.083, +0.317] | +0.257 [+0.122, +0.393] |
+| taste_sim | +0.061 [+0.020, +0.102] | +0.095 [+0.036, +0.155] | +0.064 [+0.002, +0.125] |
 | n pairs (countries) | 1537 (43) | 1537 (43) | 1257 (39) |
-| R² | 0.085 | 0.266 | 0.310 |
+| R² | 0.081 | 0.258 | 0.310 |
 
 Robustness (each column changes one thing from main):
 
@@ -158,31 +174,31 @@ Robustness (each column changes one thing from main):
 
 | term | main | diaspora_observed_only | drop_top5_pairs | taste_no_top5 | taste_past | own_sim |
 |---|---|---|---|---|---|---|
-| border | +0.127* | +0.135* | +0.112* | +0.133* | +0.128* | +0.133* |
-| diaspora_log | +0.063* | +0.036 | +0.058* | +0.061* | +0.062* | +0.058* |
-| shared_official | +0.063 | +0.100 | -0.007 | +0.062 | +0.063 | +0.062 |
-| same_family | -0.069* | -0.073* | -0.067* | -0.069* | -0.069* | -0.067* |
-| same_branch | +0.105* | +0.024 | +0.112* | +0.112* | +0.105* | +0.108* |
-| same_subbranch | +0.071 | +0.137* | +0.058 | +0.068 | +0.071 | +0.068 |
-| taste_sim | +0.085* | +0.111* | +0.064* | +0.054* | +0.080* |  |
+| border | +0.132* | +0.144* | +0.116* | +0.134* | +0.132* | +0.133* |
+| diaspora_log | +0.060* | +0.034 | +0.057 | +0.059* | +0.058* | +0.058* |
+| shared_official | +0.059 | +0.092 | -0.011 | +0.060 | +0.058 | +0.062 |
+| same_family_only | -0.078* | -0.091* | -0.075* | -0.076* | -0.073* | -0.073* |
+| same_branch_only | +0.040 | -0.024 | +0.046 | +0.042 | +0.041 | +0.041 |
+| same_subbranch | +0.104* | +0.104* | +0.097* | +0.106* | +0.108* | +0.107* |
+| taste_sim | +0.061* | +0.088* | +0.046* | +0.038* | +0.041 |  |
 | own_sim |  |  |  |  |  | +0.013 |
 | n | 1537 | 1015 | 1529 | 1537 | 1537 | 1537 |
-| R² | 0.085 | 0.108 | 0.055 | 0.080 | 0.084 | 0.078 |
+| R² | 0.081 | 0.103 | 0.053 | 0.079 | 0.079 | 0.078 |
 
 **2016+ televote** (beta; * = 95% CI excludes 0)
 
 | term | main | diaspora_observed_only | drop_top5_pairs | taste_no_top5 | taste_past | own_sim | with_semis |
 |---|---|---|---|---|---|---|---|
-| border | +0.209* | +0.201* | +0.196* | +0.217* | +0.211* | +0.218* | +0.218* |
-| diaspora_log | +0.238* | +0.252* | +0.246* | +0.235* | +0.237* | +0.231* | +0.235* |
-| shared_official | +0.038 | +0.024 | +0.001 | +0.036 | +0.037 | +0.036 | +0.049 |
-| same_family | -0.090* | -0.109* | -0.092* | -0.090* | -0.089* | -0.086* | -0.094* |
-| same_branch | +0.106* | +0.095 | +0.112* | +0.117* | +0.105* | +0.109* | +0.104* |
-| same_subbranch | +0.175* | +0.216* | +0.158* | +0.169* | +0.174* | +0.170* | +0.176* |
-| taste_sim | +0.127* | +0.126* | +0.122* | +0.093* | +0.126* |  | +0.128* |
+| border | +0.210* | +0.203* | +0.198* | +0.216* | +0.214* | +0.218* | +0.220* |
+| diaspora_log | +0.236* | +0.251* | +0.243* | +0.234* | +0.232* | +0.231* | +0.231* |
+| shared_official | +0.038 | +0.025 | +0.000 | +0.036 | +0.038 | +0.036 | +0.049 |
+| same_family_only | -0.098* | -0.122* | -0.100* | -0.097* | -0.101* | -0.094* | -0.101* |
+| same_branch_only | +0.029 | +0.004 | +0.033 | +0.032 | +0.027 | +0.030 | +0.026 |
+| same_subbranch | +0.200* | +0.218* | +0.187* | +0.200* | +0.194* | +0.199* | +0.198* |
+| taste_sim | +0.095* | +0.103* | +0.089* | +0.046 | +0.061 |  | +0.090* |
 | own_sim |  |  |  |  |  | +0.047* |  |
 | n | 1537 | 1015 | 1529 | 1537 | 1537 | 1537 | 1574 |
-| R² | 0.266 | 0.307 | 0.234 | 0.258 | 0.265 | 0.252 | 0.276 |
+| R² | 0.258 | 0.301 | 0.227 | 0.252 | 0.253 | 0.252 | 0.268 |
 
 **1997–2008 televote** (beta; * = 95% CI excludes 0)
 
@@ -191,9 +207,9 @@ Robustness (each column changes one thing from main):
 | border | +0.193* | +0.182* | +0.180* | +0.193* | +0.194* | +0.193* |
 | diaspora_log | +0.270* | +0.284* | +0.288* | +0.269* | +0.267* | +0.265* |
 | shared_official | +0.001 | -0.011 | -0.030 | +0.001 | +0.001 | -0.000 |
-| same_family | -0.092* | -0.094* | -0.104* | -0.089* | -0.095* | -0.086* |
-| same_branch | +0.062 | +0.029 | +0.069 | +0.064 | +0.062 | +0.063 |
-| same_subbranch | +0.266* | +0.321* | +0.235* | +0.266* | +0.265* | +0.267* |
+| same_family_only | -0.101* | -0.101* | -0.113* | -0.097* | -0.104* | -0.094* |
+| same_branch_only | -0.010 | -0.032 | -0.012 | -0.006 | -0.012 | -0.006 |
+| same_subbranch | +0.257* | +0.286* | +0.225* | +0.260* | +0.254* | +0.262* |
 | taste_sim | +0.064* | +0.056 | +0.067* | +0.045 | +0.069* |  |
 | own_sim |  |  |  |  |  | -0.001 |
 | n | 1257 | 846 | 1248 | 1257 | 1257 | 1257 |

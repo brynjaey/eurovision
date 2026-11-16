@@ -15,9 +15,12 @@ import pandas as pd
 from key_numbers import record
 
 ROOT = Path(__file__).resolve().parent.parent
-PRED = ["border", "diaspora_log", "shared_official", "same_family", "same_branch", "same_subbranch", "taste_sim"]
+PRED = ["border", "diaspora_log", "shared_official", "same_family_only", "same_branch_only", "same_subbranch",
+        "taste_sim"]
 
 pairs = pd.read_csv(ROOT / "data/pairs.csv")
+for cat in ["same_family_only", "same_branch_only"]:  # language category dummies (reference: diff_family)
+    pairs[cat] = (pairs.lang_cat == cat).astype(int)
 corr_rows, vif_rows, nums = [], [], {}
 for s, d in pairs.groupby("sample"):
     c = d[PRED].corr()

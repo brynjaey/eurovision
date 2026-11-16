@@ -16,8 +16,11 @@ Every predictor is averaged over the same votes as the outcome:
                      (ties go to the earlier UN year); pairs the UN does not list = 0
   diaspora_share     the same as a share of A's migrant stock
   diaspora_observed  share of the votes where the UN lists the pair
-  taste_sim, taste_sim_no_top5, taste_sim_past, own_sim   (per vote, from taste_similarity.py)
+  taste_sim, taste_sim_no_top5, taste_sim_past, own_sim   (per vote, from taste_similarity.py;
+                     profile = jury votes for jury_2016, televotes for tele_2016*, total for tele_1997)
   border, shared_official, same_family, same_branch, same_subbranch   (fixed per pair)
+  lang_cat           one category per pair: diff_family / same_family_only / same_branch_only /
+                     same_subbranch (the deepest level the two primary languages share)
 Only pairs with >= 5 votes; wld, yu and cs are dropped (no border / language data).
 """
 from pathlib import Path
@@ -47,10 +50,14 @@ SAMPLES = {
 # Per-vote predictors
 dia = pd.read_csv(ROOT / "data/diaspora.csv").rename(columns={"year": "un_year"})
 taste = pd.read_csv(ROOT / "data/taste_similarity_year.csv")[
-    ["year", "from", "to", "taste_sim", "taste_sim_no_top5", "taste_sim_past", "own_sim"]]
+    ["profile", "year", "from", "to", "taste_sim", "taste_sim_no_top5", "taste_sim_past", "own_sim"]]
+PROFILE = {"jury_2016": "jury", "tele_2016": "tele", "tele_2016_semis": "tele", "tele_1997": "total"}
 fixed = (pd.read_csv(ROOT / "data/borders.csv")
          .merge(pd.read_csv(ROOT / "data/language.csv"), on=["from", "to"])
          [["from", "to", "border", "shared_official", "same_family", "same_branch", "same_subbranch"]])
+fixed["lang_cat"] = np.select([fixed.same_subbranch == 1, fixed.same_branch == 1, fixed.same_family == 1],
+                              ["same_subbranch", "same_branch_only", "same_family_only"], "diff_family")
+fixed.loc[fixed.same_family.isna(), "lang_cat"] = None  # no language data (yu, cs, wld)
 
 
 def nearest_un_year(year: int) -> int:
@@ -65,7 +72,7 @@ for name, v in SAMPLES.items():
     v["diaspora_observed"] = v.migrants.notna().astype(float)
     v["diaspora_log"] = np.log1p(v.migrants.fillna(0))     # missing pair = 0 migrants (group decision)
     v["diaspora_share"] = v.share_of_migrants.fillna(0)
-    v = v.merge(taste, on=["year", "from", "to"], how="left")
+    v = v.merge(taste[taste.profile == PROFILE[name]].drop(columns="profile"), on=["year", "from", "to"], how="left")
     p = (v.groupby(["from", "to"])
           .agg(n_votes=("excess", "size"), excess_mean=("excess", "mean"),
                diaspora_log=("diaspora_log", "mean"), diaspora_share=("diaspora_share", "mean"),

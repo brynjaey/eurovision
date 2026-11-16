@@ -116,7 +116,7 @@
   the 2023–25 televote-only semis (robustness), 1997–2008 (vote_type total). Pairs with >= 5 votes (as mean5 in the null
   model). wld, yu, cs dropped. Diaspora per vote: UN year nearest to the vote year (ties, e.g. 2022, go to the earlier
   UN year); diaspora_log = log(1 + migrants), missing pair = 0; diaspora_observed = share of votes where the UN lists the
-  pair. taste_sim per vote comes from vote_type "total" profiles, so jury and televote models use the same taste values.
+  pair. taste_sim per vote comes from the matching profile (jury / televote 2016+, total for 1997–2008).
 - 2026-11-16: Collinearity, scripts/collinearity.py -> data/predictor_correlations.csv, data/predictor_vif.csv.
 - 2026-11-16: Regression, scripts/regression.py -> data/regression_coefs.csv, data/regression_fit.csv. OLS of
   excess_mean on border, diaspora_log, shared_official, same_family, same_branch, same_subbranch, taste_sim; outcome and
@@ -126,6 +126,18 @@
   Robustness specs: diaspora_observed_only (pairs with diaspora_observed = 1), drop_top5_pairs (5 unordered pairs with the
   highest mean excess over both directions), taste_no_top5, taste_past, own_sim instead of taste_sim, with_semis (televote).
   TODO (group): cite a reference for two-way clustered SEs if the paper names the method (open the source first).
+- 2026-11-16: CONFIRMED (group): regression decisions 1 (>= 5 votes per pair) and 2 (diaspora_log = log(1 + migrants),
+  nearest UN year, ties to the earlier year).
+- 2026-11-16: DECIDED (group): language enters the regression as one categorical variable, the deepest Glottolog level
+  the two primary languages share: diff_family (reference) / same_family_only / same_branch_only / same_subbranch
+  (pairs.csv column lang_cat; dummies built in regression.py and collinearity.py). shared_official stays separate.
+- 2026-11-16: DECIDED (group): 2016+ taste profiles per vote type: jury profile from jury votes only, televote profile
+  from televotes only (both 2016+ only); 1997–2008 keeps the total-vote profile. taste_similarity.py now scores any
+  (year, A, B) target, so semi-final-only songs (incl. the 2023–25 televote-only semis) get a televote profile value.
+  Top-5 partners for the no-top-5 variant come from all votes of that vote type (also votes on songs without lyrics).
+  Checks: the total profile reproduces the previous version to 1e-15; jury and televote profiles recomputed by brute
+  force for 4 votes (2 semi-final-only) match to 6 decimals. Jury vs televote taste_sim for the same vote: Pearson
+  0.309. taste vs own (centred, per vote): jury 0.002, televote 0.027.
 
 ## Decisions
 - Excess = vote share minus the leave-one-out mean share the entry got from the other voters in the same round and vote type (see build_edges.py).
