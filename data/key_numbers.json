@@ -1,0 +1,31 @@
+{
+  "diaspora": {
+    "_updated": "2026-11-16",
+    "n_pairs": 1506,
+    "n_rows": 12048,
+    "sanity_migrants": {
+      "cy<-gr_2024": 25031,
+      "de<-tr_2024": 1504743,
+      "es<-ro_2024": 522578,
+      "gb<-pl_2024": 902193,
+      "ru<-am_2024": 340512
+    },
+    "unmatched_countries": [
+      "cs",
+      "yu",
+      "wld"
+    ]
+  },
+  "language": {
+    "_updated": "2026-11-16",
+    "countries_without_cldr": [
+      "cs",
+      "wld",
+      "yu"
+    ],
+    "n_unordered_pairs": 1225,
+    "same_family_1": 827,
+    "same_family_any_official_1": 954,
+    "shared_official_1": 44
+  }
+}

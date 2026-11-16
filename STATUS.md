@@ -3,7 +3,7 @@
 Two of us work on this project. Every Claude Code session starts by reading this file and
 ends by updating it, so whoever opens the repo next knows where things stand.
 
-_Last updated: 2026-11-16, diaspora layer done._
+_Last updated: 2026-11-16, step 3 language layer done._
 
 ## Done
 - [x] Vote network 1957–2026 with excess scores: `data/edges.csv`, `data/edges_agg.csv`
@@ -11,14 +11,15 @@ _Last updated: 2026-11-16, diaspora layer done._
 - [x] 2026 final verified against Eurovisionworld (25/25 entries match)
 - [x] Border layer: `data/borders.csv` (land borders only)
 - [x] Diaspora layer: `data/diaspora.csv` from UN DESA Migrant Stock 2024 (1990–2024, 1,506 pairs)
-- [x] Citation tracking: `references.bib` with 4 data + 6 papers, all verified against their pages
+- [x] Language layer: `data/language.csv` (CLDR 49 official languages + Glottolog 5.4 families)
+- [x] Report files: `RESULTS.md` (facts per step) and `data/key_numbers.json` (written by scripts via `scripts/key_numbers.py`)
+- [x] Citation tracking: `references.bib` with 6 data + 6 papers, all verified against their pages
 
 ## In progress
 <!-- One line per active task: who, what, branch, started. Delete the line when done. -->
-- Claude (for Kristófer): step 3 language layer, branch chore/verify-2026-and-layers, started 2026-11-16
+- (none)
 
 ## Next up (in order)
-3. Language layer: shared official language + same family → `data/language.csv`, spot-check 5 pairs
 4. Null model (most important): Louvain modularity per era + jury vs tele (2016+) vs 1,000 within-year shuffles → `data/null_results.csv`, `figures/`
 5. Lyrics: EurovisionAPI lyrics + English translations, multilingual embeddings, pair similarity per era; 20 pairs hand-rated
 6. Main model: pair-level regression, mean excess ~ border + diaspora + language + family + lyric similarity; jury vs tele (2016+), 1997+ tele; robustness
@@ -30,6 +31,9 @@ _Last updated: 2026-11-16, diaspora layer done._
 - Language: shared official language (0/1) + same language family (0/1).
 
 ## Open questions (for the humans)
+- Language: same_family = 1 for 68% of pairs (mostly Indo-European). Add a sub-branch variable (Germanic/Slavic/Romance)?
+- Language: RS–HR shared_official = 0 (sr ≠ hr in ISO); UA–RU = 1 (CLDR: ru de facto official in UA). Keep as in source?
+- 2026 final check is manual, not scripted, so it is not in key_numbers.json. Script it if we quote it.
 - references.bib TODOs: Ginsburgh & Noury DOI, Blondel journal details, Zenodo DOI for Burgoyne, EurovisionAPI has no stated license
 - Fill in the "what it found / how we use it" lines under Literature in NOTES.md (read the papers)
 - TODO (human): spot-check 3 entries of the 2026 final on eurovision.tv; Eurovisionworld may be upstream of both our sources.
@@ -38,6 +42,7 @@ _Last updated: 2026-11-16, diaspora layer done._
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-16, Kristófer: step 3 language layer (build_language.py, language.csv, CLDR + Glottolog in MANIFEST/bib), RESULTS.md, key_numbers.json. Check: spot-check pairs in RESULTS.md.
 - 2026-11-16, Kristófer: diaspora layer (build_diaspora.py, diaspora.csv, MANIFEST, references.bib). Check: the 5 sanity pairs in NOTES.md.
 - 2026-11-16, Kristófer (via Claude): added references.bib + citation rule in CLAUDE.md + Literature section in NOTES.md
 - 2026-11-16, Kristófer: added upstream caveat to the 2026 check (NOTES.md); started diaspora layer

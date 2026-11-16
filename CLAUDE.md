@@ -8,6 +8,8 @@ language) or by taste (song similarity)? Do juries and televoters differ?
 - `python scripts/build_edges.py` → data/countries.csv, data/edges.csv, data/edges_agg.csv
 - `python scripts/build_borders.py` → data/borders.csv
 - `python scripts/build_diaspora.py` → data/diaspora.csv
+- `python scripts/build_language.py` → data/language.csv
+- Every quoted number goes into data/key_numbers.json via scripts/key_numbers.py (never by hand); add it to RESULTS.md with captures/misses.
 - Join every layer on country-pair codes from data/countries.csv (ISO2 lower case, ISO3 for external data).
 
 ## Start and end of every session

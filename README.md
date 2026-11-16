@@ -17,12 +17,15 @@ python scripts/convert_eurovisionapi.py 2024 2025 2026
 python scripts/build_edges.py
 python scripts/build_borders.py
 python scripts/build_diaspora.py
+python scripts/build_language.py
 ```
 This produces:
 - `data/countries.csv`: country code → ISO3 and name. Use ISO3 to join UN migrant stock, borders and language data.
 - `data/edges.csv`: one row per vote: year, era, round, vote_type (total/jury/tele), from, to, points, share, expected, excess.
 - `data/borders.csv`: from, to, border (0/1, land borders only).
 - `data/diaspora.csv`: from, to, year, migrants (born in `to`, living in `from`), share_of_migrants. UN DESA 2024.
+- `data/language.csv`: from, to, shared_official (0/1), same_family (0/1), primary_from, primary_to. CLDR 49 + Glottolog 5.4.
+- `data/key_numbers.json`: every number the paper quotes, written by the scripts. `RESULTS.md`: the same numbers with context.
 - `data/edges_agg.csv`: from→to totals per era and vote_type: n_votes, excess_sum, excess_mean, points_sum.
 
 **excess** = the share of the voter's points that went to B, minus the average share B got from all *other* voters that night. A positive value means A over-rated B compared with the rest of Europe, so song quality is removed. Running order and staging are not removed.

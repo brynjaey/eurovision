@@ -19,6 +19,8 @@ from pathlib import Path
 import pandas as pd
 import pycountry
 
+from key_numbers import record
+
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "raw/undesa/undesa_pd_2024_ims_stock_by_sex_destination_and_origin.xlsx"
 WORLD = 900  # M49 code of the "World" aggregate
@@ -45,11 +47,13 @@ for code, iso3 in zip(countries.code, countries.iso3):
         m49_to_code[int(c.numeric)] = code
 
 # Report Eurovision countries missing from the UN file, as destination or origin
+unmatched = []
 for code in countries.code:
     m49 = next((k for k, v in m49_to_code.items() if v == code), None)
     as_dest = m49 is not None and (t.dest_m49 == m49).any()
     as_orig = m49 is not None and (t.orig_m49 == m49).any()
     if not (as_dest and as_orig):
+        unmatched.append(code)
         print(f"no match: {code} (M49 {m49}) destination={as_dest} origin={as_orig}")
 
 # Keep pairs where both ends are Eurovision countries
@@ -62,5 +66,12 @@ e["migrants"] = e.migrants.astype(int)
 
 out = e[["from", "to", "year", "migrants", "share_of_migrants"]].sort_values(["from", "to", "year"])
 out.to_csv(ROOT / "data/diaspora.csv", index=False)
+
+# Sanity pairs (from = where they live, to = where they were born), 2024
+y24 = out[out.year == 2024].set_index(["from", "to"])
+sanity = {f"{f}<-{t}_2024": int(y24.loc[(f, t), "migrants"])
+          for f, t in [("de", "tr"), ("es", "ro"), ("gb", "pl"), ("cy", "gr"), ("ru", "am")]}
+record("diaspora", {"n_rows": len(out), "n_pairs": int(out[["from", "to"]].drop_duplicates().shape[0]),
+                    "unmatched_countries": unmatched, "sanity_migrants": sanity})
 print(f"diaspora.csv: {len(out):,} rows, {out[['from', 'to']].drop_duplicates().shape[0]:,} pairs, "
       f"years {out.year.min()}-{out.year.max()}")

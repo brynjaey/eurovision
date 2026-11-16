@@ -51,6 +51,44 @@
       "sha256": {
         "raw/undesa/undesa_pd_2024_ims_stock_by_sex_destination_and_origin.xlsx": "0e10179d05186041a65cf5c6200943b2231701f9c1fd33cbbe21d23b8ea47316"
       }
+    },
+    {
+      "files": [
+        "raw/cldr/supplementalData.xml",
+        "raw/cldr/supplementalMetadata.xml",
+        "raw/cldr/LICENSE"
+      ],
+      "source": "https://github.com/unicode-org/cldr (common/supplemental/), release page https://github.com/unicode-org/cldr/releases/tag/release-49",
+      "tag": "release-49",
+      "tag_commit": "96e54b273d2da4ec6fbad350ba19ff23fa24a588",
+      "release_date": "2026-10-21",
+      "retrieved": "2026-11-16",
+      "license": "Unicode License v3 (raw/cldr/LICENSE); copyright notice must accompany copies",
+      "used_for": "official languages per territory (territoryInfo/officialStatus); macrolanguage aliases",
+      "sha256": {
+        "raw/cldr/supplementalData.xml": "745150ec1408d50e1a272b65654a5dd645f3e60f5cc2898b576f725b28538d1a",
+        "raw/cldr/supplementalMetadata.xml": "b06614fc2c9aab3b9a9f7e8bf9328f4f7a95d89b2d2dbb300d0caff0f885c164",
+        "raw/cldr/LICENSE": "65eb33419e22a297550a811b5b535f5e532f9a7e0114b516c0ea18afd53c3804"
+      }
+    },
+    {
+      "files": [
+        "raw/glottolog/languages.csv",
+        "raw/glottolog/LICENSE"
+      ],
+      "source": "https://github.com/glottolog/glottolog-cldf (cldf/languages.csv)",
+      "tag": "v5.4",
+      "tag_commit": "5b473871609185e5a5f7ad39e942b5f0f2ebc793",
+      "release_date": "2026-11-10",
+      "doi": "10.5281/zenodo.24101243",
+      "retrieved": "2026-11-16",
+      "license": "CC BY 4.0, attribution required",
+      "cite": "Hammarström, Harald & Forkel, Robert & Haspelmath, Martin & Bank, Sebastian. 2026. Glottolog 5.4. Leipzig: Max Planck Institute for Evolutionary Anthropology.",
+      "used_for": "top-level language family (Family_ID) per ISO 639-3 code",
+      "sha256": {
+        "raw/glottolog/languages.csv": "ecadbfd440f3d0c28182f676b7e49c6e38fd3d40774c7ae3d90bf28ca137fe90",
+        "raw/glottolog/LICENSE": "945fbcb37deca05bccd7c3ca0e261679f1f5373515504fdbad68f6f3cf6f49b9"
+      }
     }
   ]
 }
