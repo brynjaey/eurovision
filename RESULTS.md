@@ -30,3 +30,23 @@ Rerun the script, then update this file if a number changed. Interpretation is t
 - same_branch / same_subbranch capture: closeness one and two splits further down the Glottolog tree, among our countries.
 - same_branch / same_subbranch miss: they depend on which languages are in the sample, so South/East/West Slavic are not
   separated, and TR–AZ (both Oghuz) get different branches.
+
+## Null model (`scripts/null_model.py` → `data/null_results.csv`, `data/null_samples.csv`, `data/communities_obs.csv`, `figures/null_modularity.pdf`; key_numbers: `null_model`)
+1,000 within-(year, round, vote_type) shuffles per network; Louvain best of 5 seeds.
+
+| Network | Nodes | Edges | Communities | Q observed | Q obs, 20 single runs | Null mean | Null SD | z | p |
+|---|---|---|---|---|---|---|---|---|---|
+| 1957–1974 | 21 | 83 | 4 | 0.415 | 0.411–0.415 | 0.286 | 0.029 | 4.4 | 0.0010 |
+| 1975–1996 | 35 | 224 | 4 | 0.346 | 0.342–0.346 | 0.235 | 0.016 | 7.0 | 0.0010 |
+| 1997–2008 televote | 48 | 372 | 4 | 0.454 | 0.442–0.454 | 0.199 | 0.010 | 25.2 | 0.0010 |
+| 2009–2015 50/50 | 47 | 412 | 5 | 0.411 | 0.408–0.413 | 0.196 | 0.010 | 22.2 | 0.0010 |
+| 2016+ jury | 45 | 422 | 4 | 0.313 | 0.302–0.317 | 0.196 | 0.010 | 11.3 | 0.0010 |
+| 2016+ televote | 45 | 351 | 5 | 0.432 | 0.426–0.448 | 0.195 | 0.010 | 23.7 | 0.0010 |
+
+- p = (1 + number of shuffles with Q ≥ observed) / 1,001; 0.0010 means no shuffle reached the observed Q (smallest possible p).
+- Observed communities per network: `data/communities_obs.csv`.
+- Captures: whether the excess-vote network splits into groups of countries that give each other more excess than
+  random re-assignment of each voter's own points would produce.
+- Misses: why the groups form (friendship, taste or something else); direction (A→B and B→A are summed); negative excess
+  (dropped edges); and pairs that rarely met still count less because weights are sums. Louvain finds a good, not
+  necessarily the best, partition.

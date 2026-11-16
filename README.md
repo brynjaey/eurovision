@@ -18,6 +18,7 @@ python scripts/build_edges.py
 python scripts/build_borders.py
 python scripts/build_diaspora.py
 python scripts/build_language.py
+python scripts/null_model.py      # ~70 s
 ```
 This produces:
 - `data/countries.csv`: country code → ISO3 and name. Use ISO3 to join UN migrant stock, borders and language data.

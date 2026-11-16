@@ -32,5 +32,90 @@
     "same_subbranch_pct": 11.7,
     "shared_official_1": 34,
     "shared_official_pct": 2.8
+  },
+  "null_model": {
+    "_updated": "2026-11-16",
+    "louvain_seeds": 5,
+    "n_shuffles": 1000,
+    "networks": {
+      "1957\u20131974": {
+        "n_communities": 4,
+        "n_edges": 83,
+        "n_nodes": 21,
+        "n_shuffles": 1000,
+        "null_mean": 0.2858,
+        "null_sd": 0.0291,
+        "p": 0.001,
+        "q_obs": 0.4147,
+        "q_obs_max20": 0.4147,
+        "q_obs_min20": 0.4112,
+        "z": 4.4329
+      },
+      "1975\u20131996": {
+        "n_communities": 4,
+        "n_edges": 224,
+        "n_nodes": 35,
+        "n_shuffles": 1000,
+        "null_mean": 0.2347,
+        "null_sd": 0.0159,
+        "p": 0.001,
+        "q_obs": 0.3458,
+        "q_obs_max20": 0.3458,
+        "q_obs_min20": 0.3415,
+        "z": 6.9958
+      },
+      "1997\u20132008 televote": {
+        "n_communities": 4,
+        "n_edges": 372,
+        "n_nodes": 48,
+        "n_shuffles": 1000,
+        "null_mean": 0.1992,
+        "null_sd": 0.0101,
+        "p": 0.001,
+        "q_obs": 0.4535,
+        "q_obs_max20": 0.4535,
+        "q_obs_min20": 0.442,
+        "z": 25.1752
+      },
+      "2009\u20132015 50/50": {
+        "n_communities": 5,
+        "n_edges": 412,
+        "n_nodes": 47,
+        "n_shuffles": 1000,
+        "null_mean": 0.1959,
+        "null_sd": 0.0097,
+        "p": 0.001,
+        "q_obs": 0.4113,
+        "q_obs_max20": 0.4126,
+        "q_obs_min20": 0.4079,
+        "z": 22.1896
+      },
+      "2016+ jury": {
+        "n_communities": 4,
+        "n_edges": 422,
+        "n_nodes": 45,
+        "n_shuffles": 1000,
+        "null_mean": 0.1959,
+        "null_sd": 0.0104,
+        "p": 0.001,
+        "q_obs": 0.3134,
+        "q_obs_max20": 0.3172,
+        "q_obs_min20": 0.3024,
+        "z": 11.2577
+      },
+      "2016+ televote": {
+        "n_communities": 5,
+        "n_edges": 351,
+        "n_nodes": 45,
+        "n_shuffles": 1000,
+        "null_mean": 0.1948,
+        "null_sd": 0.01,
+        "p": 0.001,
+        "q_obs": 0.4317,
+        "q_obs_max20": 0.4476,
+        "q_obs_min20": 0.4263,
+        "z": 23.686
+      }
+    }
   }
 }

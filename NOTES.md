@@ -47,6 +47,18 @@
   yu, cs, wld: no CLDR territory -> NaN.
   TODO (group): accept the sample-split rule, or replace branch/sub-branch with a named list of Glottolog nodes
   (e.g. branch = Germanic/Romance/Slavic/Baltic/Greek/...; sub-branch = South/East/West Slavic, North/West Germanic, ...)?
+- 2026-11-16: Shuffle null for community structure, scripts/null_model.py (see its docstring).
+  Networks: one per era on vote_type "total"; 2016+ split into jury and televote (6 networks).
+  Edge weight = era sum of excess(A->B) + excess(B->A); only pairs with weight > 0 (Louvain needs positive weights).
+  Sum (not mean) is used, so pairs that met more often weigh more. wld is not a node (it only votes).
+  All rounds (finals and semi-finals) count. The 2023–2025 semi-finals were televote-only and exist only as "total" in
+  our data, so they are in neither the 2016+ jury nor the 2016+ televote network (keeps both on the same rounds).
+  TODO (group): confirm, or add those semis to the televote network.
+  Null: within each (year, round, vote_type), each voter's points are permuted over the entries it rated; excess is
+  recomputed. 1,000 shuffles, numpy seed 2805. Check in the script: recomputed excess equals build_edges.py excess.
+  Louvain (networkx 3.7, resolution 1): best modularity of 5 seeded runs, same for observed and every null network.
+  Stability check: observed Q over 20 single runs, min–max in data/null_results.csv (q_obs_min20, q_obs_max20).
+  In 2009–15 and 2016+ televote a single run beat the best of seeds 0–4 (0.4126 vs 0.4113; 0.4476 vs 0.4317).
 
 ## Decisions
 - Excess = vote share minus the leave-one-out mean share the entry got from the other voters in the same round and vote type (see build_edges.py).
