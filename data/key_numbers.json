@@ -146,18 +146,18 @@
           "q_obs_min20": 0.419,
           "z": 23.3131
         },
-        "2016+ televote incl. 2024\u201325 semis": {
+        "2016+ televote incl. 2023\u201325 semis": {
           "n_communities": 4,
           "n_edges": 331,
           "n_nodes": 44,
           "n_shuffles": 1000,
-          "null_mean": 0.2014,
-          "null_sd": 0.0107,
+          "null_mean": 0.2007,
+          "null_sd": 0.0104,
           "p": 0.001,
-          "q_obs": 0.4389,
-          "q_obs_max20": 0.4389,
-          "q_obs_min20": 0.4226,
-          "z": 22.1754
+          "q_obs": 0.4303,
+          "q_obs_max20": 0.4384,
+          "q_obs_min20": 0.4168,
+          "z": 22.1125
         }
       },
       "sum": {
@@ -239,20 +239,64 @@
           "q_obs_min20": 0.4285,
           "z": 25.271
         },
-        "2016+ televote incl. 2024\u201325 semis": {
+        "2016+ televote incl. 2023\u201325 semis": {
           "n_communities": 3,
           "n_edges": 347,
           "n_nodes": 45,
           "n_shuffles": 1000,
-          "null_mean": 0.194,
-          "null_sd": 0.0103,
+          "null_mean": 0.1937,
+          "null_sd": 0.0101,
           "p": 0.001,
-          "q_obs": 0.449,
-          "q_obs_max20": 0.449,
-          "q_obs_min20": 0.4317,
-          "z": 24.7816
+          "q_obs": 0.4482,
+          "q_obs_max20": 0.4482,
+          "q_obs_min20": 0.4325,
+          "z": 25.0893
         }
       }
+    }
+  },
+  "taste_similarity": {
+    "_updated": "2026-11-16",
+    "era_level": {
+      "n": 7547,
+      "pearson": 0.605,
+      "spearman": 0.593
+    },
+    "era_level_by_era": {
+      "1957-1974": {
+        "n": 404,
+        "pearson": 0.597,
+        "spearman": 0.606
+      },
+      "1975-1996": {
+        "n": 1040,
+        "pearson": 0.672,
+        "spearman": 0.656
+      },
+      "1997-2008 televote": {
+        "n": 2089,
+        "pearson": 0.577,
+        "spearman": 0.549
+      },
+      "2009-2015 50/50": {
+        "n": 2079,
+        "pearson": 0.545,
+        "spearman": 0.515
+      },
+      "2016+ split": {
+        "n": 1935,
+        "pearson": 0.581,
+        "spearman": 0.566
+      }
+    },
+    "n_votes": 45524,
+    "n_votes_taste": 45506,
+    "taste_sim_mean": 0.7194,
+    "taste_sim_sd": 0.0919,
+    "year_level": {
+      "n": 44809,
+      "pearson": 0.589,
+      "spearman": 0.563
     }
   }
 }

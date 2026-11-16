@@ -36,7 +36,7 @@ Rerun the script, then update this file if a number changed. Interpretation is t
 ## Null model (`scripts/null_model.py` → `data/null_results.csv`, `data/null_samples.csv`, `data/communities_obs.csv`, `figures/null_modularity.pdf`; key_numbers: `null_model`)
 1,000 within-(year, round, vote_type) shuffles per network, the same shuffles for both weightings; Louvain best of 5 seeds.
 Main weighting: mean5 = mean excess per pair (both directions pooled), pairs with ≥ 5 votes. sum = summed excess.
-The last row is the robustness network (2024–25 televote-only semis added to televote).
+The last row is the robustness network (2023–25 televote-only semis added to televote).
 
 | Network | mean5 Q obs | mean5 null mean ± SD | mean5 z | sum Q obs | sum null mean ± SD | sum z |
 |---|---|---|---|---|---|---|
@@ -46,7 +46,7 @@ The last row is the robustness network (2024–25 televote-only semis added to t
 | 2009–2015 50/50 | 0.413 | 0.207 ± 0.011 | 19.5 | 0.411 | 0.194 ± 0.010 | 21.9 |
 | 2016+ jury | 0.309 | 0.204 ± 0.011 | 9.8 | 0.317 | 0.196 ± 0.010 | 12.6 |
 | 2016+ televote | 0.436 | 0.203 ± 0.010 | 23.3 | 0.447 | 0.195 ± 0.010 | 25.3 |
-| 2016+ televote incl. 2024–25 semis | 0.439 | 0.201 ± 0.011 | 22.2 | 0.449 | 0.194 ± 0.010 | 24.8 |
+| 2016+ televote incl. 2023–25 semis | 0.430 | 0.201 ± 0.010 | 22.1 | 0.448 | 0.194 ± 0.010 | 25.1 |
 
 | Weighting | Network | Nodes | Edges | Communities | Q obs, 20 single runs | p |
 |---|---|---|---|---|---|---|
@@ -56,14 +56,14 @@ The last row is the robustness network (2024–25 televote-only semis added to t
 | mean5 | 2009–2015 50/50 | 45 | 356 | 4 | 0.402–0.413 | 0.0010 |
 | mean5 | 2016+ jury | 44 | 404 | 4 | 0.275–0.309 | 0.0010 |
 | mean5 | 2016+ televote | 44 | 333 | 4 | 0.419–0.436 | 0.0010 |
-| mean5 | 2016+ televote incl. 2024–25 semis | 44 | 331 | 4 | 0.423–0.439 | 0.0010 |
+| mean5 | 2016+ televote incl. 2023–25 semis | 44 | 331 | 4 | 0.417–0.438 | 0.0010 |
 | sum | 1957–1974 | 21 | 83 | 4 | 0.398–0.415 | 0.0010 |
 | sum | 1975–1996 | 35 | 224 | 4 | 0.342–0.346 | 0.0010 |
 | sum | 1997–2008 televote | 48 | 381 | 5 | 0.436–0.450 | 0.0010 |
 | sum | 2009–2015 50/50 | 47 | 415 | 5 | 0.407–0.411 | 0.0010 |
 | sum | 2016+ jury | 45 | 424 | 4 | 0.314–0.319 | 0.0010 |
 | sum | 2016+ televote | 45 | 352 | 4 | 0.428–0.447 | 0.0010 |
-| sum | 2016+ televote incl. 2024–25 semis | 45 | 347 | 3 | 0.432–0.449 | 0.0010 |
+| sum | 2016+ televote incl. 2023–25 semis | 45 | 347 | 3 | 0.432–0.448 | 0.0010 |
 
 - p = (1 + number of shuffles with Q ≥ observed) / 1,001; 0.0010 means no shuffle reached the observed Q (smallest possible p).
 - Observed communities per weighting and network: `data/communities_obs.csv`. Figure: mean5, six main networks.
@@ -71,7 +71,7 @@ The last row is the robustness network (2024–25 televote-only semis added to t
   random re-assignment of each voter's own points would produce.
 - Misses: why the groups form (friendship, taste or something else); direction (A→B and B→A are pooled); negative
   mean excess (pairs dropped as edges); pairs with < 5 votes (mean5). Louvain finds a good, not necessarily the best,
-  partition. The 2023 semi-finals are missing from the data (see NOTES.md).
+  partition.
 
 ## Lyrics (`scripts/build_lyrics.py` → `data/lyrics.csv`; `scripts/lyrics_similarity.py` → `data/lyrics_similarity*.csv`, `data/lyrics_extremes.csv`, rating sheet; key_numbers: `lyrics`, `lyrics_similarity`)
 - 1830 entries 1956–2026; 1811 with English text (1073 translations, 738 original English); 19 without.
@@ -92,3 +92,26 @@ The last row is the robustness network (2024–25 televote-only semis added to t
 - Captures: how close the English lyrics of two countries' songs are in meaning (topic, wording), per year and averaged per era.
 - Misses: music, melody, genre, staging and performance; anything lost in translation; the original language itself;
   the model only sees the text in ≤ 128-token chunks.
+
+## Taste-profile similarity (`scripts/taste_similarity.py` → `data/taste_similarity_year.csv`, `data/taste_similarity.csv`; key_numbers: `taste_similarity`)
+- taste_sim computed for 45,506 of 45,524 votes (A, B, year) where B's song has a vector; mean 0.7194, SD 0.0919.
+- taste_sim vs own_sim (the earlier same-year own-song measure):
+
+| Level | n | Pearson | Spearman |
+|---|---|---|---|
+| per vote (A, B, year) | 44,809 | 0.589 | 0.563 |
+| per pair × era | 7,547 | 0.605 | 0.593 |
+| 1957-1974 | 404 | 0.597 | 0.606 |
+| 1975-1996 | 1,040 | 0.672 | 0.656 |
+| 1997-2008 televote | 2,089 | 0.577 | 0.549 |
+| 2009-2015 50/50 | 2,079 | 0.545 | 0.515 |
+| 2016+ split | 1,935 | 0.581 | 0.566 |
+
+- Check: three profiles recomputed by brute force match the script to 6 decimals.
+- Captures: how close B's lyrics are to the lyrics A gave points to in other years (A's revealed lyric taste), with B's
+  own songs left out.
+- Misses: music, genre and staging; A's past points also contain whatever friendship bias A has towards countries
+  other than B; songs close to the average Eurovision lyric are close to every profile; the profile uses later years too.
+
+## Hand-rating agreement (`scripts/rating_agreement.py`; key_numbers: `rating_agreement`)
+- TODO: not run yet; waiting for the two ratings in `data/lyrics_rating_sheet.csv`.

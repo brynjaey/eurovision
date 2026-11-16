@@ -4,7 +4,7 @@ Course project: social graphs. Starting point: the vote network.
 
 ## Data
 - `raw/votes.csv`, `raw/contestants.csv`: the [Spijkervet/eurovision-dataset](https://github.com/Spijkervet/eurovision-dataset) release, scraped from Eurovisionworld.
-  - Covers 1957–2023. 2024–2026 come from [EurovisionAPI/dataset](https://github.com/EurovisionAPI/dataset) (`raw/eurovisionapi/`, converted by `scripts/convert_eurovisionapi.py`). 2020 was cancelled.
+  - Covers 1957–2023. 2023 semi-finals and 2024–2026 come from [EurovisionAPI/dataset](https://github.com/EurovisionAPI/dataset) (`raw/eurovisionapi/`, converted by `scripts/convert_eurovisionapi.py`). 2020 was cancelled.
   - The jury/televote split runs from 2016 on. `wld` = the "Rest of the World" online televote (2023).
   - `contestants.csv` also has `lyrics` (99% of entries), `composers` and `lyricists`.
 - Citations: `references.bib` (verified entries only; open TODOs are marked inside).
@@ -13,7 +13,7 @@ Course project: social graphs. Starting point: the vote network.
 
 ## Build
 ```
-python scripts/convert_eurovisionapi.py 2024 2025 2026
+python scripts/convert_eurovisionapi.py 2023 2024 2025 2026
 python scripts/build_edges.py
 python scripts/build_borders.py
 python scripts/build_diaspora.py
@@ -21,6 +21,8 @@ python scripts/build_language.py
 python scripts/null_model.py      # ~2 min
 python scripts/build_lyrics.py
 python scripts/lyrics_similarity.py   # ~1.5 min, downloads the model once
+python scripts/taste_similarity.py
+python scripts/rating_agreement.py    # after the hand ratings are filled in
 ```
 This produces:
 - `data/countries.csv`: country code → ISO3 and name. Use ISO3 to join UN migrant stock, borders and language data.
@@ -31,6 +33,7 @@ This produces:
 - `data/glottolog_nodes.csv`: our named list of Glottolog branch / sub-branch nodes (glottocodes).
 - `data/language_groups.csv`: per country, the primary language and its family, branch and sub-branch names.
 - `data/lyrics.csv`: one English lyrics text per entry. `data/lyrics_similarity.csv`: era, from, to, similarity, n_years.
+- `data/taste_similarity.csv`: era, from, to, taste_sim (A's taste profile vs B's songs), own_sim (A's own song vs B's).
 - `data/key_numbers.json`: every number the paper quotes, written by the scripts. `RESULTS.md`: the same numbers with context.
 - `data/edges_agg.csv`: from→to totals per era and vote_type: n_votes, excess_sum, excess_mean, points_sum.
 

@@ -5,7 +5,7 @@ Output: raw/votes_eurovisionapi.csv  (same columns as raw/votes.csv)
 
 The JSON only lists non-zero votes, so zeros are filled in: every country that gave
 any points in a round is a voter, every performance is a receiver.
-Usage: python scripts/convert_eurovisionapi.py 2024 2025 2026
+Usage: python scripts/convert_eurovisionapi.py 2023 2024 2025 2026
 """
 import json
 import sys
@@ -55,7 +55,7 @@ def convert_year(year: int) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
-    years = [int(y) for y in sys.argv[1:]] or [2024, 2025, 2026]
+    years = [int(y) for y in sys.argv[1:]] or [2023, 2024, 2025, 2026]
     out = pd.concat([convert_year(y) for y in years], ignore_index=True)
     dest = ROOT / "raw" / "votes_eurovisionapi.csv"
     out.to_csv(dest, index=False)

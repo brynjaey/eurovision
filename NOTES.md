@@ -55,15 +55,13 @@
   DECIDED 2026-11-16 (group): main edge weight = mean excess over the pair's votes, pairs with < 5 votes dropped
   ("mean5"). The earlier weight, summed excess ("sum", no minimum), is kept side by side. Only weights > 0 are edges.
   mean5 drops countries without any pair of >= 5 votes (e.g. 1957–74: 18 of 21 nodes).
-  Fix 2026-11-16: the first version only kept pairs that had votes in the A->B direction with A < B alphabetically,
-  dropping pairs that only had B->A votes (e.g. 1997–2008 sum: 372 edges, now 381). Superseded numbers are not used.
+  (Bug in the first version, fixed: see Fixes.)
   All rounds (finals and semi-finals) count.
-  DECIDED 2026-11-16 (group): the 2024–2025 semi-finals were televote-only and exist only as "total" in our data; they
-  are left out of the 2016+ jury and televote networks. Robustness network "2016+ televote incl. 2024–25 semis"
-  relabels those rounds' total as televote.
-  DATA GAP found 2026-11-16: the 2023 semi-finals are missing from data/edges.csv. Spijkervet has only the 2023 final;
-  EurovisionAPI has both 2023 semis (raw/eurovisionapi/senior/2023/rounds/), but build_edges.py only takes EurovisionAPI
-  rows for years Spijkervet lacks entirely. TODO (group): add missing (year, round) from EurovisionAPI? Changes edges.csv.
+  DECIDED 2026-11-16 (group): the 2023–2025 semi-finals were televote-only and exist only as "total" in our data; they
+  are left out of the 2016+ jury and televote networks. Robustness network "2016+ televote incl. 2023–25 semis"
+  relabels the total of every 2016+ round without a televote split as televote.
+  The 2023 semi-finals (also televote-only, total only) were added 2026-11-16, see Fixes; they are in the robustness
+  network too ("2016+ televote incl. 2023–25 semis").
   Null: within each (year, round, vote_type), each voter's points are permuted over the entries it rated; excess is
   recomputed. 1,000 shuffles, numpy seed 2805, same shuffles for both weightings. Check in the script: recomputed
   excess equals build_edges.py excess.
@@ -89,6 +87,17 @@
   model score; the score is in data/lyrics_rating_key.csv.
   TODO (group): agree a rating scale before rating (suggestion: 1–5, "how similar are the two lyrics in topic and
   mood?"), rate independently, then report inter-rater agreement and Spearman rho between mean rating and model score.
+- 2026-11-16: Taste-profile similarity, scripts/taste_similarity.py -> data/taste_similarity_year.csv, data/taste_similarity.csv.
+  DECIDED 2026-11-16 (group): main lyric measure = taste_sim(A, B, t) = cosine(A's taste profile, B's song in year t).
+  Taste profile = sum over every song A voted on in all years except t, leaving out all songs from B, of
+  share(A -> song) x song vector. Share (points / voter's points in that round) instead of raw points so that eras with
+  different point scales weigh the same; votes from vote_type "total", all rounds (semi + final both count).
+  The profile uses later years too ("all other years"). The old measure (A's own song vs B's song in t) is kept as own_sim.
+  Check: three profiles recomputed by brute force (loop over votes) match the vectorised result to 6 decimals.
+  taste_sim vs own_sim: Pearson 0.589 / Spearman 0.563 per vote (n = 44,809);
+  Pearson 0.605 / Spearman 0.593 per pair x era (n = 7,547).
+- 2026-11-16: Hand-rating agreement: scripts/rating_agreement.py (Spearman rater1–rater2, each rater–model, mean–model).
+  Not run yet; waits for the two ratings in data/lyrics_rating_sheet.csv.
 
 ## Decisions
 - Excess = vote share minus the leave-one-out mean share the entry got from the other voters in the same round and vote type (see build_edges.py).
@@ -104,6 +113,23 @@
 - 2026-11-16 (group): null model edge weight = mean excess, min 5 votes per pair; sum kept side by side.
 - 2026-11-16 (group): 2024–25 televote-only semis out of the 2016+ networks; robustness run includes them in televote.
 - 2026-11-16 (group): step 6 regression uses the full signed excess (not only positive).
+
+## Fixes (bugs and data problems found, and what was done)
+- 2026-11-16, 2023 semi-finals missing: Spijkervet has only the 2023 final, and build_edges.py took EurovisionAPI rows
+  only for years Spijkervet lacked entirely. Now it takes every (year, round) Spijkervet lacks; convert_eurovisionapi.py
+  is run for 2023–2026. edges.csv: 82,952 -> 83,526 rows (+574, the two 2023 semis, vote_type total only, 19 and 20
+  voters incl. wld). Check: every 2023 semi voter gives exactly 58 points to 10 entries. No existing row's excess changed
+  (excess is computed within a round). Effect on the null model: the six main networks are unchanged (televote-only
+  semis are not in them); robustness network mean5 Q 0.439 -> 0.430, z 22.2 -> 22.1;
+  sum Q 0.449 -> 0.448, z 24.8 -> 25.1. borders, diaspora, language: unchanged.
+- 2026-11-16, null-model bug: the first null_model.py built undirected weights by looping over directed pairs and
+  skipping A > B alphabetically, so a pair with votes only in the B->A direction was dropped. Found when switching to
+  pooled pairs. E.g. 1997–2008 (sum weighting): 372 edges -> 381; Q 0.453 -> 0.450. The numbers in commit 4d4dffa are
+  superseded; all current numbers come from the fixed version (pairs pooled over both directions).
+- 2026-11-16, ad HTML in lyrics: 7 of the 1811 English lyrics texts contain scraped web-ad
+  HTML (<div class="google-auto-placed"> with <ins>/<iframe>); before cleaning, 8 lines of 1,800–2,100 tokens.
+  build_lyrics.py removes these blocks with their contents and strips other formatting tags (<i>, <span>, <b>; 63
+  entries had some tag) keeping their text. Raw files are unchanged. Check: the script asserts no tag is left.
 
 ## Pending layers
 - Diaspora: done 2026-11-16, see Data above.

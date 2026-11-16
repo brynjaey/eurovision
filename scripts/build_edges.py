@@ -69,10 +69,12 @@ def era_of(year: int) -> str:
 def main() -> None:
     OUT.mkdir(exist_ok=True)
     v = pd.read_csv(RAW / "votes.csv")  # Spijkervet, 1957-2023
-    extra = RAW / "votes_eurovisionapi.csv"  # EurovisionAPI, years Spijkervet lacks
+    extra = RAW / "votes_eurovisionapi.csv"  # EurovisionAPI, rounds Spijkervet lacks
     if extra.exists():
         x = pd.read_csv(extra)
-        x = x[~x.year.isin(v.year.unique())]
+        # keep only (year, round) pairs Spijkervet does not have, e.g. the 2023 semi-finals
+        have = set(zip(v.year, v["round"]))
+        x = x[[(y, r) not in have for y, r in zip(x.year, x["round"])]]
         v = pd.concat([v, x], ignore_index=True)
 
     unknown = (set(v.from_country_id) | set(v.to_country_id)) - set(ISO)

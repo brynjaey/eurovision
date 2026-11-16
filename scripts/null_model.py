@@ -8,8 +8,8 @@ Output: data/null_results.csv      one row per (weighting, network): observed mo
         key_numbers.json section "null_model"
 
 Networks: one per era (vote_type "total"), and 2016+ split into jury and televote.
-          Robustness: 2016+ televote plus the 2024-2025 semi-finals, which were televote-only
-          and are stored as "total" (they are left out of the main 2016+ networks).
+          Robustness: 2016+ televote plus the televote-only semi-finals (2023-2025), which are
+          stored as "total" only (they are left out of the main 2016+ networks).
 Weights (undirected pair A-B, both directions pooled, wld is not a node):
   mean5 (main): mean excess over all A->B and B->A votes in the era; pairs with < 5 votes dropped
   sum:          summed excess over the same votes (no minimum)
@@ -46,7 +46,7 @@ NETWORKS = [  # (label, era, vote_type)
     ("2009–2015 50/50", "2009-2015 50/50", "total"),
     ("2016+ jury", "2016+ split", "jury"),
     ("2016+ televote", "2016+ split", "tele"),
-    ("2016+ televote incl. 2024–25 semis", "2016+ split", "tele+semis"),  # robustness
+    ("2016+ televote incl. 2023–25 semis", "2016+ split", "tele+semis"),  # robustness
 ]
 MAIN = [n[0] for n in NETWORKS[:6]]
 
@@ -54,8 +54,12 @@ MAIN = [n[0] for n in NETWORKS[:6]]
 def select(edges: pd.DataFrame, era: str, vt: str) -> pd.DataFrame:
     if vt != "tele+semis":
         return edges[(edges.era == era) & (edges.vote_type == vt)]
-    semis = edges[edges.year.isin([2024, 2025]) & (edges["round"] != "final") & (edges.vote_type == "total")]
-    return pd.concat([edges[(edges.era == era) & (edges.vote_type == "tele")], semis.assign(vote_type="tele")])
+    e = edges[edges.era == era]
+    tele = e[e.vote_type == "tele"]
+    # rounds of this era with no televote split: the televote-only semi-finals, stored as "total"
+    has_tele = set(zip(tele.year, tele["round"]))
+    only_total = e[(e.vote_type == "total") & np.array([(y, r) not in has_tele for y, r in zip(e.year, e["round"])])]
+    return pd.concat([tele, only_total.assign(vote_type="tele")])
 
 
 def prepare(e: pd.DataFrame) -> dict:
