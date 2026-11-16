@@ -1,11 +1,11 @@
-year,from,to,similarity,era,song_from,artist_from,song_to,artist_to,rank
-2003,se,tr,0.8578373084257266,1997-2008 televote,Give Me Your Love,Fame,Everyway That I Can,Sertab Erener,most
-1994,is,lt,0.8476481296355982,1975-1996,Nætur,Sigga,Lopšinė mylimai,Ovidijus Vyšniauskas,most
-2001,dk,tr,0.8471410075482301,1997-2008 televote,Never Ever Let You Go,Rollo & King,Sevgiliye son,Sedat Yüce,most
-1995,mt,si,0.8467860357709589,1975-1996,Keep Me In Mind,Mike Spiteri,Prisluhni mi,Darja Švajger,most
-2003,nl,pt,0.8412920490989899,1997-2008 televote,One More Night,Esther Hart,Deixa-me sonhar,Rita Guerra,most
-1984,ch,ie,0.027966545066262512,1975-1996,Welche Farbe hat der Sonnenschein?,Rainy Day,Terminal 3,Linda Martin,least
-2013,hu,ru,0.05962470507751855,2009-2015 50/50,Kedvesem,ByeAlex,What If,Dina Garipova,least
-2015,fi,lv,0.07327929179069935,2009-2015 50/50,Aina mun pitää,Pertti Kurikan Nimipäivät,Love Injected,Aminata,least
-2015,fi,pl,0.07457024768725987,2009-2015 50/50,Aina mun pitää,Pertti Kurikan Nimipäivät,In The Name Of Love,Monika Kuszyńska,least
-1984,at,ch,0.0935238935608989,1975-1996,Einfach weg,Anita,Welche Farbe hat der Sonnenschein?,Rainy Day,least
+year,from,to,similarity,similarity_raw,era,song_from,artist_from,song_to,artist_to,rank
+1985,at,lu,0.6037038656721336,0.7964241892706627,1975-1996,Kinder dieser Welt,Gary Lux,"Children, Kinder, Enfants","Margo, Franck, Diane, Ireen, Malcolm & Chris",most
+2001,nl,no,0.6035072640646141,0.7880685775011251,1997-2008 televote,Out On My Own,Michelle,On My Own,Haldor Lægreid,most
+2007,no,pt,0.5649930817371984,0.8327413306840528,1997-2008 televote,Ven A Bailar Conmigo,Guri Schanke,Dança Comigo (Vem Ser Feliz),Sabrina,most
+2009,am,md,0.5441719085004688,0.7366001199972019,2009-2015 50/50,Jan Jan,Inga & Anush,Hora din Moldova,Nelly Ciobanu,most
+2009,am,hu,0.5409470850713464,0.7963136634549889,2009-2015 50/50,Jan Jan,Inga & Anush,Dance With Me,Zoli Ádok,most
+2011,lt,ru,-0.49160800627665485,0.42382268766884384,2009-2015 50/50,C'est ma vie,Evelina Sašenko,Get You,Alexej Vorobjov,least
+2007,al,de,-0.48419871820927457,0.2156271414547541,1997-2008 televote,Hear My Plea,Aida & Frederik Ndoci,Frauen regier'n die Welt,Roger Cicero,least
+2012,gb,ru,-0.4739072843957085,0.33664597902322985,2009-2015 50/50,Love Will Set You Free,Engelbert Humperdinck,Party For Everybody,Buranovskiye Babushki,least
+2000,be,no,-0.45161839721813746,0.31413152126796146,1997-2008 televote,Envie de vivre,Nathalie Sorce,My Heart Goes Boom,Charmed,least
+1964,gb,yu,-0.4469599058363206,0.3594172669860641,1957-1974,I Love the Little Things,Matt Monro,Život je sklopio krug,Sabahudin Kurt,least

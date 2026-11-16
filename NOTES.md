@@ -98,6 +98,34 @@
   Pearson 0.605 / Spearman 0.593 per pair x era (n = 7,547).
 - 2026-11-16: Hand-rating agreement: scripts/rating_agreement.py (Spearman rater1–rater2, each rater–model, mean–model).
   Not run yet; waits for the two ratings in data/lyrics_rating_sheet.csv.
+- 2026-11-16: DECIDED (group): year-centred embeddings for every lyric cosine. lyrics_similarity.py stores raw (emb) and
+  centred (emb_c) vectors: centred = song vector minus the mean vector of all embedded songs of that year, re-normalised.
+  own_sim and taste_sim use centred vectors; *_raw columns keep the uncentred values for comparison.
+  Same-year song pairs: raw 0.5294 ± 0.1142 -> centred -0.0341 ± 0.1367
+  (Pearson raw vs centred 0.615). Per vote: taste_sim raw 0.7194 ± 0.0919 -> centred
+  0.0033 ± 0.1497. taste vs own correlation: raw Pearson 0.589 -> centred 0.063 per vote;
+  raw 0.605 -> centred 0.067 per pair x era.
+  The rating sheet is no longer rewritten by lyrics_similarity.py (it holds the ratings); its 20 pairs were drawn on the
+  raw similarity; the key now has both raw and centred scores.
+- 2026-11-16: DECIDED (group): taste robustness profiles. (a) taste_sim_no_top5: also leaves out all songs of A's 5
+  strongest excess partners in the era of t (highest mean signed excess A->p, vote_type total, >= 5 votes; B itself is
+  always left out). (b) taste_sim_past: profile from years before t only (still without B); NaN in A's first year.
+  Check: main, (a) and (b) recomputed by brute force for 4 votes (incl. wld) match to 6 decimals.
+- 2026-11-16: Pair table for step 6, scripts/build_pairs.py -> data/pairs.csv. One row per directed pair A->B per sample;
+  outcome and every predictor are averaged over the same votes. Samples: 2016+ jury, 2016+ televote, 2016+ televote incl.
+  the 2023–25 televote-only semis (robustness), 1997–2008 (vote_type total). Pairs with >= 5 votes (as mean5 in the null
+  model). wld, yu, cs dropped. Diaspora per vote: UN year nearest to the vote year (ties, e.g. 2022, go to the earlier
+  UN year); diaspora_log = log(1 + migrants), missing pair = 0; diaspora_observed = share of votes where the UN lists the
+  pair. taste_sim per vote comes from vote_type "total" profiles, so jury and televote models use the same taste values.
+- 2026-11-16: Collinearity, scripts/collinearity.py -> data/predictor_correlations.csv, data/predictor_vif.csv.
+- 2026-11-16: Regression, scripts/regression.py -> data/regression_coefs.csv, data/regression_fit.csv. OLS of
+  excess_mean on border, diaspora_log, shared_official, same_family, same_branch, same_subbranch, taste_sim; outcome and
+  predictors z-scored within each fit (standardised betas); 95% CIs from SEs clustered two-way by voter and receiver
+  (statsmodels 0.15, cov_type "cluster" with two group columns). The intercept's two-way clustered variance can come out
+  negative (not positive definite); it is not reported, the script asserts every reported SE is finite.
+  Robustness specs: diaspora_observed_only (pairs with diaspora_observed = 1), drop_top5_pairs (5 unordered pairs with the
+  highest mean excess over both directions), taste_no_top5, taste_past, own_sim instead of taste_sim, with_semis (televote).
+  TODO (group): cite a reference for two-way clustered SEs if the paper names the method (open the source first).
 
 ## Decisions
 - Excess = vote share minus the leave-one-out mean share the entry got from the other voters in the same round and vote type (see build_edges.py).
@@ -113,6 +141,7 @@
 - 2026-11-16 (group): null model edge weight = mean excess, min 5 votes per pair; sum kept side by side.
 - 2026-11-16 (group): 2024–25 televote-only semis out of the 2016+ networks; robustness run includes them in televote.
 - 2026-11-16 (group): step 6 regression uses the full signed excess (not only positive).
+- 2026-11-16 (group): year-centred lyric embeddings for all cosine similarities; taste robustness: no top-5 partners, past only.
 
 ## Fixes (bugs and data problems found, and what was done)
 - 2026-11-16, 2023 semi-finals missing: Spijkervet has only the 2023 final, and build_edges.py took EurovisionAPI rows

@@ -1,4 +1,87 @@
 {
+  "collinearity": {
+    "_updated": "2026-11-16",
+    "jury_2016": {
+      "max_abs_corr": 0.658,
+      "taste_sim_corr": {
+        "border": 0.049,
+        "diaspora_log": -0.035,
+        "same_branch": 0.018,
+        "same_family": 0.024,
+        "same_subbranch": -0.009,
+        "shared_official": -0.008
+      },
+      "vif": {
+        "border": 1.3,
+        "diaspora_log": 1.11,
+        "same_branch": 1.85,
+        "same_family": 1.1,
+        "same_subbranch": 1.96,
+        "shared_official": 1.23,
+        "taste_sim": 1.01
+      }
+    },
+    "tele_1997": {
+      "max_abs_corr": 0.638,
+      "taste_sim_corr": {
+        "border": -0.014,
+        "diaspora_log": -0.063,
+        "same_branch": 0.033,
+        "same_family": 0.091,
+        "same_subbranch": 0.014,
+        "shared_official": -0.017
+      },
+      "vif": {
+        "border": 1.32,
+        "diaspora_log": 1.16,
+        "same_branch": 1.78,
+        "same_family": 1.1,
+        "same_subbranch": 1.95,
+        "shared_official": 1.26,
+        "taste_sim": 1.01
+      }
+    },
+    "tele_2016": {
+      "max_abs_corr": 0.658,
+      "taste_sim_corr": {
+        "border": 0.049,
+        "diaspora_log": -0.035,
+        "same_branch": 0.018,
+        "same_family": 0.024,
+        "same_subbranch": -0.009,
+        "shared_official": -0.008
+      },
+      "vif": {
+        "border": 1.3,
+        "diaspora_log": 1.11,
+        "same_branch": 1.85,
+        "same_family": 1.1,
+        "same_subbranch": 1.96,
+        "shared_official": 1.23,
+        "taste_sim": 1.01
+      }
+    },
+    "tele_2016_semis": {
+      "max_abs_corr": 0.657,
+      "taste_sim_corr": {
+        "border": 0.05,
+        "diaspora_log": -0.037,
+        "same_branch": 0.018,
+        "same_family": 0.031,
+        "same_subbranch": -0.014,
+        "shared_official": -0.013
+      },
+      "vif": {
+        "border": 1.3,
+        "diaspora_log": 1.11,
+        "same_branch": 1.85,
+        "same_family": 1.1,
+        "same_subbranch": 1.97,
+        "shared_official": 1.24,
+        "taste_sim": 1.01
+      }
+    }
+  },
   "diaspora": {
     "_updated": "2026-11-16",
     "n_pairs": 1506,
@@ -50,6 +133,7 @@
     "_updated": "2026-11-16",
     "chunks_per_song_max": 9,
     "chunks_per_song_mean": 3.05,
+    "corr_raw_vs_centred_pearson": 0.615,
     "max_seq_length": 128,
     "model": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
     "n_chunks_truncated": 0,
@@ -57,8 +141,10 @@
     "n_same_year_pairs": 24902,
     "n_songs_embedded": 1757,
     "revision": "4328cf26390c98c5e3c738b4460a05b95f4911f5",
-    "similarity_mean": 0.5294,
-    "similarity_sd": 0.1142
+    "similarity_mean": -0.0341,
+    "similarity_raw_mean": 0.5294,
+    "similarity_raw_sd": 0.1142,
+    "similarity_sd": 0.1367
   },
   "null_model": {
     "_updated": "2026-11-16",
@@ -255,48 +341,1314 @@
       }
     }
   },
+  "pairs": {
+    "_updated": "2026-11-16",
+    "min_votes": 5,
+    "samples": {
+      "jury_2016": {
+        "n_countries": 43,
+        "n_pairs": 1537,
+        "n_votes": 13370
+      },
+      "tele_1997": {
+        "n_countries": 39,
+        "n_pairs": 1257,
+        "n_votes": 11065
+      },
+      "tele_2016": {
+        "n_countries": 43,
+        "n_pairs": 1537,
+        "n_votes": 13370
+      },
+      "tele_2016_semis": {
+        "n_countries": 44,
+        "n_pairs": 1574,
+        "n_votes": 15062
+      }
+    }
+  },
+  "regression": {
+    "1997\u20132008 televote": {
+      "diaspora_observed_only": {
+        "coefs": {
+          "border": {
+            "beta": 0.182,
+            "ci": [
+              0.072,
+              0.292
+            ],
+            "p": 0.0012
+          },
+          "diaspora_log": {
+            "beta": 0.284,
+            "ci": [
+              0.17,
+              0.398
+            ],
+            "p": 0.0
+          },
+          "same_branch": {
+            "beta": 0.029,
+            "ci": [
+              -0.049,
+              0.107
+            ],
+            "p": 0.4607
+          },
+          "same_family": {
+            "beta": -0.094,
+            "ci": [
+              -0.162,
+              -0.026
+            ],
+            "p": 0.0064
+          },
+          "same_subbranch": {
+            "beta": 0.321,
+            "ci": [
+              0.185,
+              0.457
+            ],
+            "p": 0.0
+          },
+          "shared_official": {
+            "beta": -0.011,
+            "ci": [
+              -0.113,
+              0.091
+            ],
+            "p": 0.83
+          },
+          "taste_sim": {
+            "beta": 0.056,
+            "ci": [
+              -0.014,
+              0.126
+            ],
+            "p": 0.117
+          }
+        },
+        "n": 846,
+        "n_countries": 38,
+        "r2": 0.3563
+      },
+      "drop_top5_pairs": {
+        "coefs": {
+          "border": {
+            "beta": 0.18,
+            "ci": [
+              0.095,
+              0.264
+            ],
+            "p": 0.0
+          },
+          "diaspora_log": {
+            "beta": 0.288,
+            "ci": [
+              0.211,
+              0.366
+            ],
+            "p": 0.0
+          },
+          "same_branch": {
+            "beta": 0.069,
+            "ci": [
+              -0.005,
+              0.142
+            ],
+            "p": 0.069
+          },
+          "same_family": {
+            "beta": -0.104,
+            "ci": [
+              -0.165,
+              -0.042
+            ],
+            "p": 0.0009
+          },
+          "same_subbranch": {
+            "beta": 0.235,
+            "ci": [
+              0.099,
+              0.372
+            ],
+            "p": 0.0007
+          },
+          "shared_official": {
+            "beta": -0.03,
+            "ci": [
+              -0.119,
+              0.059
+            ],
+            "p": 0.5114
+          },
+          "taste_sim": {
+            "beta": 0.067,
+            "ci": [
+              0.008,
+              0.125
+            ],
+            "p": 0.0263
+          }
+        },
+        "n": 1248,
+        "n_countries": 39,
+        "r2": 0.2799
+      },
+      "main": {
+        "coefs": {
+          "border": {
+            "beta": 0.193,
+            "ci": [
+              0.104,
+              0.281
+            ],
+            "p": 0.0
+          },
+          "diaspora_log": {
+            "beta": 0.27,
+            "ci": [
+              0.191,
+              0.349
+            ],
+            "p": 0.0
+          },
+          "same_branch": {
+            "beta": 0.062,
+            "ci": [
+              -0.009,
+              0.133
+            ],
+            "p": 0.0871
+          },
+          "same_family": {
+            "beta": -0.092,
+            "ci": [
+              -0.151,
+              -0.034
+            ],
+            "p": 0.002
+          },
+          "same_subbranch": {
+            "beta": 0.266,
+            "ci": [
+              0.129,
+              0.403
+            ],
+            "p": 0.0001
+          },
+          "shared_official": {
+            "beta": 0.001,
+            "ci": [
+              -0.097,
+              0.098
+            ],
+            "p": 0.9915
+          },
+          "taste_sim": {
+            "beta": 0.064,
+            "ci": [
+              0.002,
+              0.125
+            ],
+            "p": 0.0439
+          }
+        },
+        "n": 1257,
+        "n_countries": 39,
+        "r2": 0.3098
+      },
+      "own_sim": {
+        "coefs": {
+          "border": {
+            "beta": 0.193,
+            "ci": [
+              0.105,
+              0.282
+            ],
+            "p": 0.0
+          },
+          "diaspora_log": {
+            "beta": 0.265,
+            "ci": [
+              0.183,
+              0.348
+            ],
+            "p": 0.0
+          },
+          "own_sim": {
+            "beta": -0.001,
+            "ci": [
+              -0.041,
+              0.039
+            ],
+            "p": 0.9535
+          },
+          "same_branch": {
+            "beta": 0.063,
+            "ci": [
+              -0.009,
+              0.135
+            ],
+            "p": 0.0867
+          },
+          "same_family": {
+            "beta": -0.086,
+            "ci": [
+              -0.142,
+              -0.031
+            ],
+            "p": 0.0025
+          },
+          "same_subbranch": {
+            "beta": 0.267,
+            "ci": [
+              0.127,
+              0.406
+            ],
+            "p": 0.0002
+          },
+          "shared_official": {
+            "beta": -0.0,
+            "ci": [
+              -0.102,
+              0.101
+            ],
+            "p": 0.9924
+          }
+        },
+        "n": 1257,
+        "n_countries": 39,
+        "r2": 0.3058
+      },
+      "taste_no_top5": {
+        "coefs": {
+          "border": {
+            "beta": 0.193,
+            "ci": [
+              0.103,
+              0.282
+            ],
+            "p": 0.0
+          },
+          "diaspora_log": {
+            "beta": 0.269,
+            "ci": [
+              0.19,
+              0.348
+            ],
+            "p": 0.0
+          },
+          "same_branch": {
+            "beta": 0.064,
+            "ci": [
+              -0.007,
+              0.134
+            ],
+            "p": 0.0757
+          },
+          "same_family": {
+            "beta": -0.089,
+            "ci": [
+              -0.146,
+              -0.032
+            ],
+            "p": 0.0024
+          },
+          "same_subbranch": {
+            "beta": 0.266,
+            "ci": [
+              0.129,
+              0.404
+            ],
+            "p": 0.0002
+          },
+          "shared_official": {
+            "beta": 0.001,
+            "ci": [
+              -0.098,
+              0.1
+            ],
+            "p": 0.9861
+          },
+          "taste_sim": {
+            "beta": 0.045,
+            "ci": [
+              -0.004,
+              0.094
+            ],
+            "p": 0.0692
+          }
+        },
+        "n": 1257,
+        "n_countries": 39,
+        "r2": 0.3078
+      },
+      "taste_past": {
+        "coefs": {
+          "border": {
+            "beta": 0.194,
+            "ci": [
+              0.105,
+              0.284
+            ],
+            "p": 0.0
+          },
+          "diaspora_log": {
+            "beta": 0.267,
+            "ci": [
+              0.186,
+              0.348
+            ],
+            "p": 0.0
+          },
+          "same_branch": {
+            "beta": 0.062,
+            "ci": [
+              -0.009,
+              0.133
+            ],
+            "p": 0.0872
+          },
+          "same_family": {
+            "beta": -0.095,
+            "ci": [
+              -0.152,
+              -0.038
+            ],
+            "p": 0.001
+          },
+          "same_subbranch": {
+            "beta": 0.265,
+            "ci": [
+              0.128,
+              0.402
+            ],
+            "p": 0.0001
+          },
+          "shared_official": {
+            "beta": 0.001,
+            "ci": [
+              -0.097,
+              0.099
+            ],
+            "p": 0.9848
+          },
+          "taste_sim": {
+            "beta": 0.069,
+            "ci": [
+              0.002,
+              0.136
+            ],
+            "p": 0.0421
+          }
+        },
+        "n": 1257,
+        "n_countries": 39,
+        "r2": 0.3105
+      }
+    },
+    "2016+ jury": {
+      "diaspora_observed_only": {
+        "coefs": {
+          "border": {
+            "beta": 0.135,
+            "ci": [
+              0.048,
+              0.223
+            ],
+            "p": 0.0025
+          },
+          "diaspora_log": {
+            "beta": 0.036,
+            "ci": [
+              -0.017,
+              0.088
+            ],
+            "p": 0.1842
+          },
+          "same_branch": {
+            "beta": 0.024,
+            "ci": [
+              -0.082,
+              0.13
+            ],
+            "p": 0.6558
+          },
+          "same_family": {
+            "beta": -0.073,
+            "ci": [
+              -0.118,
+              -0.028
+            ],
+            "p": 0.0015
+          },
+          "same_subbranch": {
+            "beta": 0.137,
+            "ci": [
+              0.043,
+              0.231
+            ],
+            "p": 0.0042
+          },
+          "shared_official": {
+            "beta": 0.1,
+            "ci": [
+              -0.014,
+              0.215
+            ],
+            "p": 0.086
+          },
+          "taste_sim": {
+            "beta": 0.111,
+            "ci": [
+              0.031,
+              0.192
+            ],
+            "p": 0.0069
+          }
+        },
+        "n": 1015,
+        "n_countries": 43,
+        "r2": 0.1075
+      },
+      "drop_top5_pairs": {
+        "coefs": {
+          "border": {
+            "beta": 0.112,
+            "ci": [
+              0.032,
+              0.192
+            ],
+            "p": 0.0059
+          },
+          "diaspora_log": {
+            "beta": 0.058,
+            "ci": [
+              0.003,
+              0.114
+            ],
+            "p": 0.0402
+          },
+          "same_branch": {
+            "beta": 0.112,
+            "ci": [
+              0.015,
+              0.209
+            ],
+            "p": 0.0238
+          },
+          "same_family": {
+            "beta": -0.067,
+            "ci": [
+              -0.089,
+              -0.045
+            ],
+            "p": 0.0
+          },
+          "same_subbranch": {
+            "beta": 0.058,
+            "ci": [
+              -0.019,
+              0.135
+            ],
+            "p": 0.1377
+          },
+          "shared_official": {
+            "beta": -0.007,
+            "ci": [
+              -0.063,
+              0.049
+            ],
+            "p": 0.8121
+          },
+          "taste_sim": {
+            "beta": 0.064,
+            "ci": [
+              0.011,
+              0.118
+            ],
+            "p": 0.0179
+          }
+        },
+        "n": 1529,
+        "n_countries": 43,
+        "r2": 0.0548
+      },
+      "main": {
+        "coefs": {
+          "border": {
+            "beta": 0.127,
+            "ci": [
+              0.048,
+              0.206
+            ],
+            "p": 0.0016
+          },
+          "diaspora_log": {
+            "beta": 0.063,
+            "ci": [
+              0.009,
+              0.117
+            ],
+            "p": 0.0228
+          },
+          "same_branch": {
+            "beta": 0.105,
+            "ci": [
+              0.013,
+              0.198
+            ],
+            "p": 0.0251
+          },
+          "same_family": {
+            "beta": -0.069,
+            "ci": [
+              -0.092,
+              -0.046
+            ],
+            "p": 0.0
+          },
+          "same_subbranch": {
+            "beta": 0.071,
+            "ci": [
+              -0.011,
+              0.154
+            ],
+            "p": 0.0909
+          },
+          "shared_official": {
+            "beta": 0.063,
+            "ci": [
+              -0.037,
+              0.164
+            ],
+            "p": 0.218
+          },
+          "taste_sim": {
+            "beta": 0.085,
+            "ci": [
+              0.028,
+              0.141
+            ],
+            "p": 0.0034
+          }
+        },
+        "n": 1537,
+        "n_countries": 43,
+        "r2": 0.0846
+      },
+      "own_sim": {
+        "coefs": {
+          "border": {
+            "beta": 0.133,
+            "ci": [
+              0.051,
+              0.216
+            ],
+            "p": 0.0016
+          },
+          "diaspora_log": {
+            "beta": 0.058,
+            "ci": [
+              0.004,
+              0.112
+            ],
+            "p": 0.0337
+          },
+          "own_sim": {
+            "beta": 0.013,
+            "ci": [
+              -0.041,
+              0.068
+            ],
+            "p": 0.6261
+          },
+          "same_branch": {
+            "beta": 0.108,
+            "ci": [
+              0.015,
+              0.201
+            ],
+            "p": 0.0232
+          },
+          "same_family": {
+            "beta": -0.067,
+            "ci": [
+              -0.084,
+              -0.05
+            ],
+            "p": 0.0
+          },
+          "same_subbranch": {
+            "beta": 0.068,
+            "ci": [
+              -0.015,
+              0.151
+            ],
+            "p": 0.1089
+          },
+          "shared_official": {
+            "beta": 0.062,
+            "ci": [
+              -0.041,
+              0.164
+            ],
+            "p": 0.2396
+          }
+        },
+        "n": 1537,
+        "n_countries": 43,
+        "r2": 0.0777
+      },
+      "taste_no_top5": {
+        "coefs": {
+          "border": {
+            "beta": 0.133,
+            "ci": [
+              0.051,
+              0.214
+            ],
+            "p": 0.0015
+          },
+          "diaspora_log": {
+            "beta": 0.061,
+            "ci": [
+              0.007,
+              0.115
+            ],
+            "p": 0.0279
+          },
+          "same_branch": {
+            "beta": 0.112,
+            "ci": [
+              0.02,
+              0.204
+            ],
+            "p": 0.0175
+          },
+          "same_family": {
+            "beta": -0.069,
+            "ci": [
+              -0.089,
+              -0.049
+            ],
+            "p": 0.0
+          },
+          "same_subbranch": {
+            "beta": 0.068,
+            "ci": [
+              -0.015,
+              0.15
+            ],
+            "p": 0.108
+          },
+          "shared_official": {
+            "beta": 0.062,
+            "ci": [
+              -0.039,
+              0.163
+            ],
+            "p": 0.2304
+          },
+          "taste_sim": {
+            "beta": 0.054,
+            "ci": [
+              0.001,
+              0.106
+            ],
+            "p": 0.0449
+          }
+        },
+        "n": 1537,
+        "n_countries": 43,
+        "r2": 0.0804
+      },
+      "taste_past": {
+        "coefs": {
+          "border": {
+            "beta": 0.128,
+            "ci": [
+              0.049,
+              0.208
+            ],
+            "p": 0.0015
+          },
+          "diaspora_log": {
+            "beta": 0.062,
+            "ci": [
+              0.008,
+              0.116
+            ],
+            "p": 0.0237
+          },
+          "same_branch": {
+            "beta": 0.105,
+            "ci": [
+              0.013,
+              0.197
+            ],
+            "p": 0.0254
+          },
+          "same_family": {
+            "beta": -0.069,
+            "ci": [
+              -0.093,
+              -0.045
+            ],
+            "p": 0.0
+          },
+          "same_subbranch": {
+            "beta": 0.071,
+            "ci": [
+              -0.011,
+              0.153
+            ],
+            "p": 0.0901
+          },
+          "shared_official": {
+            "beta": 0.063,
+            "ci": [
+              -0.038,
+              0.164
+            ],
+            "p": 0.2241
+          },
+          "taste_sim": {
+            "beta": 0.08,
+            "ci": [
+              0.024,
+              0.136
+            ],
+            "p": 0.0053
+          }
+        },
+        "n": 1537,
+        "n_countries": 43,
+        "r2": 0.0839
+      }
+    },
+    "2016+ televote": {
+      "diaspora_observed_only": {
+        "coefs": {
+          "border": {
+            "beta": 0.201,
+            "ci": [
+              0.098,
+              0.304
+            ],
+            "p": 0.0001
+          },
+          "diaspora_log": {
+            "beta": 0.252,
+            "ci": [
+              0.16,
+              0.345
+            ],
+            "p": 0.0
+          },
+          "same_branch": {
+            "beta": 0.095,
+            "ci": [
+              -0.017,
+              0.207
+            ],
+            "p": 0.0964
+          },
+          "same_family": {
+            "beta": -0.109,
+            "ci": [
+              -0.15,
+              -0.067
+            ],
+            "p": 0.0
+          },
+          "same_subbranch": {
+            "beta": 0.216,
+            "ci": [
+              0.062,
+              0.37
+            ],
+            "p": 0.0059
+          },
+          "shared_official": {
+            "beta": 0.024,
+            "ci": [
+              -0.072,
+              0.119
+            ],
+            "p": 0.6276
+          },
+          "taste_sim": {
+            "beta": 0.126,
+            "ci": [
+              0.037,
+              0.214
+            ],
+            "p": 0.0056
+          }
+        },
+        "n": 1015,
+        "n_countries": 43,
+        "r2": 0.3065
+      },
+      "drop_top5_pairs": {
+        "coefs": {
+          "border": {
+            "beta": 0.196,
+            "ci": [
+              0.117,
+              0.275
+            ],
+            "p": 0.0
+          },
+          "diaspora_log": {
+            "beta": 0.246,
+            "ci": [
+              0.166,
+              0.326
+            ],
+            "p": 0.0
+          },
+          "same_branch": {
+            "beta": 0.112,
+            "ci": [
+              0.012,
+              0.212
+            ],
+            "p": 0.0279
+          },
+          "same_family": {
+            "beta": -0.092,
+            "ci": [
+              -0.133,
+              -0.051
+            ],
+            "p": 0.0
+          },
+          "same_subbranch": {
+            "beta": 0.158,
+            "ci": [
+              0.017,
+              0.299
+            ],
+            "p": 0.0278
+          },
+          "shared_official": {
+            "beta": 0.001,
+            "ci": [
+              -0.054,
+              0.055
+            ],
+            "p": 0.9773
+          },
+          "taste_sim": {
+            "beta": 0.122,
+            "ci": [
+              0.047,
+              0.196
+            ],
+            "p": 0.0014
+          }
+        },
+        "n": 1529,
+        "n_countries": 43,
+        "r2": 0.2336
+      },
+      "main": {
+        "coefs": {
+          "border": {
+            "beta": 0.209,
+            "ci": [
+              0.124,
+              0.293
+            ],
+            "p": 0.0
+          },
+          "diaspora_log": {
+            "beta": 0.238,
+            "ci": [
+              0.162,
+              0.314
+            ],
+            "p": 0.0
+          },
+          "same_branch": {
+            "beta": 0.106,
+            "ci": [
+              0.009,
+              0.203
+            ],
+            "p": 0.0319
+          },
+          "same_family": {
+            "beta": -0.09,
+            "ci": [
+              -0.129,
+              -0.051
+            ],
+            "p": 0.0
+          },
+          "same_subbranch": {
+            "beta": 0.175,
+            "ci": [
+              0.04,
+              0.309
+            ],
+            "p": 0.0109
+          },
+          "shared_official": {
+            "beta": 0.038,
+            "ci": [
+              -0.046,
+              0.122
+            ],
+            "p": 0.3772
+          },
+          "taste_sim": {
+            "beta": 0.127,
+            "ci": [
+              0.051,
+              0.203
+            ],
+            "p": 0.001
+          }
+        },
+        "n": 1537,
+        "n_countries": 43,
+        "r2": 0.2656
+      },
+      "own_sim": {
+        "coefs": {
+          "border": {
+            "beta": 0.218,
+            "ci": [
+              0.128,
+              0.307
+            ],
+            "p": 0.0
+          },
+          "diaspora_log": {
+            "beta": 0.231,
+            "ci": [
+              0.155,
+              0.307
+            ],
+            "p": 0.0
+          },
+          "own_sim": {
+            "beta": 0.047,
+            "ci": [
+              0.002,
+              0.092
+            ],
+            "p": 0.0412
+          },
+          "same_branch": {
+            "beta": 0.109,
+            "ci": [
+              0.014,
+              0.204
+            ],
+            "p": 0.025
+          },
+          "same_family": {
+            "beta": -0.086,
+            "ci": [
+              -0.125,
+              -0.047
+            ],
+            "p": 0.0
+          },
+          "same_subbranch": {
+            "beta": 0.17,
+            "ci": [
+              0.032,
+              0.309
+            ],
+            "p": 0.0159
+          },
+          "shared_official": {
+            "beta": 0.036,
+            "ci": [
+              -0.054,
+              0.126
+            ],
+            "p": 0.4368
+          }
+        },
+        "n": 1537,
+        "n_countries": 43,
+        "r2": 0.2517
+      },
+      "taste_no_top5": {
+        "coefs": {
+          "border": {
+            "beta": 0.217,
+            "ci": [
+              0.129,
+              0.305
+            ],
+            "p": 0.0
+          },
+          "diaspora_log": {
+            "beta": 0.235,
+            "ci": [
+              0.16,
+              0.311
+            ],
+            "p": 0.0
+          },
+          "same_branch": {
+            "beta": 0.117,
+            "ci": [
+              0.021,
+              0.213
+            ],
+            "p": 0.0174
+          },
+          "same_family": {
+            "beta": -0.09,
+            "ci": [
+              -0.13,
+              -0.051
+            ],
+            "p": 0.0
+          },
+          "same_subbranch": {
+            "beta": 0.169,
+            "ci": [
+              0.034,
+              0.305
+            ],
+            "p": 0.014
+          },
+          "shared_official": {
+            "beta": 0.036,
+            "ci": [
+              -0.049,
+              0.121
+            ],
+            "p": 0.408
+          },
+          "taste_sim": {
+            "beta": 0.093,
+            "ci": [
+              0.029,
+              0.157
+            ],
+            "p": 0.0046
+          }
+        },
+        "n": 1537,
+        "n_countries": 43,
+        "r2": 0.2581
+      },
+      "taste_past": {
+        "coefs": {
+          "border": {
+            "beta": 0.211,
+            "ci": [
+              0.125,
+              0.296
+            ],
+            "p": 0.0
+          },
+          "diaspora_log": {
+            "beta": 0.237,
+            "ci": [
+              0.162,
+              0.313
+            ],
+            "p": 0.0
+          },
+          "same_branch": {
+            "beta": 0.105,
+            "ci": [
+              0.009,
+              0.202
+            ],
+            "p": 0.0324
+          },
+          "same_family": {
+            "beta": -0.089,
+            "ci": [
+              -0.127,
+              -0.051
+            ],
+            "p": 0.0
+          },
+          "same_subbranch": {
+            "beta": 0.174,
+            "ci": [
+              0.04,
+              0.309
+            ],
+            "p": 0.0111
+          },
+          "shared_official": {
+            "beta": 0.037,
+            "ci": [
+              -0.048,
+              0.122
+            ],
+            "p": 0.3924
+          },
+          "taste_sim": {
+            "beta": 0.126,
+            "ci": [
+              0.045,
+              0.206
+            ],
+            "p": 0.0022
+          }
+        },
+        "n": 1537,
+        "n_countries": 43,
+        "r2": 0.2653
+      },
+      "with_semis": {
+        "coefs": {
+          "border": {
+            "beta": 0.218,
+            "ci": [
+              0.133,
+              0.302
+            ],
+            "p": 0.0
+          },
+          "diaspora_log": {
+            "beta": 0.235,
+            "ci": [
+              0.161,
+              0.31
+            ],
+            "p": 0.0
+          },
+          "same_branch": {
+            "beta": 0.104,
+            "ci": [
+              0.01,
+              0.198
+            ],
+            "p": 0.0303
+          },
+          "same_family": {
+            "beta": -0.094,
+            "ci": [
+              -0.127,
+              -0.061
+            ],
+            "p": 0.0
+          },
+          "same_subbranch": {
+            "beta": 0.176,
+            "ci": [
+              0.043,
+              0.309
+            ],
+            "p": 0.0093
+          },
+          "shared_official": {
+            "beta": 0.049,
+            "ci": [
+              -0.035,
+              0.133
+            ],
+            "p": 0.2527
+          },
+          "taste_sim": {
+            "beta": 0.128,
+            "ci": [
+              0.058,
+              0.199
+            ],
+            "p": 0.0004
+          }
+        },
+        "n": 1574,
+        "n_countries": 44,
+        "r2": 0.2763
+      }
+    },
+    "_updated": "2026-11-16"
+  },
   "taste_similarity": {
     "_updated": "2026-11-16",
-    "era_level": {
-      "n": 7547,
-      "pearson": 0.605,
-      "spearman": 0.593
+    "dist": {
+      "own_sim": {
+        "mean": -0.0352,
+        "n": 44827,
+        "sd": 0.1367
+      },
+      "own_sim_raw": {
+        "mean": 0.5278,
+        "n": 44827,
+        "sd": 0.1148
+      },
+      "taste_sim": {
+        "mean": 0.0033,
+        "n": 45506,
+        "sd": 0.1497
+      },
+      "taste_sim_no_top5": {
+        "mean": 0.0039,
+        "n": 45506,
+        "sd": 0.1452
+      },
+      "taste_sim_past": {
+        "mean": 0.0018,
+        "n": 44343,
+        "sd": 0.1411
+      },
+      "taste_sim_raw": {
+        "mean": 0.7194,
+        "n": 45506,
+        "sd": 0.0919
+      }
     },
-    "era_level_by_era": {
-      "1957-1974": {
-        "n": 404,
-        "pearson": 0.597,
-        "spearman": 0.606
+    "main_vs_robustness_pair_era": {
+      "taste_sim_no_top5": {
+        "n": 7591,
+        "pearson": 0.862,
+        "spearman": 0.836
       },
-      "1975-1996": {
-        "n": 1040,
-        "pearson": 0.672,
-        "spearman": 0.656
+      "taste_sim_past": {
+        "n": 7347,
+        "pearson": 0.715,
+        "spearman": 0.729
       },
-      "1997-2008 televote": {
-        "n": 2089,
-        "pearson": 0.577,
-        "spearman": 0.549
-      },
-      "2009-2015 50/50": {
-        "n": 2079,
-        "pearson": 0.545,
-        "spearman": 0.515
-      },
-      "2016+ split": {
-        "n": 1935,
-        "pearson": 0.581,
-        "spearman": 0.566
+      "taste_sim_raw": {
+        "n": 7591,
+        "pearson": 0.456,
+        "spearman": 0.457
       }
     },
     "n_votes": 45524,
-    "n_votes_taste": 45506,
-    "taste_sim_mean": 0.7194,
-    "taste_sim_sd": 0.0919,
-    "year_level": {
-      "n": 44809,
-      "pearson": 0.589,
-      "spearman": 0.563
-    }
+    "taste_vs_own_centred": {
+      "pair_era": {
+        "n": 7547,
+        "pearson": 0.067,
+        "spearman": 0.07
+      },
+      "vote": {
+        "n": 44809,
+        "pearson": 0.063,
+        "spearman": 0.061
+      }
+    },
+    "taste_vs_own_raw": {
+      "pair_era": {
+        "n": 7547,
+        "pearson": 0.605,
+        "spearman": 0.593
+      },
+      "vote": {
+        "n": 44809,
+        "pearson": 0.589,
+        "spearman": 0.563
+      }
+    },
+    "top_k_partners": 5
   }
 }
