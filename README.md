@@ -24,7 +24,8 @@ This produces:
 - `data/edges.csv`: one row per vote: year, era, round, vote_type (total/jury/tele), from, to, points, share, expected, excess.
 - `data/borders.csv`: from, to, border (0/1, land borders only).
 - `data/diaspora.csv`: from, to, year, migrants (born in `to`, living in `from`), share_of_migrants. UN DESA 2024.
-- `data/language.csv`: from, to, shared_official (0/1), same_family (0/1), primary_from, primary_to. CLDR 49 + Glottolog 5.4.
+- `data/language.csv`: from, to, shared_official, same_family, same_branch, same_subbranch (0/1), primary_from, primary_to. CLDR 49 + Glottolog 5.4.
+- `data/language_groups.csv`: per country, the primary language and its family, branch and sub-branch names.
 - `data/key_numbers.json`: every number the paper quotes, written by the scripts. `RESULTS.md`: the same numbers with context.
 - `data/edges_agg.csv`: from→to totals per era and vote_type: n_votes, excess_sum, excess_mean, points_sum.
 

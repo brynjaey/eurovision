@@ -15,13 +15,18 @@ Rerun the script, then update this file if a number changed. Interpretation is t
 - Misses: people of B descent born in A (second generation), and anyone not counted by the destination's census/registers;
   values are only every 5 years (1990–2020) plus 2024.
 
-## Language (`scripts/build_language.py` → `data/language.csv`, key_numbers: `language`)
+## Language (`scripts/build_language.py` → `data/language.csv`, `data/language_groups.csv`, key_numbers: `language`)
 - 1,225 unordered pairs with data (50 countries; yu, cs, wld missing).
-- shared_official = 1 for 44 pairs; same_family = 1 for 827 pairs (954 if any official language is used instead of the primary).
-- Spot checks: AT–DE 1/1, GR–CY 1/1, RO–MD 1/1, HU–FI 0/1 (Uralic), TR–AZ 0/1 (Turkic), RU–UA 1/1 (CLDR: ru de facto official in UA),
-  RS–HR 0/1 (sr and hr are different ISO codes), SE–NO 0/1.
-- shared_official captures: whether two countries have an official or de facto official language in common (CLDR).
-- shared_official misses: mutual intelligibility (sr/hr/bs, sv/no/da count as different), minority and regional languages,
-  and second languages people actually speak (e.g. Russian across the former USSR beyond UA/BY).
-- same_family captures: whether the main official languages belong to the same top-level Glottolog family.
-- same_family misses: closeness within a family. Indo-European covers most of Europe, so Swedish–Greek counts the same as Swedish–Norwegian.
+- Pairs = 1: shared_official 34 (2.8%), same_family 827 (67.5%), same_branch 219 (17.9%), same_subbranch 143 (11.7%).
+- shared_official uses CLDR "official" only; 10 pairs changed 1 → 0 when de facto official was dropped:
+  AU–GB, AU–IE, AU–MT, BE–MA, CH–MA, FR–MA, LU–MA, MA–MC, BY–UA, RU–UA.
+- Spot checks (shared_official / family / branch / sub-branch): RS–HR 0/1/1/1, SE–NO 0/1/1/1, ES–PT 0/1/1/1,
+  UA–RU 0/1/1/1, CZ–SK 0/1/1/1; contrasts: LT–PL 0/1/1/0, IT–RO 0/1/1/0, PL–RU 0/1/1/1, TR–AZ 0/1/0/0.
+- shared_official captures: whether two countries share a language CLDR lists as official.
+- shared_official misses: mutual intelligibility (sr/hr/bs, sv/no/da are different codes), de facto, regional and second
+  languages people actually speak (e.g. Russian in Ukraine).
+- same_family captures: whether the primary languages are in the same top-level Glottolog family.
+- same_family misses: closeness within a family; Indo-European covers most of Europe.
+- same_branch / same_subbranch capture: closeness one and two splits further down the Glottolog tree, among our countries.
+- same_branch / same_subbranch miss: they depend on which languages are in the sample, so South/East/West Slavic are not
+  separated, and TR–AZ (both Oghuz) get different branches.

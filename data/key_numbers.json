@@ -24,8 +24,13 @@
       "yu"
     ],
     "n_unordered_pairs": 1225,
+    "same_branch_1": 219,
+    "same_branch_pct": 17.9,
     "same_family_1": 827,
-    "same_family_any_official_1": 954,
-    "shared_official_1": 44
+    "same_family_pct": 67.5,
+    "same_subbranch_1": 143,
+    "same_subbranch_pct": 11.7,
+    "shared_official_1": 34,
+    "shared_official_pct": 2.8
   }
 }

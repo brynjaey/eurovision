@@ -74,9 +74,11 @@
     {
       "files": [
         "raw/glottolog/languages.csv",
-        "raw/glottolog/LICENSE"
+        "raw/glottolog/LICENSE",
+        "raw/glottolog/values.csv",
+        "raw/glottolog/parameters.csv"
       ],
-      "source": "https://github.com/glottolog/glottolog-cldf (cldf/languages.csv)",
+      "source": "https://github.com/glottolog/glottolog-cldf (cldf/languages.csv, cldf/values.csv, cldf/parameters.csv)",
       "tag": "v5.4",
       "tag_commit": "5b473871609185e5a5f7ad39e942b5f0f2ebc793",
       "release_date": "2026-11-10",
@@ -84,10 +86,12 @@
       "retrieved": "2026-11-16",
       "license": "CC BY 4.0, attribution required",
       "cite": "Hammarström, Harald & Forkel, Robert & Haspelmath, Martin & Bank, Sebastian. 2026. Glottolog 5.4. Leipzig: Max Planck Institute for Evolutionary Anthropology.",
-      "used_for": "top-level language family (Family_ID) per ISO 639-3 code",
+      "used_for": "glottocode per ISO 639-3 code (languages.csv); classification path from family root (values.csv, parameter 'classification')",
       "sha256": {
         "raw/glottolog/languages.csv": "ecadbfd440f3d0c28182f676b7e49c6e38fd3d40774c7ae3d90bf28ca137fe90",
-        "raw/glottolog/LICENSE": "945fbcb37deca05bccd7c3ca0e261679f1f5373515504fdbad68f6f3cf6f49b9"
+        "raw/glottolog/LICENSE": "945fbcb37deca05bccd7c3ca0e261679f1f5373515504fdbad68f6f3cf6f49b9",
+        "raw/glottolog/values.csv": "f7f39813ed2ff80f71172a1f962b7ac19fb5306ac8aea55af168ad1219e330d7",
+        "raw/glottolog/parameters.csv": "bca9a4688f6fd4e107e1b107c9f1c386c73586b1a48246840ff57780176fad22"
       }
     }
   ]

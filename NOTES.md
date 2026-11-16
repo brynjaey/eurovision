@@ -26,20 +26,27 @@
   DECIDED 2026-11-16 (group): pairs missing from UN DESA count as 0 in the main analysis; robustness check reruns on
   observed pairs only. Diaspora analysis covers 1997+ (televote era); each vote year uses the nearest UN year.
   TODO (group): add a second check, e.g. compare 2-3 pairs against a national statistics office figure.
-- 2026-11-16: Language layer from Unicode CLDR 49 (official languages) + Glottolog 5.4 (families), built by
-  scripts/build_language.py -> data/language.csv (all ordered pairs of Eurovision countries, symmetric).
-  Official = CLDR officialStatus "official" or "de_facto_official"; "official_regional" ignored (else RU gets 20 regional
-  languages and DK counts German). Script variants merged (sr_Latn -> sr, az_Cyrl -> az).
-  shared_official = any official language in common. same_family = top-level Glottolog family of each country's PRIMARY
-  official language (largest CLDR populationPercent). Chosen because with ANY official language almost every country
-  has an Indo-European one (FI sv, MT en, MA fr, CY el): same_family would be 954/1225 pairs vs 827/1225 with primary.
+- 2026-11-16: Language layer from Unicode CLDR 49 (official languages) + Glottolog 5.4 (classification tree), built by
+  scripts/build_language.py -> data/language.csv (all ordered pairs, symmetric) and data/language_groups.csv (per country).
+  shared_official = the two countries share a language with CLDR officialStatus "official".
+  DECIDED 2026-11-16 (group): de_facto_official and official_regional do NOT count for shared_official.
+  This changed 10 pairs from 1 to 0: AU–GB, AU–IE, AU–MT (en is de facto in AU), BE–MA, CH–MA, FR–MA, LU–MA, MA–MC
+  (fr is de facto in MA), BY–UA, RU–UA (ru is de facto in UA). shared_official: 44 -> 34 of 1225 pairs.
+  Primary language = the official or de facto official language with the largest CLDR populationPercent (de facto is
+  kept here because AU has no "official" language). Script variants merged (sr_Latn -> sr). BY primary = ru, LU = fr.
+  same_family / same_branch / same_subbranch compare primary languages on the Glottolog classification path
+  (values.csv, parameter "classification"). The literal next level below the family is useless: every IE language sits
+  under "Classical Indo-European". Rule used: walk down from the family root, skip nodes shared by all our primary
+  languages of that group; the first split = branch, the next split within each branch = sub-branch.
+  Resulting IE branches: Italic, Germanic, Balto-Slavic, Graeco-Phrygian, Armenic, Albanian. Sub-branches: West/North
+  Germanic, Italo-Western/Eastern Romance, Slavic/Eastern Baltic. Because the rule is relative to our sample,
+  (a) South/East/West Slavic are a third level and not separated, (b) TR (West Oghuz) and AZ (Central Oghuz) get different
+  branches although both are Oghuz Turkic. See TODO below.
   ISO 639-1 -> 639-3 via pycountry. Glottolog lacks macrolanguage codes (ara, aze, est): mapped via CLDR macrolanguage
-  aliases to arb, azj, ekk. Isolates would get their own glottocode as family (none among primary languages).
-  Known artefacts, kept as in the source: sr/hr/bs are different ISO codes, so RS-HR shared_official = 0 (RS-ME, BA-HR = 1);
-  CLDR lists ru as de facto official in UA, so UA-RU and UA-BY = 1; BY primary = ru, LU primary = fr.
-  yu, cs, wld: no CLDR territory -> NaN. Counts (unordered pairs, 1225): shared_official = 44, same_family = 827.
-  TODO (group): same_family is 1 for 68% of pairs (mostly Indo-European). A sub-branch (Germanic/Slavic/Romance) would
-  separate more pairs; decide whether to add it.
+  aliases to arb, azj, ekk. sr/hr/bs are different ISO codes, so RS–HR shared_official = 0.
+  yu, cs, wld: no CLDR territory -> NaN.
+  TODO (group): accept the sample-split rule, or replace branch/sub-branch with a named list of Glottolog nodes
+  (e.g. branch = Germanic/Romance/Slavic/Baltic/Greek/...; sub-branch = South/East/West Slavic, North/West Germanic, ...)?
 
 ## Decisions
 - Excess = vote share minus the leave-one-out mean share the entry got from the other voters in the same round and vote type (see build_edges.py).
@@ -50,6 +57,7 @@
   language) or taste (song similarity), and do juries and televoters differ? Everything built must serve it.
 - 2026-11-16 (group): diaspora missing pairs = 0 (robustness: observed pairs only); diaspora analysis 1997+, nearest UN year.
 - 2026-11-16 (group): language layer = shared official language (0/1) + same language family (0/1), simplest defensible source.
+- 2026-11-16 (group): add same_branch and same_subbranch from the Glottolog tree; shared_official uses CLDR "official" only.
 
 ## Pending layers
 - Diaspora: done 2026-11-16, see Data above.
