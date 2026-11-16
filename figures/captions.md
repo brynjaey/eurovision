@@ -24,7 +24,7 @@ receiver's song and the voter's points-weighted lyric profile from other years, 
 vote type. Lines: 95% confidence intervals from standard errors clustered by voting and receiving
 country. The horizontal rule separates the lyric term from the friendship terms.
 
-## Fig. 3 — `fig3_communities.pdf`
+## Fig. 3 — `fig3_communities.pdf` (two-column width, 17.8 cm)
 Louvain communities of the 2016–2026 excess-vote networks for jury votes (left) and televotes
 (right), 44 countries and 4 communities in each. Marker colour and shape show community membership;
 a community in the televote panel gets the colour and shape of the jury community it overlaps most

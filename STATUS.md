@@ -21,6 +21,7 @@ _Last updated: 2026-11-16, step 7 figures drafted; step 8 methods next._
 - [x] Collinearity check: `data/predictor_correlations.csv`, `data/predictor_vif.csv`
 - [x] Step 6 main model: `data/regression_coefs.csv` (3 models × 6–7 specs)
 - [x] Step 7 figures: `figures/fig1_modularity.pdf`, `fig2_coefficients.pdf`, `fig3_communities.pdf` + `figures/captions.md`
+- [x] Leave-one-country-out check of same_family_only: `data/leave_one_out_family.csv`, `data/diff_family_top_pairs.csv`
 - [x] Report files: `RESULTS.md` (facts per step) and `data/key_numbers.json` (written by scripts via `scripts/key_numbers.py`)
 - [x] Citation tracking: `references.bib` with 6 data + 6 papers, all verified against their pages
 
@@ -38,14 +39,15 @@ _Last updated: 2026-11-16, step 7 figures drafted; step 8 methods next._
 - Null model: edge weight = mean excess, min 5 votes per pair (sum kept side by side). 2024–25 televote-only semis out of 2016+ networks; robustness run includes them.
 - Step 6: regression on the full signed excess; >= 5 votes per pair; diaspora_log = log(1 + migrants) at nearest UN year.
 - Language in the regression: one category (diff_family ref / same_family_only / same_branch_only / same_subbranch) + shared_official.
+- Fig 3 at two-column width (17.8 cm), labels >= 6 pt; Fig 1–2 single column.
+- The null-model histogram is a diagnostic in figures/diagnostics/, not a paper figure.
 - Taste profiles per vote type for 2016+ (jury from jury votes, televote from televotes); 1997–2008 total.
 - Lyrics: all cosines on year-centred vectors.
 - Lyrics: main measure = taste_sim (A's taste profile from other years, B's songs excluded) vs B's song; own_sim kept for comparison.
 - edges.csv: EurovisionAPI fills every (year, round) Spijkervet lacks (2023 semis added).
 
 ## Open questions (for the humans)
-- Fig 3 at single-column width: country labels are 4.5 pt. Keep, or make Fig 3 two-column (17.8 cm)?
-- figures/null_modularity.pdf (histogram diagnostic) — keep as supplementary or delete?
+- Two-way clustered SEs: same_family_only in the 2016+ jury model gets a negative variance when IL or PT is left out (leave-one-out). Add a one-way clustered comparison?
 - Hand ratings: the sheet in the repo was still empty on 2026-11-16 — commit the filled `data/lyrics_rating_sheet.csv`.
 - Lyrics: rate the 20 pairs in `data/lyrics_rating_sheet.csv` independently (agree a scale first, e.g. 1–5); don't open `lyrics_rating_key.csv` before.
 - 2026 final check is manual, not scripted, so it is not in key_numbers.json. Script it if we quote it.
@@ -57,6 +59,7 @@ _Last updated: 2026-11-16, step 7 figures drafted; step 8 methods next._
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-16, Kristófer: Fig 3 two-column, histogram to diagnostics, leave-one-out check (leave_one_out.py). Check: RESULTS.md leave-one-out section.
 - 2026-11-16, Kristófer: step 7 figures (make_figures.py) + captions. Check: the three PDFs at print size.
 - 2026-11-16, Kristófer: language as category, taste profiles per vote type, step 6 rerun. Check: main table in RESULTS.md.
 - 2026-11-16, Kristófer: year-centred embeddings, taste robustness profiles, collinearity, step 6 regression (build_pairs.py, regression.py). Check: coefficient tables in RESULTS.md.

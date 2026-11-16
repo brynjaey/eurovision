@@ -116,6 +116,99 @@
     "shared_official_1": 34,
     "shared_official_pct": 2.8
   },
+  "leave_one_out": {
+    "_updated": "2026-11-16",
+    "models": {
+      "1997\u20132008 televote": {
+        "beta_max": -0.082,
+        "beta_min": -0.123,
+        "ci_missing_for": [],
+        "full_beta": -0.101,
+        "largest_moves": {
+          "am": -0.022,
+          "dk": 0.017,
+          "fr": 0.013,
+          "hu": -0.014,
+          "mt": 0.019
+        },
+        "n_ci_includes_0": 0,
+        "n_ci_missing": 0,
+        "n_countries": 39,
+        "top10_diff_family": [
+          "lv->ee 0.1207",
+          "de->tr 0.1206",
+          "se->fi 0.1176",
+          "fr->tr 0.1053",
+          "ee->lv 0.1042",
+          "fr->il 0.1029",
+          "al->tr 0.0977",
+          "nl->tr 0.0913",
+          "ee->ru 0.0878",
+          "tr->ba 0.0859"
+        ]
+      },
+      "2016+ jury": {
+        "beta_max": -0.066,
+        "beta_min": -0.087,
+        "ci_missing_for": [
+          "il",
+          "pt"
+        ],
+        "full_beta": -0.078,
+        "largest_moves": {
+          "am": -0.009,
+          "it": 0.009,
+          "pt": -0.009,
+          "ru": 0.012,
+          "se": 0.009
+        },
+        "n_ci_includes_0": 0,
+        "n_ci_missing": 2,
+        "n_countries": 43,
+        "top10_diff_family": [
+          "az->ru 0.1323",
+          "hr->hu 0.0883",
+          "az->al 0.0879",
+          "bg->mt 0.0867",
+          "ru->az 0.0850",
+          "hu->dk 0.0813",
+          "gr->az 0.0744",
+          "mt->it 0.0736",
+          "fi->se 0.0699",
+          "az->ua 0.0645"
+        ]
+      },
+      "2016+ televote": {
+        "beta_max": -0.09,
+        "beta_min": -0.114,
+        "ci_missing_for": [],
+        "full_beta": -0.098,
+        "largest_moves": {
+          "al": -0.016,
+          "am": -0.014,
+          "dk": 0.008,
+          "gr": -0.007,
+          "pl": -0.01
+        },
+        "n_ci_includes_0": 0,
+        "n_ci_missing": 0,
+        "n_countries": 43,
+        "top10_diff_family": [
+          "ge->am 0.1622",
+          "rs->hu 0.1462",
+          "lv->ee 0.1318",
+          "mt->it 0.1085",
+          "se->fi 0.1025",
+          "lt->ee 0.1004",
+          "md->az 0.0914",
+          "ru->az 0.0898",
+          "ge->az 0.0880",
+          "az->il 0.0843"
+        ]
+      }
+    },
+    "term": "same_family_only"
+  },
   "lyrics": {
     "_updated": "2026-11-16",
     "n_entries": 1830,

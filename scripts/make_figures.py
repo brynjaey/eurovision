@@ -1,4 +1,4 @@
-"""The three paper figures (PDF, PNAS single-column width 8.7 cm = 3.42 in).
+"""The three paper figures (PDF; Fig 1-2 PNAS single column 8.7 cm, Fig 3 two columns 17.8 cm).
 
 Input:  data/null_results.csv, data/null_samples.csv, data/communities_obs.csv   (null_model.py)
         data/regression_coefs.csv                                               (regression.py)
@@ -20,7 +20,8 @@ from scipy.optimize import linear_sum_assignment
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "figures"
 OUT.mkdir(exist_ok=True)
-W = 3.42  # PNAS column width in inches
+W = 3.42  # PNAS single-column width in inches (Fig 1, 2)
+W2 = 7.0  # PNAS two-column width (17.8 cm) for Fig 3
 INK, MUTED, GRID, NULL = "#0b0b0b", "#52514e", "#e4e3df", "#b9b8b2"
 COLORS = ["#2a78d6", "#eb6834", "#1baf7a", "#eda100", "#e87ba4"]
 MARKERS = ["o", "s", "^", "D", "v"]
@@ -131,21 +132,21 @@ for r in range(len(tele)):
         slot[NETS[1]][r] = free.pop(0)
 comms = {NETS[0]: jury, NETS[1]: tele}
 
-fig, axes = plt.subplots(1, 2, figsize=(W, 2.5), constrained_layout=True)
+fig, axes = plt.subplots(1, 2, figsize=(W2, 3.6), constrained_layout=True)
 for ax, n in zip(axes, NETS):
     G, cs = graphs[n], comms[n]
     member = {c: i for i, s in enumerate(cs) for c in s}
     within = [(x, y) for x, y in G.edges if member.get(x) == member.get(y)]
-    nx.draw_networkx_edges(G, pos, edgelist=within, ax=ax, edge_color=GRID, width=0.4)
+    nx.draw_networkx_edges(G, pos, edgelist=within, ax=ax, edge_color=GRID, width=0.5)
     for i, s in enumerate(cs):
         k = slot[n][i]
         xy = np.array([pos[c] for c in s if c in pos])
-        ax.scatter(xy[:, 0], xy[:, 1], s=34, marker=MARKERS[k], color=COLORS[k], edgecolor="white",
+        ax.scatter(xy[:, 0], xy[:, 1], s=150, marker=MARKERS[k], color=COLORS[k], edgecolor="white",
                    linewidth=0.4, zorder=3)
     for c, (x, y) in pos.items():
         if c in member:
-            ax.text(x, y, c.upper(), fontsize=4.5, ha="center", va="center", color=INK, zorder=4)
-    ax.set_title(n, fontsize=7, loc="left")
+            ax.text(x, y, c.upper(), fontsize=6, ha="center", va="center", color=INK, zorder=4)
+    ax.set_title(n, fontsize=8, loc="left")
     ax.set_axis_off()
 save(fig, "fig3_communities")
 print("figures written:", sorted(p.name for p in OUT.glob("fig*.pdf")))

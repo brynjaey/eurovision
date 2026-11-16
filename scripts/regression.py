@@ -35,13 +35,20 @@ ROOT = Path(__file__).resolve().parent.parent
 FRIEND = ["border", "diaspora_log", "shared_official", "same_family_only", "same_branch_only", "same_subbranch"]
 MODELS = {"2016+ jury": "jury_2016", "2016+ televote": "tele_2016", "1997–2008 televote": "tele_1997"}
 
-pairs = pd.read_csv(ROOT / "data/pairs.csv")
-for cat in ["same_family_only", "same_branch_only"]:  # dummies; same_subbranch is already 0/1
-    pairs[cat] = (pairs.lang_cat == cat).astype(int)
-assert (pairs.same_subbranch == (pairs.lang_cat == "same_subbranch")).all()
 
 
-def fit(d: pd.DataFrame, taste: str) -> tuple[pd.DataFrame, dict]:
+def load_pairs() -> pd.DataFrame:
+    """data/pairs.csv with the language-category dummies (reference: diff_family)."""
+    pairs = pd.read_csv(ROOT / "data/pairs.csv")
+    for cat in ["same_family_only", "same_branch_only"]:  # same_subbranch is already 0/1
+        pairs[cat] = (pairs.lang_cat == cat).astype(int)
+    assert (pairs.same_subbranch == (pairs.lang_cat == "same_subbranch")).all()
+    return pairs
+
+
+def fit(d: pd.DataFrame, taste: str, strict: bool = True) -> tuple[pd.DataFrame, dict]:
+    """strict: stop if a reported SE is not finite (paper models). leave_one_out.py uses strict=False
+    and records such CIs as missing."""
     cols = FRIEND + [taste]
     z = (d[cols + ["excess_mean"]] - d[cols + ["excess_mean"]].mean()) / d[cols + ["excess_mean"]].std()
     X = sm.add_constant(z[cols])
@@ -52,7 +59,8 @@ def fit(d: pd.DataFrame, taste: str) -> tuple[pd.DataFrame, dict]:
         warnings.simplefilter("ignore", RuntimeWarning)
         res = sm.OLS(z.excess_mean, X).fit(cov_type="cluster", cov_kwds={"groups": groups})
         ci, pvals = res.conf_int(), res.pvalues  # SEs are computed here, inside the filter
-    assert np.isfinite(res.bse[cols]).all(), "a reported standard error is not finite"
+    if strict:
+        assert np.isfinite(res.bse[cols]).all(), "a reported standard error is not finite"
     coefs = pd.DataFrame({"term": cols, "beta": res.params[cols].values, "ci_low": ci.loc[cols, 0].values,
                           "ci_high": ci.loc[cols, 1].values, "p": pvals[cols].values})
     coefs["term"] = coefs.term.replace({taste: "taste_sim" if taste.startswith("taste") else taste})
@@ -67,39 +75,45 @@ def top5_dropped(d: pd.DataFrame) -> pd.DataFrame:
     return d[~key.isin(worst)]
 
 
-coef_rows, fit_rows = [], []
-for model, sample in MODELS.items():
-    d = pairs[pairs["sample"] == sample]
-    specs = {"main": (d, "taste_sim"),
-             "diaspora_observed_only": (d[d.diaspora_observed == 1], "taste_sim"),
-             "drop_top5_pairs": (top5_dropped(d), "taste_sim"),
-             "taste_no_top5": (d, "taste_sim_no_top5"),
-             "taste_past": (d, "taste_sim_past"),
-             "own_sim": (d, "own_sim")}
-    if sample == "tele_2016":
-        specs["with_semis"] = (pairs[pairs["sample"] == "tele_2016_semis"], "taste_sim")
-    for spec, (dd, taste) in specs.items():
-        dd = dd.dropna(subset=FRIEND + [taste])
-        c, f = fit(dd, taste)
-        coef_rows.append(c.assign(model=model, spec=spec, n=f["n"]))
-        fit_rows.append({"model": model, "spec": spec, **f})
+def main() -> None:
+    pairs = load_pairs()
+    coef_rows, fit_rows = [], []
+    for model, sample in MODELS.items():
+        d = pairs[pairs["sample"] == sample]
+        specs = {"main": (d, "taste_sim"),
+                 "diaspora_observed_only": (d[d.diaspora_observed == 1], "taste_sim"),
+                 "drop_top5_pairs": (top5_dropped(d), "taste_sim"),
+                 "taste_no_top5": (d, "taste_sim_no_top5"),
+                 "taste_past": (d, "taste_sim_past"),
+                 "own_sim": (d, "own_sim")}
+        if sample == "tele_2016":
+            specs["with_semis"] = (pairs[pairs["sample"] == "tele_2016_semis"], "taste_sim")
+        for spec, (dd, taste) in specs.items():
+            dd = dd.dropna(subset=FRIEND + [taste])
+            c, f = fit(dd, taste)
+            coef_rows.append(c.assign(model=model, spec=spec, n=f["n"]))
+            fit_rows.append({"model": model, "spec": spec, **f})
 
-coefs = pd.concat(coef_rows)[["model", "spec", "term", "beta", "ci_low", "ci_high", "p", "n"]]
-fits = pd.DataFrame(fit_rows)
-coefs.to_csv(ROOT / "data/regression_coefs.csv", index=False)
-fits.to_csv(ROOT / "data/regression_fit.csv", index=False)
+    coefs = pd.concat(coef_rows)[["model", "spec", "term", "beta", "ci_low", "ci_high", "p", "n"]]
+    fits = pd.DataFrame(fit_rows)
+    coefs.to_csv(ROOT / "data/regression_coefs.csv", index=False)
+    fits.to_csv(ROOT / "data/regression_fit.csv", index=False)
 
-nums = {}
-for (m, s), g in coefs.groupby(["model", "spec"], sort=False):
-    f = fits[(fits.model == m) & (fits.spec == s)].iloc[0]
-    nums.setdefault(m, {})[s] = {"n": int(f.n), "n_countries": int(f.n_countries), "r2": round(float(f.r2), 4),
-                                 "coefs": {r.term: {"beta": round(r.beta, 3), "ci": [round(r.ci_low, 3), round(r.ci_high, 3)],
-                                                    "p": round(r.p, 4)} for r in g.itertuples()}}
-record("regression", nums)
+    nums = {}
+    for (m, s), g in coefs.groupby(["model", "spec"], sort=False):
+        f = fits[(fits.model == m) & (fits.spec == s)].iloc[0]
+        nums.setdefault(m, {})[s] = {"n": int(f.n), "n_countries": int(f.n_countries), "r2": round(float(f.r2), 4),
+                                     "coefs": {r.term: {"beta": round(r.beta, 3), "ci": [round(r.ci_low, 3), round(r.ci_high, 3)],
+                                                        "p": round(r.p, 4)} for r in g.itertuples()}}
+    record("regression", nums)
 
-main = coefs[coefs.spec == "main"]
-for m in MODELS:
-    f = fits[(fits.model == m) & (fits.spec == "main")].iloc[0]
-    print(f"\n{m}  (n = {f.n} pairs, {f.n_countries} countries, R² = {f.r2:.3f})")
-    for r in main[main.model == m].itertuples():
-        print(f"  {r.term:16s} {r.beta:+.3f}  [{r.ci_low:+.3f}, {r.ci_high:+.3f}]  p={r.p:.4f}")
+    main = coefs[coefs.spec == "main"]
+    for m in MODELS:
+        f = fits[(fits.model == m) & (fits.spec == "main")].iloc[0]
+        print(f"\n{m}  (n = {f.n} pairs, {f.n_countries} countries, R² = {f.r2:.3f})")
+        for r in main[main.model == m].itertuples():
+            print(f"  {r.term:16s} {r.beta:+.3f}  [{r.ci_low:+.3f}, {r.ci_high:+.3f}]  p={r.p:.4f}")
+
+
+if __name__ == "__main__":
+    main()

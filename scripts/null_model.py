@@ -4,7 +4,7 @@ Input:  data/edges.csv
 Output: data/null_results.csv      one row per (weighting, network): observed modularity vs the null
         data/null_samples.csv      the null modularity of every shuffle (for re-plotting)
         data/communities_obs.csv   observed Louvain communities per (weighting, network)
-        figures/null_modularity.pdf  main weighting, the six main networks
+        figures/diagnostics/null_modularity.pdf  diagnostic histograms (not a paper figure)
         key_numbers.json section "null_model"
 
 Networks: one per era (vote_type "total"), and 2016+ split into jury and televote.
@@ -173,6 +173,6 @@ for ax in axes[-1]:
     ax.set_xlabel("Modularity Q (Louvain)")
 for ax in axes[:, 0]:
     ax.set_ylabel("Shuffled networks")
-(ROOT / "figures").mkdir(exist_ok=True)
-fig.savefig(ROOT / "figures/null_modularity.pdf")
-fig.savefig(ROOT / "figures/null_modularity.png", dpi=200)
+(ROOT / "figures/diagnostics").mkdir(parents=True, exist_ok=True)
+fig.savefig(ROOT / "figures/diagnostics/null_modularity.pdf")
+fig.savefig(ROOT / "figures/diagnostics/null_modularity.png", dpi=200)

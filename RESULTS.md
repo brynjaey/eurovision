@@ -219,7 +219,84 @@ Robustness (each column changes one thing from main):
 - Misses: causal direction; anything not in the model (running order, staging, music, politics); pairs with < 5 votes;
   the 2009–2015 era and pre-1997 eras (no diaspora data before 1990); pair dependence beyond the two-way clustering.
 
+## Leave-one-country-out: same_family_only (`scripts/leave_one_out.py` → `data/leave_one_out_family.csv`, `data/diff_family_top_pairs.csv`; key_numbers: `leave_one_out`)
+
+**1997–2008 televote**: full-sample β -0.101; leaving out one of 39 countries gives β from -0.123 to -0.082; 95% CI includes 0 in 0 fits; CI missing (negative clustered variance) for none.
+
+| left out | β | 95% CI | change vs full |
+|---|---|---|---|
+| AM | -0.123 | [-0.183, -0.062] | -0.022 |
+| MT | -0.082 | [-0.144, -0.019] | +0.019 |
+| DK | -0.084 | [-0.146, -0.022] | +0.017 |
+| HU | -0.114 | [-0.179, -0.050] | -0.014 |
+| FR | -0.087 | [-0.151, -0.024] | +0.013 |
+
+Top 10 diff_family pairs by mean excess:
+
+| from → to | mean excess | votes |
+|---|---|---|
+| LV → EE | 0.1207 | 8 |
+| DE → TR | 0.1206 | 14 |
+| SE → FI | 0.1176 | 9 |
+| FR → TR | 0.1053 | 15 |
+| EE → LV | 0.1042 | 11 |
+| FR → IL | 0.1029 | 11 |
+| AL → TR | 0.0977 | 8 |
+| NL → TR | 0.0913 | 13 |
+| EE → RU | 0.0878 | 12 |
+| TR → BA | 0.0859 | 12 |
+
+**2016+ jury**: full-sample β -0.078; leaving out one of 43 countries gives β from -0.087 to -0.066; 95% CI includes 0 in 0 fits; CI missing (negative clustered variance) for il, pt.
+
+| left out | β | 95% CI | change vs full |
+|---|---|---|---|
+| RU | -0.066 | [-0.077, -0.055] | +0.012 |
+| IT | -0.068 | [-0.088, -0.048] | +0.009 |
+| AM | -0.087 | [-0.108, -0.066] | -0.009 |
+| PT | -0.087 | missing | -0.009 |
+| SE | -0.069 | [-0.088, -0.050] | +0.009 |
+
+Top 10 diff_family pairs by mean excess:
+
+| from → to | mean excess | votes |
+|---|---|---|
+| AZ → RU | 0.1323 | 6 |
+| HR → HU | 0.0883 | 5 |
+| AZ → AL | 0.0879 | 10 |
+| BG → MT | 0.0867 | 5 |
+| RU → AZ | 0.0850 | 6 |
+| HU → DK | 0.0813 | 5 |
+| GR → AZ | 0.0744 | 8 |
+| MT → IT | 0.0736 | 10 |
+| FI → SE | 0.0699 | 13 |
+| AZ → UA | 0.0645 | 11 |
+
+**2016+ televote**: full-sample β -0.098; leaving out one of 43 countries gives β from -0.114 to -0.090; 95% CI includes 0 in 0 fits; CI missing (negative clustered variance) for none.
+
+| left out | β | 95% CI | change vs full |
+|---|---|---|---|
+| AL | -0.114 | [-0.156, -0.071] | -0.016 |
+| AM | -0.111 | [-0.156, -0.066] | -0.014 |
+| PL | -0.107 | [-0.152, -0.063] | -0.010 |
+| DK | -0.090 | [-0.136, -0.044] | +0.008 |
+| GR | -0.105 | [-0.148, -0.061] | -0.007 |
+
+Top 10 diff_family pairs by mean excess:
+
+| from → to | mean excess | votes |
+|---|---|---|
+| GE → AM | 0.1622 | 7 |
+| RS → HU | 0.1462 | 6 |
+| LV → EE | 0.1318 | 7 |
+| MT → IT | 0.1085 | 10 |
+| SE → FI | 0.1025 | 11 |
+| LT → EE | 0.1004 | 9 |
+| MD → AZ | 0.0914 | 8 |
+| RU → AZ | 0.0898 | 6 |
+| GE → AZ | 0.0880 | 7 |
+| AZ → IL | 0.0843 | 12 |
+
 ## Figures (`scripts/make_figures.py` → `figures/fig1_modularity.pdf`, `figures/fig2_coefficients.pdf`, `figures/fig3_communities.pdf`; captions `figures/captions.md`)
 - Fig 1: observed modularity vs the shuffle null (mean5), six networks; numbers as in the Null model table.
 - Fig 2: main-model betas with 95% CIs for 2016+ jury, 2016+ televote, 1997–2008 televote; numbers as in the Main model table.
-- Fig 3: 2016+ jury and televote Louvain communities (mean5), 44 countries and 4 communities each, shared layout.
+- Fig 3 (two-column): 2016+ jury and televote Louvain communities (mean5), 44 countries and 4 communities each, shared layout.

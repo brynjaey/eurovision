@@ -139,13 +139,19 @@
   force for 4 votes (2 semi-final-only) match to 6 decimals. Jury vs televote taste_sim for the same vote: Pearson
   0.309. taste vs own (centred, per vote): jury 0.002, televote 0.027.
 - 2026-11-16: Figures, scripts/make_figures.py -> figures/fig1_modularity.pdf, fig2_coefficients.pdf, fig3_communities.pdf
-  (+ PNG previews), captions in figures/captions.md. Width 3.42 in (PNAS single column, 8.7 cm); Arial; PDF fonttype 42.
+  (+ PNG previews), captions in figures/captions.md. Fig 1–2: 3.42 in (PNAS single column, 8.7 cm); Fig 3: 7.0 in
+  (two columns, 17.8 cm), country labels 6 pt; Arial; PDF fonttype 42.
   Colours: validated categorical palette (blue #2a78d6, orange #eb6834, aqua #1baf7a, yellow #eda100, magenta #e87ba4);
   validator: CVD and normal-vision checks pass, contrast warning for 3 colours on white, so every colour has its own
   marker shape and a legend or label. Fig 1 uses the mean5 weighting; grey bar = 2.5–97.5 percentile of the null.
   Fig 3: shared spring layout (networkx, seed 2805) on the union of the 2016+ jury and televote mean5 graphs; televote
   communities matched to jury communities by Jaccard overlap (scipy linear_sum_assignment); only within-community edges drawn.
-  figures/null_modularity.pdf (histograms from null_model.py) is a diagnostic, not one of the three paper figures.
+- 2026-11-16: DECIDED (group): Fig 3 at two-column width (17.8 cm), labels >= 6 pt; the null-model histogram is a
+  diagnostic (figures/diagnostics/null_modularity.pdf), not a paper figure.
+- 2026-11-16: Leave-one-country-out check of same_family_only, scripts/leave_one_out.py -> data/leave_one_out_family.csv,
+  data/diff_family_top_pairs.csv. regression.py was refactored (load_pairs, fit, main) so the check uses the same model
+  code; its output is byte-identical after the refactor. In the 2016+ jury model, leaving out il or pt makes the two-way
+  clustered variance of same_family_only negative (not positive definite); those two CIs are recorded as missing.
 
 ## Decisions
 - Excess = vote share minus the leave-one-out mean share the entry got from the other voters in the same round and vote type (see build_edges.py).
