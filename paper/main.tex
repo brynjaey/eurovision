@@ -1,0 +1,72 @@
+% Main manuscript, following the PNAS LaTeX template (pnas-new.cls, research article).
+% Structure checked against pnas-new.cls v1.44 (2018/05/06) as distributed in rstudio/rticles.
+% If your Overleaf project uses a newer PNAS class, check that \matmethods / \showmatmethods
+% and \acknow / \showacknow still exist there.
+%
+% Overleaf files needed next to this one (made by `python scripts/pack_overleaf.py`):
+%   methods.tex, figure_floats.tex, table_robustness.tex  (generated; do not edit by hand)
+%   references.bib, fig1_modularity.pdf, fig2_coefficients.pdf, fig3_communities.pdf
+% The class files (pnas-new.cls etc.) come with the Overleaf PNAS template.
+
+\documentclass[9pt,twocolumn,twoside,lineno]{pnas-new}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\graphicspath{{./}{../figures/}}   % Overleaf: same folder; local build: ../figures/
+
+\templatetype{pnasresearcharticle}
+
+\title{TODO (group): title}
+
+\author[a]{TODO (group): author names}
+\affil[a]{TODO (group): DTU Compute, Technical University of Denmark}
+
+\leadauthor{TODO}
+
+\significancestatement{TODO (group): significance statement (at most 120 words).}
+
+\authorcontributions{TODO (group): author contributions.}
+\authordeclaration{TODO (group): competing interests.}
+\correspondingauthor{\textsuperscript{1}TODO (group): corresponding author e-mail.}
+
+\keywords{TODO $|$ TODO $|$ TODO}
+
+\begin{abstract}
+TODO (group): abstract (at most 250 words).
+\end{abstract}
+
+\dates{This manuscript was compiled on \today}
+\doi{\url{www.pnas.org/cgi/doi/10.1073/pnas.XXXXXXXXXX}}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{firststyle}
+\ifthenelse{\boolean{shortarticle}}{\ifthenelse{\boolean{singlecolumn}}{\abscontentformatted}{\abscontent}}{}
+
+\section*{Introduction}
+TODO (group): introduction.
+
+\section*{Results}
+TODO (group): results text. Numbers: RESULTS.md and data/key\_numbers.json in the repository.
+Figures: Fig.~\ref{fig:fig1} (community structure vs the shuffle null), Fig.~\ref{fig:fig2}
+(regression coefficients), Fig.~\ref{fig:fig3} (2016--2026 communities, jury vs televote);
+robustness runs: Table~\ref{tab:robustness}.
+
+\input{figure_floats}
+\input{table_robustness}
+
+\section*{Discussion}
+TODO (group): discussion.
+
+% TODO (group): PNAS asks for a data / code availability statement; check where the current
+% template puts it (repository URL, licences: see raw/MANIFEST.json).
+
+\matmethods{\input{methods}}
+\showmatmethods{}
+
+\acknow{TODO (group): acknowledgements.}
+\showacknow{}
+
+\bibliography{references}
+
+\end{document}

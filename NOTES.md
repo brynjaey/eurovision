@@ -161,6 +161,24 @@
 - 2026-11-16: Methods draft: paper/methods_template.md -> scripts/write_methods.py -> paper/methods.md. Every result number
   is a placeholder filled from data/key_numbers.json; the script stops on a missing key and lists the literal numbers
   left in the template (dates, versions, parameters). Edit the template, never methods.md.
+- 2026-11-16: DECIDED (group): if the two-way clustered covariance of the reported coefficients is not positive
+  semi-definite (a negative eigenvalue), the fit falls back to one-way clustering by voter (column "cluster" in
+  data/regression_coefs.csv). Result: all six 2016+ jury fits use voter clustering; all televote and 1997–2008 fits stay
+  two-way; 41 of 43 jury leave-one-out refits fall back. The check uses the reported coefficients only (the intercept,
+  ~0 after z-scoring and not reported, is excluded). Reference: cameron2011multiway (verified via Crossref).
+- 2026-11-16: DECIDED (group): Methods trimmed to about one PNAS page (paper/methods_template.md, ~650 words). The longer
+  draft is kept in paper/methods_template_long.md (not used by scripts). Cut: per-source licences and counts, extra data
+  checks (winners, 2023 semis, shares/excess sums, upstream caveat), network sizes, seeds and versions, diaspora/language
+  details, chunking details, all captures/misses sentences (still in RESULTS.md), the robustness list (now
+  paper/table_robustness.tex) and the software paragraph.
+- 2026-11-16: Overleaf setup. paper/main.tex follows pnas-new.cls v1.44 (2018/05/06; structure checked against the copy in
+  rstudio/rticles): \matmethods{\input{methods}} + \showmatmethods{}, \acknow + \showacknow{}, TODO for title, authors,
+  significance, abstract, introduction, results, discussion, acknowledgements. scripts/write_paper.py (was
+  write_methods.py) writes paper/methods.md, methods.tex and figure_floats.tex (captions from figures/captions.md);
+  scripts/make_table_robustness.py writes paper/table_robustness.tex/.md; scripts/pack_overleaf.py copies everything into
+  paper/overleaf/ (git-ignored) for upload. Test compile of the generated LaTeX in a plain article wrapper: 0 errors,
+  0 undefined references or citations (the PNAS class itself could not be compiled locally: BasicTeX lacks lettrine.sty).
+  references.bib: removed a file path with underscores from the undesa note (broke BibTeX/LaTeX).
 
 ## Decisions
 - Excess = vote share minus the leave-one-out mean share the entry got from the other voters in the same round and vote type (see build_edges.py).
@@ -210,3 +228,4 @@
 - ginsburgh2008eurovision: TODO
 - blondel2008louvain: Louvain community detection. TODO how we use it
 - newman2006modularity: modularity. TODO how we use it
+- cameron2011multiway: two-way (multiway) cluster-robust standard errors. Used for the regression CIs. TODO what it found (read it).

@@ -14,7 +14,7 @@ language) or by taste (song similarity)? Do juries and televoters differ?
 - `python scripts/taste_similarity.py` → data/taste_similarity*.csv; `python scripts/rating_agreement.py` after hand ratings
 - `python scripts/build_pairs.py` → data/pairs.csv; `collinearity.py`; `regression.py` → data/regression_*.csv
 - `python scripts/make_figures.py` → figures/fig1_modularity.pdf, fig2_coefficients.pdf, fig3_communities.pdf
-- `python scripts/check_data.py`, `leave_one_out.py`; `python scripts/write_methods.py` → paper/methods.md (edit paper/methods_template.md)
+- `python scripts/check_data.py`, `leave_one_out.py`; `make_table_robustness.py`; `python scripts/write_paper.py` → paper/methods.md/.tex, figure_floats.tex (edit paper/methods_template.md, figures/captions.md); `pack_overleaf.py` → paper/overleaf/
 - Every quoted number goes into data/key_numbers.json via scripts/key_numbers.py (never by hand); add it to RESULTS.md with captures/misses.
 - Join every layer on country-pair codes from data/countries.csv (ISO2 lower case, ISO3 for external data).
 

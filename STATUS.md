@@ -3,7 +3,7 @@
 Two of us work on this project. Every Claude Code session starts by reading this file and
 ends by updating it, so whoever opens the repo next knows where things stand.
 
-_Last updated: 2026-11-16, step 8 Methods draft done; group writes the rest._
+_Last updated: 2026-11-16, clustering fallback, Methods trimmed, Overleaf files ready._
 
 ## Done
 - [x] Vote network 1957–2026 with excess scores: `data/edges.csv`, `data/edges_agg.csv`
@@ -23,7 +23,9 @@ _Last updated: 2026-11-16, step 8 Methods draft done; group writes the rest._
 - [x] Step 7 figures: `figures/fig1_modularity.pdf`, `fig2_coefficients.pdf`, `fig3_communities.pdf` + `figures/captions.md`
 - [x] Leave-one-country-out check of same_family_only: `data/leave_one_out_family.csv`, `data/diff_family_top_pairs.csv`
 - [x] Data checks scripted: `scripts/check_data.py`
-- [x] Step 8 Methods draft: `paper/methods.md` (generated from `paper/methods_template.md`)
+- [x] Step 8 Methods draft: `paper/methods.md` / `methods.tex` (generated from `paper/methods_template.md`, ~1 page)
+- [x] Robustness table: `paper/table_robustness.tex` / `.md`
+- [x] Overleaf: `paper/main.tex` + `python scripts/pack_overleaf.py` → `paper/overleaf/`
 - [x] Report files: `RESULTS.md` (facts per step) and `data/key_numbers.json` (written by scripts via `scripts/key_numbers.py`)
 - [x] Citation tracking: `references.bib` with 6 data + 6 papers, all verified against their pages
 
@@ -42,15 +44,17 @@ _Last updated: 2026-11-16, step 8 Methods draft done; group writes the rest._
 - Language in the regression: one category (diff_family ref / same_family_only / same_branch_only / same_subbranch) + shared_official.
 - Fig 3 at two-column width (17.8 cm), labels >= 6 pt; Fig 1–2 single column.
 - The null-model histogram is a diagnostic in figures/diagnostics/, not a paper figure.
+- Clustering: two-way by voter and receiver; fallback to voter-only clustering where the two-way covariance of the reported coefficients is not PSD (all 2016+ jury fits).
+- Methods trimmed to ~1 page; robustness runs in one table.
 - Taste profiles per vote type for 2016+ (jury from jury votes, televote from televotes); 1997–2008 total.
 - Lyrics: all cosines on year-centred vectors.
 - Lyrics: main measure = taste_sim (A's taste profile from other years, B's songs excluded) vs B's song; own_sim kept for comparison.
 - edges.csv: EurovisionAPI fills every (year, round) Spijkervet lacks (2023 semis added).
 
 ## Open questions (for the humans)
-- paper/methods.md TODOs: hand ratings, two-way clustering reference, repository URL, 2026 spot-check on eurovision.tv. Methods is ~1,450 words; trim to fit 6 pages.
+- paper TODOs: hand ratings, repository URL / data availability statement, 2026 spot-check on eurovision.tv; captures/misses sentences were cut from Methods (in RESULTS.md) — put any back?
+- Overleaf: check main.tex against your project's PNAS class version (\matmethods / \showmatmethods).
 - Abstract, Significance, Introduction, Results text, Discussion, reflection: ours to write (TODO headers in methods_template.md).
-- Two-way clustered SEs: same_family_only in the 2016+ jury model gets a negative variance when IL or PT is left out (leave-one-out). Add a one-way clustered comparison?
 - Hand ratings: the sheet in the repo was still empty on 2026-11-16 — commit the filled `data/lyrics_rating_sheet.csv`.
 - Lyrics: rate the 20 pairs in `data/lyrics_rating_sheet.csv` independently (agree a scale first, e.g. 1–5); don't open `lyrics_rating_key.csv` before.
 - 2026 final check is manual, not scripted, so it is not in key_numbers.json. Script it if we quote it.
@@ -62,6 +66,7 @@ _Last updated: 2026-11-16, step 8 Methods draft done; group writes the rest._
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-16, Kristófer: clustering fallback (jury fits), Cameron et al. 2011 in bib, Methods trimmed, robustness table, Overleaf files. Check: paper/main.tex in Overleaf.
 - 2026-11-16, Kristófer: check_data.py, Methods draft (write_methods.py), counts recorded by build scripts. Check: read paper/methods.md.
 - 2026-11-16, Kristófer: Fig 3 two-column, histogram to diagnostics, leave-one-out check (leave_one_out.py). Check: RESULTS.md leave-one-out section.
 - 2026-11-16, Kristófer: step 7 figures (make_figures.py) + captions. Check: the three PDFs at print size.

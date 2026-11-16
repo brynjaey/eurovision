@@ -36,7 +36,7 @@ Rerun the script, then update this file if a number changed. Interpretation is t
 - same_branch / same_subbranch miss: closeness below the sub-branch (Serbian–Slovenian = Serbian–Croatian), the choice of
   nodes is ours, and only each country's primary language is used.
 
-## Null model (`scripts/null_model.py` → `data/null_results.csv`, `data/null_samples.csv`, `data/communities_obs.csv`, `figures/null_modularity.pdf`; key_numbers: `null_model`)
+## Null model (`scripts/null_model.py` → `data/null_results.csv`, `data/null_samples.csv`, `data/communities_obs.csv`, `figures/diagnostics/null_modularity.pdf`; key_numbers: `null_model`)
 1,000 within-(year, round, vote_type) shuffles per network, the same shuffles for both weightings; Louvain best of 5 seeds.
 Main weighting: mean5 = mean excess per pair (both directions pooled), pairs with ≥ 5 votes. sum = summed excess.
 The last row is the robustness network (2023–25 televote-only semis added to televote).
@@ -157,19 +157,22 @@ the matching profile). Language as category dummies (reference diff_family).
 OLS, one row per directed pair A → B with ≥ 5 votes; outcome = mean signed excess. Language = category of the deepest
 Glottolog level the primary languages share (dummies vs reference diff_family). Taste from the matching profile
 (jury / televote for 2016+, total for 1997–2008). Outcome and predictors (dummies too) z-scored within each fit
-(standardised beta). 95% CIs from SEs clustered two-way by voter and receiver.
+(standardised beta). 95% CIs from SEs clustered two-way by voter and receiver (Cameron, Gelbach & Miller 2011).
+† FLAG: where the two-way covariance of the reported coefficients is not positive semi-definite, SEs are clustered by
+voter only. This applies to all six 2016+ jury fits (main and robustness); see the "SE clustering" rows.
 
 | term | 2016+ jury | 2016+ televote | 1997–2008 televote |
 |---|---|---|---|
-| border | +0.132 [+0.050, +0.215] | +0.210 [+0.125, +0.295] | +0.193 [+0.104, +0.281] |
-| diaspora_log | +0.060 [+0.004, +0.116] | +0.236 [+0.162, +0.310] | +0.270 [+0.191, +0.349] |
-| shared_official | +0.059 [-0.042, +0.159] | +0.038 [-0.047, +0.124] | +0.001 [-0.097, +0.098] |
-| same_family_only | -0.078 [-0.093, -0.063] | -0.098 [-0.142, -0.053] | -0.101 [-0.164, -0.037] |
-| same_branch_only | +0.040 [-0.027, +0.108] | +0.029 [-0.034, +0.093] | -0.010 [-0.070, +0.051] |
-| same_subbranch | +0.104 [+0.050, +0.157] | +0.200 [+0.083, +0.317] | +0.257 [+0.122, +0.393] |
-| taste_sim | +0.061 [+0.020, +0.102] | +0.095 [+0.036, +0.155] | +0.064 [+0.002, +0.125] |
+| border | +0.132 [+0.048, +0.217] | +0.210 [+0.125, +0.295] | +0.193 [+0.104, +0.281] |
+| diaspora_log | +0.060 [+0.004, +0.117] | +0.236 [+0.162, +0.310] | +0.270 [+0.191, +0.349] |
+| shared_official | +0.059 [-0.032, +0.150] | +0.038 [-0.047, +0.124] | +0.001 [-0.097, +0.098] |
+| same_family_only | -0.078 [-0.117, -0.038] | -0.098 [-0.142, -0.053] | -0.101 [-0.164, -0.037] |
+| same_branch_only | +0.040 [-0.011, +0.092] | +0.029 [-0.034, +0.093] | -0.010 [-0.070, +0.051] |
+| same_subbranch | +0.104 [+0.048, +0.159] | +0.200 [+0.083, +0.317] | +0.257 [+0.122, +0.393] |
+| taste_sim | +0.061 [+0.015, +0.108] | +0.095 [+0.036, +0.155] | +0.064 [+0.002, +0.125] |
 | n pairs (countries) | 1537 (43) | 1537 (43) | 1257 (39) |
 | R² | 0.081 | 0.258 | 0.310 |
+| SE clustering | by voter † | two-way | two-way |
 
 Robustness (each column changes one thing from main):
 
@@ -183,10 +186,11 @@ Robustness (each column changes one thing from main):
 | same_family_only | -0.078* | -0.091* | -0.075* | -0.076* | -0.073* | -0.073* |
 | same_branch_only | +0.040 | -0.024 | +0.046 | +0.042 | +0.041 | +0.041 |
 | same_subbranch | +0.104* | +0.104* | +0.097* | +0.106* | +0.108* | +0.107* |
-| taste_sim | +0.061* | +0.088* | +0.046* | +0.038* | +0.041 |  |
+| taste_sim | +0.061* | +0.088* | +0.046* | +0.038 | +0.041 |  |
 | own_sim |  |  |  |  |  | +0.013 |
 | n | 1537 | 1015 | 1529 | 1537 | 1537 | 1537 |
 | R² | 0.081 | 0.103 | 0.053 | 0.079 | 0.079 | 0.078 |
+| SE clustering | voter † | voter † | voter † | voter † | voter † | voter † |
 
 **2016+ televote** (beta; * = 95% CI excludes 0)
 
@@ -202,6 +206,7 @@ Robustness (each column changes one thing from main):
 | own_sim |  |  |  |  |  | +0.047* |  |
 | n | 1537 | 1015 | 1529 | 1537 | 1537 | 1537 | 1574 |
 | R² | 0.258 | 0.301 | 0.227 | 0.252 | 0.253 | 0.252 | 0.268 |
+| SE clustering | two-way | two-way | two-way | two-way | two-way | two-way | two-way |
 
 **1997–2008 televote** (beta; * = 95% CI excludes 0)
 
@@ -217,22 +222,24 @@ Robustness (each column changes one thing from main):
 | own_sim |  |  |  |  |  | -0.001 |
 | n | 1257 | 846 | 1248 | 1257 | 1257 | 1257 |
 | R² | 0.310 | 0.356 | 0.280 | 0.308 | 0.311 | 0.306 |
+| SE clustering | two-way | two-way | two-way | two-way | two-way | two-way |
 
 - Captures: how mean excess A → B changes with each pair property, holding the others fixed, within one era and vote type.
 - Misses: causal direction; anything not in the model (running order, staging, music, politics); pairs with < 5 votes;
   the 2009–2015 era and pre-1997 eras (no diaspora data before 1990); pair dependence beyond the two-way clustering.
 
 ## Leave-one-country-out: same_family_only (`scripts/leave_one_out.py` → `data/leave_one_out_family.csv`, `data/diff_family_top_pairs.csv`; key_numbers: `leave_one_out`)
+All models: β from -0.123 to -0.066 over 125 refits; 95% CI includes 0 in 0.
 
-**1997–2008 televote**: full-sample β -0.101; leaving out one of 39 countries gives β from -0.123 to -0.082; 95% CI includes 0 in 0 fits; CI missing (negative clustered variance) for none.
+**1997–2008 televote**: full-sample β -0.101; leaving out one of 39 countries gives β from -0.123 to -0.082; 95% CI includes 0 in 0 fits; 0 fits use voter clustering (†).
 
-| left out | β | 95% CI | change vs full |
-|---|---|---|---|
-| AM | -0.123 | [-0.183, -0.062] | -0.022 |
-| MT | -0.082 | [-0.144, -0.019] | +0.019 |
-| DK | -0.084 | [-0.146, -0.022] | +0.017 |
-| HU | -0.114 | [-0.179, -0.050] | -0.014 |
-| FR | -0.087 | [-0.151, -0.024] | +0.013 |
+| left out | β | 95% CI | change vs full | SEs |
+|---|---|---|---|---|
+| AM | -0.123 | [-0.183, -0.062] | -0.022 | two-way |
+| MT | -0.082 | [-0.144, -0.019] | +0.019 | two-way |
+| DK | -0.084 | [-0.146, -0.022] | +0.017 | two-way |
+| HU | -0.114 | [-0.179, -0.050] | -0.014 | two-way |
+| FR | -0.087 | [-0.151, -0.024] | +0.013 | two-way |
 
 Top 10 diff_family pairs by mean excess:
 
@@ -249,15 +256,15 @@ Top 10 diff_family pairs by mean excess:
 | EE → RU | 0.0878 | 12 |
 | TR → BA | 0.0859 | 12 |
 
-**2016+ jury**: full-sample β -0.078; leaving out one of 43 countries gives β from -0.087 to -0.066; 95% CI includes 0 in 0 fits; CI missing (negative clustered variance) for il, pt.
+**2016+ jury**: full-sample β -0.078; leaving out one of 43 countries gives β from -0.087 to -0.066; 95% CI includes 0 in 0 fits; 41 fits use voter clustering (†).
 
-| left out | β | 95% CI | change vs full |
-|---|---|---|---|
-| RU | -0.066 | [-0.077, -0.055] | +0.012 |
-| IT | -0.068 | [-0.088, -0.048] | +0.009 |
-| AM | -0.087 | [-0.108, -0.066] | -0.009 |
-| PT | -0.087 | missing | -0.009 |
-| SE | -0.069 | [-0.088, -0.050] | +0.009 |
+| left out | β | 95% CI | change vs full | SEs |
+|---|---|---|---|---|
+| RU | -0.066 | [-0.106, -0.026] | +0.012 | voter † |
+| IT | -0.068 | [-0.111, -0.025] | +0.009 | voter † |
+| AM | -0.087 | [-0.108, -0.066] | -0.009 | two-way |
+| PT | -0.087 | [-0.126, -0.048] | -0.009 | voter † |
+| SE | -0.069 | [-0.112, -0.026] | +0.009 | voter † |
 
 Top 10 diff_family pairs by mean excess:
 
@@ -274,15 +281,15 @@ Top 10 diff_family pairs by mean excess:
 | FI → SE | 0.0699 | 13 |
 | AZ → UA | 0.0645 | 11 |
 
-**2016+ televote**: full-sample β -0.098; leaving out one of 43 countries gives β from -0.114 to -0.090; 95% CI includes 0 in 0 fits; CI missing (negative clustered variance) for none.
+**2016+ televote**: full-sample β -0.098; leaving out one of 43 countries gives β from -0.114 to -0.090; 95% CI includes 0 in 0 fits; 0 fits use voter clustering (†).
 
-| left out | β | 95% CI | change vs full |
-|---|---|---|---|
-| AL | -0.114 | [-0.156, -0.071] | -0.016 |
-| AM | -0.111 | [-0.156, -0.066] | -0.014 |
-| PL | -0.107 | [-0.152, -0.063] | -0.010 |
-| DK | -0.090 | [-0.136, -0.044] | +0.008 |
-| GR | -0.105 | [-0.148, -0.061] | -0.007 |
+| left out | β | 95% CI | change vs full | SEs |
+|---|---|---|---|---|
+| AL | -0.114 | [-0.156, -0.071] | -0.016 | two-way |
+| AM | -0.111 | [-0.156, -0.066] | -0.014 | two-way |
+| PL | -0.107 | [-0.152, -0.063] | -0.010 | two-way |
+| DK | -0.090 | [-0.136, -0.044] | +0.008 | two-way |
+| GR | -0.105 | [-0.148, -0.061] | -0.007 | two-way |
 
 Top 10 diff_family pairs by mean excess:
 
@@ -302,4 +309,5 @@ Top 10 diff_family pairs by mean excess:
 ## Figures (`scripts/make_figures.py` → `figures/fig1_modularity.pdf`, `figures/fig2_coefficients.pdf`, `figures/fig3_communities.pdf`; captions `figures/captions.md`)
 - Fig 1: observed modularity vs the shuffle null (mean5), six networks; numbers as in the Null model table.
 - Fig 2: main-model betas with 95% CIs for 2016+ jury, 2016+ televote, 1997–2008 televote; numbers as in the Main model table.
+- Robustness table: `paper/table_robustness.tex` / `.md` (`scripts/make_table_robustness.py`).
 - Fig 3 (two-column): 2016+ jury and televote Louvain communities (mean5), 44 countries and 4 communities each, shared layout.

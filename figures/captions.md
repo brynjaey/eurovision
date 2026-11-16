@@ -21,8 +21,9 @@ at least 5 votes (n = 1,537, 1,537 and 1,257 pairs). Outcome and predictors are 
 model. Language family, branch and sub-branch enter as one category (deepest shared Glottolog level;
 reference: different families). Lyric taste similarity is the cosine similarity between the
 receiver's song and the voter's points-weighted lyric profile from other years, built from the same
-vote type. Lines: 95% confidence intervals from standard errors clustered by voting and receiving
-country. The horizontal rule separates the lyric term from the friendship terms.
+vote type. Lines: 95% confidence intervals from standard errors clustered two-way by voting and
+receiving country (televote models) or by voting country (jury model, where the two-way covariance
+was not positive semi-definite). The horizontal rule separates the lyric term from the friendship terms.
 
 ## Fig. 3 — `fig3_communities.pdf` (two-column width, 17.8 cm)
 Louvain communities of the 2016–2026 excess-vote networks for jury votes (left) and televotes
