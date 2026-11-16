@@ -14,6 +14,17 @@
   so this check validates our conversion, not the source data itself.
   TODO: hand spot-check 3 entries of the 2026 final against eurovision.tv (EBU) in a browser.
 - 2026-11-11: Borders from geodatasource/country-borders (CC BY-SA 4.0). Land borders only. yu/cs/wld = NaN.
+- 2026-11-16: Diaspora from UN DESA International Migrant Stock 2024 (destination x origin, CC BY 3.0 IGO),
+  downloaded by hand in a browser (automated fetch got HTTP 403). Built by scripts/build_diaspora.py.
+  Sheet "Table 1", both sexes only, years 1990, 1995, ..., 2020, 2024 (5-year steps + 2024).
+  from = destination (where migrants live, the voter), to = origin (country of birth, the receiver).
+  share_of_migrants = migrants / the destination's total migrant stock (origin "World", M49 900).
+  M49 -> ISO3 via pycountry (ISO 3166-1 numeric = M49 for countries). Unmatched: yu, cs, wld (no current ISO code).
+  Counts are by country of BIRTH: children of migrants born in the destination are not included.
+  Pairs the UN does not list are left out of diaspora.csv (not written as 0).
+  2024 check: DE<-TR 1,504,743; ES<-RO 522,578; GB<-PL 902,193; CY<-GR 25,031; RU<-AM 340,512.
+  TODO (group): treat missing pairs as 0 or NaN in the regression? Which UN year to match to each vote year/era?
+  TODO (group): add a second check, e.g. compare 2-3 pairs against a national statistics office figure.
 
 ## Decisions
 - Excess = vote share minus the leave-one-out mean share the entry got from the other voters in the same round and vote type (see build_edges.py).
@@ -22,7 +33,7 @@
 - TODO: decide how to treat yu / cs (drop? map to successors?).
 
 ## Pending layers
-- Diaspora: UN DESA International Migrant Stock (un.org). Not downloaded yet; the sandbox had no access. Download locally and add to MANIFEST.
+- Diaspora: done 2026-11-16, see Data above.
 - Language family: source not chosen yet (candidates: Glottolog / WALS, or the official languages per country).
 - Lyrics text: EurovisionAPI has lyrics + English translations per contestant (raw/eurovisionapi only has contestant.json so far).
 

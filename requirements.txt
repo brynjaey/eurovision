@@ -2,3 +2,4 @@ pandas==3.1.1
 networkx==3.7
 matplotlib==3.11.2
 openpyxl==3.1.5
+pycountry==26.2.16

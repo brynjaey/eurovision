@@ -37,6 +37,20 @@
       "sha256": {
         "raw/borders/GEODATASOURCE-COUNTRY-BORDERS.CSV": "d2703c13efb8b7254af54e0aca10dfef08bfd1c8ab55919492c27f2b1df55afb"
       }
+    },
+    {
+      "files": [
+        "raw/undesa/undesa_pd_2024_ims_stock_by_sex_destination_and_origin.xlsx"
+      ],
+      "source": "https://un.org/development/desa/pd/content/international-migrant-stock",
+      "edition": "International Migrant Stock 2024 (POP/DB/MIG/Stock/Rev.2024), destination and origin",
+      "retrieved": "2026-11-16",
+      "retrieved_how": "downloaded manually in a browser (automated fetch returned HTTP 403)",
+      "license": "CC BY 3.0 IGO",
+      "cite": "United Nations Department of Economic and Social Affairs, Population Division (2024). International Migrant Stock 2024.",
+      "sha256": {
+        "raw/undesa/undesa_pd_2024_ims_stock_by_sex_destination_and_origin.xlsx": "0e10179d05186041a65cf5c6200943b2231701f9c1fd33cbbe21d23b8ea47316"
+      }
     }
   ]
 }

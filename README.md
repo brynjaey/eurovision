@@ -16,11 +16,13 @@ Course project: social graphs. Starting point: the vote network.
 python scripts/convert_eurovisionapi.py 2024 2025 2026
 python scripts/build_edges.py
 python scripts/build_borders.py
+python scripts/build_diaspora.py
 ```
 This produces:
 - `data/countries.csv`: country code → ISO3 and name. Use ISO3 to join UN migrant stock, borders and language data.
 - `data/edges.csv`: one row per vote: year, era, round, vote_type (total/jury/tele), from, to, points, share, expected, excess.
 - `data/borders.csv`: from, to, border (0/1, land borders only).
+- `data/diaspora.csv`: from, to, year, migrants (born in `to`, living in `from`), share_of_migrants. UN DESA 2024.
 - `data/edges_agg.csv`: from→to totals per era and vote_type: n_votes, excess_sum, excess_mean, points_sum.
 
 **excess** = the share of the voter's points that went to B, minus the average share B got from all *other* voters that night. A positive value means A over-rated B compared with the rest of Europe, so song quality is removed. Running order and staging are not removed.
@@ -34,7 +36,7 @@ This produces:
 ## Next
 1. ~~Check the 2026 final~~ Done 2026-11-16: all 25 entries match Eurovisionworld (see NOTES.md).
 2. Shuffle null: permute votes within year and round, then compare the modularity of the excess network.
-3. Remaining friendship layers: UN DESA migrant stock (diaspora), language family.
+3. Remaining friendship layer: language family. (Diaspora done.)
 4. Text: lyric embeddings (multilingual), and test feasibility with Reddit r/eurovision.
 
 ## Setup

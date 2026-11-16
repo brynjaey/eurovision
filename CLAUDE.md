@@ -7,6 +7,7 @@ language) or by taste (song similarity)? Do juries and televoters differ?
 - `python scripts/convert_eurovisionapi.py 2024 2025 2026` → raw/votes_eurovisionapi.csv
 - `python scripts/build_edges.py` → data/countries.csv, data/edges.csv, data/edges_agg.csv
 - `python scripts/build_borders.py` → data/borders.csv
+- `python scripts/build_diaspora.py` → data/diaspora.csv
 - Join every layer on country-pair codes from data/countries.csv (ISO2 lower case, ISO3 for external data).
 
 ## Start and end of every session
