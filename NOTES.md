@@ -10,6 +10,9 @@
   All 25 entries match data/edges.csv on total, televote and jury points (0 mismatches). Top 10:
   BG 516 (312/204), IL 343, RO 296, AU 287, IT 281, FI 279, DK 243, MD 226, UA 221, GR 220.
   The official eurovision.tv results page returned HTTP 403 to automated fetch, so it was not used.
+  Caveat: Eurovisionworld is likely the upstream of both Spijkervet (scraped from it) and EurovisionAPI,
+  so this check validates our conversion, not the source data itself.
+  TODO: hand spot-check 3 entries of the 2026 final against eurovision.tv (EBU) in a browser.
 - 2026-11-11: Borders from geodatasource/country-borders (CC BY-SA 4.0). Land borders only. yu/cs/wld = NaN.
 
 ## Decisions
