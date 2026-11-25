@@ -9,7 +9,7 @@ language) or by taste (song similarity)? Do juries and televoters differ?
 - `python scripts/build_borders.py` → data/borders.csv
 - `python scripts/build_diaspora.py` → data/diaspora.csv
 - `python scripts/build_language.py` → data/language.csv, data/language_groups.csv
-- `python scripts/null_model.py` → data/null_results.csv, data/null_samples.csv, data/communities_obs.csv, figures/null_modularity.pdf
+- `python scripts/null_model.py` → data/null_results.csv, data/null_samples.csv, data/communities_obs.csv, figures/diagnostics/null_modularity.pdf
 - `python scripts/build_lyrics.py` → data/lyrics.csv; `python scripts/lyrics_similarity.py` → data/lyrics_similarity*.csv, rating sheet
 - `python scripts/taste_similarity.py` → data/taste_similarity*.csv; `make_rating_files.py` → data/ratings_rater{1,2}.csv, ratings_sheet.md; after hand ratings `merge_ratings.py`, then `rating_agreement.py`
 - `python scripts/build_pairs.py` → data/pairs.csv; `collinearity.py`; `regression.py` → data/regression_*.csv

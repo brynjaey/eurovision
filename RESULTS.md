@@ -12,6 +12,14 @@ Rerun the script, then update this file if a number changed. Interpretation is t
 - 2023 semi-finals: 39 of 39 voters give 58 points to 10 entries.
 - Shares sum to 1 per voter and round (max deviation 2.22e-16); excess sums to 0 per entry and round (max 5.69e-16).
 
+## Vote network (`scripts/build_edges.py` → `data/edges.csv`, `data/edges_agg.csv`; key_numbers: `edges`)
+- 83,526 rows (votes) from 69 contests, 1957–2026 (2020 cancelled), 109 rounds, 53 country codes.
+- Rows by vote type: total 54,388; jury 14,503; televote 14,635.
+
+## Borders (`scripts/build_borders.py` → `data/borders.csv`; key_numbers: `borders`)
+- 2,756 ordered country pairs; 91 land borders. No data: cs, wld, yu.
+- Captures: a shared land border. Misses: sea neighbours and distance.
+
 ## Diaspora (`scripts/build_diaspora.py` → `data/diaspora.csv`, key_numbers: `diaspora`)
 - 12,048 rows, 1,506 ordered country pairs, UN years 1990–2024. Unmatched: yu, cs, wld.
 - 2024 sanity pairs (from ← to = lives in ← born in): DE←TR 1,504,743; ES←RO 522,578; GB←PL 902,193;

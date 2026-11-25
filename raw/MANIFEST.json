@@ -131,6 +131,18 @@
       "sha256": {
         "raw/checks/ebu_2026_grand_final.html.gz": "6c04a693684b519d4306284883638b04e6f720424bc5389b34ad02ee78b5d4fc"
       }
+    },
+    {
+      "files": [
+        "raw/votes_eurovisionapi.csv"
+      ],
+      "source": "DERIVED, not downloaded: made by scripts/convert_eurovisionapi.py from raw/eurovisionapi/ (see that entry); same columns as raw/votes.csv",
+      "retrieved": "2026-11-16",
+      "retrieved_how": "python scripts/convert_eurovisionapi.py 2023 2024 2025 2026. Kept in raw/ because build_edges.py reads it next to raw/votes.csv; never hand-edit, regenerate instead.",
+      "used_for": "votes for the rounds Spijkervet lacks (2023 semi-finals, 2024-2026)",
+      "sha256": {
+        "raw/votes_eurovisionapi.csv": "a2a6978c659c5d589ce960a2feb8f0d104c352867c876c326871851964199d08"
+      }
     }
   ]
 }

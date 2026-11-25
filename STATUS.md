@@ -70,6 +70,7 @@ _Last updated: 2026-11-25, Methods paragraph for NMI / assortativity / backbone.
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-25, Kristófer (via Claude): docs sync: README build list / data files / checks, CLAUDE.md diagnostics path, RESULTS edges + borders, MANIFEST entry for the derived raw/votes_eurovisionapi.csv. Open: data/ratings_sheet_blind.md (untracked, not ours) conflicts with rater numbering.
 - 2026-11-25, Kristófer (via Claude): bib TODOs resolved (DOIs for Burgoyne, Ginsburgh, Reimers 2019; Blondel journal; Reimers 2020 added; CLDR / UN license notes); 2026 final vs EBU scoreboard scripted. Check: Methods validation sentence.
 - 2026-11-25, Kristófer (rater 2): all 20 ratings in data/ratings_rater2.csv. Rater 1: fill data/ratings_rater1.csv without opening ratings_rater2.csv.
 - 2026-11-25, Kristófer (via Claude): per-rater files + ratings_sheet.md (make_rating_files.py), merge_ratings.py (1–5 check). Check: agree the scale wording in ratings_sheet.md before rating.
