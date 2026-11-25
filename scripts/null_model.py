@@ -33,7 +33,7 @@ import pandas as pd
 from key_numbers import record
 
 ROOT = Path(__file__).resolve().parent.parent
-N_SHUFFLES = int(sys.argv[1]) if len(sys.argv) > 1 else 1000
+N_SHUFFLES = int(sys.argv[1]) if __name__ == "__main__" and len(sys.argv) > 1 else 1000
 SEEDS = 5
 MIN_VOTES = 5
 WEIGHTINGS = ["mean5", "sum"]  # first one is the main analysis
@@ -83,9 +83,9 @@ def excess(p: dict, share: np.ndarray) -> np.ndarray:
     return share - expected
 
 
-def shuffle(p: dict) -> np.ndarray:
+def shuffle(p: dict, gen: np.random.Generator = rng) -> np.ndarray:
     """Permute shares within each voter's block (rows are sorted by voter)."""
-    perm = np.lexsort((rng.random(len(p["share"])), p["voter"]))
+    perm = np.lexsort((gen.random(len(p["share"])), p["voter"]))
     return p["share"][perm]
 
 
@@ -111,71 +111,72 @@ def best_louvain(G: nx.Graph, seeds) -> tuple[float, list]:
     return best
 
 
-edges = pd.read_csv(ROOT / "data/edges.csv").dropna(subset=["excess"])
-results, samples, comm_rows = [], [], []
-nums = {w: {} for w in WEIGHTINGS}
-for label, era, vt in NETWORKS:
-    p = prepare(select(edges, era, vt))
-    exc_obs = excess(p, p["share"])
-    assert np.allclose(exc_obs, p["excess_ref"]), "recomputed excess differs from build_edges.py"
-    # one set of shuffles, used for both weightings
-    null_exc = [excess(p, shuffle(p)) for _ in range(N_SHUFFLES)]
-    for wt in WEIGHTINGS:
-        G = graph(p, exc_obs, wt)
-        q_obs, comms = best_louvain(G, range(SEEDS))
-        q_runs = [best_louvain(G, [s])[0] for s in range(20)]  # stability: 20 single runs
-        null = np.array([best_louvain(graph(p, x, wt), rng.integers(1e9, size=SEEDS))[0] for x in null_exc])
-        z = (q_obs - null.mean()) / null.std(ddof=1)
-        pval = (1 + (null >= q_obs).sum()) / (1 + N_SHUFFLES)
-        row = {"weighting": wt, "network": label, "era": era, "vote_type": vt,
-               "n_nodes": G.number_of_nodes(), "n_edges": G.number_of_edges(), "n_communities": len(comms),
-               "q_obs": q_obs, "q_obs_min20": min(q_runs), "q_obs_max20": max(q_runs),
-               "null_mean": null.mean(), "null_sd": null.std(ddof=1), "z": z, "p": pval, "n_shuffles": N_SHUFFLES}
-        results.append(row)
-        nums[wt][label] = {k: (round(v, 4) if isinstance(v, float) else v) for k, v in row.items()
-                           if k not in ("weighting", "network", "era", "vote_type")}
-        samples += [(wt, label, i, q) for i, q in enumerate(null)]
-        comm_rows += [(wt, label, i, c) for i, cs in enumerate(sorted(comms, key=len, reverse=True))
-                      for c in sorted(cs)]
-        print(f"{wt:5s} {label:34s} nodes={row['n_nodes']} edges={row['n_edges']} Q={q_obs:.3f} "
-              f"null={null.mean():.3f}±{null.std(ddof=1):.3f} z={z:.1f} p={pval:.4f} k={len(comms)}")
+if __name__ == "__main__":  # importable: other scripts reuse select / prepare / excess / shuffle / graph
+    edges = pd.read_csv(ROOT / "data/edges.csv").dropna(subset=["excess"])
+    results, samples, comm_rows = [], [], []
+    nums = {w: {} for w in WEIGHTINGS}
+    for label, era, vt in NETWORKS:
+        p = prepare(select(edges, era, vt))
+        exc_obs = excess(p, p["share"])
+        assert np.allclose(exc_obs, p["excess_ref"]), "recomputed excess differs from build_edges.py"
+        # one set of shuffles, used for both weightings
+        null_exc = [excess(p, shuffle(p)) for _ in range(N_SHUFFLES)]
+        for wt in WEIGHTINGS:
+            G = graph(p, exc_obs, wt)
+            q_obs, comms = best_louvain(G, range(SEEDS))
+            q_runs = [best_louvain(G, [s])[0] for s in range(20)]  # stability: 20 single runs
+            null = np.array([best_louvain(graph(p, x, wt), rng.integers(1e9, size=SEEDS))[0] for x in null_exc])
+            z = (q_obs - null.mean()) / null.std(ddof=1)
+            pval = (1 + (null >= q_obs).sum()) / (1 + N_SHUFFLES)
+            row = {"weighting": wt, "network": label, "era": era, "vote_type": vt,
+                   "n_nodes": G.number_of_nodes(), "n_edges": G.number_of_edges(), "n_communities": len(comms),
+                   "q_obs": q_obs, "q_obs_min20": min(q_runs), "q_obs_max20": max(q_runs),
+                   "null_mean": null.mean(), "null_sd": null.std(ddof=1), "z": z, "p": pval, "n_shuffles": N_SHUFFLES}
+            results.append(row)
+            nums[wt][label] = {k: (round(v, 4) if isinstance(v, float) else v) for k, v in row.items()
+                               if k not in ("weighting", "network", "era", "vote_type")}
+            samples += [(wt, label, i, q) for i, q in enumerate(null)]
+            comm_rows += [(wt, label, i, c) for i, cs in enumerate(sorted(comms, key=len, reverse=True))
+                          for c in sorted(cs)]
+            print(f"{wt:5s} {label:34s} nodes={row['n_nodes']} edges={row['n_edges']} Q={q_obs:.3f} "
+                  f"null={null.mean():.3f}±{null.std(ddof=1):.3f} z={z:.1f} p={pval:.4f} k={len(comms)}")
 
-pd.DataFrame(results).to_csv(ROOT / "data/null_results.csv", index=False)
-smp = pd.DataFrame(samples, columns=["weighting", "network", "shuffle", "q_null"])
-smp.to_csv(ROOT / "data/null_samples.csv", index=False)
-pd.DataFrame(comm_rows, columns=["weighting", "network", "community", "code"]).to_csv(
-    ROOT / "data/communities_obs.csv", index=False)
-res_all = pd.DataFrame(results)
-spread = (res_all.q_obs_max20 - res_all.q_obs_min20)[res_all.weighting == WEIGHTINGS[0]]
-record("null_model", {"n_shuffles": N_SHUFFLES, "louvain_seeds": SEEDS, "min_votes_mean5": MIN_VOTES,
-                      "main_weighting": WEIGHTINGS[0], "networks": nums,
-                      "stability_max_spread_20_runs": round(float(spread.max()), 4)})
+    pd.DataFrame(results).to_csv(ROOT / "data/null_results.csv", index=False)
+    smp = pd.DataFrame(samples, columns=["weighting", "network", "shuffle", "q_null"])
+    smp.to_csv(ROOT / "data/null_samples.csv", index=False)
+    pd.DataFrame(comm_rows, columns=["weighting", "network", "community", "code"]).to_csv(
+        ROOT / "data/communities_obs.csv", index=False)
+    res_all = pd.DataFrame(results)
+    spread = (res_all.q_obs_max20 - res_all.q_obs_min20)[res_all.weighting == WEIGHTINGS[0]]
+    record("null_model", {"n_shuffles": N_SHUFFLES, "louvain_seeds": SEEDS, "min_votes_mean5": MIN_VOTES,
+                          "main_weighting": WEIGHTINGS[0], "networks": nums,
+                          "stability_max_spread_20_runs": round(float(spread.max()), 4)})
 
-# Figure: main weighting, one small panel per main network, null histogram + observed modularity
-plt.rcParams.update({"font.size": 7, "font.family": "sans-serif", "axes.spines.top": False,
-                     "axes.spines.right": False, "pdf.fonttype": 42})
-fig, axes = plt.subplots(3, 2, figsize=(3.42, 4.2), sharex=True, constrained_layout=True)  # PNAS column = 8.7 cm
-res = pd.DataFrame(results)
-res = res[(res.weighting == WEIGHTINGS[0]) & res.network.isin(MAIN)]
-null_main = smp[smp.weighting == WEIGHTINGS[0]]
-lo = min(null_main.q_null.min(), res.q_obs.min()) - 0.02
-hi = max(null_main.q_null.max(), res.q_obs.max()) + 0.03
-bins = np.arange(np.floor(lo * 100) / 100, hi, 0.005)  # same bins and x-axis in every panel
-for ax, r in zip(axes.flat, res.to_dict("records")):
-    null = null_main[null_main.network == r["network"]].q_null
-    ax.hist(null, bins=bins, color="#86b6ef")
-    ax.axvline(r["q_obs"], color="#0b0b0b", linewidth=1.2)
-    ax.set_title(r["network"], fontsize=7, loc="left")
-    right = r["q_obs"] < bins[0] + 0.7 * (bins[-1] - bins[0])  # label right of the line if room
-    ax.text(r["q_obs"] + (0.008 if right else -0.008), ax.get_ylim()[1] * 0.95,
-            f"observed\n{r['q_obs']:.2f}", va="top", ha="left" if right else "right",
-            fontsize=6, color="#0b0b0b")
-    ax.tick_params(length=2, width=0.5, labelsize=6)
-axes[0, 0].set_xlim(bins[0], bins[-1])
-for ax in axes[-1]:
-    ax.set_xlabel("Modularity Q (Louvain)")
-for ax in axes[:, 0]:
-    ax.set_ylabel("Shuffled networks")
-(ROOT / "figures/diagnostics").mkdir(parents=True, exist_ok=True)
-fig.savefig(ROOT / "figures/diagnostics/null_modularity.pdf")
-fig.savefig(ROOT / "figures/diagnostics/null_modularity.png", dpi=200)
+    # Figure: main weighting, one small panel per main network, null histogram + observed modularity
+    plt.rcParams.update({"font.size": 7, "font.family": "sans-serif", "axes.spines.top": False,
+                         "axes.spines.right": False, "pdf.fonttype": 42})
+    fig, axes = plt.subplots(3, 2, figsize=(3.42, 4.2), sharex=True, constrained_layout=True)  # PNAS column = 8.7 cm
+    res = pd.DataFrame(results)
+    res = res[(res.weighting == WEIGHTINGS[0]) & res.network.isin(MAIN)]
+    null_main = smp[smp.weighting == WEIGHTINGS[0]]
+    lo = min(null_main.q_null.min(), res.q_obs.min()) - 0.02
+    hi = max(null_main.q_null.max(), res.q_obs.max()) + 0.03
+    bins = np.arange(np.floor(lo * 100) / 100, hi, 0.005)  # same bins and x-axis in every panel
+    for ax, r in zip(axes.flat, res.to_dict("records")):
+        null = null_main[null_main.network == r["network"]].q_null
+        ax.hist(null, bins=bins, color="#86b6ef")
+        ax.axvline(r["q_obs"], color="#0b0b0b", linewidth=1.2)
+        ax.set_title(r["network"], fontsize=7, loc="left")
+        right = r["q_obs"] < bins[0] + 0.7 * (bins[-1] - bins[0])  # label right of the line if room
+        ax.text(r["q_obs"] + (0.008 if right else -0.008), ax.get_ylim()[1] * 0.95,
+                f"observed\n{r['q_obs']:.2f}", va="top", ha="left" if right else "right",
+                fontsize=6, color="#0b0b0b")
+        ax.tick_params(length=2, width=0.5, labelsize=6)
+    axes[0, 0].set_xlim(bins[0], bins[-1])
+    for ax in axes[-1]:
+        ax.set_xlabel("Modularity Q (Louvain)")
+    for ax in axes[:, 0]:
+        ax.set_ylabel("Shuffled networks")
+    (ROOT / "figures/diagnostics").mkdir(parents=True, exist_ok=True)
+    fig.savefig(ROOT / "figures/diagnostics/null_modularity.pdf")
+    fig.savefig(ROOT / "figures/diagnostics/null_modularity.png", dpi=200)
