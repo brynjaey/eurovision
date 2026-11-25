@@ -71,6 +71,7 @@ _Last updated: 2026-11-25, Methods paragraph for NMI / assortativity / backbone.
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-25, Kristófer (rater 2): all 20 ratings in data/ratings_rater2.csv. Rater 1: fill data/ratings_rater1.csv without opening ratings_rater2.csv.
 - 2026-11-25, Kristófer (via Claude): per-rater files + ratings_sheet.md (make_rating_files.py), merge_ratings.py (1–5 check). Check: agree the scale wording in ratings_sheet.md before rating.
 - 2026-11-25, Kristófer (via Claude): Methods paragraph (3 sentences) for NMI, assortativity, backbone; table_measures notes (unweighted; CY in Western Asia); methods.tex regenerated, overleaf repacked. Check: page count in Overleaf.
 - 2026-11-25, Kristófer (via Claude): nmi.py, assortativity.py, backbone.py, build_region.py; null_model.py importable (outputs unchanged); Fig 3 = backbone edges, caption numbers from key_numbers. Check: Fig 3 at print size; RESULTS.md NMI / assortativity / backbone tables.
