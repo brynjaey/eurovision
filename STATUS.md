@@ -3,7 +3,7 @@
 Two of us work on this project. Every Claude Code session starts by reading this file and
 ends by updating it, so whoever opens the repo next knows where things stand.
 
-_Last updated: 2026-11-25, course methods: NMI, attribute assortativity, disparity backbone (Fig 3)._
+_Last updated: 2026-11-25, Methods paragraph for NMI / assortativity / backbone._
 
 ## Done
 - [x] Vote network 1957–2026 with excess scores: `data/edges.csv`, `data/edges_agg.csv`
@@ -54,7 +54,8 @@ _Last updated: 2026-11-25, course methods: NMI, attribute assortativity, dispari
 - edges.csv: EurovisionAPI fills every (year, round) Spijkervet lacks (2023 semis added).
 
 ## Open questions (for the humans)
-- New measures (NMI, assortativity, backbone) are in RESULTS.md / table_measures but not yet in methods_template.md: add a Methods paragraph if we use them; read Serrano 2009, Newman 2003, Danon 2005 (NOTES Literature TODOs).
+- Read Serrano 2009, Newman 2003, Danon 2005 (NOTES Literature TODOs).
+- Length: a stand-in two-column 9pt build (no PNAS class locally) is ~4 pages with Methods, 3 figures, 2 tables and refs, but no abstract / intro / results / discussion yet. Check in Overleaf.
 - Merge feat/course-measures into main (not pushed yet).
 - paper TODOs: hand ratings, repository URL / data availability statement, 2026 spot-check on eurovision.tv; captures/misses now in paper/table_measures.tex.
 - Overleaf: check main.tex against your project's PNAS class version (\matmethods / \showmatmethods).
@@ -70,6 +71,7 @@ _Last updated: 2026-11-25, course methods: NMI, attribute assortativity, dispari
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-25, Kristófer (via Claude): Methods paragraph (3 sentences) for NMI, assortativity, backbone; table_measures notes (unweighted; CY in Western Asia); methods.tex regenerated, overleaf repacked. Check: page count in Overleaf.
 - 2026-11-25, Kristófer (via Claude): nmi.py, assortativity.py, backbone.py, build_region.py; null_model.py importable (outputs unchanged); Fig 3 = backbone edges, caption numbers from key_numbers. Check: Fig 3 at print size; RESULTS.md NMI / assortativity / backbone tables.
 - 2026-11-16, Kristófer: CGM eigenvalue fix for all fits (replaces voter fallback), cluster_voter robustness row, Fig 2/tables regenerated, table_measures.tex. Check: jury CIs in RESULTS.md.
 - 2026-11-16, Kristófer: clustering fallback (jury fits), Cameron et al. 2011 in bib, Methods trimmed, robustness table, Overleaf files. Check: paper/main.tex in Overleaf.

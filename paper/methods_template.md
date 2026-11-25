@@ -27,6 +27,15 @@ In the null model each voter's set of points in a year, round and vote type was 
 among the entries it rated and excess recomputed ({{null_model.n_shuffles|,}} shuffles per network). We report
 $z = (Q_\mathrm{obs} - \overline{Q}_\mathrm{null}) / \mathrm{SD}(Q_\mathrm{null})$.
 
+**Partition comparison, assortativity and backbone.** We compared partitions with normalised mutual
+information (NMI) [@danon2005comparing], 2016–2026 jury against televote communities and each network's
+communities against the Glottolog branch and sub-branch of the main language, each against {{nmi.n_shuffles|,}}
+random permutations of the second labelling. Attribute assortativity [@newman2003mixing] of each
+positive-excess network (edges unweighted) by language branch and by UN M49 sub-region (from CLDR) was
+compared with {{assortativity.n_shuffles|,}} networks from the vote shuffle above. Fig. \ref{fig:fig3} shows the
+disparity-filter backbone [@serrano2009backbone] of the 2016–2026 networks ($\alpha$ = {{backbone.alpha}}; an edge is
+kept if significant from either end), which keeps {{backbone.networks.2016+ jury.n_backbone_edges}} of {{backbone.networks.2016+ jury.n_edges}} jury and {{backbone.networks.2016+ televote.n_backbone_edges}} of {{backbone.networks.2016+ televote.n_edges}} televote edges.
+
 **Pair predictors.** *Border*: shared land border. *Diaspora*: $\log(1 + m)$, with $m$ the number of people
 born in the receiving country living in the voting country in the UN year nearest the vote; pairs the
 UN does not list count as zero. *Language*: shared official language (CLDR status "official"), and the
