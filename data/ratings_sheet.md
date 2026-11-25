@@ -1,0 +1,2068 @@
+# Lyric similarity: hand rating sheet
+
+Rate each pair **on your own**, without talking to the other rater, and without opening
+`data/lyrics_rating_key.csv` or `data/lyrics_extremes.csv`.
+Write one whole number per pair in the `rating` column of your file
+(`data/ratings_rater1.csv` or `data/ratings_rater2.csv`).
+
+Scale (agree on it before starting): **How similar are the two lyrics in what they are about
+(themes, imagery, message)?** 1 = not similar at all, 2 = slightly, 3 = somewhat, 4 = quite, 5 = very similar.
+Lyrics are the English text (translation where the original is not English). Both songs are from the same year.
+
+---
+
+## Pair 1 (2012)
+
+### A: AT, "Woki mit deim Popo"
+
+```text
+Shake your booty
+
+We are ready, jewellery 24 carat, our beer is one-two degrees
+Dialect, yeah, the two of us are stars, looting bars, we are ready
+And all the people shout: "Heya heya hey"
+
+We are party Indians, wearing feathers on our head
+And now get your pots out, the noodle soup gang arrives
+Girls, yay, haven't seen such hustle bustle for a long time
+And they dance and they shake on the poles, on the bars
+I am enchanted, girls, look how they sprawl, uh-huh…
+
+Come on, shake your booty, shake your (ooh ooh)
+Shake your booty, yeah, yeah, that's the way I like it
+Come on, shake your booty, shake your (ooh ooh)
+Shake your booty, as you are what I want
+
+And I enter the club, the ladies have fine jewellery
+But it's there, there, where you don't expect it at first
+I only look at her, she dances on the stripper pole
+I'm ready to go, lots of women, I don't miss out on anything
+
+"Noodle soup gang, what's up?" and everybody shouts: "Ho ho"
+And women are dancing, they only go low, low
+She wraps me around her finger, she wants a winner, winner
+And then she can jump, jump, booty shake , bad finger
+
+Come on, shake your booty, shake your (ooh ooh)
+Shake your booty, yeah, yeah, that's the way I like it
+Come on, shake your booty, shake your (ooh ooh)
+Shake your booty, as you are what I want
+
+Come on, shake your booty, shake your (ooh ooh)
+Shake your booty, yeah, yeah, that's the way I like it
+Come on, shake your booty, shake your (ooh ooh)
+Shake your booty, as you are what I want
+
+Your booty has feelings, your booty is a part of you
+Don't put it on chairs, your booty has an opinion, yeah
+Your booty wants movement, so shake, shake, shake
+Your booty wants encounters, come on, give it what it needs
+
+Your booty doesn't get tired, your booty tells something about you
+Come, shake it, it wants it, so that the house starts vibrating
+Your booty has to be ready, so shake, shake, shake
+Your booty has to be ready, come on, give it what it needs
+
+Come on, shake your booty, shake your (ooh ooh)
+Shake your booty, yeah, yeah, that's the way I like it
+Come on, shake your booty, shake your (ooh ooh)
+Shake your booty, as you are what I want
+
+Come on, shake your booty, shake your (ooh ooh)
+Shake your booty, yeah, yeah, that's the way I like it
+Come on, shake your booty, shake your (ooh ooh)
+Shake your booty, aѕ you are what I wаnt
+```
+
+### B: CH, "Unbreakable"
+
+```text
+Unbreakable
+
+You can do anything you want
+It doesn't matter how hard it is
+You can do it, you can do it
+
+So please, don't mind, close your eyes
+Take a trip outside your head
+You can give me more
+
+Swim against the stream
+Following your wildest dream, your wildest dream
+Swim against the stream
+Following your wildest dream, your wildest dream
+Swim against the stream
+Following your wildest dream, your wildest dream
+
+Unbreakable, unbreakable
+Unbreakable, unbreakable
+
+Don't stop rock, rock this place
+Don't stop tryin', try your best
+Don't stop, don't stop movin'
+
+Today without a doubt, a good vibe is in the crowd
+You can do it, you can do it, you can do it
+Unbreakable, unbreakable
+You can give me more
+
+Swim against the stream
+Following your wildest dream, your wildest dream
+Swim against the stream
+Following your wildest dream, your wildest dream
+Swim against the stream
+Following your wildest dream, your wildest dream
+
+Unbreakable
+Unbreakable
+
+So please, don't mind, close your eyes
+Take a trip outside your head
+
+Unbreakable, unbreakable
+Unbreakable, unbreakable
+You can give me more
+
+Swim against the stream
+Following your wildest dream, your wildest dream
+Swim against the stream
+Following your wildest dream, your wildest dream
+(You can give me more)
+
+Swim against the stream
+Following your wildest dream, your wildest dream
+(Unbreakable) Swim against the stream
+Following your wildest dream, your wildeѕt dream
+
+Unbreakаble
+```
+
+**Rating pair 1:** ___
+
+---
+
+## Pair 2 (1962)
+
+### A: LU, "Petit bonhomme"
+
+```text
+Little boy
+
+Little boy, at the end of your childhood
+Little boy, you'll have to quit
+You'll leave like someone goes on holiday
+On the paths of liberty
+
+Little boy, that's how life leads us
+And the children escape from their parents
+I had joy, soon I will have pain
+And I'll understand you, I love you and I wait for you
+
+I hear you sleeping and your childhood dreams
+Are memories for me for when you'll be grown-up
+Bigger than me, tomorrow already
+
+Little boy, I have to tell you
+Little boy, and you won't believe it
+But sometimes I packed my suitcases
+And quickly unpacked them because of you
+
+Little boy, at the day of the great path
+I will be alone and you won't come
+But I'll say: "My son iѕ on a journey"
+"He went a lot further, a lot further thаn me"
+```
+
+### B: NO, "Kom sol, kom regn"
+
+```text
+Come sun, come rain
+
+Come sun, come rain, come what may come
+As long as you are here
+Come sun, come rain, as long as we exist
+For you, for me, happiness is always close
+
+Rain becomes sunshine when only you smile at me
+The two of us walk along the path of summer
+Come sun, some rain, what could happen when I
+Have everything I could wish for in you
+
+I hoped many times: A day must come, my day
+But the doubt planted seeds of unease in my mind
+My world was so stressful, and I went along with its rush
+But then you came and then the world was mine
+
+Come sun, come rain, the only thing I know
+Our happiness remаins with uѕ when we
+Hold on to our love
+```
+
+**Rating pair 2:** ___
+
+---
+
+## Pair 3 (2014)
+
+### A: DE, "Is It Right"
+
+```text
+Is It Right
+
+He's got a pen in his hand
+A piece of paper starin' back
+He could write like a man
+A novel life back on track
+
+Maybe drama, or a poem
+But still he doesn't know
+The time is ticking in his ear
+The holy silence dissappears
+
+Is it right or is it wrong??
+I can't go on! you can't go on
+If you say yes…or even no
+You don't know how and where to go
+
+She turns over and looks at him
+She tries to feel, and can't feel anything
+But it's so hard to say goodbye
+Even when you know, that it's right
+
+When it's all not what you thought
+And a friendship is not enough
+When you long to feel alive
+And take the chance to give it up
+
+Is it right or is it wrong?
+I can't go on, you can't go on
+If you say yes, or even no
+You don't know how and where to go
+
+I know, it's not easy to decide
+To find your own direction
+Oh, the risk is too high
+But you can't hide
+
+Is it right or is it wrong?
+I can go on, you can go on
+If you say yeѕ, or even no
+You don't know how аnd where to go
+```
+
+### B: LT, "Attention"
+
+```text
+Attention
+
+Attention
+Attention
+
+Did you think that you could get me, boy? (No)
+Think again babe
+Thought you could buy me for a drink or two
+But I'm not that easy
+
+You saw me chatting with my girls at bar (True)
+We're all pretty
+You told me I look like a movie star (Babe)
+I'm not that naive
+
+So I'm gonna make you, make you fall
+Down, d-d-down, down on your knees
+I'm gonna make you, make you fall
+Down, down, down
+
+I'm gonna make you, make you fall
+Down, d-d-down, down on your knees
+I'm gonna make you, make you fall
+Down to get all
+
+Attention
+A little care
+And you can have love-love-love-love, some love
+Attention
+A little care
+And you can have lots of love
+
+Do you dream about me in your bed?
+Keep on dreamin'
+You thought I'd give it to you, all I have? (Wait)
+Not the first night
+
+You said that it might be the love at first sight
+Babe, hold your horses
+You told me you're the best I'll ever have
+But I just don't believe so
+
+I'm gonna make you, make you fall
+Down, d-d-down, down on your knees
+I'm gonna make you, make you fall
+Down, down, down
+
+I'm gonna make you, make you fall
+Down, d-d-down, down on your knees
+I'm gonna make you, make you fall
+D-d-d-d-d-d-d-down
+
+Attention
+A little care
+And you can have love-love-love-love, some love
+Attention
+A little care
+And you can have lots of love
+
+Attention
+A little care
+(Attention)
+Attention
+A little care
+
+(Now listen)
+
+I'm not gonna ask you, "buy me diamonds"
+No, no, no, no, no
+Just behave yourself
+Treat me very well
+Give me some (Some)
+
+Attention
+A little care
+And you can have love-love-love-love, some love (Give me some)
+Attention
+A little care
+And you can have lots of love (Give me some)
+
+Attention
+A little care
+And you can have love-love-love-love, some love (Give me some)
+Attention
+A little care
+And you can hаve luck, one love (Give me ѕome)
+
+Attention
+```
+
+**Rating pair 3:** ___
+
+---
+
+## Pair 4 (1996)
+
+### A: IE, "The Voice"
+
+```text
+The Voice
+
+I hear your voice on the wind
+And I hear you call out my name
+
+"Listen my child," you say to me
+"I am the voice of your history"
+"Be not afraid, come follow me"
+"Answer my call and I'll set you free"
+
+I am the voice in the wind and the pouring rain
+I am the voice of your hunger and pain
+I am the voice that always is calling you
+I am the voice, I will remain
+
+I am the voice in the fields when the summer's gone
+The dance of the leaves when the autumn winds blow
+Ne'er do I sleep throughout all the cold winter long
+I am the force that in springtime will grow
+
+I am the voice of the past that will always be
+Filled with my sorrows and blood in my fields
+I am the voice of the future
+Bring me your peace
+Bring me your peace and my wounds, they will heal
+
+I am the voice in the wind and the pouring rain
+I am the voice of your hunger and pain
+I am the voice that always is calling you
+I am the voice
+
+I am the voice of the past that will alwayѕ be
+I am the voice of your hunger and pain
+I am the voice of the future
+I am the voice
+I am the voice
+I am the voice
+I аm the voice
+```
+
+### B: PT, "O meu coração não tem cor"
+
+```text
+My heart has no colour
+
+We all turn round the old circle
+Singing in this language of honey and salt
+What's far away is still close in songs
+Throwing a tricontinental party
+
+We dance the samba, the marrabenta too
+We weep the fado, and roll the coladeira
+Everyone is welcome through this open door
+If tired, say farewell to weariness
+
+Go dance the corridinho
+Well commanded and whirling
+Shake the funaná, go deep into the malhão
+Because we will dance without restraint
+In the disconcert of this heart
+
+And how are you? And how are you? And how are you?
+Gather round everyone, let's all have a ball
+
+We're in the mood, let's dance
+Go melt your flavour with mine
+Set this song to sail
+For my heart has no colour
+
+We're in the mood, let's dance
+Go melt your flavour with mine
+Set this song to sail
+For my heart has no colour
+
+We're all whirling round
+Sweet laziness comes and goes
+In our mouth a rowdy craving
+For fig, papaya and guarana
+
+We spin the vira and the merengue too
+We weep the morna, lose the zapateo
+Everyone is welcome through this open door
+Because people like to have a full home
+
+Let's dance this bailinho
+Bring the accordion and the cavaquinho
+The chula will hop into the turn of the baião
+Because we will dance without restraint
+In the disconcert of this heart
+
+And how are you? And how are you? And how are you?
+Gather round everyone, let's all have a ball
+
+We're in the mood, let's dance
+Go melt your flavour with mine
+Set this song to sail
+For my heart has no colour
+
+We're in the mood, let's dance
+Go melt your flavour with mine
+Set this song to sail
+For my heart has no colour
+
+We're in the mood, let's dance
+Go melt your flavour with mine
+Set this song to sail
+For my heart has no colour
+
+Hey
+And turn around, turn around to finish
+For my heart hаѕ no colour
+```
+
+**Rating pair 4:** ___
+
+---
+
+## Pair 5 (2018)
+
+### A: LV, "Funny Girl"
+
+```text
+Funny Girl
+
+Ain't it funny, ain't it funny
+Oh, it all started as a joke
+But now I'm falling, now I'm falling
+The punch line is getting old
+Cause I've been keeping to myself
+For way too long
+
+Ain't it funny, ain't it funny
+I made you laugh every time we spoke
+I locked my heart in hesitation
+But somehow, you cracked the code
+
+I tore down my walls,
+And wrecked the ceiling
+Ready to bare it all, but
+
+You're looking at her
+She's looking at you
+I'm falling apart
+What can I do
+To make you feel that way about me too?
+
+And it's getting hard
+I'm not gonna lie
+To keep in the dark what I'm feeling inside
+When you walk in smelling like her perfume
+What was I thinking?
+I'm just the funny girl to you
+
+Can you feel me, can you feel me
+Like a fire rising in the smoke?
+Can you hear me, can you hear me
+Open up with every note?
+Cause I've been playing to myself
+For way too long
+
+Oh, I tore down my walls
+And I wrecked the ceiling
+Ready to bare it all
+What was I thinking?
+
+You're looking at her
+She's looking at you
+I'm falling apart
+What can I do
+To make you feel that way about me too?
+And it's getting hard
+I'm not gonna lie
+To keep in the dark what I'm feeling inside
+When you walk in smelling like her perfume
+What was I thinking?
+I'm just the funny girl to you
+
+So tell me what you're looking for
+I promise you, I got it all
+What does it take to make you see I am right here?
+And if you ever need to cry
+I'll be the one who makes you laugh
+Yeah, I'll be your funny girl
+Your funny girl
+
+You're looking at her
+She's looking at you
+I'm falling apart
+What can I do
+To make you feel that way about me too?
+And it's getting hard
+I'm not gonna lie
+To keep in the dark what I'm feeling inside
+When you walk in smelling like her perfume
+What wаs I thinking?
+I'm juѕt the funny girl to you
+```
+
+### B: UA, "Under The Ladder"
+
+```text
+Under The Ladder
+
+Curtains down, I'm laughing at the trial
+Help me to unravel
+Tangle of my innocence inside
+Faith's bout to be severed
+(Oh oh oh oh)
+Won't get any better
+(Oh oh oh oh)
+Walk under the ladder
+Shout out just one reason what's this for
+
+You can see that whatever the weather
+That the wind's always there, always fair
+(Oh oh oh)
+And it has always been now or never
+The decision has got to be made
+(Oh oh oh)
+
+(Oh oh oh oh oh oh oh oh oh, yeah)
+(Oh oh oh oh oh oh oh oh oh, yeah)
+
+Desperate thoughts, your hope calls you a liar
+Fear begins to revel
+Nothing but your will sets you on fire
+Fire lasts forever
+(Oh oh oh oh)
+Can't get any better
+(Oh oh oh oh)
+Dance under the ladder
+If you dare, so what you're waiting for
+
+You can see that whatever the weather
+That the wind's always there, always fair
+(Oh oh oh)
+And it has always been now or never
+The decision has got to be made
+(Oh oh oh)
+
+(Oh oh oh oh oh oh oh oh oh, yeah)
+(Oh oh oh oh oh oh oh oh oh, yeah)
+
+You can see that whatever the weather
+That the wind's always there, always fair
+(Oh oh oh)
+And it has always been now or never
+The decision has got to be made
+
+You can see that whatever the weather
+That the wind's always there, always fair
+(Oh oh oh)
+And it has always been now or never
+The decision haѕ got to be made
+(Oh oh oh)
+
+(Oh oh oh oh oh oh oh oh oh, yeah)
+(Oh oh oh oh oh oh oh oh oh, yeаh)
+```
+
+**Rating pair 5:** ___
+
+---
+
+## Pair 6 (2013)
+
+### A: ES, "Contigo hasta el final"
+
+```text
+With you until the end
+
+Ah…
+
+A blue sky overtakes the storm
+Which threatened my heart
+And you arrive with everything you signify
+Discovering myself who I am
+
+You are that light that crosses the universe
+You invite me to fly with you until the end
+
+The illusion of a lifetime ahead of us
+Which starts right now
+Let's go without fear, shout that in the end love conquered all
+That now, it's you and I
+
+You are that light that crosses the universe
+You invite me to fly, oh
+You are that light that crosses the universe
+You invite me to fly with you until the end, oh yeah
+With you until the end
+
+You are that light that crosses the universe
+You invite me to fly, oh
+You are that light that crosses the univerѕe
+You invite me to fly with you until the end, oh yeah
+With you until the end, oh yeаh
+
+With you until the end
+```
+
+### B: IE, "Only Love Survives"
+
+```text
+Only Love Survives
+
+All our lives we've been afraid
+Watching the world decline till nothing remains
+But in our darkest hour, right before the dawn
+The old world dies, the new day is born
+
+We're gonna live like it's our last night alive
+And we're dancing till the morning light
+And even if the sun don't rise
+In the end, only love survives
+
+So be love, be love
+Just be love (just be love), only love (only love)
+We are love (we are love), only love (only love)
+And when the stars are aligned, you got to make love a state of mind
+'Cause in the end only love survives
+
+So let the world collide, don't be afraid
+If it's the end of time, love will remain
+
+To live like it's the last night alive
+And we're dancing till the morning light
+And even if the sun don't rise
+In the end, only love survives
+
+So be love, be love
+Just be love (just be love), only love (only love)
+We are love (we are love), only love (only love)
+And when the stars are aligned you got to make love a state of mind
+'Cause in the end, only love survives
+
+So be love (be love), only love, love, love
+(Be love, only love) Only love, love, love
+('Cаuse in the end) Only love surviveѕ
+```
+
+**Rating pair 6:** ___
+
+---
+
+## Pair 7 (1962)
+
+### A: CH, "Le Retour"
+
+```text
+The return
+
+After the time of beating hearts
+Rough roads, light steps
+After the long stay of the distant beautiful days
+Everyone gets his turn, it's the return
+
+We're grown old in good times
+For our four hundred times, a bit much
+And there you see where the short walk brought us
+Everyone gets his turn, it's the return
+
+We told him: "You have to know that youth passes by"
+He understood when his mirror pulled him a long face
+He threw the prime of his life away
+At the same time as his knowledge
+
+By searching too much, we wasted
+What we had better kept in our eyes
+And there you see where the short walk brought us
+Everyone gets his turn, it's the return
+
+But the other time that wait for us
+Will be worth other joys with you, with me
+It's the time without detour, the time of love
+Everyone gets his turn, it's the return
+
+Yes, the return of new dаyѕ
+```
+
+### B: LU, "Petit bonhomme"
+
+```text
+Little boy
+
+Little boy, at the end of your childhood
+Little boy, you'll have to quit
+You'll leave like someone goes on holiday
+On the paths of liberty
+
+Little boy, that's how life leads us
+And the children escape from their parents
+I had joy, soon I will have pain
+And I'll understand you, I love you and I wait for you
+
+I hear you sleeping and your childhood dreams
+Are memories for me for when you'll be grown-up
+Bigger than me, tomorrow already
+
+Little boy, I have to tell you
+Little boy, and you won't believe it
+But sometimes I packed my suitcases
+And quickly unpacked them because of you
+
+Little boy, at the day of the great path
+I will be alone and you won't come
+But I'll say: "My son iѕ on a journey"
+"He went a lot further, a lot further thаn me"
+```
+
+**Rating pair 7:** ___
+
+---
+
+## Pair 8 (2010)
+
+### A: GR, "Opa"
+
+```text
+Hoppa
+
+Hoppa!
+Hoppa, hoppa!
+
+I burnt the past, my old nights
+Memories also became shivers
+Memories and voices, unjust wishes
+And left open wounds in a corner
+
+I burnt the past, my old nights
+Dreams and nightmares I threw in flames
+Hot tears, too many lies
+Seem like a silent movie that I'm not watching anymore
+
+Hoppa!
+
+I set on fire (Hey!)
+All past events (Hey!)
+I'll change everything (Hoppa!)
+And I will cry out (Hoppa!)
+The past is forgotten and everything is starting over (Hoppa!)
+
+I set on fire (Hey!)
+All past events (Hey!)
+I'll change everything (Hoppa!)
+And I will cry out (Hoppa!)
+The past is forgotten and everything is starting over (Hoppa!)
+
+I burnt the past, my old nights
+And I start from scratch, even if you don't want to
+Hot tears, too many lies
+I paid what I owed and borrowed
+
+Hoppa!
+
+I set on fire (Hey!)
+All past events (Hey!)
+I'll change everything (Hoppa!)
+And I will cry out (Hoppa!)
+The past is forgotten and everything is starting over (Hoppa!)
+
+Everybody say: hoppa!
+
+I set on fire (Hey!)
+All past events (Hey!)
+I'll change everything (Hoppa!)
+And I will cry out (Hoppa!)
+The past is forgotten and everything is starting over (Hoppa!)
+
+I set on fire (Hey!)
+All past events (Hey!)
+I'll change everything (Hoppa!)
+And I will cry out (Hoppa!)
+The past is forgotten and everything is ѕtarting over
+
+Hoppа!
+```
+
+### B: HR, "Lako je sve"
+
+```text
+Everything is easy
+
+Easy, everything is easy, whenever I have you
+Believe me, wherever I am, I know that I'm yours
+You can see it by the glow in my eyes
+
+Easy, everything is easy, because you're not leaving me
+When I'm not smiling at you, I know I'm making a mistake
+Because I'm just a woman who surrenders
+
+With last shred of strength now, I'm standing here before you
+My soul is being torn up by storms of unrest
+It's harder to come to terms with this pain
+Because you were cheated and it's killing me
+
+Easy, everything is easy, because you know me best
+While I'm standing here before you, you can see I'm scared
+Because betrayal is written on my face
+
+While I'm standing here before you, you can see I'm scared
+Please forgive me, I love you, really love you
+I can't live without you, I'm no longer myself
+I'm no longer myself
+
+Believe me, wherever I am, I know that I'm yours
+You can see it by the glow in my eyes
+Easy, everything is eаѕy
+```
+
+**Rating pair 8:** ___
+
+---
+
+## Pair 9 (2017)
+
+### A: CY, "Gravity"
+
+```text
+Gravity
+
+No matter where you're going
+No matter where you be
+Wherever the wind is blowing
+Let me be your gravity
+
+I can be your hero
+I can be your fantasy
+I can be the cure
+Yeah
+Let me be
+Your remedy
+
+Right beside you
+I'll never leave you
+
+Let me be your heart and your company
+I'll let you be the one who can lean on me
+I'll catch you when you fall
+When you're falling free
+Let me be, be your gravity
+
+Let me be your wings
+When you're flying high
+I'm gonna raise you up till you touch the sky
+I'll catch you when you fall
+When you're falling free
+Let me be, be your gravity
+
+Touch me, inseparably
+Like gravity
+
+As high as the highest mountain
+As low as the deepest sea
+Oh wherever you settle down just let me be your gravity
+
+Let me be your heart and your company
+I'll let you be the one who can lean on me
+I'll catch you when you fall
+When you're falling free
+Let me be, be your gravity
+
+Let me be your wings
+When you're flying high
+I'm gonna raise you up till you touch the sky
+I'll catch you when you fall
+When you're falling free
+Let me be, be your gravity
+
+Touch inseparably
+It's all we'll ever be
+You be gravity
+
+Let me be your heart and your company
+I'll let you be the one who can lean on me
+I'll catch you when you fall
+When you're falling free
+Let me be, be your gravity
+
+Let me be your wings
+When you're flying high
+I'm gonna raise you up till you touch the ѕky
+I'll catch you when you fall
+When you're falling free
+Let me be, be your gravity
+
+I'll catch you when you fall
+When you're falling free
+Let me be, be your grаvity
+```
+
+### B: PL, "Flashlight"
+
+```text
+Flashlight
+
+Like a bullet from a smoking gun
+They try to tell us that we don't belong
+Creeping round at the depth of night
+Just two shadows in love we were ghosts
+
+Two hearts we're invincible
+When we're together we're untouchable
+Haunted by if it's wrong or right
+Shadows in love we were ghosts
+
+Fire, like a burning desire
+Taking me higher
+Walk in a wire
+We will never come down
+
+It's like a flashlight burning in our eyes
+You call the dogs off, I got them hypnotized
+You never catch us, take us by suprise
+Running faster at the speed of light
+Falling deeper got you in the sight
+Bringing down your eyes in the sky
+
+Like two animals on the run
+Not afraid to fly into the sun
+Invisible we don't leave a trace
+We're shadows in love we were ghosts
+
+Fire, like a burning desire
+Taking me higher
+Walk in a wire
+We will never come down
+
+It's like a flashlight burning in our eyes
+You call the dogs off, I got them hypnotized
+You never catch us, take us by suprise
+Running faster at the speed of light
+Falling deeper got you in а sight
+Bringing down your eyes in the ѕky
+```
+
+**Rating pair 9:** ___
+
+---
+
+## Pair 10 (2006)
+
+### A: BA, "Lejla"
+
+```text
+Lejla
+
+Down a field, a scent of wind
+And pain follows me like a shadow
+Are you sighing after me somewhere?
+Where are you hidden from me?
+
+Place rosemary in your hair
+And a flower from an old fountain
+Layla, could you love another?
+
+If they propose to you tomorrow
+Know that I won't be there
+Sorrows are easily forgiven
+But only love never is
+
+Could you love another?
+
+Dove, my dove
+Bring her tears instead of a song
+I'm leaving, as if guilty
+For loving who I'm not allowed
+
+Dove, my dove
+Bring her tears instead of a song
+I'm leaving, aѕ if guilty
+For loving you who I'm not allowed
+
+For loving you, Lejlа
+(Dove, my dove)
+```
+
+### B: FR, "Il était temps"
+
+```text
+It was time
+
+Become, as the only reason to resist
+Hold out, raise your voice to exist
+You can say it, you can sing it easily
+But today my chorus is:
+
+It was time for heaven to remember me at last
+It was time, finally a rest, my own chance
+It was time, it was time
+
+Run after an ideal, it's worth it
+Suffer, it hurts less when a dream is at the end
+You can say it, you can sing it softly
+But today my chorus is:
+
+It was time for heaven to remember me at last
+It was time, finally a rest, my own chance
+It was time, it was time
+
+I didn't believe it anymore
+I didn't believe it anymore, actually it's still hard for me to believe it
+
+It was time for heaven to remember me at last
+It was time, finally a rest, my own chance
+
+It was time, hopefully it will stay, and if it doesn't last
+I'd be glad to tell the children
+That I've touched it once in my lifetime
+
+It wаѕ time
+```
+
+**Rating pair 10:** ___
+
+---
+
+## Pair 11 (2013)
+
+### A: LT, "Something"
+
+```text
+Something
+
+I have to tell you something, it's been on my mind so long
+I've got to tell you this, it's been on my mind way too long
+I promised myself to tell
+Instead I'm falling apart to see you here
+
+If you don't know, I'm in love with you
+When summertime falls, it becomes untrue
+Because of my shoes I'm wearing today
+One is called Love, the other is Pain, yeah…
+
+So tell me now (So tell me now)
+I'm in your head (I'm in your head)
+I'm in your heart (I'm in your heart)
+Tell me now (Tell me now)
+
+Tell me now
+Because I'm falling apart to see you here
+
+If you don't know, I'm in love with you
+When summertime falls, it becomes untrue
+Because of my shoes I'm wearing today
+One is called Love, the other is Pain
+
+But still you don't know, I'm in love with you
+When summertime falls, it becomes untrue
+Because of my shoes I'm wearing today
+One is called Love, the other is Pain
+One is called Love, the other iѕ Pаin
+```
+
+### B: SM, "Crisalide (Vola)"
+
+```text
+Chrysalis
+
+Hoo… mmh…
+
+Sometimes inside of me
+I've felt an emptiness that
+Called me from within
+Come now to see the truth
+There's a bridge over the immensity
+
+What am I, deep inside of me?
+God's fragile dream
+With a body made like this
+Big eyes, colours, die living
+Renewed for eternity
+
+Fly, fly, may the strength come
+Always alone towards another freedom
+The new butterfly always leaves behind
+The chrysalis you once were
+Empty without me
+
+You know that from the clouds
+The rain will soon fall down
+It happens suddenly
+Wings drowned in tears that don't dry
+The wind will come soon
+
+And you fly, fly, fly away from yourself
+Always alone until a reflection appears
+In the mirror that steals the image
+In thousand pieces of vertigo
+And light will shine
+
+How much life is there?
+I've never noticed it
+And if you still don't know it
+The universe, it's us
+
+Fly, may the strength come
+Never alone again, towards another freedom
+The new butterfly leaves behind
+The chrysalis and even more
+Empty without me
+
+Fly, you'll be in joy
+Never alone again in our immensity
+Sudden love, like a new ѕun
+Everything will chаnge
+
+Fly, fly, fly together with me
+```
+
+**Rating pair 11:** ___
+
+---
+
+## Pair 12 (2008)
+
+### A: BG, "DJ, Take Me Away"
+
+```text
+DJ, Take Me Away
+
+When the night falls down, I want you
+DJ, please, take me away
+And when the lights go down, I need you
+DJ, please, take me away
+
+When the night falls down, I want you
+DJ, please, take me away
+And when the lights go down, I need you
+DJ, please, take me away
+
+I'll take you away
+Take me away
+I'll take you away
+Take me away
+
+When the night falls down, I want you
+DJ, please, take me away
+And when the lights go down, I need you
+DJ, please, take me away
+
+When the night falls down, I want you
+DJ, please, take me away
+And when the lights go down, I need you
+DJ, pleaѕe, take me away
+
+I'll take you away
+Take me away
+I'll take you away
+Take me away
+Take me awаy
+```
+
+### B: CH, "Era stupendo"
+
+```text
+It was wonderful
+
+There's a part of me
+That can't be silenced
+When I look at the hatred there is
+The pain, the poverty
+I see myself again as a child
+Running in the blue
+
+It was wonderful to fly away
+To challenge the wind, the imagination
+Your hand and mine
+In the same poetry
+It was wonderful
+
+But one night you'll see
+I'll escape from fate, I swear
+If life will wait for us
+We'll go back down there
+
+It'll be wonderful to fly away
+To still challenge the imagination
+And then your hand and mine
+In the same poetry
+It was wonderful
+It was wonderful
+
+Because there's no peace, as long
+As everyone thinks of himself
+
+It was wonderful
+It wаѕ wonderful
+```
+
+**Rating pair 12:** ___
+
+---
+
+## Pair 13 (2024)
+
+### A: BE, "Before the Party's Over"
+
+```text
+Before the Party's Over
+
+All we chase is shining in the moonlight
+Are we sure the kids are alright
+Or just playing it cool?
+Watch it fade, it's gonna hurt from time to time
+One more drink and I'll be fine
+You're the living proof
+
+Are you still playing the game
+Or breaking the rules?
+I can see all the pain
+In the way that you move
+
+Face-to-face, they told us it was paradise
+But I'll barely make it through the night
+Do you think about it too?
+
+Are you still playing the game
+Or breaking the rules?
+I can see all the pain
+In the way that you move
+In the way that you move
+
+I got a soul on fire
+I'm gonna make moves tonight
+I got a soul on fire
+I'm gonna raise roofs tonight
+I got a soul on fire
+I'm gonna make moves tonight
+I got a soul on fire
+
+Before the party's over
+(I got a soul on fire, I'm gonna make moves tonight)
+Before the party's over
+(I got a soul on fire, I'm gonna raise roofs tonight)
+Before the party's over
+(I got a soul on fire, I'm gonna make moves tonight)
+Before the party's over
+(I got a soul on fire, I'm gonna raise roofs tonight)
+Before the party's over
+(I got a soul on fire, I'm gonna make moves tonight)
+Before the party's over
+(I got a soul on fire, I'm gonna raise roofs tonight)
+Before the party's over
+(I got a soul on fire, I'm gonna make moves tonight)
+Before the party's over
+(I got a soul on fire, I'm gonna rаise roofѕ tonight)
+```
+
+### B: SM, "11:11"
+
+```text
+11:11
+
+My heart is broken
+But it's kind of ironic
+Nothing romantic
+A wound between the two
+I know it sounds tragic
+But it's not
+
+Can you stop wasting time
+Looking for everything, looking for my veins?
+I know there's nothing to do
+But who are you?
+Please take it out
+
+You'll be able to jump all night
+Come and give me a reason
+To want to change those voices
+You know some lie and others don't
+
+I-D-G-A-F
+Because if you don't want me
+Other people will
+
+Do you want to be the big bad wolf?
+And you're the pathetic lesser evil
+You think you can bring me down
+We lit up Benidorm
+You say it's illogical
+Even magical
+And it's just rock and roll
+
+You'll be able to jump all night
+Come and give me a reason
+To want to change those voices
+You know some lie and others don't
+
+Give me a sign (all night long)
+I always want more
+I won't take a step back
+If I'm where you are
+
+We like to party
+But we love rock
+
+You'll be able to jump all night
+Come and give me a reason
+To want to change those voices
+You know some lie
+
+You'll be able to jump all night
+Come and give me a reason
+To want to change those voices
+You know some lie and others don't
+
+(I-D-G-A-F)
+Becauѕe if you don't wаnt me
+Other people will
+```
+
+**Rating pair 13:** ___
+
+---
+
+## Pair 14 (1979)
+
+### A: BE, "Hey Nana"
+
+```text
+Hey Nana
+
+Hey, won't you come?
+Won't you stay here with me tonight?
+I've already been waiting so long for you
+Hey, do you know?
+It's time now for the big game
+You now become my henpecked husband
+
+You take me in your arms
+And you carry me into our house
+I'll always be very sweet for you
+
+Wouldn't that be great for you and me?
+Such a little house for the both of us
+Where we would be very happy
+And in the evening when you show up after your work
+
+Then I'll shout:
+Hey hey… nanana… nana nana…
+Hey hey… nanana… nana nana…
+You take me in your arms
+And you carry me into our house
+
+So you see
+Everything falls into place
+We are now a couple together
+I take care of you
+The way you take care of me
+And our luck will never end
+
+You take me in your arms
+And you carry me into our house
+I'll always be very sweet for you
+
+Wouldn't that be great for you and me?
+Such a little house for the both of us
+Where we would be very happy
+And in the evening when you show up after your work
+
+Then I'll shout:
+Hey hey… nanana… nana nana…
+Hey hey… nanana… nana nana…
+You take me in your arms
+And you carry me into our houѕe
+
+Hey hey… nanana… nana nana…
+Hey hey… nanana… nana nana…
+Hey hey… nanana… nana nana…
+Hey hey… nanana… nanana nа…
+```
+
+### B: NO, "Oliver"
+
+```text
+Oliver
+
+(Do you, do you want the next dance?)
+(Do you, do you want the next dance with me?)
+
+Dance with me Oliver, Oliver
+Dance, now you've got your chance
+Dance with me Oliver, Oliver
+Let the next dance, let the next dance be mine
+
+The discotheque is loud
+There is a fog of smoke everywhere
+In the crowd I'm searching for you
+Four weeks today since we went separate ways
+I guess you're happy now
+But if you walk by I'll say:
+(Do you want the next dance?)
+
+Dance with me Oliver, Oliver
+Dance, now you've got your chance
+Dance with me Oliver, Oliver
+Let the next dance, let the next dance be mine
+Oliver…
+
+Fashionable and in
+Yes, clothes can make anybody look so right
+But now I think the clown is rather sad
+Ooh… do you come here, even when your costume is worn out
+And people can ѕee who you are?
+Then you are at my door like before
+(Do you want the next dance?)
+
+Dance with me Oliver, Oliver
+Dance, now you've got your chance
+Dance with me Oliver, Oliver
+Give me a dance, dance with me now
+
+Dance with me Oliver, Oliver
+Dance, take a chance on me
+Dance with me Oliver, Oliver
+Let the next dance, let the next dance be mine
+
+(Dance with me Oliver, Oliver)
+Dance, now you've got your chance
+Dance with me Oliver, Oliver
+Let the next dance, let the next dance be mine
+
+(Dance with me Oliver, Oliver)
+Dance, now you've got your chance
+Dance with me Oliver, Oliver
+Let the next dance, let the next dance be mine
+
+(Dance with me Oliver, Oliver)
+Dance, now you've got your chance
+Dance with me Oliver, Oliver
+Let the next dance, let the next dаnce be mine
+```
+
+**Rating pair 14:** ___
+
+---
+
+## Pair 15 (2009)
+
+### A: IE, "Et Cetera"
+
+```text
+Et cetera
+
+This time you've really gone too far
+So sick of hearing stories
+About the new girl hanging round
+You're supposed to be with me
+
+And when I heard the rumour
+You kissed her at a party
+Like a jealous fool I ran to you
+You were still mine
+
+That's just the way my life goes
+Still love me, even she knows
+You say you're sorry, but you're not
+
+Et cetera (Et cetera)
+I heard that old song many times
+But I still believe you really wanted her
+I spent the day (I spent the day)
+Deciding should I go or stay
+Hoping that the pain would go away
+
+Remember how astounding
+It felt to be around me
+Extravaganza in the heat
+And then the rain came pouring
+
+That's just the way my life goes
+Still love me, even she knows
+You say you're sorry, but you're not
+
+Et cetera (Et cetera)
+I heard that old song many times
+But I still believe you really wanted her
+I spent the day (I spent the day)
+Deciding should I go or stay
+Hoping that the pain would go away
+
+That's just the way my life goes
+Still love me, even she knows
+You say you're sorry, but you're not
+
+Et cetera (Et cetera)
+I heard that old song many times
+But I still believe you really wanted her
+I spent the day (I spent the day)
+Deciding should I go or ѕtay
+Hoping that the pain will go away
+
+Et ceterа
+```
+
+### B: SK, "Leť tmou"
+
+```text
+Fly through the darkness
+
+I feel cold, deceitful shadows
+The desire sparked at the bottom
+A void in the soul becoming
+A taste of bitter, a taste of dark
+
+We must come out of the shadows, intrigues and words
+Give your heart, don't despair, and fly through the darkness
+
+I also feel it, I am also afraid
+The dream is trembling with my fear
+Moments of loss, moments of fear
+When hopes roll in dust
+
+We have to come out of the shadows, of intrigues and words
+Give your heart, don't despair, and fly through the darkness
+We have to come out of the shadows, of intrigues and words
+Give your heart, don't despair, and fly through the darkness
+
+But where to?
+I don't know, at this moment, every instance is a mistake
+Silence whispers in me: don't stay alone
+
+I also feel it, I am also afraid
+Don't stay alone
+
+As forgiveness approaches
+Clouds embrace the return
+Do not stray, you're the same
+Even if someone breaks you
+
+Lord, may Your voice lead us
+Through the darkness in us
+Give us a gift, work a wonder, return love
+Love, please
+
+Love, please, may your voice lead us
+Through the darkness in us
+Give us a gift, work a wonder, stand by us
+
+Love, please, may your voice lead us
+Through the darkness in us
+Give us a gift, work a wonder, stаnd by uѕ
+Keep the love
+```
+
+**Rating pair 15:** ___
+
+---
+
+## Pair 16 (2004)
+
+### A: PT, "Foi magia"
+
+```text
+It was magic
+
+I don't know what it was
+I don't know what got into me
+But suddenly, there I was
+It was magic, it was magic
+
+And there you were
+Smiling at me
+I've never seen anything like this
+It was magic, it was magic
+
+It was magic
+When I touched you, and the kiss that I gave you
+(It was magic) on, on, on that day
+(It was magic) on, on, on that day
+
+It was magic
+When I touched you, and I gave you a kiss
+(It was magic) on, on, on that day
+(It was magic) on that day
+
+Ha...
+
+I don't know what got into me
+But the things that happened
+Were quite divine
+It was magic, it was magic
+
+I don't know what it was
+That made me act like that
+I never did anything like that before
+It was magic, it was magic
+
+It was magic
+When I touched you, and the kiss that I gave you
+(It was magic) on, on, on that day
+(It was magic) on that day
+
+It was magic
+When I touched you, and the kiss that I gave you
+On that day
+(It was magic) on, on, on that day
+(It was magic) on, on, on that day
+
+It was magic
+When I touched you, and the kiss that I gave you
+(It was magic) on, on, on that day
+(It was magic) on, on, on that day
+
+It was magic
+When I touched you, and the kiss that I gave you
+On that day
+(It was magic) on, on, on that day
+(It was magic) It was magic
+(It waѕ mаgic)
+```
+
+### B: UA, "Wild Dances"
+
+```text
+Wild Dances
+
+Just maybe I'm crazy 
+The world spins round and round and round 
+Shee ree kee dai, shee ree kee dam dei 
+Shee ree kee dai, shee kee ree a dam da 
+
+I want you to want me 
+As I dance round and round and round 
+Shee ree kee dai, shee ree kee dam dei 
+Shee ree kee dai, shee kee ree a dam da 
+
+Forever and ever 
+Go, go, go, wild dancers 
+
+Dai na, dai na, wanna be loved 
+Dai na, gonna take my wild chances 
+Dai na, dai na, freedom above 
+Dai na, dai na dei, I'm wild dancin' 
+
+Hey 
+
+Probably, in vain
+I was too obedient
+Hey, shee kee dai, shee ree kee dam dei 
+Shee ree kee dai, shee kee ree a dam da 
+
+For you and for myself
+I'll spread out the whole sky
+Hey… dam dei 
+Shee ree kee dai, shee kee ree a dam da 
+
+I will set the fire without any sorrow
+Go, go, go, wild dancers 
+
+Dai na, dai na, wanna be loved 
+Dai na, gonna take my wild chances 
+Dai na, dai na, freedom above 
+Dai na, dai na dei, I'm wild dancin' 
+
+Hey… ho… 
+
+Dance forever, come and be mine 
+Dance together, till the end of time 
+Dance together 
+Go, go, go, wild dancers 
+
+Dai na, dai na, wanna be loved 
+Dai na, gonna take my wild chanceѕ 
+Dai na, dai na, freedom above 
+Dai na, dai na dei, I'm wild dаncin' 
+
+Hey, hey
+```
+
+**Rating pair 16:** ___
+
+---
+
+## Pair 17 (1993)
+
+### A: CY, "Mi stamatas"
+
+```text
+Don't stop
+
+Into our lives we enter naked
+The same end and beginning define us
+But there are some of us, the beggars of happiness
+
+Don't stop helping people
+Don't overtake, don't fear seeing the wrecks
+And if life is occasionally hurt by the truth
+Don't stop, don't stop
+
+Whatever you own I own as well, brother
+But there are others who never laughed
+Their sight is unclear, and they carry a cross
+
+Don't stop helping people
+Don't overtake, don't fear seeing the wrecks
+And if life is occasionally hurt by the truth
+Don't stop, don't stop
+
+And if life is occasionally hurt by the truth
+Don't stop, don't stop
+And if life is occasionаlly hurt by the truth
+Don't stop, don't stop
+
+Don't stop, don't stop, don't ѕtop
+```
+
+### B: FR, "Mama Corsica"
+
+```text
+Mama Corsica
+
+She always has a little wine
+Some fruits, a bit of bread
+For the starving friends
+Mama Corsica
+
+Her heart is as wide as the sky
+She's as sincere as she's beautiful
+Mama Corsica
+
+She's like those old ladies in black
+Who bear their story inside themselves
+Mama Corsica
+
+It even seems that the Good Lord
+Was crazy in love with her
+Drawing her with his fingers
+
+Mama Corsica, tonight we're singing in Corsican for you
+Mama Corsica, on behalf of love and friendship
+Mama Corsica, tonight the world has only eyes for you
+Mama Corsica, as if the world sung in Corsican to greet you
+
+She always prays for her boys
+When they are far from home
+Mama Corsica
+
+She smiles when you're thinking of her
+She likes it when you're faithful to her
+Mama Corsica
+
+Don't believe everything what people say
+Basically it's her who unites us
+Mama Corsica
+
+Never mind that there are differences
+She doesn't have preferences
+All her children have Corsican blood
+
+Mama Corsica, tonight we're singing in Corsican for you
+Mama Corsica, on behalf of love, tonight you're the land of friendship
+Mama Corsica, tonight the world has only eyes for you
+Mama Corsica, as if the world sung in Corsican to greet you
+
+Mama Corsica
+Mama Corѕicа
+```
+
+**Rating pair 17:** ___
+
+---
+
+## Pair 18 (1960)
+
+### A: BE, "Mon amour pour toi"
+
+```text
+My love for you
+
+My love for you, it's like the sea
+When nobody has walked on the sand yet
+My love for you, it's like winter
+When the star found its stable
+
+I share with you the paving stones of the road
+A clear dawn, ice water and bread
+My love for you, it's like the sea
+The blue sky of winter
+A tender dawn and clear water
+
+A little wind is spinning
+Round an old bell-tower of a church
+Four boats on the gray sea
+A small ball painted in neon
+
+And under my tiny room
+The broken echo of a fanfare
+That makes a song dance
+On my nocturnal intoxications
+
+My love for you, it's like the sea
+When nobody has walked on the sand yet
+My love for you, it's like the winter
+When the star found its cattle shed
+
+I share with you the paving stones of the road
+A clear dawn, ice water and bread
+My love for you, it's like the sea
+The blue ѕky of winter
+A tender dawn and clear wаter
+
+My love, my love for you
+```
+
+### B: CH, "Cielo e terra"
+
+```text
+Heaven and earth
+
+Heaven and earth, dream and life
+On the road to the one who loves you, like me
+The limit of a date
+You weren't there and instead you're with me now
+
+With thoughts, with words it colours
+A name hidden away in the bottom of my heart
+It's true, I've got my sun
+But I wonder: will he still be mine tomorrow?
+
+One hour of sweet intimacy is too short
+Why should I bother? What is it good for?
+
+Heaven and earth, dream and life
+On the road to the one who loves you, like me
+The limit of a date
+I didn't know about you and now I know everything
+
+One hour of sweet intimacy is too short
+Why should I bother? What is it good for?
+
+Heaven and earth, dream and life
+On the road to the one who loveѕ you, like me
+The limit of a date
+I didn't know about you and now I know everything
+
+Heaven and earth, dream аnd life
+```
+
+**Rating pair 18:** ___
+
+---
+
+## Pair 19 (2018)
+
+### A: AT, "Nobody But You"
+
+```text
+Nobody But You
+
+Lord I'm gonna get so high tonight
+I'm gonna let the floodgates open wide
+I'm in open water
+This is what I need
+And though I try to get you off my mind
+
+And I get no sleep
+I'm in too deep
+I can't let you leave
+
+It wouldn't be right letting you go running away from love
+Ain't nobody but you I can hold onto
+So am I wrong giving my all making you stay tonight?
+Ain't nobody but you I can hold onto
+
+Lord, I'm gonna bring you back tonight
+Oh you're running circles round my mind
+After your words have been my bible
+How could I search for someone new?
+When I really want you by my side
+
+And I get no sleep
+I'm in too deep
+To let you leave
+
+It wouldn't be right letting you go running away from love
+Ain't nobody but you I can hold onto
+So am I wrong giving my all making you stay tonight?
+Ain't nobody but you I can hold onto
+
+Don't make me tear my heart out
+I'm shaking till I fall down
+Don't make me tear my heart out
+Don't make me tear my heart out
+I'm shaking till I fall down
+Don't make me tear my heart out
+
+It wouldn't be right letting you go running away
+Ain't nobody but you I can hold onto
+So am I wrong giving my all making you ѕtay tonight?
+Ain't nobody but you I can hold onto
+It wouldn't be right letting you go running away from love
+Ain't nobody but you I cаn hold onto
+Ain't nobody but you
+```
+
+### B: EE, "La forza"
+
+```text
+The Force
+
+You know, in the night for me
+There is a star
+It lights up my way
+Always
+It is my guide
+In the immensity
+And will never leave me
+
+Destiny's force
+Makes me fly near
+To the hour of happiness
+Is it a dream or is it real?
+Our closeness
+That rises us on rosy wings of love
+
+When I walk the path of life
+Always carefree
+I would like it to be a fairytale around us
+Our love
+Will be a guide to us
+In the infinite
+Always
+
+Destiny's force
+Makes me fly near
+To the hour of happiness
+Is it a dream or is it real?
+Our closeness
+Thаt rises us on rosy wingѕ of love
+```
+
+**Rating pair 19:** ___
+
+---
+
+## Pair 20 (1970)
+
+### A: FR, "Marie-Blanche"
+
+```text
+Marie-Blanche
+
+It's the time that the frosty pearls settle
+That every leaf thinks to be a rose
+Somewhere a bird sings something
+And Marie-Blanche is mine
+
+We're there in a soft stillness
+We've put an end to our loneliness
+Our bodies learn tender habits
+And Marie-Blanche is mine
+
+And Marie-Blanche is mine, and I love her
+And Marie-Blanche falls asleep near me
+
+The snow falls and the wind escorts her
+Every pond is frozen, yes, but what does it matter
+In the winter we closed our door
+And Marie-Blanche is mine
+
+And Marie-Blanche is mine, and I love her
+And Marie-Blanche falls asleep near me
+
+Oh, may the time turn its pages
+We'll stay there for a century or longer
+The city sleeps under the wing of white clouds
+And Marie-Blanche is mine
+
+I don't want to know a thing about the rest of the world
+The earth never seemed so round to me
+Against my heart, there's her blonde hair
+And Marie-Blаnche iѕ mine
+```
+
+### B: IE, "All Kinds of Everything"
+
+```text
+All Kinds of Everything
+
+Snowdrops and daffodils, butterflies and bees
+Sailboats and fishermen, things of the sea
+Wishing wells, wedding bells, early morning dew
+All kinds of everything remind me of you
+
+Seagulls and aeroplanes, things of the sky
+Winds that go howling, breezes that sigh
+City sights, neon lights, grey skies or blue
+All kinds of everything remind me of you
+
+Summertime, wintertime
+Spring and autumn too
+Monday, Tuesday, every day
+I think of you
+
+Dances, romances, things of the night
+Sunshine and holidays, postcards to write
+Budding trees, autumn leaves, a snowflake or two
+All kinds of everything remind me of you
+
+Summertime, wintertime
+Spring and autumn too
+Seasons will never change
+The way that I love you
+
+Dances, romances, things of the night
+Sunshine and holidays, postcards to write
+Budding trees, autumn leaves, a snowflаke or two
+All kinds of everything remind me of you
+All kindѕ of everything remind me of you
+```
+
+**Rating pair 20:** ___

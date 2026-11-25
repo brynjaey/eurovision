@@ -36,7 +36,7 @@ _Last updated: 2026-11-25, Methods paragraph for NMI / assortativity / backbone.
 - (none)
 
 ## Next up (in order)
-0. Hand ratings → `python scripts/rating_agreement.py` → RESULTS.md (sheet still empty on 2026-11-16)
+0. Hand ratings: read `data/ratings_sheet.md`, each rater fills `data/ratings_rater1.csv` / `ratings_rater2.csv` alone (1–5) → `python scripts/merge_ratings.py` (checks 40 values) → `python scripts/rating_agreement.py` → RESULTS.md + Methods template
 
 ## Decisions
 - Diaspora: missing UN pairs = 0 (robustness: observed pairs only); diaspora analysis 1997+, each vote year matched to nearest UN year.
@@ -71,6 +71,7 @@ _Last updated: 2026-11-25, Methods paragraph for NMI / assortativity / backbone.
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-25, Kristófer (via Claude): per-rater files + ratings_sheet.md (make_rating_files.py), merge_ratings.py (1–5 check). Check: agree the scale wording in ratings_sheet.md before rating.
 - 2026-11-25, Kristófer (via Claude): Methods paragraph (3 sentences) for NMI, assortativity, backbone; table_measures notes (unweighted; CY in Western Asia); methods.tex regenerated, overleaf repacked. Check: page count in Overleaf.
 - 2026-11-25, Kristófer (via Claude): nmi.py, assortativity.py, backbone.py, build_region.py; null_model.py importable (outputs unchanged); Fig 3 = backbone edges, caption numbers from key_numbers. Check: Fig 3 at print size; RESULTS.md NMI / assortativity / backbone tables.
 - 2026-11-16, Kristófer: CGM eigenvalue fix for all fits (replaces voter fallback), cluster_voter robustness row, Fig 2/tables regenerated, table_measures.tex. Check: jury CIs in RESULTS.md.
