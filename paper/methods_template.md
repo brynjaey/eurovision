@@ -43,7 +43,7 @@ deepest Glottolog level shared by the two countries' main languages: different f
 same family only, same branch only (e.g. Slavic) or same sub-branch (e.g. South Slavic).
 
 **Taste profile.** English lyrics were embedded with paraphrase-multilingual-mpnet-base-v2
-[@reimers2019sentencebert], in chunks of at most {{lyrics_similarity.max_seq_length}} tokens averaged per song, and each song vector
+[@reimers2019sentencebert; @reimers2020multilingual], in chunks of at most {{lyrics_similarity.max_seq_length}} tokens averaged per song, and each song vector
 was centred on the mean of its year. A voter's taste profile for a vote on country $B$ in year $t$ is
 the share-weighted sum of the vectors of all songs it gave points to in other years, leaving out every
 song from $B$; for 2016–2026 profiles are built from jury votes and televotes separately. Taste
@@ -58,7 +58,7 @@ matrix were set to zero, as proposed there (this changed {{regression._n_fits_ei
 All robustness runs are in Table \ref{tab:robustness}; Table \ref{tab:measures} lists what each measurement captures and misses.
 
 **Validation.** For the 2023 final the two vote sources agree on {{checks.final_2023_sources.n_identical}} of {{checks.final_2023_sources.n_matched}} votes, and the
-reconstructed 2026 final matches the published scoreboard for {{checks.final_2026_vs_eurovisionworld.n_identical}} of {{checks.final_2026_vs_eurovisionworld.n_entries}} entries. Taste profiles
+reconstructed 2026 final matches the official EBU scoreboard [@ebu2026grandfinal] for {{checks.final_2026_vs_ebu.n_identical}} of {{checks.final_2026_vs_ebu.n_entries}} entries. Taste profiles
 recomputed by a direct loop over votes agree with the vectorised computation (largest difference
 {{taste_similarity.brute_force_check.total.max_abs_diff}}). Predictors are weakly correlated (largest $|r|$ = {{collinearity.all_samples.max_abs_corr}}; largest variance inflation factor
 {{collinearity.all_samples.max_vif}}). Leaving out one country at a time, the same-family-only coefficient stays between

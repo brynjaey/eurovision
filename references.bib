@@ -11,10 +11,10 @@
   address   = {Milan, Italy},
   pages     = {817--823},
   year      = {2023},
+  doi       = {10.5281/zenodo.10265415},
   url       = {https://archives.ismir.net/ismir2023/paper/000097.pdf},
-  note      = {Verified at https://researchr.org/publication/BurgoyneSB23}
+  note      = {Verified at https://researchr.org/publication/BurgoyneSB23; DOI from Zenodo record 10265415 (zenodo.org/api/records/10265415: same title and authors, conference paper, ISMIR Milan, 2023-11-04; concept DOI 10.5281/zenodo.10265412), checked 25 November 2026}
 }
-% TODO: doi.org/10.5281/zenodo.10265412 redirects to Zenodo record 10265415; open it and add the DOI if it is the paper.
 
 @misc{eurovisionapi2026,
   author       = {{EurovisionAPI}},
@@ -23,7 +23,8 @@
   note         = {Commit e56411125d4b91dc61f08dfb8d3c8a9fc91a6ad5, 26 October 2026; accessed 11 November 2026},
   year         = {2026}
 }
-% TODO: the repo README states no license. Ask the maintainers or mention it in the paper's Methods.
+% No license: the README states none and the GitHub API reports license = null (checked 25 November 2026).
+% TODO (group): ask the maintainers, or state in the data availability statement that the source has no stated license.
 
 @misc{geodatasource_borders,
   author       = {{GeoDataSource}},
@@ -33,6 +34,14 @@
   year         = {2026}
 }
 
+@misc{ebu2026grandfinal,
+  author       = {{European Broadcasting Union}},
+  title        = {Grand Final {\textbar} Vienna 2026},
+  year         = {2026},
+  howpublished = {\url{https://www.eurovision.com/eurovision-song-contest/vienna-2026/vienna-2026-grand-final/}},
+  note         = {Official scoreboard (total, jury, audience points). Title as shown on the page; accessed 25 November 2026; saved copy raw/checks/ebu\_2026\_grand\_final.html.gz}
+}
+
 @misc{undesa2024migrantstock,
   author       = {{United Nations Department of Economic and Social Affairs, Population Division}},
   title        = {International Migrant Stock 2024},
@@ -40,7 +49,10 @@
   howpublished = {\url{https://un.org/development/desa/pd/content/international-migrant-stock}},
   note         = {POP/DB/MIG/Stock/Rev.2024. CC BY 3.0 IGO. Fields copied from the suggested citation printed in the downloaded file (raw/undesa/, see raw/MANIFEST.json); accessed 16 November 2026}
 }
-% TODO: CC BY 3.0 IGO requires attribution; check the license page for exact wording to use in the paper.
+% CC BY 3.0 IGO legal code, section 4(b) (creativecommons.org/licenses/by/3.0/igo/legalcode, read 25 November 2026):
+% keep copyright notices and give (i) the attribution the licensor asks for, (ii) the title, (iii) the URI, and
+% (iv) for an adaptation, a credit identifying the use of the work. No fixed wording is required. This entry (the
+% suggested citation printed in the file) gives (i)-(iii); the Methods sentence on diaspora gives (iv).
 
 @misc{cldr49,
   author       = {{Unicode, Inc.}},
@@ -49,7 +61,8 @@
   howpublished = {\url{https://github.com/unicode-org/cldr/releases/tag/release-49}},
   note         = {Release published 21 October 2026; files common/supplemental/supplementalData.xml and supplementalMetadata.xml; Unicode License v3; accessed 16 November 2026}
 }
-% TODO: no official citation format found on the release page or README; check https://cldr.unicode.org/downloads/cldr-49
+% No citation format is given on the release page, the README or https://cldr.unicode.org/downloads/cldr-49
+% ("CLDR 49 Release Note", checked 25 November 2026), so the release itself is cited.
 
 @misc{glottolog54,
   author       = {Hammarstr{\"o}m, Harald and Forkel, Robert and Haspelmath, Martin and Bank, Sebastian},
@@ -69,13 +82,22 @@
   month     = {11},
   year      = {2019},
   publisher = {Association for Computational Linguistics},
+  pages     = {3980--3990},
+  doi       = {10.18653/v1/D19-1410},
   url       = {http://arxiv.org/abs/1908.10084},
-  note      = {Citation requested on the model card of sentence-transformers/paraphrase-multilingual-mpnet-base-v2 (revision 4328cf2); copied from that card 16 November 2026}
+  note      = {Pages and DOI from the Crossref record of the DOI (25 November 2026). Citation requested on the model card of sentence-transformers/paraphrase-multilingual-mpnet-base-v2 (revision 4328cf2); copied from that card 16 November 2026}
 }
-% TODO: the multilingual paraphrase models may come from Reimers & Gurevych 2020, arXiv:2004.09813
-%       ("Making Monolingual Sentence Embeddings Multilingual using Knowledge Distillation").
-%       The model card does not say so; check sbert.net before citing it.
-% TODO: add pages / DOI for reimers2019sentencebert from the ACL Anthology page.
+
+@inproceedings{reimers2020multilingual,
+  author    = {Reimers, Nils and Gurevych, Iryna},
+  title     = {Making Monolingual Sentence Embeddings Multilingual using Knowledge Distillation},
+  booktitle = {Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing ({EMNLP})},
+  pages     = {4512--4525},
+  year      = {2020},
+  publisher = {Association for Computational Linguistics},
+  doi       = {10.18653/v1/2020.emnlp-main.365},
+  note      = {Fields from the Crossref record of the DOI (25 November 2026). sbert.net (Pretrained Models > Multilingual Models, read 25 November 2026) says the multilingual models, including paraphrase-multilingual-mpnet-base-v2, are described in this publication}
+}
 
 % ---------------------------------------------------------------- Eurovision voting
 @article{gatherer2006eurovision,
@@ -121,9 +143,10 @@
   number  = {1},
   pages   = {41--52},
   year    = {2008},
-  url     = {https://ideas.repec.org/a/eee/poleco/v24y2008i1p41-52.html}
+  doi     = {10.1016/j.ejpoleco.2007.05.004},
+  url     = {https://ideas.repec.org/a/eee/poleco/v24y2008i1p41-52.html},
+  note    = {DOI from Crossref (title, journal, volume 24, issue 1, pages 41--52 match), 25 November 2026}
 }
-% TODO: DOI not shown on the RePEc page; find it on the publisher page and add it.
 
 % ---------------------------------------------------------------- Methods
 @article{cameron2011multiway,
@@ -142,11 +165,15 @@
   author  = {Blondel, Vincent D. and Guillaume, Jean-Loup and Lambiotte, Renaud and Lefebvre, Etienne},
   title   = {Fast unfolding of communities in large networks},
   year    = {2008},
+  journal = {Journal of Statistical Mechanics: Theory and Experiment},
+  volume  = {2008},
+  number  = {10},
+  pages   = {P10008},
   doi     = {10.1088/1742-5468/2008/10/P10008},
   eprint  = {0803.0476},
-  archivePrefix = {arXiv}
+  archivePrefix = {arXiv},
+  note    = {Journal fields from the Crossref record of the DOI, 25 November 2026}
 }
-% TODO: journal, volume and article number not shown on arXiv; open the DOI and fill them in.
 
 @article{newman2006modularity,
   author  = {Newman, M. E. J.},

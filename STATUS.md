@@ -29,6 +29,7 @@ _Last updated: 2026-11-25, Methods paragraph for NMI / assortativity / backbone.
 - [x] Overleaf: `paper/main.tex` + `python scripts/pack_overleaf.py` → `paper/overleaf/`
 - [x] Report files: `RESULTS.md` (facts per step) and `data/key_numbers.json` (written by scripts via `scripts/key_numbers.py`)
 - [x] Course methods (weeks 3–4), branch feat/course-measures: NMI `data/nmi.csv`, attribute assortativity `data/assortativity.csv` (language branch, UN M49 region `data/region.csv`), disparity backbone `data/backbone_edges.csv`; Fig 3 redrawn with backbone edges
+- [x] 2026 final checked against the official EBU scoreboard too (25/25, scripted in check_data.py)
 - [x] Citation tracking: `references.bib` with 6 data + 6 papers, all verified against their pages
 
 ## In progress
@@ -55,22 +56,21 @@ _Last updated: 2026-11-25, Methods paragraph for NMI / assortativity / backbone.
 
 ## Open questions (for the humans)
 - Read Serrano 2009, Newman 2003, Danon 2005 (NOTES Literature TODOs).
-- Length: a stand-in two-column 9pt build (no PNAS class locally) is ~4 pages with Methods, 3 figures, 2 tables and refs, but no abstract / intro / results / discussion yet. Check in Overleaf.
+- Length: a stand-in two-column 9pt build (no PNAS class locally) is ~4–5 pages (5 after the 2026-11-25 bib additions) with Methods, 3 figures, 2 tables and refs, but no abstract / intro / results / discussion yet. Check in Overleaf.
 - Merge feat/course-measures into main (not pushed yet).
-- paper TODOs: hand ratings, repository URL / data availability statement, 2026 spot-check on eurovision.tv; captures/misses now in paper/table_measures.tex.
+- EurovisionAPI has no stated license (GitHub API: none): ask the maintainers or say so in the data availability statement.
+- paper TODOs: hand ratings, repository URL / data availability statement; captures/misses now in paper/table_measures.tex.
 - Overleaf: check main.tex against your project's PNAS class version (\matmethods / \showmatmethods).
 - Abstract, Significance, Introduction, Results text, Discussion, reflection: ours to write (TODO headers in methods_template.md).
 - Hand ratings: the sheet in the repo was still empty on 2026-11-16 — commit the filled `data/lyrics_rating_sheet.csv`.
 - Lyrics: rate the 20 pairs in `data/lyrics_rating_sheet.csv` independently (agree a scale first, e.g. 1–5); don't open `lyrics_rating_key.csv` before.
-- 2026 final check is manual, not scripted, so it is not in key_numbers.json. Script it if we quote it.
-- references.bib TODOs: Ginsburgh & Noury DOI, Blondel journal details, Zenodo DOI for Burgoyne, EurovisionAPI has no stated license
 - Fill in the "what it found / how we use it" lines under Literature in NOTES.md (read the papers)
-- TODO (human): spot-check 3 entries of the 2026 final on eurovision.tv; Eurovisionworld may be upstream of both our sources.
 - How to treat yu / cs (drop, or map to successors)?
 - Which era(s) does the paper focus on?
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-25, Kristófer (via Claude): bib TODOs resolved (DOIs for Burgoyne, Ginsburgh, Reimers 2019; Blondel journal; Reimers 2020 added; CLDR / UN license notes); 2026 final vs EBU scoreboard scripted. Check: Methods validation sentence.
 - 2026-11-25, Kristófer (rater 2): all 20 ratings in data/ratings_rater2.csv. Rater 1: fill data/ratings_rater1.csv without opening ratings_rater2.csv.
 - 2026-11-25, Kristófer (via Claude): per-rater files + ratings_sheet.md (make_rating_files.py), merge_ratings.py (1–5 check). Check: agree the scale wording in ratings_sheet.md before rating.
 - 2026-11-25, Kristófer (via Claude): Methods paragraph (3 sentences) for NMI, assortativity, backbone; table_measures notes (unweighted; CY in Western Asia); methods.tex regenerated, overleaf repacked. Check: page count in Overleaf.

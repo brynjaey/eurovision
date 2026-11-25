@@ -119,6 +119,18 @@
       "sha256": {
         "raw/checks/eurovisionworld_2026_final.csv": "3606b87e6c1a34342dc069f521282e2c3325ee881a453bc63070d66ff208679f"
       }
+    },
+    {
+      "files": [
+        "raw/checks/ebu_2026_grand_final.html.gz"
+      ],
+      "source": "https://www.eurovision.com/eurovision-song-contest/vienna-2026/vienna-2026-grand-final/ (European Broadcasting Union; page title 'Grand Final | Vienna 2026'; URL found as the source cited by the Wikipedia article 'Eurovision Song Contest 2026', revision 1387396837)",
+      "retrieved": "2026-11-25",
+      "retrieved_how": "curl with a browser user agent (HTTP 200), HTML saved unchanged and gzipped (gzip -9 -n). eurovision.tv returned HTTP 403.",
+      "used_for": "check only (scripts/check_data.py): 2026 final reconstruction vs the official scoreboard",
+      "sha256": {
+        "raw/checks/ebu_2026_grand_final.html.gz": "6c04a693684b519d4306284883638b04e6f720424bc5389b34ad02ee78b5d4fc"
+      }
     }
   ]
 }

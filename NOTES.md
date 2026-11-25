@@ -12,7 +12,9 @@
   The official eurovision.tv results page returned HTTP 403 to automated fetch, so it was not used.
   Caveat: Eurovisionworld is likely the upstream of both Spijkervet (scraped from it) and EurovisionAPI,
   so this check validates our conversion, not the source data itself.
-  TODO: hand spot-check 3 entries of the 2026 final against eurovision.tv (EBU) in a browser.
+  2026-11-25: also checked against the official EBU scoreboard (eurovision.com Grand Final page, saved in raw/checks/,
+  parsed by check_data.py): 25 of 25 entries identical on total, televote ("Audience") and jury. This is the
+  independent check the caveat above asked for; eurovision.tv still returns HTTP 403.
 - 2026-11-11: Borders from geodatasource/country-borders (CC BY-SA 4.0). Land borders only. yu/cs/wld = NaN.
 - 2026-11-16: Diaspora from UN DESA International Migrant Stock 2024 (destination x origin, CC BY 3.0 IGO),
   downloaded by hand in a browser (automated fetch got HTTP 403). Built by scripts/build_diaspora.py.
@@ -241,6 +243,7 @@
 - fenn2006europe: TODO
 - spierdijk2009bias: TODO
 - ginsburgh2008eurovision: TODO
+- reimers2020multilingual: how the multilingual sentence-transformers models are made (knowledge distillation; sbert.net says it describes our model). Cited with reimers2019sentencebert for the lyric embeddings. TODO what it found (read it).
 - blondel2008louvain: Louvain community detection. TODO how we use it
 - newman2006modularity: modularity. TODO how we use it
 - cameron2011multiway: two-way (multiway) cluster-robust standard errors. Used for the regression CIs. TODO what it found (read it).

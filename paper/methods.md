@@ -39,7 +39,7 @@ deepest Glottolog level shared by the two countries' main languages: different f
 same family only, same branch only (e.g. Slavic) or same sub-branch (e.g. South Slavic).
 
 **Taste profile.** English lyrics were embedded with paraphrase-multilingual-mpnet-base-v2
-[@reimers2019sentencebert], in chunks of at most 128 tokens averaged per song, and each song vector
+[@reimers2019sentencebert; @reimers2020multilingual], in chunks of at most 128 tokens averaged per song, and each song vector
 was centred on the mean of its year. A voter's taste profile for a vote on country $B$ in year $t$ is
 the share-weighted sum of the vectors of all songs it gave points to in other years, leaving out every
 song from $B$; for 2016â€“2026 profiles are built from jury votes and televotes separately. Taste
@@ -54,7 +54,7 @@ matrix were set to zero, as proposed there (this changed 6 of 19 fits, all 2016â
 All robustness runs are in Table \ref{tab:robustness}; Table \ref{tab:measures} lists what each measurement captures and misses.
 
 **Validation.** For the 2023 final the two vote sources agree on 962 of 962 votes, and the
-reconstructed 2026 final matches the published scoreboard for 25 of 25 entries. Taste profiles
+reconstructed 2026 final matches the official EBU scoreboard [@ebu2026grandfinal] for 25 of 25 entries. Taste profiles
 recomputed by a direct loop over votes agree with the vectorised computation (largest difference
 1.9e-16). Predictors are weakly correlated (largest $|r|$ = 0.375; largest variance inflation factor
 1.39). Leaving out one country at a time, the same-family-only coefficient stays between

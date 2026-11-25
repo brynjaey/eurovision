@@ -176,7 +176,7 @@
     ]
   },
   "checks": {
-    "_updated": "2026-11-16",
+    "_updated": "2026-11-25",
     "excess_mean_all_votes": 6.81e-20,
     "excess_sum_per_entry_max_abs": 5.69e-16,
     "final_2023_sources": {
@@ -184,6 +184,12 @@
       "n_matched": 962,
       "n_votes_eurovisionapi": 962,
       "n_votes_spijkervet": 988
+    },
+    "final_2026_vs_ebu": {
+      "mismatches": [],
+      "n_entries": 25,
+      "n_identical": 25,
+      "same_entries_as_eurovisionworld": true
     },
     "final_2026_vs_eurovisionworld": {
       "n_entries": 25,

@@ -1,16 +1,20 @@
 """Data checks on the vote data, written to key_numbers.json so the paper can quote them.
 
 Input:  raw/votes.csv (Spijkervet), raw/votes_eurovisionapi.csv (converted EurovisionAPI),
-        raw/checks/eurovisionworld_2026_final.csv (transcribed official table), data/edges.csv
+        raw/checks/eurovisionworld_2026_final.csv (transcribed table), data/edges.csv
+        raw/checks/ebu_2026_grand_final.html.gz (official EBU scoreboard page, saved as fetched, gzipped)
 Output: key_numbers.json section "checks"
 
 1. 2023 final: the two sources give the same total / televote / jury points for every vote.
-2. 2026 final: our totals per country = the Eurovisionworld table (total, televote, jury).
+2. 2026 final: our totals per country = the Eurovisionworld table and the official EBU scoreboard (total, televote, jury).
 3. 2024 and 2025 winners and their totals, reconstructed from edges.csv.
 4. 2023 semi-finals (added from EurovisionAPI): every voter gives 58 points (1-8, 10, 12) to 10 entries.
 5. Shares: each voter's shares sum to 1 per (year, round, vote type).
 6. Excess: per entry and round, excess sums to 0 over the voters (leave-one-out construction).
 """
+import gzip
+import html
+import re
 from pathlib import Path
 
 import pandas as pd
@@ -38,6 +42,24 @@ f26 = e[(e.year == 2026) & (e["round"] == "final")].pivot_table(index="to", colu
 ok = (f26.total == ref.total) & (f26.tele == ref.televote) & (f26.jury == ref.jury)
 nums["final_2026_vs_eurovisionworld"] = {"n_entries": len(ref), "n_identical": int(ok.sum()),
                                          "winner": ref.total.idxmax(), "winner_total": int(f26.total.max())}
+
+# 2b. 2026 final vs the official EBU scoreboard page. Each entry appears on the page as
+#     "<place> <total> points Jury <jury> Audience <televote> Running Order <n> <Country>"; names map to our codes
+#     via data/countries.csv. Audience is compared with our televote points.
+page = gzip.decompress((ROOT / "raw/checks/ebu_2026_grand_final.html.gz").read_bytes()).decode("utf-8", "ignore")
+text = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", page)))
+code = pd.read_csv(ROOT / "data/countries.csv").set_index("name").code.to_dict()
+pat = re.compile(r"(\d+) (\d+) points Jury (\d+) Audience (\d+) Running Order \d+ ("
+                 + "|".join(sorted(map(re.escape, code), key=len, reverse=True)) + ") ")
+ebu = {}
+for mt in pat.finditer(text):  # each entry is shown twice on the page; keep the first
+    ebu.setdefault(code[mt.group(5)], [int(x) for x in mt.group(2, 4, 3)])
+ebu = pd.DataFrame.from_dict(ebu, orient="index", columns=["total", "televote", "jury"])
+f26e = f26.reindex(ebu.index)
+ok_ebu = (f26e.total == ebu.total) & (f26e.tele == ebu.televote) & (f26e.jury == ebu.jury)
+nums["final_2026_vs_ebu"] = {"n_entries": len(ebu), "n_identical": int(ok_ebu.sum()),
+                             "mismatches": sorted(ebu.index[~ok_ebu]),
+                             "same_entries_as_eurovisionworld": set(ebu.index) == set(ref.index)}
 
 # 3. Winners 2024, 2025
 for y in [2024, 2025]:
