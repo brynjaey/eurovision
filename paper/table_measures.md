@@ -10,3 +10,6 @@
 | Language category | deepest Glottolog level the main languages share | closeness below sub-branch; minority languages |
 | Taste similarity | closeness of B's lyrics to lyrics the voter rewarded in other years | music, genre, staging; voter's other friendships |
 | Own-song similarity | closeness of the voter's and B's lyrics in the same year | what the voter actually rewards |
+| NMI | overlap of two partitions (jury vs televote communities; communities vs language branch) | which groups match; rises with the number of groups |
+| Attribute assortativity | positive-excess edges joining countries of the same language branch or UN sub-region | edge weights; closeness between different labels |
+| Disparity backbone | partners that get more of a country's positive excess than an even split would give | negative excess; direction; the choice of α |

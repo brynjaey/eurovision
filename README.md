@@ -28,6 +28,10 @@ python scripts/collinearity.py
 python scripts/regression.py
 python scripts/check_data.py
 python scripts/leave_one_out.py
+python scripts/build_region.py      # data/region.csv (UN M49 sub-region from CLDR)
+python scripts/nmi.py               # data/nmi.csv
+python scripts/assortativity.py     # data/assortativity.csv (~15 s)
+python scripts/backbone.py          # data/backbone_edges.csv (Fig 3 edges)
 python scripts/make_figures.py      # figures/fig1-3 (PDF) + captions in figures/captions.md
 python scripts/make_table_robustness.py   # paper/table_robustness.tex/.md
 python scripts/write_paper.py       # paper/methods.md/.tex + figure_floats.tex from templates + key_numbers.json

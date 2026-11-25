@@ -77,7 +77,7 @@ for head, body in re.findall(r"^## (Fig\. \d+.*?)\n(.*?)(?=^## |\Z)", caps, flag
     name = re.search(r"`([^`]+)\.pdf`", head).group(1)
     wide = "two-column" in head
     env = "figure*" if wide else "figure"
-    text = to_latex(" ".join(body.split()))
+    text = to_latex(" ".join(PH.sub(fill, body).split()))  # captions may use {{placeholders}} too
     floats += [f"\\begin{{{env}}}[tbhp]", "\\centering",
                f"\\includegraphics[width={'0.9' if wide else ''}\\{'textwidth' if wide else 'linewidth'}]{{{name}}}",
                f"\\caption{{{text}}}", f"\\label{{fig:{name.split('_')[0]}}}", f"\\end{{{env}}}", ""]

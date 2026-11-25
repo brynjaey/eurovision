@@ -307,8 +307,70 @@ Top 10 diff_family pairs by mean excess:
 | GE → AZ | 0.0880 | 7 |
 | AZ → IL | 0.0843 | 12 |
 
+## Region (`scripts/build_region.py` → `data/region.csv`; key_numbers: `region`)
+- 52 countries, 7 UN M49 sub-regions from CLDR 49 territoryContainment; missing: wld.
+- Countries per region: Australia and New Zealand 1; Eastern Europe 10; Northern Africa 1; Northern Europe 10; Southern Europe 16; Western Asia 6; Western Europe 8. yu, cs: Southern Europe (CLDR deprecated entries).
+- Captures: the UN statistical sub-region of each country.
+- Misses: borders inside a region and closeness across region lines (e.g. CY is Western Asia, not with GR); one-country regions (AU, MA).
+
+## NMI (`scripts/nmi.py` → `data/nmi.csv`; key_numbers: `nmi`)
+sklearn normalized_mutual_info_score (arithmetic mean); null: second labelling permuted over the same countries, 1,000 times. Communities: mean5, from data/communities_obs.csv.
+
+| Partition A | Partition B | Countries | Groups A / B | NMI obs | null mean ± SD | z | p |
+|---|---|---|---|---|---|---|---|
+| 2016+ jury communities | 2016+ televote communities | 44 | 4 / 4 | 0.360 | 0.092 ± 0.040 | 6.8 | 0.0010 |
+| 1957–1974 communities | language branch | 17 | 4 / 3 | 0.346 | 0.194 ± 0.088 | 1.7 | 0.0689 |
+| 1957–1974 communities | language subbranch | 17 | 4 / 4 | 0.595 | 0.255 ± 0.082 | 4.2 | 0.0020 |
+| 1975–1996 communities | language branch | 27 | 4 / 7 | 0.467 | 0.248 ± 0.054 | 4.0 | 0.0020 |
+| 1975–1996 communities | language subbranch | 27 | 4 / 10 | 0.484 | 0.311 ± 0.053 | 3.3 | 0.0020 |
+| 1997–2008 televote communities | language branch | 43 | 5 / 11 | 0.510 | 0.262 ± 0.036 | 6.9 | 0.0010 |
+| 1997–2008 televote communities | language subbranch | 43 | 5 / 17 | 0.609 | 0.352 ± 0.033 | 7.7 | 0.0010 |
+| 2009–2015 50/50 communities | language branch | 45 | 4 / 11 | 0.436 | 0.221 ± 0.034 | 6.4 | 0.0010 |
+| 2009–2015 50/50 communities | language subbranch | 45 | 4 / 17 | 0.565 | 0.295 ± 0.034 | 7.9 | 0.0010 |
+| 2016+ jury communities | language branch | 44 | 4 / 11 | 0.417 | 0.222 ± 0.036 | 5.3 | 0.0010 |
+| 2016+ jury communities | language subbranch | 44 | 4 / 17 | 0.524 | 0.300 ± 0.033 | 6.8 | 0.0010 |
+| 2016+ televote communities | language branch | 44 | 4 / 11 | 0.395 | 0.217 ± 0.036 | 5.0 | 0.0010 |
+| 2016+ televote communities | language subbranch | 44 | 4 / 17 | 0.500 | 0.294 ± 0.033 | 6.2 | 0.0010 |
+
+- p = (1 + shuffles with NMI ≥ observed) / 1,001.
+- Captures: how much knowing a country's community in one partition tells about its group in another (0 = nothing, 1 = same partition).
+- Misses: which groups match; NMI rises with the number of groups (the shuffle null keeps group sizes, so z is the fairer comparison); one Louvain partition per network.
+
+## Attribute assortativity (`scripts/assortativity.py` → `data/assortativity.csv`; key_numbers: `assortativity`)
+networkx attribute_assortativity_coefficient on the unweighted mean5 positive-excess networks; null: 1,000 vote shuffles per network (null_model.py procedure, own draws). Language: yu, cs left out.
+
+| Network | Attribute | Nodes | Edges | r obs | null mean ± SD | z | p |
+|---|---|---|---|---|---|---|---|
+| 1957–1974 | language_branch | 17 | 54 | 0.123 | -0.064 ± 0.075 | 2.5 | 0.0110 |
+| 1957–1974 | region | 18 | 62 | 0.185 | -0.066 ± 0.062 | 4.0 | 0.0010 |
+| 1975–1996 | language_branch | 27 | 134 | 0.099 | -0.027 ± 0.030 | 4.2 | 0.0010 |
+| 1975–1996 | region | 28 | 142 | 0.087 | -0.029 ± 0.033 | 3.5 | 0.0010 |
+| 1997–2008 televote | language_branch | 43 | 297 | 0.080 | -0.016 ± 0.015 | 6.3 | 0.0010 |
+| 1997–2008 televote | region | 44 | 313 | 0.151 | -0.021 ± 0.018 | 9.5 | 0.0010 |
+| 2009–2015 50/50 | language_branch | 45 | 356 | 0.089 | -0.025 ± 0.015 | 7.8 | 0.0010 |
+| 2009–2015 50/50 | region | 45 | 356 | 0.123 | -0.031 ± 0.017 | 8.9 | 0.0010 |
+| 2016+ jury | language_branch | 44 | 404 | 0.060 | -0.027 ± 0.014 | 6.1 | 0.0010 |
+| 2016+ jury | region | 44 | 404 | 0.098 | -0.023 ± 0.017 | 7.3 | 0.0010 |
+| 2016+ televote | language_branch | 44 | 333 | 0.107 | -0.027 ± 0.015 | 9.0 | 0.0010 |
+| 2016+ televote | region | 44 | 333 | 0.148 | -0.023 ± 0.017 | 10.1 | 0.0010 |
+
+- Captures: whether positive-excess edges join countries with the same language branch / region more often than the edge ends' label mix would give.
+- Misses: edge weights (the networkx function ignores them); direction; negative excess; closeness between labels (Slavic–Baltic counts as different as Slavic–Semitic).
+
+## Disparity-filter backbone (`scripts/backbone.py` → `data/backbone_edges.csv`; key_numbers: `backbone`)
+Serrano et al. 2009, implemented in backbone.py; mean5 networks; edge kept if alpha < 0.05 from at least one end (degree-1 ends not tested). Check: toy graph asserted; other alphas below.
+
+| Network | Nodes | Edges | Backbone edges (α 0.05) | Kept | Nodes with a backbone edge | α 0.01 | α 0.10 | Within community: all / backbone |
+|---|---|---|---|---|---|---|---|---|
+| 2016+ jury | 44 | 404 | 23 | 5.7% | 33 | 8 | 52 | 42.8% / 78.3% |
+| 2016+ televote | 44 | 333 | 29 | 8.7% | 38 | 6 | 60 | 50.4% / 93.1% |
+
+- Captures: for each country, the partners that get a larger share of its positive excess than an even split over its partners would give.
+- Misses: negative excess; direction (pooled pairs); the threshold α is a choice; edges of degree-1 countries are only tested from the other end.
+
 ## Figures (`scripts/make_figures.py` → `figures/fig1_modularity.pdf`, `figures/fig2_coefficients.pdf`, `figures/fig3_communities.pdf`; captions `figures/captions.md`)
 - Fig 1: observed modularity vs the shuffle null (mean5), six networks; numbers as in the Null model table.
 - Fig 2: main-model betas with 95% CIs for 2016+ jury, 2016+ televote, 1997–2008 televote; numbers as in the Main model table.
 - Robustness table: `paper/table_robustness.tex` / `.md` (`scripts/make_table_robustness.py`).
-- Fig 3 (two-column): 2016+ jury and televote Louvain communities (mean5), 44 countries and 4 communities each, shared layout.
+- Fig 3 (two-column): 2016+ jury and televote Louvain communities (mean5), 44 countries and 4 communities each, shared layout;
+  edges = disparity-filter backbone (α = 0.05): 23 of 404 jury edges, 29 of 333 televote edges (see Disparity-filter backbone).

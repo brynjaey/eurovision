@@ -3,7 +3,7 @@
 Two of us work on this project. Every Claude Code session starts by reading this file and
 ends by updating it, so whoever opens the repo next knows where things stand.
 
-_Last updated: 2026-11-16, CGM eigenvalue fix for all fits; measures table._
+_Last updated: 2026-11-25, course methods: NMI, attribute assortativity, disparity backbone (Fig 3)._
 
 ## Done
 - [x] Vote network 1957–2026 with excess scores: `data/edges.csv`, `data/edges_agg.csv`
@@ -28,6 +28,7 @@ _Last updated: 2026-11-16, CGM eigenvalue fix for all fits; measures table._
 - [x] Measures table (captures / misses): `paper/table_measures.tex` / `.md`
 - [x] Overleaf: `paper/main.tex` + `python scripts/pack_overleaf.py` → `paper/overleaf/`
 - [x] Report files: `RESULTS.md` (facts per step) and `data/key_numbers.json` (written by scripts via `scripts/key_numbers.py`)
+- [x] Course methods (weeks 3–4), branch feat/course-measures: NMI `data/nmi.csv`, attribute assortativity `data/assortativity.csv` (language branch, UN M49 region `data/region.csv`), disparity backbone `data/backbone_edges.csv`; Fig 3 redrawn with backbone edges
 - [x] Citation tracking: `references.bib` with 6 data + 6 papers, all verified against their pages
 
 ## In progress
@@ -53,6 +54,8 @@ _Last updated: 2026-11-16, CGM eigenvalue fix for all fits; measures table._
 - edges.csv: EurovisionAPI fills every (year, round) Spijkervet lacks (2023 semis added).
 
 ## Open questions (for the humans)
+- New measures (NMI, assortativity, backbone) are in RESULTS.md / table_measures but not yet in methods_template.md: add a Methods paragraph if we use them; read Serrano 2009, Newman 2003, Danon 2005 (NOTES Literature TODOs).
+- Merge feat/course-measures into main (not pushed yet).
 - paper TODOs: hand ratings, repository URL / data availability statement, 2026 spot-check on eurovision.tv; captures/misses now in paper/table_measures.tex.
 - Overleaf: check main.tex against your project's PNAS class version (\matmethods / \showmatmethods).
 - Abstract, Significance, Introduction, Results text, Discussion, reflection: ours to write (TODO headers in methods_template.md).
@@ -67,6 +70,7 @@ _Last updated: 2026-11-16, CGM eigenvalue fix for all fits; measures table._
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-25, Kristófer (via Claude): nmi.py, assortativity.py, backbone.py, build_region.py; null_model.py importable (outputs unchanged); Fig 3 = backbone edges, caption numbers from key_numbers. Check: Fig 3 at print size; RESULTS.md NMI / assortativity / backbone tables.
 - 2026-11-16, Kristófer: CGM eigenvalue fix for all fits (replaces voter fallback), cluster_voter robustness row, Fig 2/tables regenerated, table_measures.tex. Check: jury CIs in RESULTS.md.
 - 2026-11-16, Kristófer: clustering fallback (jury fits), Cameron et al. 2011 in bib, Methods trimmed, robustness table, Overleaf files. Check: paper/main.tex in Overleaf.
 - 2026-11-16, Kristófer: check_data.py, Methods draft (write_methods.py), counts recorded by build scripts. Check: read paper/methods.md.

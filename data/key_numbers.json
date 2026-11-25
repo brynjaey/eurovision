@@ -1,4 +1,170 @@
 {
+  "assortativity": {
+    "_updated": "2026-11-25",
+    "n_shuffles": 1000,
+    "rows": [
+      {
+        "attribute": "language_branch",
+        "n_edges": 54,
+        "n_nodes": 17,
+        "network": "1957\u20131974",
+        "null_mean": -0.0636,
+        "null_sd": 0.075,
+        "p": 0.011,
+        "r": 0.1226,
+        "z": 2.482
+      },
+      {
+        "attribute": "region",
+        "n_edges": 62,
+        "n_nodes": 18,
+        "network": "1957\u20131974",
+        "null_mean": -0.0661,
+        "null_sd": 0.0623,
+        "p": 0.001,
+        "r": 0.1854,
+        "z": 4.0369
+      },
+      {
+        "attribute": "language_branch",
+        "n_edges": 134,
+        "n_nodes": 27,
+        "network": "1975\u20131996",
+        "null_mean": -0.0267,
+        "null_sd": 0.0297,
+        "p": 0.001,
+        "r": 0.0993,
+        "z": 4.2398
+      },
+      {
+        "attribute": "region",
+        "n_edges": 142,
+        "n_nodes": 28,
+        "network": "1975\u20131996",
+        "null_mean": -0.0294,
+        "null_sd": 0.0329,
+        "p": 0.001,
+        "r": 0.0875,
+        "z": 3.5487
+      },
+      {
+        "attribute": "language_branch",
+        "n_edges": 297,
+        "n_nodes": 43,
+        "network": "1997\u20132008 televote",
+        "null_mean": -0.0158,
+        "null_sd": 0.0151,
+        "p": 0.001,
+        "r": 0.0799,
+        "z": 6.3152
+      },
+      {
+        "attribute": "region",
+        "n_edges": 313,
+        "n_nodes": 44,
+        "network": "1997\u20132008 televote",
+        "null_mean": -0.021,
+        "null_sd": 0.0181,
+        "p": 0.001,
+        "r": 0.151,
+        "z": 9.4905
+      },
+      {
+        "attribute": "language_branch",
+        "n_edges": 356,
+        "n_nodes": 45,
+        "network": "2009\u20132015 50/50",
+        "null_mean": -0.0247,
+        "null_sd": 0.0147,
+        "p": 0.001,
+        "r": 0.0894,
+        "z": 7.7737
+      },
+      {
+        "attribute": "region",
+        "n_edges": 356,
+        "n_nodes": 45,
+        "network": "2009\u20132015 50/50",
+        "null_mean": -0.0309,
+        "null_sd": 0.0172,
+        "p": 0.001,
+        "r": 0.1228,
+        "z": 8.9444
+      },
+      {
+        "attribute": "language_branch",
+        "n_edges": 404,
+        "n_nodes": 44,
+        "network": "2016+ jury",
+        "null_mean": -0.0268,
+        "null_sd": 0.0144,
+        "p": 0.001,
+        "r": 0.0604,
+        "z": 6.0503
+      },
+      {
+        "attribute": "region",
+        "n_edges": 404,
+        "n_nodes": 44,
+        "network": "2016+ jury",
+        "null_mean": -0.0232,
+        "null_sd": 0.0166,
+        "p": 0.001,
+        "r": 0.0982,
+        "z": 7.3257
+      },
+      {
+        "attribute": "language_branch",
+        "n_edges": 333,
+        "n_nodes": 44,
+        "network": "2016+ televote",
+        "null_mean": -0.0274,
+        "null_sd": 0.0148,
+        "p": 0.001,
+        "r": 0.1066,
+        "z": 9.05
+      },
+      {
+        "attribute": "region",
+        "n_edges": 333,
+        "n_nodes": 44,
+        "network": "2016+ televote",
+        "null_mean": -0.0228,
+        "null_sd": 0.017,
+        "p": 0.001,
+        "r": 0.1478,
+        "z": 10.0577
+      }
+    ]
+  },
+  "backbone": {
+    "_updated": "2026-11-25",
+    "alpha": 0.05,
+    "networks": {
+      "2016+ jury": {
+        "n_backbone_edges": 23,
+        "n_backbone_edges_alpha_0.01": 8,
+        "n_backbone_edges_alpha_0.10": 52,
+        "n_edges": 404,
+        "n_nodes": 44,
+        "n_nodes_with_backbone_edge": 33,
+        "share_edges_kept": 0.0569,
+        "share_within_community_all": 0.4282,
+        "share_within_community_backbone": 0.7826
+      },
+      "2016+ televote": {
+        "n_backbone_edges": 29,
+        "n_backbone_edges_alpha_0.01": 6,
+        "n_backbone_edges_alpha_0.10": 60,
+        "n_edges": 333,
+        "n_nodes": 44,
+        "n_nodes_with_backbone_edge": 38,
+        "share_edges_kept": 0.0871,
+        "share_within_community_all": 0.5045,
+        "share_within_community_backbone": 0.931
+      }
+    }
+  },
   "borders": {
     "_updated": "2026-11-16",
     "n_land_borders": 91,
@@ -309,8 +475,170 @@
     "similarity_raw_sd": 0.1142,
     "similarity_sd": 0.1367
   },
+  "nmi": {
+    "_updated": "2026-11-25",
+    "n_shuffles": 1000,
+    "rows": [
+      {
+        "a": "2016+ jury communities",
+        "b": "2016+ televote communities",
+        "groups_a": 4,
+        "groups_b": 4,
+        "n_countries": 44,
+        "nmi": 0.3599,
+        "null_mean": 0.0921,
+        "null_sd": 0.0396,
+        "p": 0.001,
+        "z": 6.7579
+      },
+      {
+        "a": "1957\u20131974 communities",
+        "b": "language branch",
+        "groups_a": 4,
+        "groups_b": 3,
+        "n_countries": 17,
+        "nmi": 0.3457,
+        "null_mean": 0.1943,
+        "null_sd": 0.0876,
+        "p": 0.0689,
+        "z": 1.7282
+      },
+      {
+        "a": "1957\u20131974 communities",
+        "b": "language subbranch",
+        "groups_a": 4,
+        "groups_b": 4,
+        "n_countries": 17,
+        "nmi": 0.5948,
+        "null_mean": 0.2553,
+        "null_sd": 0.0818,
+        "p": 0.002,
+        "z": 4.1521
+      },
+      {
+        "a": "1975\u20131996 communities",
+        "b": "language branch",
+        "groups_a": 4,
+        "groups_b": 7,
+        "n_countries": 27,
+        "nmi": 0.467,
+        "null_mean": 0.2484,
+        "null_sd": 0.0542,
+        "p": 0.002,
+        "z": 4.0299
+      },
+      {
+        "a": "1975\u20131996 communities",
+        "b": "language subbranch",
+        "groups_a": 4,
+        "groups_b": 10,
+        "n_countries": 27,
+        "nmi": 0.4839,
+        "null_mean": 0.311,
+        "null_sd": 0.0526,
+        "p": 0.002,
+        "z": 3.2864
+      },
+      {
+        "a": "1997\u20132008 televote communities",
+        "b": "language branch",
+        "groups_a": 5,
+        "groups_b": 11,
+        "n_countries": 43,
+        "nmi": 0.5102,
+        "null_mean": 0.2623,
+        "null_sd": 0.0358,
+        "p": 0.001,
+        "z": 6.9215
+      },
+      {
+        "a": "1997\u20132008 televote communities",
+        "b": "language subbranch",
+        "groups_a": 5,
+        "groups_b": 17,
+        "n_countries": 43,
+        "nmi": 0.6088,
+        "null_mean": 0.352,
+        "null_sd": 0.0334,
+        "p": 0.001,
+        "z": 7.6979
+      },
+      {
+        "a": "2009\u20132015 50/50 communities",
+        "b": "language branch",
+        "groups_a": 4,
+        "groups_b": 11,
+        "n_countries": 45,
+        "nmi": 0.4363,
+        "null_mean": 0.2206,
+        "null_sd": 0.0339,
+        "p": 0.001,
+        "z": 6.3584
+      },
+      {
+        "a": "2009\u20132015 50/50 communities",
+        "b": "language subbranch",
+        "groups_a": 4,
+        "groups_b": 17,
+        "n_countries": 45,
+        "nmi": 0.565,
+        "null_mean": 0.2953,
+        "null_sd": 0.034,
+        "p": 0.001,
+        "z": 7.9222
+      },
+      {
+        "a": "2016+ jury communities",
+        "b": "language branch",
+        "groups_a": 4,
+        "groups_b": 11,
+        "n_countries": 44,
+        "nmi": 0.4166,
+        "null_mean": 0.2218,
+        "null_sd": 0.0365,
+        "p": 0.001,
+        "z": 5.3437
+      },
+      {
+        "a": "2016+ jury communities",
+        "b": "language subbranch",
+        "groups_a": 4,
+        "groups_b": 17,
+        "n_countries": 44,
+        "nmi": 0.5238,
+        "null_mean": 0.2996,
+        "null_sd": 0.0331,
+        "p": 0.001,
+        "z": 6.7767
+      },
+      {
+        "a": "2016+ televote communities",
+        "b": "language branch",
+        "groups_a": 4,
+        "groups_b": 11,
+        "n_countries": 44,
+        "nmi": 0.3952,
+        "null_mean": 0.2167,
+        "null_sd": 0.0358,
+        "p": 0.001,
+        "z": 4.991
+      },
+      {
+        "a": "2016+ televote communities",
+        "b": "language subbranch",
+        "groups_a": 4,
+        "groups_b": 17,
+        "n_countries": 44,
+        "nmi": 0.5003,
+        "null_mean": 0.2939,
+        "null_sd": 0.0335,
+        "p": 0.001,
+        "z": 6.1702
+      }
+    ]
+  },
   "null_model": {
-    "_updated": "2026-11-16",
+    "_updated": "2026-11-25",
     "louvain_seeds": 5,
     "main_weighting": "mean5",
     "min_votes_mean5": 5,
@@ -530,6 +858,23 @@
         "n_votes": 15062
       }
     }
+  },
+  "region": {
+    "_updated": "2026-11-25",
+    "countries_per_region": {
+      "Australia and New Zealand": 1,
+      "Eastern Europe": 10,
+      "Northern Africa": 1,
+      "Northern Europe": 10,
+      "Southern Europe": 16,
+      "Western Asia": 6,
+      "Western Europe": 8
+    },
+    "missing": [
+      "wld"
+    ],
+    "n_countries": 52,
+    "n_regions": 7
   },
   "regression": {
     "1997\u20132008 televote": {

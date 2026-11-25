@@ -3,6 +3,7 @@
 Input:  data/null_results.csv, data/null_samples.csv, data/communities_obs.csv   (null_model.py)
         data/regression_coefs.csv                                               (regression.py)
         data/edges.csv                                                          (for the network edges)
+        data/backbone_edges.csv                                                 (backbone.py, Fig 3 edges)
 Output: figures/fig1_modularity.pdf, figures/fig2_coefficients.pdf, figures/fig3_communities.pdf
         (+ PNG previews)
 
@@ -132,12 +133,16 @@ for r in range(len(tele)):
         slot[NETS[1]][r] = free.pop(0)
 comms = {NETS[0]: jury, NETS[1]: tele}
 
+backbone = pd.read_csv(ROOT / "data/backbone_edges.csv")  # backbone.py, disparity filter alpha = 0.05
+backbone = backbone[backbone.backbone == 1]
 fig, axes = plt.subplots(1, 2, figsize=(W2, 3.6), constrained_layout=True)
 for ax, n in zip(axes, NETS):
     G, cs = graphs[n], comms[n]
     member = {c: i for i, s in enumerate(cs) for c in s}
-    within = [(x, y) for x, y in G.edges if member.get(x) == member.get(y)]
-    nx.draw_networkx_edges(G, pos, edgelist=within, ax=ax, edge_color=GRID, width=0.5)
+    bb = backbone[backbone.network == n]
+    for inside, style in [(1, "solid"), (0, (0, (3, 2)))]:  # backbone edges: inside a community solid, between dashed
+        d = bb[bb.within_community == inside]
+        nx.draw_networkx_edges(G, pos, edgelist=list(zip(d.a, d.b)), ax=ax, edge_color=NULL, width=0.8, style=style)
     for i, s in enumerate(cs):
         k = slot[n][i]
         xy = np.array([pos[c] for c in s if c in pos])

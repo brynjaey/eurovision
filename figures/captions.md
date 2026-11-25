@@ -1,5 +1,6 @@
 # Figure captions (drafts: what is plotted and the comparison; no interpretation)
 
+Placeholders {{path}} are filled from `data/key_numbers.json` by `scripts/write_paper.py`.
 Numbers come from `data/null_results.csv`, `data/regression_fit.csv` and `data/communities_obs.csv`
 (see RESULTS.md and `data/key_numbers.json`). Figures are made by `scripts/make_figures.py`.
 
@@ -29,5 +30,10 @@ Louvain communities of the 2016–2026 excess-vote networks for jury votes (left
 (right), 44 countries and 4 communities in each. Marker colour and shape show community membership;
 a community in the televote panel gets the colour and shape of the jury community it overlaps most
 (one-to-one matching on the Jaccard index). Node positions are the same in both panels (one
-force-directed layout of the two networks combined). Grey lines: edges within a community (positive
-mean excess, both directions pooled, at least 5 votes). Labels are ISO 3166 country codes.
+force-directed layout of the two networks combined, all edges). Grey lines: the disparity-filter
+backbone [@serrano2009backbone] of each network at $\alpha$ = 0.05, i.e. pairs (positive mean excess, both
+directions pooled, at least 5 votes) whose share of at least one country's positive excess is larger
+than a random split over its partners would give; {{backbone.networks.2016+ jury.n_backbone_edges}} of
+{{backbone.networks.2016+ jury.n_edges}} jury and {{backbone.networks.2016+ televote.n_backbone_edges}} of
+{{backbone.networks.2016+ televote.n_edges}} televote edges are kept. Solid: both countries in the same
+community; dashed: different communities. Labels are ISO 3166 country codes.

@@ -203,6 +203,13 @@
 - 2026-11-16 (group): 2024–25 televote-only semis out of the 2016+ networks; robustness run includes them in televote.
 - 2026-11-16 (group): step 6 regression uses the full signed excess (not only positive).
 - 2026-11-16 (group): year-centred lyric embeddings for all cosine similarities; taste robustness: no top-5 partners, past only.
+- 2026-11-25 (Kristófer, course methods weeks 3–4): NMI (sklearn, arithmetic mean) of communities vs
+  communities / language branch / sub-branch against 1,000 label permutations; attribute assortativity (networkx,
+  unweighted) of the mean5 positive-excess networks by language branch and by UN M49 sub-region against 1,000 vote
+  shuffles (null_model.py procedure); disparity-filter backbone of 2016+ jury / televote at alpha = 0.05, edge kept if
+  significant from at least one end, degree-1 ends not tested. Fig 3 now draws backbone edges, not all within-community edges.
+- 2026-11-25: region label = UN M49 sub-region from CLDR 49 territoryContainment (raw/cldr, already in MANIFEST); yu, cs
+  get Southern Europe from CLDR's deprecated entries. null_model.py made importable (main block guarded); outputs unchanged.
 
 ## Fixes (bugs and data problems found, and what was done)
 - 2026-11-16, 2023 semi-finals missing: Spijkervet has only the 2023 final, and build_edges.py took EurovisionAPI rows
@@ -237,3 +244,6 @@
 - blondel2008louvain: Louvain community detection. TODO how we use it
 - newman2006modularity: modularity. TODO how we use it
 - cameron2011multiway: two-way (multiway) cluster-robust standard errors. Used for the regression CIs. TODO what it found (read it).
+- serrano2009backbone: the disparity filter for weighted networks. Used for the Fig 3 backbone (scripts/backbone.py). TODO what it found (read it).
+- newman2003mixing: assortative mixing by node attributes. Used for the attribute assortativity (scripts/assortativity.py). TODO what it found (read it).
+- danon2005comparing: normalised mutual information for comparing community partitions. Used for scripts/nmi.py. TODO what it found (read it).
