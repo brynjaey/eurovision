@@ -3,7 +3,7 @@
 Two of us work on this project. Every Claude Code session starts by reading this file and
 ends by updating it, so whoever opens the repo next knows where things stand.
 
-_Last updated: 2026-11-26, hand ratings merged, rating agreement run._
+_Last updated: 2026-11-26, course PNAS template in the repo; Overleaf zip._
 
 ## Done
 - [x] Vote network 1957–2026 with excess scores: `data/edges.csv`, `data/edges_agg.csv`
@@ -26,7 +26,7 @@ _Last updated: 2026-11-26, hand ratings merged, rating agreement run._
 - [x] Step 8 Methods draft: `paper/methods.md` / `methods.tex` (generated from `paper/methods_template.md`, ~1 page)
 - [x] Robustness table: `paper/table_robustness.tex` / `.md`
 - [x] Measures table (captures / misses): `paper/table_measures.tex` / `.md`
-- [x] Overleaf: `paper/main.tex` + `python scripts/pack_overleaf.py` → `paper/overleaf/`
+- [x] Overleaf: `paper/main.tex` + `python scripts/pack_overleaf.py` → `paper/overleaf/` + `paper/overleaf.zip` (complete project with the course template from `paper/pnas_template/`, pnas-new.cls v1.47)
 - [x] Report files: `RESULTS.md` (facts per step) and `data/key_numbers.json` (written by scripts via `scripts/key_numbers.py`)
 - [x] Course methods (weeks 3–4), branch feat/course-measures: NMI `data/nmi.csv`, attribute assortativity `data/assortativity.csv` (language branch, UN M49 region `data/region.csv`), disparity backbone `data/backbone_edges.csv`; Fig 3 redrawn with backbone edges
 - [x] 2026 final checked against the official EBU scoreboard too (25/25, scripted in check_data.py)
@@ -60,7 +60,7 @@ _Last updated: 2026-11-26, hand ratings merged, rating agreement run._
 - Merge feat/course-measures into main (not pushed yet).
 - EurovisionAPI has no stated license (GitHub API: none): ask the maintainers or say so in the data availability statement.
 - paper TODOs: repository URL / data availability statement; captures/misses now in paper/table_measures.tex.
-- Overleaf: check main.tex against your project's PNAS class version (\matmethods / \showmatmethods).
+- Overleaf: compile overleaf.zip once (no LaTeX installed locally, so never compiled with the class); check page count (6 pages incl. refs).
 - Abstract, Significance, Introduction, Results text, Discussion, reflection: ours to write (TODO headers in methods_template.md).
 - Hand ratings: rater 2 vs model is near 0 (0.035) while rater 1 vs model is 0.434; decide how to report this (n = 20, no CI computed).
 - Fill in the "what it found / how we use it" lines under Literature in NOTES.md (read the papers)
@@ -69,6 +69,7 @@ _Last updated: 2026-11-26, hand ratings merged, rating agreement run._
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-26, Brynja (via Claude): course PNAS template (pnas-new.cls v1.47) into paper/pnas_template/; pack_overleaf.py copies it and writes paper/overleaf.zip; main.tex header updated. Check: upload overleaf.zip to Overleaf and compile.
 - 2026-11-26, Brynja (via Claude): rater 1 ratings, merge_ratings.py + rating_agreement.py run, RESULTS / NOTES / Methods sentence. Check: the rating table in RESULTS.md.
 - 2026-11-25, Kristófer (via Claude): docs sync: README build list / data files / checks, CLAUDE.md diagnostics path, RESULTS edges + borders, MANIFEST entry for the derived raw/votes_eurovisionapi.csv. Open: data/ratings_sheet_blind.md (untracked, not ours) conflicts with rater numbering.
 - 2026-11-25, Kristófer (via Claude): bib TODOs resolved (DOIs for Burgoyne, Ginsburgh, Reimers 2019; Blondel journal; Reimers 2020 added; CLDR / UN license notes); 2026 final vs EBU scoreboard scripted. Check: Methods validation sentence.

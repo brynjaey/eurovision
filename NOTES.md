@@ -190,6 +190,12 @@
   (raw two-way [−0.093, −0.063], voter-only [−0.117, −0.038]).
 - 2026-11-16: DECIDED (group): captures/misses sentences back as paper/table_measures.tex (+ .md), one line each, drawn
   from RESULTS.md; hand-written (no numbers); \input in main.tex next to Methods.
+- 2026-11-26: Course PNAS template (zip from the teacher, downloaded from Overleaf as Social_Graphs_Report/) has
+  pnas-new.cls v1.47 (2025/11/01), pnas-new.bst, pnasresearcharticle.sty v1.3, jabbrv.sty + two .ldf, PNAS_Logo.pdf.
+  These are kept unchanged in paper/pnas_template/; pack_overleaf.py copies them next to our files and writes
+  paper/overleaf.zip. Checked: v1.47 defines \matmethods, \showmatmethods, \acknow, \showacknow, so main.tex is
+  unchanged apart from its header comment. The downloaded folder matched the pack output except methods.tex (older,
+  before the rating results). Not compiled locally (no LaTeX installed).
 
 ## Decisions
 - Excess = vote share minus the leave-one-out mean share the entry got from the other voters in the same round and vote type (see build_edges.py).
