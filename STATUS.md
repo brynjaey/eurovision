@@ -37,7 +37,7 @@ _Last updated: 2026-11-26, main.tex fixed for the 2025 PNAS first-page layout; c
 - (none)
 
 ## Next up (in order)
-1. Group writing: TODO sections in paper/main.tex (abstract, significance, introduction, results, discussion), 3 slides, reflection (deadline Fri 27 Nov 23:59)
+1. Group writing (outline for Results: paper/results_outline.md): TODO sections in paper/main.tex (abstract, significance, introduction, results, discussion), 3 slides, reflection (deadline Fri 27 Nov 23:59)
 
 ## Decisions
 - Diaspora: missing UN pairs = 0 (robustness: observed pairs only); diaspora analysis 1997+, each vote year matched to nearest UN year.
@@ -69,6 +69,7 @@ _Last updated: 2026-11-26, main.tex fixed for the 2025 PNAS first-page layout; c
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-26, Brynja (via Claude): paper/results_outline.md — facts per Results paragraph (R1–R5) with numbers from RESULTS.md, interpretation left TODO. Check: split the paragraphs between us.
 - 2026-11-26, Brynja (via Claude): main.tex for the 2025 PNAS class: \Firstpage / \Endparasplit (page 1 layout), \dataavail, no DRAFT watermark, xurl, table_measures widths. Compiled in Overleaf: 4 pages, nothing over the margins. Check: move \Endparasplit as page 1 fills.
 - 2026-11-26, Brynja (via Claude): course PNAS template (pnas-new.cls v1.47) into paper/pnas_template/; pack_overleaf.py copies it and writes paper/overleaf.zip; main.tex header updated. Check: upload overleaf.zip to Overleaf and compile.
 - 2026-11-26, Brynja (via Claude): rater 1 ratings, merge_ratings.py + rating_agreement.py run, RESULTS / NOTES / Methods sentence. Check: the rating table in RESULTS.md.
