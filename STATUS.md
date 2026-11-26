@@ -3,7 +3,7 @@
 Two of us work on this project. Every Claude Code session starts by reading this file and
 ends by updating it, so whoever opens the repo next knows where things stand.
 
-_Last updated: 2026-11-26, course PNAS template in the repo; Overleaf zip._
+_Last updated: 2026-11-26, main.tex fixed for the 2025 PNAS first-page layout; compiles in Overleaf._
 
 ## Done
 - [x] Vote network 1957–2026 with excess scores: `data/edges.csv`, `data/edges_agg.csv`
@@ -60,7 +60,7 @@ _Last updated: 2026-11-26, course PNAS template in the repo; Overleaf zip._
 - Merge feat/course-measures into main (not pushed yet).
 - EurovisionAPI has no stated license (GitHub API: none): ask the maintainers or say so in the data availability statement.
 - paper TODOs: repository URL / data availability statement; captures/misses now in paper/table_measures.tex.
-- Overleaf: compile overleaf.zip once (no LaTeX installed locally, so never compiled with the class); check page count (6 pages incl. refs).
+- Overleaf: compiles (4 pages on 2026-11-26, limit 6 incl. refs). When writing, keep \Endparasplit in main.tex at the end of page 1 (\Parasplit if page 1 ends mid-paragraph).
 - Abstract, Significance, Introduction, Results text, Discussion, reflection: ours to write (TODO headers in methods_template.md).
 - Hand ratings: rater 2 vs model is near 0 (0.035) while rater 1 vs model is 0.434; decide how to report this (n = 20, no CI computed).
 - Fill in the "what it found / how we use it" lines under Literature in NOTES.md (read the papers)
@@ -69,6 +69,7 @@ _Last updated: 2026-11-26, course PNAS template in the repo; Overleaf zip._
 
 ## Log
 <!-- Newest first. One line per session: date, who, what changed, what to check. -->
+- 2026-11-26, Brynja (via Claude): main.tex for the 2025 PNAS class: \Firstpage / \Endparasplit (page 1 layout), \dataavail, no DRAFT watermark, xurl, table_measures widths. Compiled in Overleaf: 4 pages, nothing over the margins. Check: move \Endparasplit as page 1 fills.
 - 2026-11-26, Brynja (via Claude): course PNAS template (pnas-new.cls v1.47) into paper/pnas_template/; pack_overleaf.py copies it and writes paper/overleaf.zip; main.tex header updated. Check: upload overleaf.zip to Overleaf and compile.
 - 2026-11-26, Brynja (via Claude): rater 1 ratings, merge_ratings.py + rating_agreement.py run, RESULTS / NOTES / Methods sentence. Check: the rating table in RESULTS.md.
 - 2026-11-25, Kristófer (via Claude): docs sync: README build list / data files / checks, CLAUDE.md diagnostics path, RESULTS edges + borders, MANIFEST entry for the derived raw/votes_eurovisionapi.csv. Open: data/ratings_sheet_blind.md (untracked, not ours) conflicts with rater numbering.

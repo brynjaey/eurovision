@@ -196,6 +196,11 @@
   paper/overleaf.zip. Checked: v1.47 defines \matmethods, \showmatmethods, \acknow, \showacknow, so main.tex is
   unchanged apart from its header comment. The downloaded folder matched the pack output except methods.tex (older,
   before the rating results). Not compiled locally (no LaTeX installed).
+- 2026-11-26: The 2025 class sets page 1 as one wide text column plus a narrow column (Significance box, author
+  details). main.tex now follows the official 2025 PNAS Overleaf template (Research_report.tex): \Firstpage after the
+  abstract, \Endparasplit where page 1 ends (\Parasplit mid-paragraph), \dataavail for the availability statement.
+  Without these the right column of page 1 ran off the page. Watermark off via \setboolean{displaywatermark}{false}
+  in main.tex (class file unchanged). Overleaf compile 2026-11-26: 4 pages, no overflow.
 
 ## Decisions
 - Excess = vote share minus the leave-one-out mean share the entry got from the other voters in the same round and vote type (see build_edges.py).
