@@ -99,7 +99,8 @@
   taste_sim vs own_sim: Pearson 0.589 / Spearman 0.563 per vote (n = 44,809);
   Pearson 0.605 / Spearman 0.593 per pair x era (n = 7,547).
 - 2026-11-16: Hand-rating agreement: scripts/rating_agreement.py (Spearman rater1–rater2, each rater–model, mean–model).
-  Not run yet; waits for the two ratings in data/lyrics_rating_sheet.csv.
+  Run 2026-11-26: rater 1 = Brynja (data/ratings_rater1.csv), rater 2 = Kristófer (data/ratings_rater2.csv), merged into
+  data/lyrics_rating_sheet.csv by scripts/merge_ratings.py. Numbers in RESULTS.md / key_numbers "rating_agreement".
 - 2026-11-16: DECIDED (group): year-centred embeddings for every lyric cosine. lyrics_similarity.py stores raw (emb) and
   centred (emb_c) vectors: centred = song vector minus the mean vector of all embedded songs of that year, re-normalised.
   own_sim and taste_sim use centred vectors; *_raw columns keep the uncentred values for comparison.
